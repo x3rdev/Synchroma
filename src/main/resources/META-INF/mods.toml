@@ -1,0 +1,37 @@
+
+modLoader="javafml"
+loaderVersion="[40,)"
+license="All rights reserved"
+[[mods]]
+modId="synchroma"
+version="${file.jarVersion}"
+displayName="Synchroma"
+
+logoFile="examplemod.png" #optional
+
+credits="Thanks for this example mod goes to Java" #optional
+
+authors="x3r"
+
+description='''
+description is a wip
+'''
+
+[[dependencies.synchroma]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.synchroma]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.synchroma]]
+    modId="geckolib3"
+    mandatory=true
+    versionRange="[3.0.57,)"
+    ordering="NONE"
+    side="BOTH"
