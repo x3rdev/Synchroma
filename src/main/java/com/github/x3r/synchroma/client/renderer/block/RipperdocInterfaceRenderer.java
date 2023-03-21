@@ -18,7 +18,7 @@ public class RipperdocInterfaceRenderer extends GeoBlockRenderer<RipperdocInterf
 
     @Override
     public void renderEarly(RipperdocInterfaceBlockEntity animatable, PoseStack poseStack, float partialTick, MultiBufferSource bufferSource, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        poseStack.translate(0, -0.0075, 0);
+        poseStack.translate(0, -0.01, 0);
         super.renderEarly(animatable, poseStack, partialTick, bufferSource, buffer, packedLight, packedOverlay, red, green, blue, alpha);
     }
 

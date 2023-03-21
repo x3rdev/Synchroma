@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "synchroma:block/power_cable_straight",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "synchroma:block/power_cable_straight"
+    },
+    "facing=south": {
+      "model": "synchroma:block/power_cable_straight",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "synchroma:block/power_cable_straight",
+      "y": 270
+    }
+  }
+}
