@@ -16,7 +16,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PowerCableStraight extends Block implements VoxelShapeBlock {
+public class PowerCableLBlock extends Block implements VoxelShapeBlock {
 
     protected final VoxelShape VOXEL_NORTH = BlockUtils.rotate(defaultShape(), Direction.NORTH);
 
@@ -26,7 +26,8 @@ public class PowerCableStraight extends Block implements VoxelShapeBlock {
 
     protected final VoxelShape VOXEL_WEST = BlockUtils.rotate(defaultShape(), Direction.WEST);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public PowerCableStraight(Properties pProperties) {
+
+    public PowerCableLBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
@@ -66,8 +67,10 @@ public class PowerCableStraight extends Block implements VoxelShapeBlock {
     @Override
     public VoxelShape defaultShape() {
         VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0.34375, 0.0625, 0, 0.65625, 0.125, 1), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.28125, 0, 0, 0.71875, 0.0625, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.34375, 0.0625, 0, 0.65625, 0.125, 0.65625), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0.0625, 0.34375, 0.34375, 0.125, 0.65625), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.28125, 0, 0, 0.71875, 0.0625, 0.71875), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0, 0.28125, 0.28125, 0.0625, 0.71875), BooleanOp.OR);
         return shape;
     }
 }
