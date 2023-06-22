@@ -14,7 +14,7 @@ public class RipperdocInterfaceModel extends AnimatedGeoModel<RipperdocInterface
 
     @Override
     public ResourceLocation getTextureLocation(RipperdocInterfaceBlockEntity object) {
-        int count = (int) (object.getLevel().nextSubTickCount()/40 % 14);
+       int count = (int) (object.getLevel().nextSubTickCount()/40 % 14);
        return new ResourceLocation(Synchroma.MOD_ID, "textures/block/ripperdoc_interface/ripperdoc_interface_" + count + ".png");
     }
 
