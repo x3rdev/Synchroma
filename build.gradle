@@ -3,8 +3,6 @@ buildscript {
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://maven.parchmentmc.org' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        mavenLocal()
-        mavenCentral()
     }
     dependencies {
         classpath 'org.spongepowered:mixingradle:0.7.+'
@@ -94,14 +92,12 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven { url = "https://maven.firstdarkdev.xyz/snapshots" }
     maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.1'
 
-    implementation fg.deobf("com.lowdragmc.shimmer:Shimmer-forge-1.18.2:0.1.10")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.18:3.0.57")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
