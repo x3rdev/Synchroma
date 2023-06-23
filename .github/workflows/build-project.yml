@@ -21,9 +21,7 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
       - name: Build with gradle
-        run:
-          ./gradlew wrapper --gradle-version=7.4.2
-          ./gradlew build --no-daemon
+        run: ./gradlew build --no-daemon
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
