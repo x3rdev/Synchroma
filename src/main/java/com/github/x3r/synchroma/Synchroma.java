@@ -27,6 +27,7 @@ public class Synchroma {
 
     private static void registerDeferredRegisters(IEventBus bus) {
         ItemRegistry.ITEMS.register(bus);
+        ItemRegistry.SynchromaItemTab.CREATIVE_MODE_TABS.register(bus);
         BlockRegistry.BLOCKS.register(bus);
         EntityRegistry.ENTITIES.register(bus);
         BlockItemRegistry.BLOCK_ITEMS.register(bus);

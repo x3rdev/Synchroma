@@ -16,10 +16,4 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> RIPPERDOC_INTERFACE_ITEM = BLOCK_ITEMS.register("ripperdoc_interface",
             () -> new BlockItem(BlockRegistry.RIPPERDOC_INTERFACE_BLOCK.get(), ItemRegistry.DEFAULT_PROPERTIES));
-
-    public static final RegistryObject<BlockItem> POWER_CABLE_STRAIGHT_ITEM = BLOCK_ITEMS.register("power_cable_straight",
-            () -> new BlockItem(BlockRegistry.POWER_CABLE_STRAIGHT.get(), ItemRegistry.DEFAULT_PROPERTIES));
-
-    public static final RegistryObject<BlockItem> POWER_CABLE_L_ITEM = BLOCK_ITEMS.register("power_cable_l",
-            () -> new BlockItem(BlockRegistry.POWER_CABLE_L.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

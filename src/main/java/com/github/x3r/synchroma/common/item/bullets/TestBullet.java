@@ -16,7 +16,7 @@ public class TestBullet extends Item implements SynchromaBullet {
 
     @Override
     public float getSpeed() {
-        return 4;
+        return 1;
     }
 
     @Override

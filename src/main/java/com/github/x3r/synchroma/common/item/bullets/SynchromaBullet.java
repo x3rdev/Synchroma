@@ -1,6 +1,5 @@
 package com.github.x3r.synchroma.common.item.bullets;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 
 public interface SynchromaBullet {

@@ -2,15 +2,14 @@ package com.github.x3r.synchroma.common.entity;
 
 import com.github.x3r.synchroma.common.item.bullets.SynchromaBullet;
 import com.github.x3r.synchroma.common.item.guns.SynchromaGun;
+import com.github.x3r.synchroma.common.registry.DamageTypeRegistry;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
-import net.minecraft.world.damagesource.IndirectEntityDamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
@@ -19,6 +18,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.List;
 
 public class BulletEntity extends Projectile implements ItemSupplier {
     private SynchromaGun gun;
@@ -41,7 +42,9 @@ public class BulletEntity extends Projectile implements ItemSupplier {
         Entity owner = getOwner();
         this.setPos(owner.getPosition(0).add(0, owner.getBbHeight() * 0.8, 0).add(owner.getLookAngle().scale(0.5)));
         this.setRot(owner.yRotO, owner.xRotO);
-        this.setDeltaMovement(moveVec());
+        float sp = bullet.getSpeed();
+        double d = getLookAngle().length();
+        this.setDeltaMovement(new Vec3((sp*getLookAngle().x)/d, (sp*getLookAngle().y)/d, (sp*getLookAngle().z)/d));
     }
 
     @Override
@@ -57,8 +60,9 @@ public class BulletEntity extends Projectile implements ItemSupplier {
     }
     private void handleEntityCollision() {
         //add headshot detection
-        this.level.getEntities(this, this.getBoundingBox()).stream().filter(LivingEntity.class::isInstance).map(LivingEntity.class::cast).forEach(livingEntity -> {
-            livingEntity.hurt(new IndirectEntityDamageSource("bullet", this, this.getOwner()), bullet.getDamage());
+        List<Entity> entityList = this.level().getEntities(this, this.getBoundingBox());
+        entityList.stream().filter(LivingEntity.class::isInstance).map(LivingEntity.class::cast).forEach(livingEntity -> {
+            livingEntity.hurt(this.damageSources().source(DamageTypeRegistry.BULLET_BODY, this, this.getOwner()), this.bullet.getDamage());
             if(bullet.getEffect() != null) {
                 livingEntity.addEffect(bullet.getEffect(), getOwner());
             }
@@ -66,17 +70,11 @@ public class BulletEntity extends Projectile implements ItemSupplier {
     }
 
     private void handleBlockCollision() {
-        BlockState state = this.level.getBlockState(this.blockPosition());
-        VoxelShape shape = state.getCollisionShape(this.level, this.blockPosition());
+        BlockState state = this.level().getBlockState(this.blockPosition());
+        VoxelShape shape = state.getCollisionShape(this.level(), this.blockPosition());
         if(!shape.isEmpty()) {
 //            state.isCollisionShapeFullBlock();
         }
-    }
-
-    private Vec3 moveVec() {
-        float sp = bullet.getSpeed();
-        double d = getLookAngle().length();
-        return new Vec3((sp*getLookAngle().x)/d, (sp*getLookAngle().y)/d, (sp*getLookAngle().z)/d);
     }
 
     @Override
@@ -85,7 +83,7 @@ public class BulletEntity extends Projectile implements ItemSupplier {
     }
 
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return new ClientboundAddEntityPacket(this);
     }
 

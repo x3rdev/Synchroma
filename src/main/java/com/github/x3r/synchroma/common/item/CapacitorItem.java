@@ -2,7 +2,6 @@ package com.github.x3r.synchroma.common.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -24,6 +23,6 @@ public class CapacitorItem extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
-        pTooltipComponents.add(new TextComponent("Capacitance " + this.capacitance + " pF").withStyle(ChatFormatting.GRAY));
+        pTooltipComponents.add(Component.literal("Capacitance " + this.capacitance + " pF").withStyle(ChatFormatting.GRAY));
     }
 }

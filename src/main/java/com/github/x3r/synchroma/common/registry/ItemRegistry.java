@@ -4,6 +4,8 @@ import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.CapacitorItem;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.guns.TestGun;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -16,7 +18,7 @@ public class ItemRegistry {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Synchroma.MOD_ID);
 
-    public static final Item.Properties DEFAULT_PROPERTIES = new Item.Properties().tab(ItemRegistry.SynchromaItemTab.instance);
+    public static final Item.Properties DEFAULT_PROPERTIES = new Item.Properties();
 
     public static final RegistryObject<Item> SUGARCANE_CAPACITOR = ITEMS.register("sugarcane_capacitor",
             () -> new CapacitorItem(DEFAULT_PROPERTIES, 10));
@@ -24,15 +26,21 @@ public class ItemRegistry {
             () -> new TestGun(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_BULLET = ITEMS.register("test_bullet",
             () -> new TestBullet(DEFAULT_PROPERTIES));
-    public static class SynchromaItemTab extends CreativeModeTab {
-        public static final SynchromaItemTab instance = new SynchromaItemTab(CreativeModeTab.TABS.length, Synchroma.MOD_ID);
-        private SynchromaItemTab(int index, String tabName) {
-            super(index, tabName);
-        }
+    public static class SynchromaItemTab {
 
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(Items.NAME_TAG);
-        }
+        public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);
+
+        public static final RegistryObject<CreativeModeTab> SYNCHROMA_ITEM_TAB = CREATIVE_MODE_TABS.register("main", () -> CreativeModeTab.builder()
+                .icon(Items.NAME_TAG::getDefaultInstance)
+//                .title(Component.translatable("itemGroup.synchroma"))
+                .displayItems((displayParameters, output) -> {
+                    ItemRegistry.ITEMS.getEntries().forEach(itemRegistryObject -> {
+                        output.accept(itemRegistryObject.get());
+                    });
+                    BlockItemRegistry.BLOCK_ITEMS.getEntries().forEach(itemRegistryObject -> {
+                        output.accept(itemRegistryObject.get());
+                    });
+                })
+                .build());
     }
 }

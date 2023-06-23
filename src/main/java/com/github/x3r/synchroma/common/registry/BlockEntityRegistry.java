@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class BlockEntityRegistry {
 
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Synchroma.MOD_ID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Synchroma.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<RipperdocChairBlockEntity>> RIPPERDOC_CHAIR_TILE = BLOCK_ENTITIES.register("ripperdoc_chair",
             () -> BlockEntityType.Builder.of(RipperdocChairBlockEntity::new, BlockRegistry.RIPPERDOC_CHAIR_BLOCK.get()).build(null));

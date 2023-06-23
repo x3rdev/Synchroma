@@ -24,7 +24,7 @@ public final class ClientSetup {
     }
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(BlockEntityRegistry.RIPPERDOC_CHAIR_TILE.get(), RipperdocChairRenderer::new);
-        event.registerBlockEntityRenderer(BlockEntityRegistry.RIPPERDOC_INTERFACE_TILE.get(), RipperdocInterfaceRenderer::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.RIPPERDOC_CHAIR_TILE.get(), pContext -> new RipperdocChairRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.RIPPERDOC_INTERFACE_TILE.get(), pContext -> new RipperdocInterfaceRenderer());
     }
 }

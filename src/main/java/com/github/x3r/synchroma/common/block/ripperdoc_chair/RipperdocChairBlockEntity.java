@@ -2,46 +2,38 @@ package com.github.x3r.synchroma.common.block.ripperdoc_chair;
 
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.builder.ILoopType;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoBlockEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class RipperdocChairBlockEntity extends BlockEntity implements IAnimatable {
-
-    private AnimationFactory factory = GeckoLibUtil.createFactory(this);
+public class RipperdocChairBlockEntity extends BlockEntity implements GeoBlockEntity {
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    private static final RawAnimation PLACE_ANIM = RawAnimation.begin().thenPlayAndHold("animation.ripperdoc_bench.place");
 
     public RipperdocChairBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.RIPPERDOC_CHAIR_TILE.get(), pPos, pBlockState);
 
     }
 
-    private <E extends BlockEntity & IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        AnimationController controller = event.getController();
-        if(controller.isJustStarting) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.ripperdoc_bench.place", ILoopType.EDefaultLoopTypes.HOLD_ON_LAST_FRAME));
-        }
-        return PlayState.CONTINUE;
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController(this, "controller", 0, animationState -> {
+            if(animationState.animationTick < 1) {
+                return animationState.setAndContinue(PLACE_ANIM);
+            }
+            return PlayState.STOP;
+        }));
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
     }
-
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
-
-
 }
