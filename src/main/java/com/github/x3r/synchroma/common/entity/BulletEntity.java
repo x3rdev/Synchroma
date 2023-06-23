@@ -4,8 +4,7 @@ import com.github.x3r.synchroma.common.item.bullets.SynchromaBullet;
 import com.github.x3r.synchroma.common.item.guns.SynchromaGun;
 import com.github.x3r.synchroma.common.registry.DamageTypeRegistry;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
-import com.github.x3r.synchroma.util.Physics;
-import com.ibm.icu.impl.number.parse.InfinityMatcher;
+import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
@@ -25,11 +24,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class BulletEntity extends Projectile implements ItemSupplier {
     private SynchromaGun gun;
     private SynchromaBullet bullet;
-
     private float health;
 
     public BulletEntity(EntityType<? extends Projectile> pEntityType, Level pLevel) {
@@ -53,33 +52,37 @@ public class BulletEntity extends Projectile implements ItemSupplier {
     @Override
     public void tick() {
         super.tick();
-        this.setPos(this.position().add(this.getDeltaMovement()));
-        if(this.gun == null || this.bullet == null) {
-            return;
+        if(!this.level().isClientSide()) {
+            Vec3 nextPos = this.position().add(this.getDeltaMovement());
+            this.lookAt(EntityAnchorArgument.Anchor.EYES, nextPos);
+            this.setPos(nextPos);
+            if(!bulletViable()) {
+                this.remove(RemovalReason.KILLED);
+                return;
+            }
+            Vec3 startVec = this.position();
+            Vec3 endVec = this.position().add(this.getDeltaMovement());
+            handleEntityCollision(startVec, endVec);
+            handleBlockCollision();
         }
-        Vec3 startVec = this.position();
-        Vec3 endVec = this.position().add(this.getDeltaMovement());
-        handleEntityCollision(startVec, endVec);
-        handleBlockCollision();
-
     }
     private void handleEntityCollision(Vec3 startVec, Vec3 endVec) {
-        List<Entity> entityList = this.level().getEntities(this, this.getBoundingBox().expandTowards(getBulletSpeed()));
-
-
-//        entityList.stream().filter(LivingEntity.class::isInstance).map(LivingEntity.class::cast).forEach(livingEntity -> {
-//            livingEntity.hurt(this.damageSources().source(DamageTypeRegistry.BULLET_BODY, this, this.getOwner()), this.bullet.getDamage());
-//            if(bullet.getEffect() != null) {
-//                livingEntity.addEffect(bullet.getEffect(), getOwner());
-//            }
-//        });
+        List<LivingEntity> entityList = traceEntityCollisions(startVec, endVec, this.level().getEntities(this, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1)));
+        entityList.forEach(livingEntity -> {
+            livingEntity.hurt(this.damageSources().source(DamageTypeRegistry.BULLET_BODY, this, this.getOwner()), this.bullet.getDamage());
+            if(bullet.getEffect() != null) {
+                livingEntity.addEffect(bullet.getEffect(), getOwner());
+            }
+        });
     }
 
     public List<LivingEntity> traceEntityCollisions(Vec3 startVec, Vec3 endVec, List<Entity> candidates) {
         List<LivingEntity> collisions = new ArrayList<>();
         candidates.forEach(entity -> {
             if(entity instanceof LivingEntity livingEntity) {
-                if(Physics.rayBoxCollides(startVec, endVec, livingEntity.getBoundingBox())) {
+                AABB box = livingEntity.getBoundingBox();
+                Optional<Vec3> hitPos = box.clip(startVec, endVec);
+                if(hitPos.isPresent()) {
                     collisions.add(livingEntity);
                 }
             }
@@ -88,8 +91,9 @@ public class BulletEntity extends Projectile implements ItemSupplier {
         return collisions;
     }
 
-
-
+    private boolean bulletViable() {
+        return !(this.gun == null || this.bullet == null || this.tickCount > 40 || this.health > 0);
+    }
 
     private Vec3 getBulletSpeed() {
         float sp = bullet.getSpeed();
@@ -117,6 +121,6 @@ public class BulletEntity extends Projectile implements ItemSupplier {
 
     @Override
     public ItemStack getItem() {
-        return Items.BLUE_ICE.getDefaultInstance();
+        return Items.STONE_BUTTON.getDefaultInstance();
     }
 }

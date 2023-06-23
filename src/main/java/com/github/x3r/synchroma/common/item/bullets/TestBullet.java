@@ -11,12 +11,12 @@ public class TestBullet extends Item implements SynchromaBullet {
 
     @Override
     public float getDamage() {
-        return 1;
+        return 4;
     }
 
     @Override
     public float getSpeed() {
-        return 1;
+        return 8;
     }
 
     @Override
