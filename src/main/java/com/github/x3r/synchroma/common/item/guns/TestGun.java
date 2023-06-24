@@ -4,9 +4,12 @@ import com.github.x3r.synchroma.client.renderer.item.TestGunRenderer;
 import com.github.x3r.synchroma.common.entity.BulletEntity;
 import com.github.x3r.synchroma.common.item.bullets.SynchromaBullet;
 import com.github.x3r.synchroma.common.registry.ItemRegistry;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -34,8 +37,14 @@ public class TestGun extends Item implements SynchromaGun, GeoItem {
         ItemStack ammoStack = new ItemStack(ItemRegistry.TEST_BULLET.get(), 1);
         BulletEntity bullet = new BulletEntity(pLevel, pPlayer, (SynchromaGun) itemStack.getItem(), (SynchromaBullet) ammoStack.getItem());
         if(!pLevel.isClientSide()) {
+            pPlayer.getCooldowns().addCooldown(this, getDelay());
             bullet.shoot();
             pLevel.addFreshEntity(bullet);
+        } else {
+            float rot = (float) Math.toRadians(pPlayer.getYHeadRot());
+            double x = Math.cos(rot)-Math.sin(rot);
+            double z = Math.sin(rot)+Math.cos(rot);
+            pLevel.addParticle(ParticleTypes.CRIT, pPlayer.getX()+x, pPlayer.getY()+1.5, pPlayer.getZ()+z, 0, 0, 0);
         }
         return InteractionResultHolder.pass(itemStack);
     }
@@ -68,5 +77,10 @@ public class TestGun extends Item implements SynchromaGun, GeoItem {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    @Override
+    public int getDelay() {
+        return 1;
     }
 }

@@ -97,7 +97,6 @@ mixin {
     add sourceSets.main, 'mixins.synchroma.refmap.json'
     config 'mixins.synchroma.json'
 
-    debug.verbose = true
     debug.export = true
 }
 
