@@ -40,11 +40,6 @@ public class TestGun extends Item implements SynchromaGun, GeoItem {
             pPlayer.getCooldowns().addCooldown(this, getDelay());
             bullet.shoot();
             pLevel.addFreshEntity(bullet);
-        } else {
-            float rot = (float) Math.toRadians(pPlayer.getYHeadRot());
-            double x = Math.cos(rot)-Math.sin(rot);
-            double z = Math.sin(rot)+Math.cos(rot);
-            pLevel.addParticle(ParticleTypes.CRIT, pPlayer.getX()+x, pPlayer.getY()+1.5, pPlayer.getZ()+z, 0, 0, 0);
         }
         return InteractionResultHolder.pass(itemStack);
     }
