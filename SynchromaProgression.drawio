@@ -1,11 +1,65 @@
-<mxfile host="app.diagrams.net" modified="2023-07-04T22:26:37.745Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="R-YoPCV7YJT6NkKzEA37" version="21.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-04T22:37:58.645Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="59RNQ5vThu14gYSj5bT9" version="21.5.2" type="github">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
-    <mxGraphModel dx="1194" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="995" dy="638" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="zHiJGC4FMNJEL2kDYLrT-1" value="&lt;div&gt;test&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="360" y="370" width="120" height="60" as="geometry" />
+        <mxCell id="I9T-jtazPko-J5aBbDz0-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.561;entryY=0.995;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-1" target="I9T-jtazPko-J5aBbDz0-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-1" target="I9T-jtazPko-J5aBbDz0-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-1" target="I9T-jtazPko-J5aBbDz0-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-1" value="The start&lt;br&gt;(crystals/ore in other mods, like basic easy to find thing)" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="440" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-2" target="I9T-jtazPko-J5aBbDz0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-2" target="I9T-jtazPko-J5aBbDz0-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-2" target="I9T-jtazPko-J5aBbDz0-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-2" value="&lt;p&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;Hephaestus&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;project&lt;br&gt;(everuthing about creating and crafting)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="400" y="227.5" width="102.5" height="102.5" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-3" value="Assembler&lt;br&gt;(big machine to craft things)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="540" y="243" width="67" height="67" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-4" target="I9T-jtazPko-J5aBbDz0-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-4" value="Circuits printer" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="290" y="247.25" width="63" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-5" value="Advanced circuits printer" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="190" y="247.25" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-6" value="Weapon modification table" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="421.25" y="120" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-15" value="Ares project&lt;br&gt;(weapons, mech etc)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="415" y="670" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-16" target="I9T-jtazPko-J5aBbDz0-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-16" target="I9T-jtazPko-J5aBbDz0-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-16" value="Apollo project&lt;br&gt;(medicine)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="220" y="455" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-17" value="Cyber surgeon" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="100" y="467.5" width="55" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="I9T-jtazPko-J5aBbDz0-18" value="Cybernetic limbs" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="230" y="585" width="60" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
