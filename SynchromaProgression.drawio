@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-04T22:37:58.645Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="59RNQ5vThu14gYSj5bT9" version="21.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-04T22:38:20.324Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="3D8Ot0zbmshbynl63J9a" version="21.5.2" type="github">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
     <mxGraphModel dx="995" dy="638" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -25,7 +25,7 @@
         <mxCell id="I9T-jtazPko-J5aBbDz0-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-2" target="I9T-jtazPko-J5aBbDz0-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="I9T-jtazPko-J5aBbDz0-2" value="&lt;p&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;Hephaestus&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;project&lt;br&gt;(everuthing about creating and crafting)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="I9T-jtazPko-J5aBbDz0-2" value="&lt;p&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;Hephaestus&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;project&lt;br&gt;(everything about creating and crafting)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="400" y="227.5" width="102.5" height="102.5" as="geometry" />
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-3" value="Assembler&lt;br&gt;(big machine to craft things)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
