@@ -100,7 +100,7 @@ public class FrameBlockEntity extends BlockEntity implements GeoBlockEntity, Cle
             ItemStack itemstack = this.getFirstItem();
             if (!itemstack.isEmpty()) {
                 this.removeFirstItem();
-                Vec3 vec3 = Vec3.atLowerCornerWithOffset(blockpos, 0.5D, 1.01D, 0.5D).offsetRandom(this.level.random, 0.7F);
+                Vec3 vec3 = Vec3.atLowerCornerWithOffset(blockpos, 0.5D, 1.01D, 0.5D).offsetRandom(this.level.random, 0.35F);
                 ItemStack itemstack1 = itemstack.copy();
                 ItemEntity itementity = new ItemEntity(this.level, vec3.x(), vec3.y(), vec3.z(), itemstack1);
                 itementity.setDefaultPickUpDelay();

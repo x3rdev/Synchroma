@@ -4,6 +4,7 @@ import com.github.x3r.synchroma.client.model.block.FrameModel;
 import com.github.x3r.synchroma.common.block.frame.FrameBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -30,7 +31,8 @@ public class FrameRenderer extends GeoBlockRenderer<FrameBlockEntity> {
         ItemStack stack = animatable.getFirstItem();
         if(!stack.isEmpty()) {
             poseStack.pushPose();
-            poseStack.translate(0.5, 1.3851, 0.5);
+            poseStack.translate(0.5, 0.9335, 0.5);
+            poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
             Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.FIXED, packedLight, OverlayTexture.NO_OVERLAY, poseStack, bufferSource, animatable.getLevel(), (int) animatable.getBlockPos().asLong());
             poseStack.popPose();
         }

@@ -27,6 +27,7 @@ public class Synchroma {
 
         modEventBus.addListener(ClientSetup::setup);
         modEventBus.addListener(ClientSetup::registerRenderers);
+        modEventBus.addListener(ClientSetup::registerParticleFactories);
     }
 
     private static void registerDeferredRegisters(IEventBus bus) {
@@ -36,5 +37,6 @@ public class Synchroma {
         EntityRegistry.ENTITIES.register(bus);
         BlockItemRegistry.BLOCK_ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
+        ParticleRegistry.PARTICLE_TYPES.register(bus);
     }
 }
