@@ -37,6 +37,7 @@ public class TestGunRenderer extends DynamicGeoItemRenderer<TestGun> {
         if(bone.getName().equals("scope1")) {
             return SCOPE1_TEXTURE;
         }
+//        System.out.println(bone.getName());
         return null;
     }
 }

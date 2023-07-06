@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.CapacitorItem;
+import com.github.x3r.synchroma.common.item.CircuitItem;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.guns.TestGun;
 import net.minecraft.core.registries.Registries;
@@ -18,6 +19,8 @@ public class ItemRegistry {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Synchroma.MOD_ID);
 
+    public static final DeferredRegister<Item> GUN_MODIFICATIONS = DeferredRegister.create(ForgeRegistries.ITEMS, Synchroma.MOD_ID);
+
     public static final Item.Properties DEFAULT_PROPERTIES = new Item.Properties();
 
     public static final RegistryObject<Item> SUGARCANE_CAPACITOR = ITEMS.register("sugarcane_capacitor",
@@ -26,6 +29,9 @@ public class ItemRegistry {
             () -> new TestGun(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_BULLET = ITEMS.register("test_bullet",
             () -> new TestBullet(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> CIRCUIT_1 = ITEMS.register("circuit_1",
+            () -> new CircuitItem(DEFAULT_PROPERTIES));
+
     public static class SynchromaItemTab {
 
         public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);
