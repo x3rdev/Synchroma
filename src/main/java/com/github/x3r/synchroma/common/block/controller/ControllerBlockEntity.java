@@ -1,9 +1,12 @@
-package com.github.x3r.synchroma.common.block.frame;
+package com.github.x3r.synchroma.common.block.controller;
 
-import com.github.x3r.synchroma.common.item.CircuitItem;
+import com.github.x3r.synchroma.common.block.multiblock.MBBlock;
+import com.github.x3r.synchroma.common.item.circuit.CircuitItem;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -14,8 +17,10 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.ticks.ContainerSingleItem;
 import org.jetbrains.annotations.Nullable;
@@ -24,14 +29,15 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class FrameBlockEntity extends BlockEntity implements GeoBlockEntity, Clearable, ContainerSingleItem {
+public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity, Clearable, ContainerSingleItem {
     private final NonNullList<ItemStack> items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-
-    public FrameBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntityRegistry.FRAME.get(), pPos, pBlockState);
+    public ControllerBlockEntity(BlockPos pPos, BlockState pBlockState) {
+        super(BlockEntityRegistry.CONTROLLER.get(), pPos, pBlockState);
     }
 
     @Override
@@ -111,6 +117,78 @@ public class FrameBlockEntity extends BlockEntity implements GeoBlockEntity, Cle
 
     private void markUpdated() {
         this.setChanged();
-        this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        this.getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+    }
+    @Nullable
+    private BlockPattern getBlockPattern() {
+        ItemStack stack = this.getFirstItem();
+        if(!stack.isEmpty() && stack.getItem() instanceof CircuitItem circuit) {
+            return circuit.getPattern();
+        }
+        return null;
+    }
+
+    public boolean isAssembled() {
+        return this.getBlockState().getValue(MBBlock.ASSEMBLED);
+    }
+
+    public boolean validatePattern() {
+        BlockPattern pattern = getBlockPattern();
+        if(pattern != null) {
+            BlockPattern.BlockPatternMatch match = pattern.matches(getBlockPos(), this.getBlockState().getValue(ControllerBlock.FACING).getOpposite(), Direction.UP, BlockPattern.createLevelCache(getLevel(), false));
+            if (match != null) {
+                assemble();
+                return true;
+            }
+        }
+        disassemble();
+        return false;
+    }
+
+    private void assemble() {
+        if(!this.isAssembled()){
+            getMultiBlockParts(getBlockPos()).forEach(pos -> {
+                BlockState state = this.getLevel().getBlockState(pos);
+                if(state.getBlock() instanceof MBBlock) {
+                    this.level.setBlockAndUpdate(pos, state.setValue(MBBlock.ASSEMBLED, true));
+
+                }
+            });
+            if(!this.isRemoved()) {
+                this.level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(MBBlock.ASSEMBLED, true));
+            }
+        }
+        markUpdated();
+    }
+
+    private void disassemble(){
+        if(this.isAssembled()) {
+            getMultiBlockParts(getBlockPos()).forEach(pos -> {
+                BlockState state = this.getLevel().getBlockState(pos);
+                if(state.getBlock() instanceof MBBlock) {
+                    this.level.setBlockAndUpdate(pos, state.setValue(MBBlock.ASSEMBLED, false));
+                }
+            });
+            if(!this.isRemoved()) {
+                this.level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(MBBlock.ASSEMBLED, false));
+            }
+        }
+        markUpdated();
+    }
+
+    private List<BlockPos> getMultiBlockParts(BlockPos pos) {
+        BlockPattern pattern = getBlockPattern();
+        List<BlockPos> list = new ArrayList<>();
+        if(pattern != null) {
+            for (int i = 0; i < pattern.getWidth(); i++) {
+                for (int j = 0; j < pattern.getHeight(); j++) {
+                    for (int k = 0; k < pattern.getDepth(); k++) {
+                        double rot = Math.toRadians(this.getBlockState().getValue(ControllerBlock.FACING).toYRot());
+                        list.add(pos.offset(new Vec3i((int) Math.round(Math.cos(rot)*i-Math.sin(rot)*-k), -j, (int) Math.round(Math.sin(rot)*i+Math.cos(rot)*-k))));
+                    }
+                }
+            }
+        }
+        return list;
     }
 }

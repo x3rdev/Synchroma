@@ -2,14 +2,12 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.CapacitorItem;
-import com.github.x3r.synchroma.common.item.CircuitItem;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
+import com.github.x3r.synchroma.common.item.circuit.Circuit1;
 import com.github.x3r.synchroma.common.item.guns.TestGun;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,8 +27,9 @@ public class ItemRegistry {
             () -> new TestGun(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_BULLET = ITEMS.register("test_bullet",
             () -> new TestBullet(DEFAULT_PROPERTIES));
+
     public static final RegistryObject<Item> CIRCUIT_1 = ITEMS.register("circuit_1",
-            () -> new CircuitItem(DEFAULT_PROPERTIES));
+            () -> new Circuit1(DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
 

@@ -22,4 +22,7 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> FRAME_ITEM = BLOCK_ITEMS.register("frame",
             () -> new BlockItem(BlockRegistry.FRAME.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> CONTROLLER_ITEM = BLOCK_ITEMS.register("controller",
+            () -> new BlockItem(BlockRegistry.CONTROLLER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

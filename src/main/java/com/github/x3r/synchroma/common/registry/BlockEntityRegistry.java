@@ -1,9 +1,8 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.common.block.frame.FrameBlockEntity;
+import com.github.x3r.synchroma.common.block.controller.ControllerBlockEntity;
 import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlockEntity;
-import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlock;
 import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlockEntity;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -21,6 +20,6 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(RipperdocInterfaceBlockEntity::new, BlockRegistry.RIPPERDOC_INTERFACE_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<WeaponWorkbenchBlockEntity>> WEAPON_WORKBENCH = BLOCK_ENTITIES.register("weapon_workbench",
             () -> BlockEntityType.Builder.of(WeaponWorkbenchBlockEntity::new, BlockRegistry.WEAPON_WORKBENCH.get()).build(null));
-    public static final RegistryObject<BlockEntityType<FrameBlockEntity>> FRAME = BLOCK_ENTITIES.register("frame",
-            () -> BlockEntityType.Builder.of(FrameBlockEntity::new, BlockRegistry.FRAME.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ControllerBlockEntity>> CONTROLLER = BLOCK_ENTITIES.register("conrtoller",
+            () -> BlockEntityType.Builder.of(ControllerBlockEntity::new, BlockRegistry.CONTROLLER.get()).build(null));
 }

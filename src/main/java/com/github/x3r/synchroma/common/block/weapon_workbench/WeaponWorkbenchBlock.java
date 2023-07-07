@@ -96,6 +96,4 @@ public class WeaponWorkbenchBlock extends Block implements EntityBlock, VoxelSha
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return BlockEntityRegistry.WEAPON_WORKBENCH.get().create(pPos, pState);
     }
-
-
 }
