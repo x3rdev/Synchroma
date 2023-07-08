@@ -25,4 +25,7 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> CONTROLLER_ITEM = BLOCK_ITEMS.register("controller",
             () -> new BlockItem(BlockRegistry.CONTROLLER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> MULTI_BLOCK_PART_ITEM = BLOCK_ITEMS.register("multi_block_part_item",
+            () -> new BlockItem(BlockRegistry.MULTI_BLOCK_PART.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

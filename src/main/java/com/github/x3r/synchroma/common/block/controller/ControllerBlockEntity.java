@@ -1,8 +1,9 @@
 package com.github.x3r.synchroma.common.block.controller;
 
-import com.github.x3r.synchroma.common.block.multiblock.MBBlock;
+import com.github.x3r.synchroma.common.block.multiblock.MultiBlockPartEntity;
 import com.github.x3r.synchroma.common.item.circuit.CircuitItem;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
+import com.github.x3r.synchroma.common.registry.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -17,10 +18,11 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.ticks.ContainerSingleItem;
 import org.jetbrains.annotations.Nullable;
@@ -38,6 +40,10 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public ControllerBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.CONTROLLER.get(), pPos, pBlockState);
+    }
+
+    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, ControllerBlockEntity pBlockEntity) {
+        
     }
 
     @Override
@@ -61,8 +67,8 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
 
     @Override
     public CompoundTag getUpdateTag() {
-        CompoundTag compoundtag = new CompoundTag();
-        ContainerHelper.saveAllItems(compoundtag, this.items, true);
+        CompoundTag compoundtag = super.getUpdateTag();
+        saveAdditional(compoundtag);
         return compoundtag;
     }
 
@@ -128,11 +134,17 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
         return null;
     }
 
-    public boolean isAssembled() {
-        return this.getBlockState().getValue(MBBlock.ASSEMBLED);
+    @Override
+    public void onLoad() {
+        validateMultiBlock();
+        super.onLoad();
     }
 
-    public boolean validatePattern() {
+    public boolean isAssembled() {
+        return this.getBlockState().getValue(ControllerBlock.ASSEMBLED);
+    }
+
+    public boolean validateMultiBlock() {
         BlockPattern pattern = getBlockPattern();
         if(pattern != null) {
             BlockPattern.BlockPatternMatch match = pattern.matches(getBlockPos(), this.getBlockState().getValue(ControllerBlock.FACING).getOpposite(), Direction.UP, BlockPattern.createLevelCache(getLevel(), false));
@@ -148,29 +160,30 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
     private void assemble() {
         if(!this.isAssembled()){
             getMultiBlockParts(getBlockPos()).forEach(pos -> {
-                BlockState state = this.getLevel().getBlockState(pos);
-                if(state.getBlock() instanceof MBBlock) {
-                    this.level.setBlockAndUpdate(pos, state.setValue(MBBlock.ASSEMBLED, true));
-
+                BlockState state = this.level.getBlockState(pos);
+                if(!(state.getBlock() instanceof ControllerBlock || state.isAir())) {
+                    this.level.setBlockAndUpdate(pos, BlockRegistry.MULTI_BLOCK_PART.get().defaultBlockState());
+                    MultiBlockPartEntity partEntity = ((MultiBlockPartEntity) this.level.getBlockEntity(pos));
+                    partEntity.setControllerPos(this.getBlockPos());
+                    partEntity.setOriginalState(state);
                 }
             });
-            if(!this.isRemoved()) {
-                this.level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(MBBlock.ASSEMBLED, true));
+            if(this.level.getBlockState(getBlockPos()).is(this.getBlockState().getBlock())) {
+                this.level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ControllerBlock.ASSEMBLED, true));
             }
         }
         markUpdated();
     }
 
-    private void disassemble(){
+    public void disassemble() {
         if(this.isAssembled()) {
             getMultiBlockParts(getBlockPos()).forEach(pos -> {
-                BlockState state = this.getLevel().getBlockState(pos);
-                if(state.getBlock() instanceof MBBlock) {
-                    this.level.setBlockAndUpdate(pos, state.setValue(MBBlock.ASSEMBLED, false));
+                if(this.level.getBlockEntity(pos) instanceof MultiBlockPartEntity partEntity) {
+                    this.level.setBlockAndUpdate(pos, partEntity.getOriginalState());
                 }
             });
-            if(!this.isRemoved()) {
-                this.level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(MBBlock.ASSEMBLED, false));
+            if(this.level.getBlockState(getBlockPos()).is(this.getBlockState().getBlock())) {
+                this.level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ControllerBlock.ASSEMBLED, false));
             }
         }
         markUpdated();
@@ -190,5 +203,11 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
             }
         }
         return list;
+    }
+
+    //TODO make this more accurate to pattern
+    @Override
+    public AABB getRenderBoundingBox() {
+        return super.getRenderBoundingBox().inflate(10);
     }
 }

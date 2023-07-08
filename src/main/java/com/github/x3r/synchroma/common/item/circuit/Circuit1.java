@@ -17,8 +17,8 @@ public class Circuit1 extends CircuitItem {
     public BlockPattern getPattern() {
         if(pattern == null) {
             pattern = BlockPatternBuilder.start()
-                    .where('f', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.FRAME.get())))
-                    .where('c', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.CONTROLLER.get())))
+                    .where('f', CircuitItem.mbBlockMatches(BlockRegistry.FRAME.get()))
+                    .where('c', CircuitItem.mbBlockMatches(BlockRegistry.CONTROLLER.get()))
                     .where('*', blockInWorld -> blockInWorld.getState().isAir())
                     .aisle("c***", "ffff")
                     .aisle("****", "*fff")

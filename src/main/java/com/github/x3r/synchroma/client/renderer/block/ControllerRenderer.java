@@ -35,17 +35,18 @@ public class ControllerRenderer extends GeoBlockRenderer<ControllerBlockEntity> 
 
     @Override
     public void actuallyRender(PoseStack poseStack, ControllerBlockEntity animatable, BakedGeoModel model, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        super.actuallyRender(poseStack, animatable, model, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
-        ItemStack stack = animatable.getFirstItem();
-        if(!stack.isEmpty()) {
-            poseStack.pushPose();
-            poseStack.translate(0.5, 0.9335, 0.5);
-            poseStack.mulPose(Axis.YP.rotationDegrees(animatable.getBlockState().getValue(ControllerBlock.FACING).toYRot()));
-            poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
-            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.FIXED, packedLight, OverlayTexture.NO_OVERLAY, poseStack, bufferSource, animatable.getLevel(), (int) animatable.getBlockPos().asLong());
-            poseStack.popPose();
-        }
-        if(animatable.isAssembled()) {
+        if(!animatable.isAssembled()) {
+            super.actuallyRender(poseStack, animatable, model, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
+            ItemStack stack = animatable.getFirstItem();
+            if (!stack.isEmpty()) {
+                poseStack.pushPose();
+                poseStack.translate(0.5, 0.9335, 0.5);
+                poseStack.mulPose(Axis.YP.rotationDegrees(animatable.getBlockState().getValue(ControllerBlock.FACING).toYRot()));
+                poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+                Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.FIXED, packedLight, OverlayTexture.NO_OVERLAY, poseStack, bufferSource, animatable.getLevel(), (int) animatable.getBlockPos().asLong());
+                poseStack.popPose();
+            }
+        } else {
             poseStack.pushPose();
             Direction direction = animatable.getBlockState().getValue(ControllerBlock.FACING);
             if (direction.equals(Direction.NORTH)) {
