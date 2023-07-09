@@ -1,7 +1,7 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.common.item.CapacitorItem;
+import com.github.x3r.synchroma.common.item.*;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.circuit.Circuit1;
 import com.github.x3r.synchroma.common.item.guns.TestGun;
@@ -27,9 +27,18 @@ public class ItemRegistry {
             () -> new TestGun(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_BULLET = ITEMS.register("test_bullet",
             () -> new TestBullet(DEFAULT_PROPERTIES));
-
     public static final RegistryObject<Item> CIRCUIT_1 = ITEMS.register("circuit_1",
             () -> new Circuit1(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> CROWBAR = ITEMS.register("crowbar",
+            () -> new CrowbarItem(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> SCREW_DRIVER = ITEMS.register("screw_driver",
+            () -> new ScrewDriverItem(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> WELDING_GUN = ITEMS.register("welding_gun",
+            () -> new WeldingGunItem(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> WIRE_CUTTERS = ITEMS.register("wire_cutters",
+            () -> new WireCuttersItem(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> WRENCH = ITEMS.register("wrench",
+            () -> new WrenchItem(DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
 
