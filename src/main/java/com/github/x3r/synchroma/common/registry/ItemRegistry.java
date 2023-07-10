@@ -23,6 +23,8 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> SUGARCANE_CAPACITOR = ITEMS.register("sugarcane_capacitor",
             () -> new CapacitorItem(DEFAULT_PROPERTIES, 10));
+    public static final RegistryObject<Item> RESEARCH_JOURNAL = ITEMS.register("research_journal",
+            () -> new ResearchJournalItem(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_GUN = ITEMS.register("test_gun",
             () -> new TestGun(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_BULLET = ITEMS.register("test_bullet",
@@ -39,6 +41,10 @@ public class ItemRegistry {
             () -> new WireCuttersItem(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> WRENCH = ITEMS.register("wrench",
             () -> new WrenchItem(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> TITANIUM_PLATES = ITEMS.register("titanium_plates",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> WIRES = ITEMS.register("wires",
+            () -> new Item(DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
 

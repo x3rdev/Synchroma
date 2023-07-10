@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "input_buffer=true": {
+      "model": "synchroma:block/energy_input_buffer"
+    },
+    "input_buffer=false": {
+      "model": "synchroma:block/energy_output_buffer"
+    }
+  }
+}

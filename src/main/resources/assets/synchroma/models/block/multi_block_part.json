@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "synchroma:block/multi_block_part"
+  },
+  "render_type": "minecraft:translucent"
+}

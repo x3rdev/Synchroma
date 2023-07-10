@@ -20,7 +20,7 @@ description is a wip
 [[dependencies.synchroma]]
     modId="forge"
     mandatory=true
-    versionRange="[46.0.1,)"
+    versionRange="[47.1.1,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.synchroma]]
@@ -32,6 +32,6 @@ description is a wip
 [[dependencies.synchroma]]
     modId="geckolib"
     mandatory=true
-    versionRange="[3.0.57,)"
+    versionRange="[4.2.1,)"
     ordering="NONE"
     side="BOTH"

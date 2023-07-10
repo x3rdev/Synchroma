@@ -1,5 +1,28 @@
 {
-  "variants": {
-    "": { "model": "synchroma:block/frame" }
-  }
+  "multipart": [
+    {
+      "apply": {
+        "model": "synchroma:block/frame"
+      },
+      "when": {
+        "plates": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "synchroma:block/frame_wires"
+      },
+      "when": {
+        "wires": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "synchroma:block/frame_plating"
+      },
+      "when": {
+        "plates": "true"
+      }
+    }
+  ]
 }

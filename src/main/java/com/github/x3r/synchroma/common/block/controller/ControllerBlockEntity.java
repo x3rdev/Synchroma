@@ -15,6 +15,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.ticks.ContainerSingleItem;
 import org.jetbrains.annotations.Nullable;
@@ -31,19 +33,27 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity, Clearable, ContainerSingleItem {
     private final NonNullList<ItemStack> items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    private final Set<BlockEntity> cachedParts = new HashSet<>();
+
     public ControllerBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.CONTROLLER.get(), pPos, pBlockState);
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, ControllerBlockEntity pBlockEntity) {
-        
+        if(pBlockEntity.getFirstItem().getItem() instanceof CircuitItem circuit) {
+            circuit.tickMB(pLevel, pPos, pState, pBlockEntity);
+        }
+    }
+
+    public void use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if(this.getFirstItem().getItem() instanceof CircuitItem circuit) {
+            circuit.useMB(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        }
     }
 
     @Override
@@ -159,7 +169,7 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
 
     private void assemble() {
         if(!this.isAssembled()){
-            getMultiBlockParts(getBlockPos()).forEach(pos -> {
+            getMultiBlockParts().forEach(pos -> {
                 BlockState state = this.level.getBlockState(pos);
                 if(!(state.getBlock() instanceof ControllerBlock || state.isAir())) {
                     this.level.setBlockAndUpdate(pos, BlockRegistry.MULTI_BLOCK_PART.get().defaultBlockState());
@@ -177,7 +187,7 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
 
     public void disassemble() {
         if(this.isAssembled()) {
-            getMultiBlockParts(getBlockPos()).forEach(pos -> {
+            getMultiBlockParts().forEach(pos -> {
                 if(this.level.getBlockEntity(pos) instanceof MultiBlockPartEntity partEntity) {
                     this.level.setBlockAndUpdate(pos, partEntity.getOriginalState());
                 }
@@ -186,28 +196,39 @@ public class ControllerBlockEntity extends BlockEntity implements GeoBlockEntity
                 this.level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ControllerBlock.ASSEMBLED, false));
             }
         }
+        cachedParts.clear();
         markUpdated();
     }
 
-    private List<BlockPos> getMultiBlockParts(BlockPos pos) {
+    //TODO check if useful
+    private Set<BlockEntity> getMultiBlockBlockEntities() {
+        if(cachedParts.isEmpty()) {
+            getMultiBlockParts().forEach(pos -> {
+                if(!(level.getBlockEntity(pos) instanceof ControllerBlockEntity)) cachedParts.add(level.getBlockEntity(pos));
+            });
+        }
+        return cachedParts;
+    }
+
+    private Set<BlockPos> getMultiBlockParts() {
         BlockPattern pattern = getBlockPattern();
-        List<BlockPos> list = new ArrayList<>();
+        Set<BlockPos> set = new HashSet<>();
         if(pattern != null) {
             for (int i = 0; i < pattern.getWidth(); i++) {
                 for (int j = 0; j < pattern.getHeight(); j++) {
                     for (int k = 0; k < pattern.getDepth(); k++) {
                         double rot = Math.toRadians(this.getBlockState().getValue(ControllerBlock.FACING).toYRot());
-                        list.add(pos.offset(new Vec3i((int) Math.round(Math.cos(rot)*i-Math.sin(rot)*-k), -j, (int) Math.round(Math.sin(rot)*i+Math.cos(rot)*-k))));
+                        set.add(getBlockPos().offset(new Vec3i((int) Math.round(Math.cos(rot)*i-Math.sin(rot)*-k), -j, (int) Math.round(Math.sin(rot)*i+Math.cos(rot)*-k))));
                     }
                 }
             }
         }
-        return list;
+        return set;
     }
 
     //TODO make this more accurate to pattern
     @Override
     public AABB getRenderBoundingBox() {
-        return super.getRenderBoundingBox().inflate(10);
+        return super.getRenderBoundingBox().inflate(4);
     }
 }

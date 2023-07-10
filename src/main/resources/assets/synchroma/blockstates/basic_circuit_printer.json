@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "synchroma:block/basic_circuit_printer" }
+  }
+}
