@@ -91,6 +91,7 @@ public abstract class DynamicGeoItemRenderer<T extends Item & GeoAnimatable> ext
         super.postRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }
 
+    //TODO figure out different textures sizes, how to default properly, etc. most likely cant use missing.png as base
     @Override
     public void createVerticesOfQuad(GeoQuad quad, Matrix4f poseState, Vector3f normal, VertexConsumer buffer,
                                      int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
@@ -113,8 +114,8 @@ public abstract class DynamicGeoItemRenderer<T extends Item & GeoAnimatable> ext
 
         for (GeoVertex vertex : quad.vertices()) {
             Vector4f vector4f = poseState.transform(new Vector4f(vertex.position().x(), vertex.position().y(), vertex.position().z(), 1.0f));
-            float texU = (vertex.texU() * entityTextureSize.firstInt()) / boneTextureSize.firstInt();
-            float texV = (vertex.texV() * entityTextureSize.secondInt()) / boneTextureSize.secondInt();
+            float texU = (vertex.texU() * boneTextureSize.firstInt()) / entityTextureSize.firstInt();
+            float texV = (vertex.texV() * boneTextureSize.secondInt()) / entityTextureSize.secondInt();
 
             buffer.vertex(vector4f.x(), vector4f.y(), vector4f.z(), red, green, blue, alpha, texU, texV,
                     packedOverlay, packedLight, normal.x(), normal.y(), normal.z());
