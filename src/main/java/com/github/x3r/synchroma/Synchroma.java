@@ -31,6 +31,7 @@ public class Synchroma {
     }
 
     private static void registerDeferredRegisters(IEventBus bus) {
+        GunModificationRegistry.GUN_MODIFICATIONS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         ItemRegistry.SynchromaItemTab.CREATIVE_MODE_TABS.register(bus);
         BlockRegistry.BLOCKS.register(bus);

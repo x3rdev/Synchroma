@@ -1,10 +1,8 @@
 package com.github.x3r.synchroma.common.entity;
 
 import com.github.x3r.synchroma.common.item.bullets.SynchromaBullet;
-import com.github.x3r.synchroma.common.item.guns.SynchromaGun;
+import com.github.x3r.synchroma.common.item.guns.BaseGunItem;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -23,8 +21,6 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -35,7 +31,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class BulletEntity extends Projectile implements ItemSupplier {
-    private SynchromaGun gun;
+    private BaseGunItem gun;
     private SynchromaBullet bullet;
     private float health;
 
@@ -43,7 +39,7 @@ public class BulletEntity extends Projectile implements ItemSupplier {
         super(pEntityType, pLevel);
     }
 
-    public BulletEntity(Level pLevel, Entity owner, SynchromaGun gun, SynchromaBullet bullet) {
+    public BulletEntity(Level pLevel, Entity owner, BaseGunItem gun, SynchromaBullet bullet) {
         super(EntityRegistry.BULLET_PROJECTILE.get(), pLevel);
         this.gun = gun;
         this.bullet = bullet;

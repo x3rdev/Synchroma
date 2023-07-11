@@ -4,7 +4,7 @@ import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.*;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.circuit.Circuit1;
-import com.github.x3r.synchroma.common.item.guns.TestGun;
+import com.github.x3r.synchroma.common.item.guns.HunterRifle;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -17,16 +17,14 @@ public class ItemRegistry {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Synchroma.MOD_ID);
 
-    public static final DeferredRegister<Item> GUN_MODIFICATIONS = DeferredRegister.create(ForgeRegistries.ITEMS, Synchroma.MOD_ID);
-
     public static final Item.Properties DEFAULT_PROPERTIES = new Item.Properties();
 
     public static final RegistryObject<Item> SUGARCANE_CAPACITOR = ITEMS.register("sugarcane_capacitor",
             () -> new CapacitorItem(DEFAULT_PROPERTIES, 10));
     public static final RegistryObject<Item> RESEARCH_JOURNAL = ITEMS.register("research_journal",
             () -> new ResearchJournalItem(DEFAULT_PROPERTIES));
-    public static final RegistryObject<Item> TEST_GUN = ITEMS.register("test_gun",
-            () -> new TestGun(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> HUNTER_RIFLE = ITEMS.register("hunter_rifle",
+            () -> new HunterRifle(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_BULLET = ITEMS.register("test_bullet",
             () -> new TestBullet(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> CIRCUIT_1 = ITEMS.register("circuit_1",
@@ -54,12 +52,9 @@ public class ItemRegistry {
                 .icon(Items.NAME_TAG::getDefaultInstance)
 //                .title(Component.translatable("itemGroup.synchroma"))
                 .displayItems((displayParameters, output) -> {
-                    ItemRegistry.ITEMS.getEntries().forEach(itemRegistryObject -> {
-                        output.accept(itemRegistryObject.get());
-                    });
-                    BlockItemRegistry.BLOCK_ITEMS.getEntries().forEach(itemRegistryObject -> {
-                        output.accept(itemRegistryObject.get());
-                    });
+                    ItemRegistry.ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
+                    GunModificationRegistry.GUN_MODIFICATIONS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
+                    BlockItemRegistry.BLOCK_ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
                 })
                 .build());
     }

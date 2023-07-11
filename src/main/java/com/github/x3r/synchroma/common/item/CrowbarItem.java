@@ -1,13 +1,9 @@
 package com.github.x3r.synchroma.common.item;
 
 import com.github.x3r.synchroma.client.renderer.item.CrowbarRenderer;
-import com.github.x3r.synchroma.client.renderer.item.TestGunRenderer;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
