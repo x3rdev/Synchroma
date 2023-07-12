@@ -1,12 +1,9 @@
-<mxfile host="app.diagrams.net" modified="2023-07-12T21:09:03.168Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="mb5NtQVyY5doNniIybT5" version="21.5.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-07-12T21:12:40.199Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="LM7yTm7ycQW10iHR1bZl" version="21.5.2" type="github" pages="2">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
-    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="744" dy="393" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="I9T-jtazPko-J5aBbDz0-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.561;entryY=0.995;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="I9T-jtazPko-J5aBbDz0-1" target="I9T-jtazPko-J5aBbDz0-2" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="I9T-jtazPko-J5aBbDz0-1" target="I9T-jtazPko-J5aBbDz0-16" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -19,43 +16,38 @@
         <mxCell id="_BPFZ3WGOQFEKarPwvMx-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="I9T-jtazPko-J5aBbDz0-1" target="_BPFZ3WGOQFEKarPwvMx-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="455" y="560" />
-              <mxPoint x="670" y="560" />
+              <mxPoint x="670" y="555" />
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="ziUGyg1Iks-_np4IPtFd-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-1" target="ziUGyg1Iks-_np4IPtFd-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-1" value="The start&lt;br&gt;(titanite crystals)" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="390" y="435" width="130" height="120" as="geometry" />
+          <mxGeometry x="375" y="435" width="130" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="I9T-jtazPko-J5aBbDz0-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="I9T-jtazPko-J5aBbDz0-2" target="I9T-jtazPko-J5aBbDz0-4" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="I9T-jtazPko-J5aBbDz0-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="I9T-jtazPko-J5aBbDz0-2" target="I9T-jtazPko-J5aBbDz0-6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="I9T-jtazPko-J5aBbDz0-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="I9T-jtazPko-J5aBbDz0-2" target="I9T-jtazPko-J5aBbDz0-3" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="I9T-jtazPko-J5aBbDz0-2" value="&lt;p&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;Hephaestus&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: sans-serif; font-size: 14px; text-align: start;&quot;&gt;&lt;span style=&quot;background-color: rgb(253, 254, 255);&quot;&gt;project&lt;br&gt;(everything about creating and crafting)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="397" y="229" width="102.5" height="102.5" as="geometry" />
+        <mxCell id="I9T-jtazPko-J5aBbDz0-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="I9T-jtazPko-J5aBbDz0-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="448.29999999999995" y="229" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-3" value="Assembler&lt;br&gt;(big machine to craft things)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="555" y="246" width="67" height="67" as="geometry" />
+          <mxGeometry x="543" y="246" width="67" height="67" as="geometry" />
         </mxCell>
-        <mxCell id="I9T-jtazPko-J5aBbDz0-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="I9T-jtazPko-J5aBbDz0-4" target="I9T-jtazPko-J5aBbDz0-5" edge="1">
+        <mxCell id="ziUGyg1Iks-_np4IPtFd-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="I9T-jtazPko-J5aBbDz0-4" target="I9T-jtazPko-J5aBbDz0-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-4" value="Circuits printer" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="290" y="248" width="63" height="63" as="geometry" />
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-5" value="Advanced circuits printer" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="190" y="250" width="60" height="60" as="geometry" />
+          <mxGeometry x="190" y="249.5" width="60" height="60" as="geometry" />
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-6" value="Weapon modification table" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="408" y="109" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-15" value="Ares project&lt;br&gt;(weapons, mech etc)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="415" y="670" width="80" height="80" as="geometry" />
+          <mxGeometry x="400" y="680" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="I9T-jtazPko-J5aBbDz0-16" target="I9T-jtazPko-J5aBbDz0-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -76,7 +68,16 @@
           <mxGeometry x="600" y="455" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="_BPFZ3WGOQFEKarPwvMx-2" value="Hyperion project&lt;br&gt;(satellites, telescopes and communications)" style="whiteSpace=wrap;html=1;aspect=fixed;rotation=0;" parent="1" vertex="1">
-          <mxGeometry x="622" y="660" width="100" height="100" as="geometry" />
+          <mxGeometry x="610" y="660" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ziUGyg1Iks-_np4IPtFd-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ziUGyg1Iks-_np4IPtFd-1" target="I9T-jtazPko-J5aBbDz0-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ziUGyg1Iks-_np4IPtFd-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ziUGyg1Iks-_np4IPtFd-1" target="I9T-jtazPko-J5aBbDz0-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ziUGyg1Iks-_np4IPtFd-1" value="Haephestus, makes everything" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="400" y="239.5" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
