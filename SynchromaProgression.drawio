@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-07-17T06:16:42.402Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="AZvd7i8X4s1DT8AglgME" version="21.6.2" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-07-17T21:08:58.445Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="Rfi9iO0zdCkhuY3PoUx0" version="21.6.2" type="github" pages="4">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
-    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1194" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -161,120 +161,173 @@
     </mxGraphModel>
   </diagram>
   <diagram id="_7XPPDSST6pJF3F3_McF" name="Machine Upgrades">
-    <mxGraphModel dx="2403" dy="1271" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1194" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-8" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=1;strokeColor=none;" edge="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-8" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=1;strokeColor=none;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="479.9999999999998" y="280" as="sourcePoint" />
             <mxPoint x="571.7157287525383" y="188.28427124746167" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-34">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-34" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-40">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-40" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-33" value="Every controller/machine will contain 6 upgrade slots each of which can take one type of electrical component" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-33" value="Every controller/machine will contain 6 upgrade slots each of which can take one type of electrical component" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="305" y="480" width="240" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-34" target="ffNO0nSNVpJja9oOUNOK-50">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-34" target="ffNO0nSNVpJja9oOUNOK-50" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-34" value="Integrated Circuits" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-34" value="Integrated Circuits" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="385" y="760" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-36" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-43">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-36" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-43" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="540" y="590" as="sourcePoint" />
             <mxPoint x="640" y="640" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-37" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-42">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-37" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-42" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="580" y="530" as="sourcePoint" />
             <mxPoint x="640" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-38" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-44">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-38" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-44" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="170" y="670" as="sourcePoint" />
             <mxPoint x="200" y="640" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-39" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-45">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-39" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" parent="1" source="ffNO0nSNVpJja9oOUNOK-33" target="ffNO0nSNVpJja9oOUNOK-45" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="230" y="480" as="sourcePoint" />
             <mxPoint x="200" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-40" target="ffNO0nSNVpJja9oOUNOK-52">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-40" target="ffNO0nSNVpJja9oOUNOK-52" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-40" value="Custom" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-40" value="Custom" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="385" y="280" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-42" target="ffNO0nSNVpJja9oOUNOK-58">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-42" target="ffNO0nSNVpJja9oOUNOK-58" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-42" target="ffNO0nSNVpJja9oOUNOK-60">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-42" target="ffNO0nSNVpJja9oOUNOK-60" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-42" value="&lt;div&gt;Capacitor&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-42" value="&lt;div&gt;Capacitor&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="640" y="400" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-43" target="ffNO0nSNVpJja9oOUNOK-54">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-43" target="ffNO0nSNVpJja9oOUNOK-54" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-43" value="Resistor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-43" value="Resistor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="640" y="640" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-44" target="ffNO0nSNVpJja9oOUNOK-46">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-44" target="ffNO0nSNVpJja9oOUNOK-46" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-44" target="ffNO0nSNVpJja9oOUNOK-48">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-44" target="ffNO0nSNVpJja9oOUNOK-48" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-44" value="&lt;div&gt;Transistor&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-44" value="&lt;div&gt;Transistor&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="120" y="640" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-45" target="ffNO0nSNVpJja9oOUNOK-62">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-45" target="ffNO0nSNVpJja9oOUNOK-62" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-45" value="Unsure, maybe another custom" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-45" value="Unsure, maybe another custom" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="120" y="400" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-46" value="Energy efficiency?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-46" value="Energy efficiency?" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry y="640" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-48" value="Generic speed increase?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-48" value="Generic speed increase?" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="120" y="760" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-50" value="On normal machines this will change the function of the machine e.g. modify furnace to cook faster for foods, on controllers (for multiblocks) this will be a locked slot as this will be the circuit which goes in the actual controller block" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-50" value="On normal machines this will change the function of the machine e.g. modify furnace to cook faster for foods, on controllers (for multiblocks) this will be a locked slot as this will be the circuit which goes in the actual controller block" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="340" y="880" width="170" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-52" value="This slot depends on the machine, essentially just miscellaneous" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-52" value="This slot depends on the machine, essentially just miscellaneous" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="365" y="70" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ffNO0nSNVpJja9oOUNOK-54" target="ffNO0nSNVpJja9oOUNOK-56">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ffNO0nSNVpJja9oOUNOK-54" target="ffNO0nSNVpJja9oOUNOK-56" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-54" value="Max machine throughput" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-54" value="Max machine throughput" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="640" y="760" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-56" value="&lt;div&gt;Either machine goes boom, or machine destroys resistor depends if we are feeling mean or not lol&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-56" value="&lt;div&gt;Either machine goes boom, or machine destroys resistor depends if we are feeling mean or not lol&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="620" y="920" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-58" value="Speed" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-58" value="Speed" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="760" y="400" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-60" value="&lt;div&gt;Energy capacity&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-60" value="&lt;div&gt;Energy capacity&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="640" y="280" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ffNO0nSNVpJja9oOUNOK-62" value="Note**** can we fit five or six slots in gui???&lt;br&gt;Maybe we cut all of them but Capacitor, Transistor and Resistor?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ffNO0nSNVpJja9oOUNOK-62" value="Note**** can we fit five or six slots in gui???&lt;br&gt;Maybe we cut all of them but Capacitor, Transistor and Resistor?" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="100" y="190" width="120" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ocKp4_rYITAjOjVJq6uI" name="Research">
+    <mxGraphModel dx="1302" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dneou5X5kPG6HMtX4wjf-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-1" target="dneou5X5kPG6HMtX4wjf-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-1" target="dneou5X5kPG6HMtX4wjf-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-1" value="Research comes in the form of blueprints (item), which allows it to be easily shared and removes annoyance found with research found in other mods." style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="320" y="440" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-2" target="dneou5X5kPG6HMtX4wjf-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-2" value="&lt;div&gt;Creation&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="780" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-4" value="Through research tablet, maybe minigame?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="950" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-8" value="Blueprints are added to machines and are one time use. " style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="160" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-10" value="Memory system for all machines?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-12" target="dneou5X5kPG6HMtX4wjf-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-12" value="&lt;div&gt;Make blueprints like https://en.wikipedia.org/wiki/Electronic_design_automation&lt;/div&gt;&lt;div&gt;?&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-15" value="Then only available for circuit printers, but that helps with some issues" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="360" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dneou5X5kPG6HMtX4wjf-17" value="Blueprints allow continued use of recipes and locks them without locking them, if that makes sense" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" width="120" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
