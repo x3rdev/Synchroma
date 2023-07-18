@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-07-17T21:39:19.236Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="VoadadbHiAo3sif9i0sA" version="21.6.2" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2023-07-18T17:27:00.567Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="O_y5IO5duFf4cUSiWxLS" version="21.6.2" type="github" pages="5">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
-    <mxGraphModel dx="1194" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -365,6 +365,14 @@
         <mxCell id="dneou5X5kPG6HMtX4wjf-17" value="Blueprints allow continued use of recipes and locks them without locking them, if that makes sense" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" width="120" height="120" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ByXA5C5HL_S91QG922kq" name="Energy Production">
+    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
