@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-18T17:27:00.567Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="O_y5IO5duFf4cUSiWxLS" version="21.6.2" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-07-18T19:24:28.966Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="7cLikHnJoIPm_rQga34q" version="21.6.2" type="github" pages="5">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
     <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -369,10 +369,153 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ByXA5C5HL_S91QG922kq" name="Energy Production">
-    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3253" dy="1271" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="49mSkDrT0OSB7xp50QKg-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-1" target="49mSkDrT0OSB7xp50QKg-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-1" value="Energy Production Progression" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="360" y="200" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-2" target="49mSkDrT0OSB7xp50QKg-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-2" target="49mSkDrT0OSB7xp50QKg-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-2" target="49mSkDrT0OSB7xp50QKg-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-2" value="Photovoltaic Solar Panel" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="440" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-7" value="Made using silicon" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="440" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-9" value="Allows direct production of power, unlike others on this list, which is why its early game" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="440" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-13" target="qcRIYlTU2SO3741KMmz--7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-13" value="Coal Generator" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="680" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-16" target="qcRIYlTU2SO3741KMmz--41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-16" value="Combustion Engine" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="680" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-17" target="qcRIYlTU2SO3741KMmz--31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-17" value="Biomass Gasifier" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="680" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-2" target="49mSkDrT0OSB7xp50QKg-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="650" as="sourcePoint" />
+            <mxPoint x="570" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49mSkDrT0OSB7xp50QKg-20" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="49mSkDrT0OSB7xp50QKg-2" target="49mSkDrT0OSB7xp50QKg-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="680" as="sourcePoint" />
+            <mxPoint x="440" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--7" target="qcRIYlTU2SO3741KMmz--11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--7" target="qcRIYlTU2SO3741KMmz--13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--7" target="qcRIYlTU2SO3741KMmz--15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--7" value="Boiler, burns coal, heats water into steam" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--11" value="Players need to manage pressure and water supply in order to keep boiler from exploding/melting" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--13" value="Players need to manage water vs coal ratio. Addon called electric heater allows finer control of coal burn time?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--15" target="qcRIYlTU2SO3741KMmz--19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--15" target="qcRIYlTU2SO3741KMmz--21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--15" target="qcRIYlTU2SO3741KMmz--28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--15" value="&lt;p&gt;Steam enters turbine, spins, creates kinetic energy&lt;/p&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="1000" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--19" value="Maintenance mechanic?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1000" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--21" value="Balance using steam to rpm ratio, rotors and rotor material can affect this, not linear relationship" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1000" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--28" value="&lt;div&gt;Dynamo turns kinetic energy&lt;/div&gt;&lt;div&gt;&amp;nbsp;into power, maybe integrate into turbine for simplicity&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1200" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--31" target="qcRIYlTU2SO3741KMmz--33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--31" target="qcRIYlTU2SO3741KMmz--35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--31" target="qcRIYlTU2SO3741KMmz--37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--31" value="Organic materials can be inserted" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--33" value="Different materials take more time to decompose, interface will look something like tinkers smeltery where many items can decompose at once" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--35" value="Heat can be added to speed up process, but that takes energy. In real life this requires steam so maybe that" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--37" target="qcRIYlTU2SO3741KMmz--47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--37" value="Produces Biogas" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="1000" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--53">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-60" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--41" value="Burns fuel and turns it into kinetic energy, pretty standard" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--43" value="Oil can be found in world, maybe add some line for refining?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-320" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--47" value="Throw this in bio generator (like subnautica) which uses some microbe or something to turn biogas into energy. Or just throw it in combustion engine, your choice." style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="1200" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--49" value="Maybe add maintenance, overheating, overclocking, stuff like that" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="840" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--53" value="&lt;div&gt;Dynamo turns kinetic energy&lt;/div&gt;&lt;div&gt;&amp;nbsp;into power, maybe integrate into engine for simplicity&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-160" y="1200" width="200" height="200" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
