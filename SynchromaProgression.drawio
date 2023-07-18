@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-18T19:24:28.966Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="7cLikHnJoIPm_rQga34q" version="21.6.2" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-07-18T19:47:20.406Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="WkQXA-300U4CFWUQNYDB" version="21.6.2" type="github" pages="5">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
     <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -369,7 +369,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ByXA5C5HL_S91QG922kq" name="Energy Production">
-    <mxGraphModel dx="3253" dy="1271" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2412" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -454,7 +454,7 @@
         <mxCell id="qcRIYlTU2SO3741KMmz--29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--15" target="qcRIYlTU2SO3741KMmz--28">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qcRIYlTU2SO3741KMmz--15" value="&lt;p&gt;Steam enters turbine, spins, creates kinetic energy&lt;/p&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="qcRIYlTU2SO3741KMmz--15" value="&lt;p&gt;Steam enters turbine, spins, creates kinetic energy&lt;/p&gt;&lt;p&gt;Efficiency: 30%-60%&lt;br&gt;&lt;/p&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="1000" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--19" value="Maintenance mechanic?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -487,7 +487,7 @@
         <mxCell id="qcRIYlTU2SO3741KMmz--48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--37" target="qcRIYlTU2SO3741KMmz--47">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qcRIYlTU2SO3741KMmz--37" value="Produces Biogas" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="qcRIYlTU2SO3741KMmz--37" value="&lt;div&gt;Produces Biogas&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Efficiency: N/A&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="850" y="1000" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--43">
@@ -496,16 +496,14 @@
         <mxCell id="qcRIYlTU2SO3741KMmz--50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--49">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qcRIYlTU2SO3741KMmz--52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--53">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="1040" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="qcRIYlTU2SO3741KMmz--61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--60">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--41" value="Burns fuel and turns it into kinetic energy, pretty standard" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-120" y="840" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--43" value="Oil can be found in world, maybe add some line for refining?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-320" y="840" width="120" height="120" as="geometry" />
+          <mxGeometry x="-280" y="840" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--47" value="Throw this in bio generator (like subnautica) which uses some microbe or something to turn biogas into energy. Or just throw it in combustion engine, your choice." style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="810" y="1200" width="200" height="200" as="geometry" />
@@ -515,6 +513,21 @@
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--53" value="&lt;div&gt;Dynamo turns kinetic energy&lt;/div&gt;&lt;div&gt;&amp;nbsp;into power, maybe integrate into engine for simplicity&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-160" y="1200" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--56" value="Tier 0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="700" y="485" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--57" value="Tier 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="700" y="725" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--59" value="&lt;div&gt;Tier 2&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="700" y="1440" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qcRIYlTU2SO3741KMmz--60" target="qcRIYlTU2SO3741KMmz--53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qcRIYlTU2SO3741KMmz--60" value="&lt;div&gt;Simplest energy method&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Efficiency: 20-40%&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="1000" width="120" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
