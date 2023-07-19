@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-07-19T01:53:38.329Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="3RkEGLsNbT59kOPYD7vO" version="21.6.2" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-07-19T04:06:50.472Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="hngZk5W1qg-wvp1JZFn9" version="21.6.2" type="github" pages="6">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
-    <mxGraphModel dx="1194" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -316,53 +316,53 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ocKp4_rYITAjOjVJq6uI" name="Research">
-    <mxGraphModel dx="1302" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="dneou5X5kPG6HMtX4wjf-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-1" target="dneou5X5kPG6HMtX4wjf-2">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dneou5X5kPG6HMtX4wjf-1" target="dneou5X5kPG6HMtX4wjf-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-1" target="dneou5X5kPG6HMtX4wjf-8">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dneou5X5kPG6HMtX4wjf-1" target="dneou5X5kPG6HMtX4wjf-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-1" value="Research comes in the form of blueprints (item), which allows it to be easily shared and removes annoyance found with research found in other mods." style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-1" value="Research comes in the form of blueprints (item), which allows it to be easily shared and removes annoyance found with research found in other mods." style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="320" y="440" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-2" target="dneou5X5kPG6HMtX4wjf-4">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dneou5X5kPG6HMtX4wjf-2" target="dneou5X5kPG6HMtX4wjf-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-2" value="&lt;div&gt;Creation&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-2" value="&lt;div&gt;Creation&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="380" y="780" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-4" value="Through research tablet, maybe minigame?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-4" value="Through research tablet, maybe minigame?" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" y="950" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-10">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-12">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-12" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-17">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dneou5X5kPG6HMtX4wjf-8" target="dneou5X5kPG6HMtX4wjf-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-8" value="Blueprints are added to machines and are one time use. " style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-8" value="Blueprints are added to machines and are one time use. " style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" y="160" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-10" value="Memory system for all machines?" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-10" value="Memory system for all machines?" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="560" y="190" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dneou5X5kPG6HMtX4wjf-12" target="dneou5X5kPG6HMtX4wjf-15">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dneou5X5kPG6HMtX4wjf-12" target="dneou5X5kPG6HMtX4wjf-15" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-12" value="&lt;div&gt;Make blueprints like https://en.wikipedia.org/wiki/Electronic_design_automation&lt;/div&gt;&lt;div&gt;?&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-12" value="&lt;div&gt;Make blueprints like https://en.wikipedia.org/wiki/Electronic_design_automation&lt;/div&gt;&lt;div&gt;?&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="80" y="160" width="200" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-15" value="Then only available for circuit printers, but that helps with some issues" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-15" value="Then only available for circuit printers, but that helps with some issues" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="120" y="360" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="dneou5X5kPG6HMtX4wjf-17" value="Blueprints allow continued use of recipes and locks them without locking them, if that makes sense" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="dneou5X5kPG6HMtX4wjf-17" value="Blueprints allow continued use of recipes and locks them without locking them, if that makes sense" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" width="120" height="120" as="geometry" />
         </mxCell>
       </root>
@@ -454,7 +454,7 @@
         <mxCell id="qcRIYlTU2SO3741KMmz--29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="qcRIYlTU2SO3741KMmz--15" target="qcRIYlTU2SO3741KMmz--28" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qcRIYlTU2SO3741KMmz--15" value="&lt;p&gt;Steam enters turbine, spins, creates kinetic energy&lt;/p&gt;&lt;p&gt;Efficiency: 30%-60%&lt;br&gt;&lt;/p&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="qcRIYlTU2SO3741KMmz--15" value="&lt;p&gt;Steam enters turbine, spins, creates kinetic energy&lt;/p&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" y="1000" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--19" value="Maintenance mechanic?" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -487,7 +487,7 @@
         <mxCell id="qcRIYlTU2SO3741KMmz--48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="qcRIYlTU2SO3741KMmz--37" target="qcRIYlTU2SO3741KMmz--47" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qcRIYlTU2SO3741KMmz--37" value="&lt;div&gt;Produces Biogas&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Efficiency: N/A&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="qcRIYlTU2SO3741KMmz--37" value="&lt;div&gt;Produces Biogas&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="850" y="1000" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qcRIYlTU2SO3741KMmz--44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="qcRIYlTU2SO3741KMmz--41" target="qcRIYlTU2SO3741KMmz--43" edge="1">
@@ -526,13 +526,103 @@
         <mxCell id="qcRIYlTU2SO3741KMmz--62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="qcRIYlTU2SO3741KMmz--60" target="qcRIYlTU2SO3741KMmz--53" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qcRIYlTU2SO3741KMmz--60" value="&lt;div&gt;Simplest energy method&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Efficiency: 20-40%&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="qcRIYlTU2SO3741KMmz--60" value="&lt;div&gt;Simplest energy method&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-120" y="1000" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-1" target="NJhdTT1uqKVydTmecu90-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-1" value="Nuclear Fission Reactor" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="1480" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-3" target="NJhdTT1uqKVydTmecu90-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-3" target="NJhdTT1uqKVydTmecu90-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-3" target="NJhdTT1uqKVydTmecu90-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-3" value="Uranium needs to be enriched " style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="1640" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-9" value="Dedicated machine which turns x ingots into &amp;lt;x enriched ingots" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="1640" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-11" value="Uranium is separated with centrifuge into U235 and U238 and you need to recombine it where U235 is a high percent of an ingot, to discuss" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1640" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-13" target="NJhdTT1uqKVydTmecu90-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-13" target="NJhdTT1uqKVydTmecu90-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-13" target="NJhdTT1uqKVydTmecu90-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-13" value="Placed in reactor" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="1800" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-15" value="Reactor has rods which moderate reaction" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1800" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-17" value="Water inputted into reactor, exits as steam" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="1800" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-19" value="Steam -&amp;gt; energy with turbine, pretty simple" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-160" y="1960" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-23" target="NJhdTT1uqKVydTmecu90-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-23" value="&lt;div&gt;Super-heated Redstone Turbine&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1480" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-24" target="NJhdTT1uqKVydTmecu90-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-24" value="&lt;div&gt;Super-critical Redstone Turbine&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1640" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-26" value="Instead of using water, use melted redstone in high pressure pipes and if heated to sufficient temperature allows for higher efficiency" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1800" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-28" target="NJhdTT1uqKVydTmecu90-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-28" value="Thermoelectric Generator" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1480" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-29" target="NJhdTT1uqKVydTmecu90-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-29" value="&lt;div&gt;Creates power based on difference between two sides of a material&lt;/div&gt;&lt;div&gt;https://en.wikipedia.org/wiki/Seebeck_coefficient&lt;br&gt; &lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1640" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-31" value="Can be used for RTG which is low output, long term power using heat from nuclear radiation" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1800" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-33" target="NJhdTT1uqKVydTmecu90-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-33" value="Pyroelectric generator" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="850" y="1480" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NJhdTT1uqKVydTmecu90-34" target="NJhdTT1uqKVydTmecu90-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-34" value="Insert crystal, heat crystal, extract energy, pretty simple" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="850" y="1640" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="NJhdTT1uqKVydTmecu90-36" value="Complexity can be added with crystal refinement and durability" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="850" y="1800" width="120" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="pLE0PKrMhDV_bIffAv1n" name="Basic progression (1)">
+  <diagram id="pLE0PKrMhDV_bIffAv1n" name="Basic progression">
     <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
