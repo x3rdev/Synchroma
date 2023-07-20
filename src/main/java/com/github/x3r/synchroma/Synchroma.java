@@ -31,13 +31,14 @@ public class Synchroma {
     }
 
     private static void registerDeferredRegisters(IEventBus bus) {
-        GunModificationRegistry.GUN_MODIFICATIONS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         ItemRegistry.SynchromaItemTab.CREATIVE_MODE_TABS.register(bus);
         BlockRegistry.BLOCKS.register(bus);
         EntityRegistry.ENTITIES.register(bus);
+        GunModificationRegistry.GUN_MODIFICATIONS.register(bus);
         BlockItemRegistry.BLOCK_ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
+        MenuTypeRegistry.MENUS.register(bus);
         ParticleRegistry.PARTICLE_TYPES.register(bus);
     }
 }

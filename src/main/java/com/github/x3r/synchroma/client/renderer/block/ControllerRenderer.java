@@ -28,12 +28,6 @@ public class ControllerRenderer extends GeoBlockRenderer<ControllerBlockEntity> 
     }
 
     @Override
-    public void preRender(PoseStack poseStack, ControllerBlockEntity animatable, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        poseStack.translate(0, -0.01, 0);
-        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
-    }
-
-    @Override
     public void actuallyRender(PoseStack poseStack, ControllerBlockEntity animatable, BakedGeoModel model, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         if(!animatable.isAssembled()) {
             super.actuallyRender(poseStack, animatable, model, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);

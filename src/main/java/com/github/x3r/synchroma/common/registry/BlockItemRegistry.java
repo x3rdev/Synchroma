@@ -34,4 +34,10 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> ENERGY_BUFFER_ITEM = BLOCK_ITEMS.register("energy_buffer",
             () -> new BlockItem(BlockRegistry.ENERGY_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> TITANITE_CRYSTAL_ITEM = BLOCK_ITEMS.register("titanite_crystal",
+            () -> new BlockItem(BlockRegistry.TITANITE_CRYSTAL.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> BASIC_SOLAR_PANEL = BLOCK_ITEMS.register("basic_solar_panel",
+            () -> new BlockItem(BlockRegistry.BASIC_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

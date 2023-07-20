@@ -5,6 +5,7 @@ import com.github.x3r.synchroma.common.item.guns.BaseGunItem;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
@@ -20,10 +21,10 @@ import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -72,26 +73,50 @@ public class BulletEntity extends Projectile implements ItemSupplier {
     private void handleCollisions() {
         Vec3 startVec = this.position();
         Vec3 endVec = this.position().add(this.getDeltaMovement());
-        List<LivingEntity> entityCollisions = traceEntityCollisions(startVec, endVec, this.level().getEntities(this, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1)));
-        List<BlockPos> blockCollisions = traceBlockCollisions(startVec, endVec);
-        for (LivingEntity livingEntity : entityCollisions) {
-            livingEntity.hurt(this.damageSources().generic(), this.bullet.getDamage());
-            this.remove(RemovalReason.KILLED);
-            return;
-        }
-        for (BlockPos blockPos : blockCollisions) {
-            float strength = level().getBlockState(blockPos).getDestroySpeed(level(), blockPos);
-            if (strength < 0.5F) {
-                level().destroyBlock(blockPos, false);
+        List<BlockHitResult> blockCollisions = traceBlockCollisions(startVec, endVec);
+        List<EntityHitResult> entityCollisions = traceEntityCollisions(startVec, endVec, this.level().getEntities(this, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1)));
+
+        List<HitResult> collisions = new ArrayList<>();
+        collisions.addAll(blockCollisions);
+        collisions.addAll(entityCollisions);
+        collisions.sort(Comparator.comparingDouble(o -> o.getLocation().distanceToSqr(startVec)));
+        for(HitResult hitResult : collisions) {
+            if(hitResult instanceof EntityHitResult entityHitResult) {
+                handleEntityCollision(entityHitResult);
             }
-            level().playSound(null, blockPos, level().getBlockState(blockPos).getSoundType().getBreakSound(), SoundSource.BLOCKS, 1, 0.75F);
-            this.remove(RemovalReason.KILLED);
-            return;
+            if(hitResult instanceof BlockHitResult blockHitResult) {
+                handleBlockCollision(blockHitResult);
+            }
+            if(!bulletViable()) {
+                this.remove(RemovalReason.KILLED);
+                return;
+            }
         }
+//        for (LivingEntity livingEntity : entityCollisions) {
+//            livingEntity.hurt(this.damageSources().generic(), this.bullet.getDamage());
+//            this.remove(RemovalReason.KILLED);
+//            return;
+//        }
+//        for (BlockPos blockPos : blockCollisions) {
+//            float strength = level().getBlockState(blockPos).getBlock().getExplosionResistance();
+//            if (strength < 0.5F) {
+//                level().destroyBlock(blockPos, false);
+//            }
+//            level().playSound(null, blockPos, level().getBlockState(blockPos).getSoundType().getBreakSound(), SoundSource.BLOCKS, 1, 0.75F);
+//            this.remove(RemovalReason.KILLED);
+//            return;
+//        }
+    }
+    private void handleEntityCollision(EntityHitResult hitResult) {
+
     }
 
-    public List<BlockPos> traceBlockCollisions(Vec3 startVec, Vec3 endVec) {
-        List<BlockPos> collisions = new ArrayList<>();
+    private void handleBlockCollision(BlockHitResult hitResult) {
+
+    }
+
+    public List<BlockHitResult> traceBlockCollisions(Vec3 startVec, Vec3 endVec) {
+        List<BlockHitResult> collisions = new ArrayList<>();
         double scale = this.getBoundingBox().getSize()/endVec.subtract(startVec).length();
         Vec3 increment = endVec.subtract(startVec).scale(scale);
         for(int i = 0; i < 1/scale; i++) {
@@ -100,25 +125,21 @@ public class BulletEntity extends Projectile implements ItemSupplier {
             BlockState state = level().getBlockState(pos);
             ((ServerLevel) level()).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, state), vPos.x, vPos.y, vPos.z, 10, 0, 0, 0, 1);
             if(!state.isAir()) {
-                collisions.add(pos);
+                collisions.add(new BlockHitResult(vPos, Direction.getNearest(vPos.x, vPos.y, vPos.z).getOpposite(), pos, true));
             }
         }
-        collisions.sort(Comparator.comparingDouble(o -> o.getCenter().distanceToSqr(startVec)));
         return collisions;
     }
 
-    public List<LivingEntity> traceEntityCollisions(Vec3 startVec, Vec3 endVec, List<Entity> candidates) {
-        List<LivingEntity> collisions = new ArrayList<>();
+    public List<EntityHitResult> traceEntityCollisions(Vec3 startVec, Vec3 endVec, List<Entity> candidates) {
+        List<EntityHitResult> collisions = new ArrayList<>();
         candidates.forEach(entity -> {
             if(entity instanceof LivingEntity livingEntity) {
                 AABB box = livingEntity.getBoundingBox();
                 Optional<Vec3> hitPos = box.clip(startVec, endVec);
-                if(hitPos.isPresent()) {
-                    collisions.add(livingEntity);
-                }
+                hitPos.ifPresent(vec3 -> collisions.add(new EntityHitResult(livingEntity, vec3)));
             }
         });
-        collisions.sort(Comparator.comparingDouble(o -> o.distanceToSqr(startVec)));
         return collisions;
     }
 

@@ -7,6 +7,8 @@ import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlockEnti
 import com.github.x3r.synchroma.common.block.multiblock.MultiBlockPartEntity;
 import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlockEntity;
 import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlockEntity;
+import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.titanite.TitaniteBlockEntity;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -31,4 +33,8 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(BasicCircuitPrinterBlockEntity::new, BlockRegistry.BASIC_CIRCUIT_PRINTER.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnergyBufferBlockEntity>> ENERGY_BUFFER = BLOCK_ENTITIES.register("energy_buffer",
             () -> BlockEntityType.Builder.of(EnergyBufferBlockEntity::new, BlockRegistry.ENERGY_BUFFER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<TitaniteBlockEntity>> TITANITE_CRYSTAL = BLOCK_ENTITIES.register("titanite_crystal",
+            () -> BlockEntityType.Builder.of(TitaniteBlockEntity::new, BlockRegistry.TITANITE_CRYSTAL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BasicSolarPanelBlockEntity>> BASIC_SOLAR_PANEL = BLOCK_ENTITIES.register("basic_solar_panel",
+            () -> BlockEntityType.Builder.of(BasicSolarPanelBlockEntity::new, BlockRegistry.BASIC_SOLAR_PANEL.get()).build(null));
 }

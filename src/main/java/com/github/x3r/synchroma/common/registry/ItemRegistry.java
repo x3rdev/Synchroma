@@ -45,7 +45,6 @@ public class ItemRegistry {
             () -> new Item(DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
-
         public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);
 
         public static final RegistryObject<CreativeModeTab> SYNCHROMA_ITEM_TAB = CREATIVE_MODE_TABS.register("main", () -> CreativeModeTab.builder()
@@ -53,8 +52,15 @@ public class ItemRegistry {
 //                .title(Component.translatable("itemGroup.synchroma"))
                 .displayItems((displayParameters, output) -> {
                     ItemRegistry.ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
-                    GunModificationRegistry.GUN_MODIFICATIONS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
                     BlockItemRegistry.BLOCK_ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
+                })
+                .build());
+
+        public static final RegistryObject<CreativeModeTab> GUN_MODIFICATION_ITEM_TAB = CREATIVE_MODE_TABS.register("attachments", () -> CreativeModeTab.builder()
+                .icon(Items.NAME_TAG::getDefaultInstance)
+//                .title(Component.translatable("itemGroup.synchroma"))
+                .displayItems((displayParameters, output) -> {
+                    GunModificationRegistry.GUN_MODIFICATIONS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
                 })
                 .build());
     }

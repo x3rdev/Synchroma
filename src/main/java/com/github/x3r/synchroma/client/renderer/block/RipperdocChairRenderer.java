@@ -17,12 +17,6 @@ public class RipperdocChairRenderer extends GeoBlockRenderer<RipperdocChairBlock
     public RipperdocChairRenderer() {
         super(new RipperdocChairModel());
     }
-
-    @Override
-    public void preRender(PoseStack poseStack, RipperdocChairBlockEntity animatable, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        poseStack.translate(0, -0.0075, 0);
-        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
-    }
     @Override
     public RenderType getRenderType(RipperdocChairBlockEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource bufferSource, float partialTick) {
         return RenderType.entityTranslucent(getTextureLocation(animatable));

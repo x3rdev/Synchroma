@@ -17,12 +17,6 @@ public class RipperdocInterfaceRenderer extends GeoBlockRenderer<RipperdocInterf
     }
 
     @Override
-    public void preRender(PoseStack poseStack, RipperdocInterfaceBlockEntity animatable, BakedGeoModel model, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        poseStack.translate(0, -0.01, 0);
-        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
-    }
-
-    @Override
     public RenderType getRenderType(RipperdocInterfaceBlockEntity animatable, ResourceLocation texture, @Nullable MultiBufferSource bufferSource, float partialTick) {
         return RenderType.entityTranslucent(getTextureLocation(animatable));
     }

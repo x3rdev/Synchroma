@@ -2,7 +2,10 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.modification.GunModification;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -21,6 +24,4 @@ public class GunModificationRegistry {
     public static final RegistryObject<GunModification> COUNTER = GUN_MODIFICATIONS.register("counter", GunModification::new);
     public static final RegistryObject<GunModification> LASER = GUN_MODIFICATIONS.register("laser", GunModification::new);
     public static final RegistryObject<GunModification> FLASHLIGHT = GUN_MODIFICATIONS.register("flashlight", GunModification::new);
-
-
 }
