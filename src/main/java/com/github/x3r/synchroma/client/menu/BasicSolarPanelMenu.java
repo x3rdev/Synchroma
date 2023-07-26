@@ -1,29 +1,47 @@
 package com.github.x3r.synchroma.client.menu;
 
+import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import org.jetbrains.annotations.Nullable;
 
-public class BasicSolarPanelMenu extends AbstractContainerMenu {
+public class BasicSolarPanelMenu extends SyncedMenu<BasicSolarPanelBlockEntity> {
     private final Container container;
-    public BasicSolarPanelMenu(int pContainerId, Inventory inventory) {
-        this(pContainerId, inventory, new SimpleContainer(3));
+
+    public BasicSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
+        this(pContainerId, inventory, (BasicSolarPanelBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
     }
 
-    public BasicSolarPanelMenu(int containerId, Inventory inventory, Container container) {
-        super(MenuTypeRegistry.BASIC_SOLAR_PANEL_MENU.get(), containerId);
+    public BasicSolarPanelMenu(int containerId, Inventory inventory, BasicSolarPanelBlockEntity blockEntity) {
+        super(MenuTypeRegistry.BASIC_SOLAR_PANEL_MENU.get(), containerId, inventory, blockEntity);
+        this.container = blockEntity;
         checkContainerSize(container, 3);
-        this.container = container;
-        container.startOpen(inventory.player);
-
-        for(int i = 0; i < 3; ++i) {
-            this.addSlot(new Slot(container, i, 44 + i*36, 34));
-        }
+        this.addSlot(new Slot(container, 0, 44, 34){
+            @Override
+            public boolean mayPlace(ItemStack pStack) {
+                return super.mayPlace(pStack);
+            }
+        });
+        this.addSlot(new Slot(container, 1, 80, 34){
+            @Override
+            public boolean mayPlace(ItemStack pStack) {
+                return super.mayPlace(pStack);
+            }
+        });
+        this.addSlot(new Slot(container, 2, 116, 34){
+            @Override
+            public boolean mayPlace(ItemStack pStack) {
+                return super.mayPlace(pStack);
+            }
+        });
 
         for(int k = 0; k < 3; ++k) {
             for(int i1 = 0; i1 < 9; ++i1) {

@@ -40,4 +40,7 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> BASIC_SOLAR_PANEL = BLOCK_ITEMS.register("basic_solar_panel",
             () -> new BlockItem(BlockRegistry.BASIC_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> ENERGY_PIPE = BLOCK_ITEMS.register("energy_pipe",
+            () -> new BlockItem(BlockRegistry.ENERGY_PIPE.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

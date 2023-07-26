@@ -1,6 +1,8 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
+import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlock;
+import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.FrameBlock;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlock;
@@ -44,5 +46,9 @@ public class BlockRegistry {
             () -> new TitaniteBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
     public static final RegistryObject<Block> BASIC_SOLAR_PANEL = BLOCKS.register("basic_solar_panel",
             () -> new BasicSolarPanelBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> BASIC_PUMP = BLOCKS.register("basic_pump",
+            () -> new BasicPumpBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> ENERGY_PIPE = BLOCKS.register("energy_pipe",
+            () -> new EnergyPipeBlock(DEFAULT_PROPERTIES));
 }
 

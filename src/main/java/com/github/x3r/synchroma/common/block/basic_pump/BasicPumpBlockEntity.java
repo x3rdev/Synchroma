@@ -1,8 +1,9 @@
-package com.github.x3r.synchroma.common.block.solar_panel;
+package com.github.x3r.synchroma.common.block.basic_pump;
 
-import com.github.x3r.synchroma.client.menu.BasicSolarPanelMenu;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
+import com.github.x3r.synchroma.common.block.SynchromaFluidStorage;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
+import com.github.x3r.synchroma.util.FluidStorageHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -17,45 +18,32 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity implements ICapabilityProvider {
+public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
     public static final int MAX_ENERGY = 10000;
     private NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
-    private final SynchromaEnergyStorage energyStorage = new SynchromaEnergyStorage(0, 1000, MAX_ENERGY);
+    private final SynchromaEnergyStorage energyStorage = new SynchromaEnergyStorage(1000, 0, MAX_ENERGY);
     private final LazyOptional<SynchromaEnergyStorage> energyStorageLazyOptional = LazyOptional.of(() -> energyStorage);
-
-    public BasicSolarPanelBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntityRegistry.BASIC_SOLAR_PANEL.get(), pPos, pBlockState);
-    }
-
-    public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BasicSolarPanelBlockEntity pBlockEntity) {
-        int i = pLevel.getBrightness(LightLayer.SKY, pPos) - pLevel.getSkyDarken();
-        pBlockEntity.getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
-            if(iEnergyStorage instanceof SynchromaEnergyStorage storage) {
-                storage.setEnergyStored(storage.getEnergyStored() + 4*i);
-                pBlockEntity.markUpdated();
-            }
-        });
+    private final SynchromaFluidStorage fluidStorage = new SynchromaFluidStorage(new SynchromaFluidStorage.SynchromaFluidTank[]{new SynchromaFluidStorage.SynchromaFluidTank(1000)});
+    private final LazyOptional<SynchromaFluidStorage> fluidStorageLazyOptional = LazyOptional.of(() -> fluidStorage);
+    public BasicPumpBlockEntity(BlockPos pPos, BlockState pBlockState) {
+        super(BlockEntityRegistry.BASIC_PUMP.get(), pPos, pBlockState);
     }
 
     @Override
     protected Component getDefaultName() {
-        return Component.literal("container.basic_solar_panel");
+        return Component.literal("container.basic_pump");
     }
 
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new BasicSolarPanelMenu(pContainerId, pInventory, this);
+        return null;
     }
 
     @Override
@@ -110,12 +98,14 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
     public void clearContent() {
         items.clear();
     }
+
     @Override
     public void load(CompoundTag pTag) {
         super.load(pTag);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(pTag, this.items);
         this.energyStorage.setEnergyStored(pTag.getInt("Energy"));
+        FluidStorageHelper.loadFluidStorage(pTag, this.fluidStorage);
     }
 
     @Override
@@ -123,6 +113,7 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, this.items);
         tag.putInt("Energy", this.energyStorage.getEnergyStored());
+        FluidStorageHelper.saveFluidStorage(tag, this.fluidStorage);
     }
 
     @Nullable
@@ -140,9 +131,12 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+    public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
         if(cap.equals(ForgeCapabilities.ENERGY)) {
             return energyStorageLazyOptional.cast();
+        }
+        if(cap.equals(ForgeCapabilities.FLUID_HANDLER)) {
+            return fluidStorageLazyOptional.cast();
         }
         return LazyOptional.empty();
     }
@@ -151,9 +145,6 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
     public void invalidateCaps() {
         super.invalidateCaps();
         energyStorageLazyOptional.invalidate();
-    }
-
-    private void markUpdated() {
-        this.getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+        fluidStorageLazyOptional.invalidate();
     }
 }

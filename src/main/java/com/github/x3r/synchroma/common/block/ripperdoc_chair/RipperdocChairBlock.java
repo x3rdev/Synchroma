@@ -1,7 +1,6 @@
 package com.github.x3r.synchroma.common.block.ripperdoc_chair;
 
 import com.github.x3r.synchroma.common.block.BlockUtils;
-import com.github.x3r.synchroma.common.block.VoxelShapeBlock;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -22,15 +21,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class RipperdocChairBlock extends Block implements EntityBlock, VoxelShapeBlock {
-
-    protected final VoxelShape VOXEL_NORTH = BlockUtils.rotate(defaultShape(), Direction.NORTH);
-
-    protected final VoxelShape VOXEL_EAST = BlockUtils.rotate(defaultShape(), Direction.EAST);
-
-    protected final VoxelShape VOXEL_SOUTH = BlockUtils.rotate(defaultShape(), Direction.SOUTH);
-
-    protected final VoxelShape VOXEL_WEST = BlockUtils.rotate(defaultShape(), Direction.WEST);
+public class RipperdocChairBlock extends Block implements EntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public RipperdocChairBlock(Properties pProperties) {
         super(pProperties);
@@ -50,37 +41,6 @@ public class RipperdocChairBlock extends Block implements EntityBlock, VoxelShap
     @Override
     public RenderShape getRenderShape(BlockState pState) {
         return RenderShape.ENTITYBLOCK_ANIMATED;
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Direction direction = pState.getValue(FACING);
-        switch (direction) {
-            case NORTH -> {
-                return VOXEL_NORTH;
-            }
-            case EAST -> {
-                return VOXEL_EAST;
-            }
-            case SOUTH -> {
-                return VOXEL_SOUTH;
-            }
-            case WEST -> {
-                return VOXEL_WEST;
-            }
-            default -> {
-                return Shapes.empty();
-            }
-        }
-    }
-
-    @Override
-    public VoxelShape defaultShape() {
-        VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0.125, 0, 0, 0.875, 0.0625, 1), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.25, 0.0625, 0.1875, 0.75, 0.4375, 0.8125), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.125, 0.4375, 0.0625, 0.875, 0.5625, 0.875), BooleanOp.OR);
-        return shape;
     }
 
     @Nullable

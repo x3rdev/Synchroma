@@ -18,20 +18,26 @@ description is a wip
 '''
 
 [[dependencies.synchroma]]
-    modId="forge"
-    mandatory=true
-    versionRange="[47.1.1,)"
-    ordering="NONE"
-    side="BOTH"
+modId="forge"
+mandatory=true
+versionRange="[47.1.1,)"
+ordering="NONE"
+side="BOTH"
 [[dependencies.synchroma]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.20,)"
-    ordering="NONE"
-    side="BOTH"
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,)"
+ordering="NONE"
+side="BOTH"
 [[dependencies.synchroma]]
-    modId="geckolib"
-    mandatory=true
-    versionRange="[4.2.1,)"
-    ordering="NONE"
-    side="BOTH"
+modId="geckolib"
+mandatory=true
+versionRange="[4.2.1,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.synchroma]]
+modId="patchouli"
+mandatory=true
+versionRange="[1.20.1-81-FORGE,)"
+ordering="NONE"
+side="BOTH"

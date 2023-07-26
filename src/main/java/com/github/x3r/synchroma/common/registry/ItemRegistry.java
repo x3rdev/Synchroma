@@ -6,6 +6,7 @@ import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.circuit.Circuit1;
 import com.github.x3r.synchroma.common.item.guns.HunterRifle;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -43,6 +44,12 @@ public class ItemRegistry {
             () -> new Item(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> WIRES = ITEMS.register("wires",
             () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> RATE_UPGRADE = ITEMS.register("rate_upgrade",
+            () -> new MachineUpgradeItem(DEFAULT_PROPERTIES, 1, Component.literal("test")));
+    public static final RegistryObject<Item> REVERSE_UPGRADE = ITEMS.register("reverse_upgrade",
+            () -> new MachineUpgradeItem(DEFAULT_PROPERTIES, 2, Component.literal("test")));
+    public static final RegistryObject<Item> EFFICIENCY_UPGRADE = ITEMS.register("efficiency_upgrade",
+            () -> new MachineUpgradeItem(DEFAULT_PROPERTIES, 3, Component.literal("test")));
 
     public static class SynchromaItemTab {
         public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);
@@ -57,7 +64,7 @@ public class ItemRegistry {
                 .build());
 
         public static final RegistryObject<CreativeModeTab> GUN_MODIFICATION_ITEM_TAB = CREATIVE_MODE_TABS.register("attachments", () -> CreativeModeTab.builder()
-                .icon(Items.NAME_TAG::getDefaultInstance)
+                .icon(Items.BAKED_POTATO::getDefaultInstance)
 //                .title(Component.translatable("itemGroup.synchroma"))
                 .displayItems((displayParameters, output) -> {
                     GunModificationRegistry.GUN_MODIFICATIONS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
