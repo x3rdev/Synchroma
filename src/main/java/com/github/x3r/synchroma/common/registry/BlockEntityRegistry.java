@@ -5,6 +5,8 @@ import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitP
 import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlockEntity;
 import com.github.x3r.synchroma.common.block.controller.ControllerBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlockEntity;
+import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
+import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlockEntity;
 import com.github.x3r.synchroma.common.block.multiblock.MultiBlockPartEntity;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlockEntity;
 import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlockEntity;
@@ -43,4 +45,6 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(BasicPumpBlockEntity::new, BlockRegistry.BASIC_PUMP.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnergyPipeBlockEntity>> ENERGY_PIPE = BLOCK_ENTITIES.register("energy_pipe",
             () -> BlockEntityType.Builder.of(EnergyPipeBlockEntity::new, BlockRegistry.ENERGY_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<MicroscopeBlockEntity>> MICROSCOPE = BLOCK_ENTITIES.register("microscope",
+            () -> BlockEntityType.Builder.of(MicroscopeBlockEntity::new, BlockRegistry.MICROSCOPE.get()).build(null));
 }

@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlock;
+import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.FrameBlock;
@@ -50,5 +51,7 @@ public class BlockRegistry {
             () -> new BasicPumpBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> ENERGY_PIPE = BLOCKS.register("energy_pipe",
             () -> new EnergyPipeBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> MICROSCOPE = BLOCKS.register("microscope",
+            () -> new MicroscopeBlock(DEFAULT_PROPERTIES));
 }
 

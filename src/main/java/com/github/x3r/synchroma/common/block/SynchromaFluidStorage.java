@@ -1,12 +1,16 @@
 package com.github.x3r.synchroma.common.block;
 
 import com.github.x3r.synchroma.Synchroma;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class SynchromaFluidStorage implements IFluidHandler {
     private final SynchromaFluidTank[] tanks;
@@ -69,7 +73,15 @@ public class SynchromaFluidStorage implements IFluidHandler {
 
     @Override
     public @NotNull FluidStack drain(int maxDrain, FluidAction action) {
-        return null;
+        int drained = 0;
+        Fluid fluid = Arrays.stream(tanks).map(t -> t.fluid.getFluid()).toList().get(getTanks() - 1);
+        for (int i = tanks.length - 1; i >= 0; i--) {
+            if(tanks[i].getFluid().getFluid().isSame(fluid)) {
+                FluidStack stack = tanks[i].drain(maxDrain - drained, action);
+                drained += stack.getAmount();
+            }
+        }
+        return new FluidStack(fluid, drained);
     }
 
     public static class SynchromaFluidTank implements IFluidTank {
@@ -148,6 +160,14 @@ public class SynchromaFluidStorage implements IFluidHandler {
         }
 
         @Override
+        public @NotNull FluidStack drain(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty() || !resource.isFluidEqual(fluid)) {
+                return FluidStack.EMPTY;
+            }
+            return drain(resource.getAmount(), action);
+        }
+
+        @Override
         public @NotNull FluidStack drain(int maxDrain, FluidAction action) {
             int drained = maxDrain;
             if (fluid.getAmount() < drained) {
@@ -159,14 +179,6 @@ public class SynchromaFluidStorage implements IFluidHandler {
                 onContentsChanged();
             }
             return stack;
-        }
-
-        @Override
-        public @NotNull FluidStack drain(FluidStack resource, FluidAction action) {
-            if (resource.isEmpty() || !resource.isFluidEqual(fluid)) {
-                return FluidStack.EMPTY;
-            }
-            return drain(resource.getAmount(), action);
         }
 
         public void setFluid(FluidStack stack) {

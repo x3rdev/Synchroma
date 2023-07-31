@@ -1,5 +1,6 @@
 {
 	"ambientocclusion": false,
+	"parent": "minecraft:block/block",
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "synchroma:block/energy_pipe",

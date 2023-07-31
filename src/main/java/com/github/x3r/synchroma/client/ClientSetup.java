@@ -35,6 +35,7 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(BlockEntityRegistry.WEAPON_WORKBENCH.get(), pContext -> new WeaponWorkbenchRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.BASIC_CIRCUIT_PRINTER.get(), pContext -> new BasicCircuitPrinterRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.MICROSCOPE.get(), pContext -> new MicroscopeRenderer());
     }
 
     @SubscribeEvent

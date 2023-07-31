@@ -15,8 +15,8 @@ public class EnergyPipeBlockEntity extends BlockEntity {
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, EnergyPipeBlockEntity pBlockEntity) {
-        Optional<Boolean> b = pState.getOptionalValue(BasePipeBlock.HAS_BRAIN);
-        if(b.isEmpty() || !b.get()) return;
+//        Optional<Boolean> b = pState.getOptionalValue();
+//        if(b.isEmpty() || !b.get()) return;
 
     }
 }

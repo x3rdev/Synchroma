@@ -106,6 +106,7 @@ public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
         ContainerHelper.loadAllItems(pTag, this.items);
         this.energyStorage.setEnergyStored(pTag.getInt("Energy"));
         FluidStorageHelper.loadFluidStorage(pTag, this.fluidStorage);
+
     }
 
     @Override

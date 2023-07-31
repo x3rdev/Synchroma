@@ -29,7 +29,6 @@ public abstract class BasePipeBlock extends BaseEntityBlock {
     public static final BooleanProperty WEST = BlockStateProperties.WEST;
     public static final BooleanProperty UP = BlockStateProperties.UP;
     public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
-    public static final BooleanProperty HAS_BRAIN = BooleanProperty.create("has_brain");
 
     protected BasePipeBlock(Properties pProperties) {
         super(pProperties);
@@ -39,8 +38,7 @@ public abstract class BasePipeBlock extends BaseEntityBlock {
                 .setValue(SOUTH, false)
                 .setValue(WEST, false)
                 .setValue(UP, false)
-                .setValue(DOWN, false)
-                .setValue(HAS_BRAIN, false));
+                .setValue(DOWN, false));
     }
 
     @Override
@@ -51,7 +49,6 @@ public abstract class BasePipeBlock extends BaseEntityBlock {
         pBuilder.add(WEST);
         pBuilder.add(UP);
         pBuilder.add(DOWN);
-        pBuilder.add(HAS_BRAIN);
     }
 
     @Override
@@ -76,12 +73,18 @@ public abstract class BasePipeBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return super.getStateForPlacement(pContext);
+        return this.defaultBlockState()
+                .setValue(NORTH, isValidConnection(pContext.getLevel(), pContext.getClickedPos().relative(Direction.NORTH), Direction.NORTH))
+                .setValue(EAST, isValidConnection(pContext.getLevel(), pContext.getClickedPos().relative(Direction.EAST), Direction.EAST))
+                .setValue(SOUTH, isValidConnection(pContext.getLevel(), pContext.getClickedPos().relative(Direction.SOUTH), Direction.SOUTH))
+                .setValue(WEST, isValidConnection(pContext.getLevel(), pContext.getClickedPos().relative(Direction.WEST), Direction.WEST))
+                .setValue(UP, isValidConnection(pContext.getLevel(), pContext.getClickedPos().relative(Direction.UP), Direction.UP))
+                .setValue(DOWN, isValidConnection(pContext.getLevel(), pContext.getClickedPos().relative(Direction.DOWN), Direction.DOWN));
     }
 
     @Override
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
-        return pState.setValue(getDirectionFromString(pDirection), isValidConnection(pLevel, pNeighborPos));
+        return pState.setValue(getDirectionFromString(pDirection), isValidConnection(pLevel, pNeighborPos, pDirection));
     }
 
     public BooleanProperty getDirectionFromString(Direction direction) {
@@ -96,9 +99,9 @@ public abstract class BasePipeBlock extends BaseEntityBlock {
         };
     }
 
-    public boolean isValidConnection(LevelAccessor pLevel, BlockPos pos) {
+    public boolean isValidConnection(LevelAccessor pLevel, BlockPos pos, Direction pDirection) {
         return (pLevel.getBlockEntity(pos) != null &&
-                pLevel.getBlockEntity(pos).getCapability(ForgeCapabilities.ENERGY).isPresent()) ||
+                pLevel.getBlockEntity(pos).getCapability(ForgeCapabilities.ENERGY, pDirection.getOpposite()).isPresent()) ||
                 pLevel.getBlockState(pos).is(getPipeTag());
     }
 

@@ -15,12 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BasicSolarPanelScreen extends AbstractContainerScreen<BasicSolarPanelMenu> {
-
-    //TODO use minecraft widget system
-    public static final List<ScreenArea> SCREEN_AREAS = new ArrayList<>();
     private static final ResourceLocation CONTAINER_LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/basic_solar_panel.png");
-
-    private boolean infoScreen = false;
 
     public BasicSolarPanelScreen(BasicSolarPanelMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -29,26 +24,15 @@ public class BasicSolarPanelScreen extends AbstractContainerScreen<BasicSolarPan
     @Override
     protected void init() {
         super.init();
-        SCREEN_AREAS.add(new ScreenArea(11, 17, 9, 50, (graphics, pPartialTick, pMouseX, pMouseY) -> {
-            menu.getBlockEntity().getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
-                graphics.renderTooltip(this.font, Component.literal(String.valueOf(iEnergyStorage.getEnergyStored())), pMouseX, pMouseY);
-            });
-        }, (pMouseX, pMouseY) -> {}));
-        SCREEN_AREAS.add(new ScreenArea(160, 70, 9, 9, (graphics, pPartialTick, pMouseX, pMouseY) -> {},
-                (pMouseX, pMouseY) -> infoScreen = !infoScreen));
+        int i = (this.width - this.imageWidth) / 2;
+        int j = (this.height - this.imageHeight) / 2;
+        this.addRenderableWidget(new SynchromaWidgets.InformationWidget(i + 158, j + 6, getMenu().getBlockEntity().getType().toString()));
     }
 
     @Override
     public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(pGuiGraphics);
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-        int i = (this.width - this.imageWidth) / 2;
-        int j = (this.height - this.imageHeight) / 2;
-        SCREEN_AREAS.forEach(screenArea -> {
-            if(pMouseX >= i+screenArea.x() && pMouseX < i+screenArea.x()+screenArea.width() && pMouseY >= j+screenArea.y() && pMouseY < j+screenArea.y()+screenArea.height()) {
-                screenArea.renderConsumer().accept(pGuiGraphics, pPartialTick, pMouseX, pMouseY);
-            }
-        });
         this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
     }
 
@@ -58,23 +42,11 @@ public class BasicSolarPanelScreen extends AbstractContainerScreen<BasicSolarPan
         int j = (this.height - this.imageHeight) / 2;
         graphics.blit(CONTAINER_LOCATION, i, j, 0, 0, this.imageWidth, this.imageHeight);
         getMenu().getBlockEntity().getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
-            int v = (int) (50 * ((float) iEnergyStorage.getEnergyStored() / BasicSolarPanelBlockEntity.MAX_ENERGY));
-            graphics.blit(CONTAINER_LOCATION, i+11, j+17+(50-v), 176, 9, 9, v);
+            int v = (int) (48 * (1-((float) iEnergyStorage.getEnergyStored() / BasicSolarPanelBlockEntity.MAX_ENERGY)));
+            graphics.blit(CONTAINER_LOCATION, i+5, j+21, 176, 12, 11, v);
         });
-        if(infoScreen) {
-            graphics.blit(CONTAINER_LOCATION, i+160, j+70, 176, 0, 9, 9);
-        }
-    }
-
-    @Override
-    public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
-        int i = (this.width - this.imageWidth) / 2;
-        int j = (this.height - this.imageHeight) / 2;
-        SCREEN_AREAS.forEach(screenArea -> {
-            if(pMouseX >= i+screenArea.x() && pMouseX < i+screenArea.x()+screenArea.width() && pMouseY >= j+screenArea.y() && pMouseY < j+screenArea.y()+screenArea.height()) {
-                screenArea.clickConsumer().accept(pMouseX, pMouseY);
-            }
-        });
-        return super.mouseClicked(pMouseX, pMouseY, pButton);
+        int time = (int) (getMenu().getBlockEntity().getLevel().getDayTime() % 24000L);
+        int f = Math.round(37*(Math.abs(6000 - Math.max(0, 12000 - time)) / 6000F));
+        graphics.blit(CONTAINER_LOCATION, i+104+37-f, j+5, 176+37-f, 9, f, 3);
     }
 }

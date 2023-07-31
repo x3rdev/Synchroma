@@ -1,6 +1,7 @@
 package com.github.x3r.synchroma.common.block.basic_pump;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class BasicPumpBlock extends BaseEntityBlock {
@@ -25,7 +27,7 @@ public class BasicPumpBlock extends BaseEntityBlock {
         } else {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof BasicPumpBlockEntity) {
-                pPlayer.openMenu((MenuProvider)blockentity);
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, (MenuProvider) blockentity, buf -> buf.writeBlockPos(pPos));
             }
             return InteractionResult.CONSUME;
         }

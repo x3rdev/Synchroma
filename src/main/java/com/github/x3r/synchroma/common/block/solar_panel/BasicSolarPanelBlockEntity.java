@@ -39,13 +39,16 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BasicSolarPanelBlockEntity pBlockEntity) {
-        int i = pLevel.getBrightness(LightLayer.SKY, pPos) - pLevel.getSkyDarken();
-        pBlockEntity.getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
-            if(iEnergyStorage instanceof SynchromaEnergyStorage storage) {
-                storage.setEnergyStored(storage.getEnergyStored() + 4*i);
-                pBlockEntity.markUpdated();
-            }
-        });
+        if(pLevel.getBrightness(LightLayer.SKY, pPos) + 1 >= pLevel.getMaxLightLevel()) {
+            int time = (int) (pLevel.getDayTime() % 24000);
+            int f = Math.round(1 - (Math.abs(6000 - Math.max(0, 12000 - time)) / 6000F));
+            pBlockEntity.getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
+                if (iEnergyStorage instanceof SynchromaEnergyStorage storage) {
+                    storage.setEnergyStored(storage.getEnergyStored() + 20 * f);
+                    pBlockEntity.markUpdated();
+                }
+            });
+        }
     }
 
     @Override
