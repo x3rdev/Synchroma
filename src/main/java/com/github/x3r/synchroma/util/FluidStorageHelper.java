@@ -30,6 +30,7 @@ public final class FluidStorageHelper {
             int capacity = ((CompoundTag) compoundTag).getInt("Capacity");
             SynchromaFluidStorage.SynchromaFluidTank tank = new SynchromaFluidStorage.SynchromaFluidTank(capacity);
             tank.setFluid(stack);
+
             return tank;
         }).toArray(SynchromaFluidStorage.SynchromaFluidTank[]::new);
         for (int i = 0; i < storage.getTanks(); i++) {

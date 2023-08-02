@@ -1,11 +1,18 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
+import com.github.x3r.synchroma.client.model.block.ControllerModel;
+import com.github.x3r.synchroma.client.renderer.DefaultedBlockItemGeoModel;
+import com.github.x3r.synchroma.client.renderer.block.ControllerRenderer;
+import com.github.x3r.synchroma.common.item.GeckoBlockItem;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import software.bernie.geckolib.model.DefaultedItemGeoModel;
+import software.bernie.geckolib.renderer.GeoItemRenderer;
 
 public class BlockItemRegistry {
 
@@ -27,7 +34,7 @@ public class BlockItemRegistry {
             () -> new BlockItem(BlockRegistry.FRAME.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> CONTROLLER_ITEM = BLOCK_ITEMS.register("controller",
-            () -> new BlockItem(BlockRegistry.CONTROLLER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+            () -> new GeckoBlockItem(BlockRegistry.CONTROLLER.get(), new GeoItemRenderer<>(new DefaultedBlockItemGeoModel(new ResourceLocation(Synchroma.MOD_ID, "controller"))), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> MULTI_BLOCK_PART_ITEM = BLOCK_ITEMS.register("multi_block_part",
             () -> new BlockItem(BlockRegistry.MULTI_BLOCK_PART.get(), ItemRegistry.DEFAULT_PROPERTIES));
@@ -36,7 +43,7 @@ public class BlockItemRegistry {
             () -> new BlockItem(BlockRegistry.ENERGY_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> TITANITE_CRYSTAL_ITEM = BLOCK_ITEMS.register("titanite_crystal",
-            () -> new BlockItem(BlockRegistry.TITANITE_CRYSTAL.get(), ItemRegistry.DEFAULT_PROPERTIES));
+            () -> new GeckoBlockItem(BlockRegistry.TITANITE_CRYSTAL.get(), new GeoItemRenderer<>(new DefaultedBlockItemGeoModel(new ResourceLocation(Synchroma.MOD_ID, "titanite_crystal"))), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> BASIC_SOLAR_PANEL = BLOCK_ITEMS.register("basic_solar_panel",
             () -> new BlockItem(BlockRegistry.BASIC_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));

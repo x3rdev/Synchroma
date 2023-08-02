@@ -24,7 +24,7 @@ public class SynchromaFluidStorage implements IFluidHandler {
         return tanks.length;
     }
 
-    protected SynchromaFluidTank getTank(int tank) {
+    public SynchromaFluidTank getTank(int tank) {
         SynchromaFluidTank fluidTank = null;
         try {
             fluidTank = tanks[tank];

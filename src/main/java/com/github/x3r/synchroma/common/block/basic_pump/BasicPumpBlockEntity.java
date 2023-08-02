@@ -1,7 +1,9 @@
 package com.github.x3r.synchroma.common.block.basic_pump;
 
+import com.github.x3r.synchroma.client.menu.BasicPumpMenu;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaFluidStorage;
+import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.util.FluidStorageHelper;
 import net.minecraft.core.BlockPos;
@@ -18,11 +20,16 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.Nullable;
 
 public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
@@ -36,6 +43,20 @@ public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
         super(BlockEntityRegistry.BASIC_PUMP.get(), pPos, pBlockState);
     }
 
+    public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BasicPumpBlockEntity pBlockEntity) {
+        if(pLevel.getGameTime() % 20 == 0 && pLevel.getFluidState(pPos.below()).is(Fluids.WATER)) {
+            pBlockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(iFluidHandler -> {
+                if (iFluidHandler instanceof SynchromaFluidStorage storage) {
+                    int amount = storage.fill(new FluidStack(Fluids.WATER, 100), IFluidHandler.FluidAction.EXECUTE);
+                    if(amount > 0) {
+                        pLevel.setBlockAndUpdate(pPos.below(), Blocks.AIR.defaultBlockState());
+                        pBlockEntity.markUpdated();
+                    }
+                }
+            });
+        }
+    }
+
     @Override
     protected Component getDefaultName() {
         return Component.literal("container.basic_pump");
@@ -43,7 +64,7 @@ public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
 
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return null;
+        return new BasicPumpMenu(pContainerId, pInventory, this);
     }
 
     @Override
@@ -128,6 +149,7 @@ public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
         CompoundTag tag = new CompoundTag();
         ContainerHelper.saveAllItems(tag, this.items);
         tag.putInt("Energy", this.energyStorage.getEnergyStored());
+        FluidStorageHelper.saveFluidStorage(tag, this.fluidStorage);
         return tag;
     }
 
@@ -147,5 +169,9 @@ public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
         super.invalidateCaps();
         energyStorageLazyOptional.invalidate();
         fluidStorageLazyOptional.invalidate();
+    }
+
+    private void markUpdated() {
+        this.getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
     }
 }

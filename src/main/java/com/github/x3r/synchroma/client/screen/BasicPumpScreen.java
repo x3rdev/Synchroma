@@ -1,23 +1,22 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.menu.BasicSolarPanelMenu;
+import com.github.x3r.synchroma.client.menu.BasicPumpMenu;
+import com.github.x3r.synchroma.common.block.SynchromaFluidStorage;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
-import java.util.ArrayList;
-import java.util.List;
+public class BasicPumpScreen extends AbstractContainerScreen<BasicPumpMenu> {
 
-public class BasicSolarPanelScreen extends AbstractContainerScreen<BasicSolarPanelMenu> {
-    private static final ResourceLocation CONTAINER_LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/basic_solar_panel.png");
+    private static final ResourceLocation CONTAINER_LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/basic_pump.png");
 
-    public BasicSolarPanelScreen(BasicSolarPanelMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+
+    public BasicPumpScreen(BasicPumpMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 
@@ -27,6 +26,16 @@ public class BasicSolarPanelScreen extends AbstractContainerScreen<BasicSolarPan
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         this.addRenderableWidget(new SynchromaWidgets.InformationWidget(i + 158, j + 6, getMenu().getBlockEntity().getType().toString()));
+        this.getMenu().getBlockEntity().getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
+            this.addRenderableWidget(new SynchromaWidgets.EnergyWidget(i+5, j+21,
+                    () -> iEnergyStorage));
+        });
+
+        this.getMenu().getBlockEntity().getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(iFluidHandler -> {
+            this.addRenderableWidget(new SynchromaWidgets.FluidStackWidget(i+44, j+54, 88, 16,
+                    () -> ((SynchromaFluidStorage) iFluidHandler).getTank(0)));
+        });
+
     }
 
     @Override
@@ -38,17 +47,8 @@ public class BasicSolarPanelScreen extends AbstractContainerScreen<BasicSolarPan
 
     @Override
     protected void renderBg(GuiGraphics graphics, float pPartialTick, int pMouseX, int pMouseY) {
-        graphics.pose().pushPose();
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         graphics.blit(CONTAINER_LOCATION, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        getMenu().getBlockEntity().getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
-            int v = (int) (48 * (1-((float) iEnergyStorage.getEnergyStored() / BasicSolarPanelBlockEntity.MAX_ENERGY)));
-            graphics.blit(CONTAINER_LOCATION, i+5, j+21, 176, 3, 11, v);
-        });
-        int time = (int) (getMenu().getBlockEntity().getLevel().getDayTime() % 24000L);
-        int f = Math.round(37*(Math.abs(6000 - Math.max(0, 12000 - time)) / 6000F));
-        graphics.blit(CONTAINER_LOCATION, i+104+37-f, j+5, 176+37-f, 0, f, 3);
-        graphics.pose().popPose();
     }
 }

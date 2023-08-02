@@ -5,6 +5,7 @@ import com.github.x3r.synchroma.client.particle.SparkParticle;
 import com.github.x3r.synchroma.client.renderer.block.*;
 import com.github.x3r.synchroma.client.renderer.entity.BulletRenderer;
 import com.github.x3r.synchroma.client.screen.BasicSolarPanelScreen;
+import com.github.x3r.synchroma.client.screen.BasicPumpScreen;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
@@ -24,7 +25,8 @@ public final class ClientSetup {
     public static void setup(final FMLClientSetupEvent event) {
         EntityRenderers.register(EntityRegistry.BULLET_PROJECTILE.get(), BulletRenderer::new);
         event.enqueueWork(() -> {
-            MenuScreens.register(MenuTypeRegistry.BASIC_SOLAR_PANEL_MENU.get(), BasicSolarPanelScreen::new);
+            MenuScreens.register(MenuTypeRegistry.BASIC_SOLAR_PANEL.get(), BasicSolarPanelScreen::new);
+            MenuScreens.register(MenuTypeRegistry.BASIC_PUMP.get(), BasicPumpScreen::new);
         });
     }
     @SubscribeEvent

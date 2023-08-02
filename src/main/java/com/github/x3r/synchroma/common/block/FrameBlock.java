@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,9 +15,29 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.stream.Stream;
 
 public class FrameBlock extends Block {
 
+    private static final VoxelShape SHAPE = Stream.of(
+            Block.box(0, 0, 0, 16, 2, 2),
+            Block.box(14, 2, 0, 16, 14, 2),
+            Block.box(0, 14, 0, 16, 16, 2),
+            Block.box(14, 0, 2, 16, 2, 14),
+            Block.box(14, 14, 2, 16, 16, 14),
+            Block.box(0, 2, 0, 2, 14, 2),
+            Block.box(0, 14, 14, 16, 16, 16),
+            Block.box(0, 0, 14, 16, 2, 16),
+            Block.box(0, 2, 14, 2, 14, 16),
+            Block.box(0, 0, 2, 2, 2, 14),
+            Block.box(0, 14, 2, 2, 16, 14),
+            Block.box(14, 2, 14, 16, 14, 16)
+    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
     public static final BooleanProperty WIRES = BooleanProperty.create("wires");
     public static final BooleanProperty PLATES = BooleanProperty.create("plates");
 
@@ -72,5 +93,8 @@ public class FrameBlock extends Block {
             }
         }
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return SHAPE;
+    }
 }
