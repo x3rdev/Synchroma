@@ -12,7 +12,6 @@ public class BasicSolarPanelBlockEntityTest {
 
         float sunlightStrength = 1-(Math.abs(6000-Math.max(0, 12000-daytime))/6000F);
 
-        System.out.println(sunlightStrength);
         assertEquals(0D, sunlightStrength, 0);
     }
 }

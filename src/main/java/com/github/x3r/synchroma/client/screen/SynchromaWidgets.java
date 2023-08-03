@@ -30,7 +30,7 @@ public final class SynchromaWidgets {
         public InformationWidget(int pX, int pY, String machineId) {
             super(pX, pY, 9, 9, 0, 0, 9, SYNCHROMA_WIDGETS_LOCATION, pButton -> {});
             this.machineId = machineId;
-            this.setTooltip(Tooltip.create(Component.literal("Information")));
+            this.setTooltip(Tooltip.create(Component.literal("gui.machine_information")));
         }
 
         @Override
@@ -51,9 +51,9 @@ public final class SynchromaWidgets {
             graphics.pose().pushPose();
             float ratio = getBarRatio.get();
             int i = (int) Math.floor(37*ratio);
+            this.setTooltip(Tooltip.create(Component.literal((int)(ratio*100) + "%")));
             graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 3, 37, 3);
             graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 0, i, 3);
-            this.setTooltip(Tooltip.create(Component.literal((int)(ratio*100) + "%")));
             graphics.pose().popPose();
         }
 
@@ -76,13 +76,11 @@ public final class SynchromaWidgets {
             IEnergyStorage storage = getEnergyStorage.get();
             graphics.pose().pushPose();
             graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 6, 11, 48);
-            if(storage != null) {
-                int energyStored = storage.getEnergyStored();
-                int maxEnergyStored = storage.getMaxEnergyStored();
-                this.setTooltip(Tooltip.create(Component.literal(energyStored + "/" + maxEnergyStored + "RF")));
-                int v = (int) Math.floor(48*((float)energyStored/maxEnergyStored));
-                graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY()+48-v, 20, 6+48-v, 11, v);
-            }
+            int energyStored = storage.getEnergyStored();
+            int maxEnergyStored = storage.getMaxEnergyStored();
+            this.setTooltip(Tooltip.create(Component.literal(energyStored + "/" + maxEnergyStored + "RF")));
+            int v = (int) Math.floor(48*((float)energyStored/maxEnergyStored));
+            graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY()+48-v, 20, 6+48-v, 11, v);
             graphics.pose().popPose();
         }
 
@@ -105,6 +103,11 @@ public final class SynchromaWidgets {
             RenderSystem.defaultBlendFunc();
             RenderSystem.enableDepthTest();
             IFluidTank tank = getFluidTank.get();
+            int stored = tank.getFluidAmount();
+            float capacity = tank.getCapacity();
+            float filledVolume = stored / capacity;
+            int renderableHeight = (int)(filledVolume * 32);
+            setTooltip(Tooltip.create(Component.literal(stored + "/" + (int) capacity + "mB")));
             if(!tank.getFluid().isEmpty()) {
                 IClientFluidTypeExtensions extensions = IClientFluidTypeExtensions.of(tank.getFluid().getFluid());
                 ResourceLocation resource = extensions.getStillTexture();
@@ -120,13 +123,6 @@ public final class SynchromaWidgets {
                                 FastColor.ARGB32.blue(color) / 255.0F,
                                 FastColor.ARGB32.alpha(color) / 255.0F);
                         RenderSystem.enableBlend();
-
-                        int stored = tank.getFluidAmount();
-                        float capacity = tank.getCapacity();
-                        float filledVolume = stored / capacity;
-                        int renderableHeight = (int)(filledVolume * 32);
-
-                        setTooltip(Tooltip.create(Component.literal(stored + "/" + (int) capacity + "mB")));
 
                         int atlasWidth = (int)(sprite.contents().width() / (sprite.getU1() - sprite.getU0()));
                         int atlasHeight = (int)(sprite.contents().height() / (sprite.getV1() - sprite.getV0()));

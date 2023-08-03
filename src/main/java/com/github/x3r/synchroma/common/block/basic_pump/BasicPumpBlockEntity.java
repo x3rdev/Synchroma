@@ -45,14 +45,13 @@ public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BasicPumpBlockEntity pBlockEntity) {
         if(pLevel.getGameTime() % 2 == 0 && pLevel.getFluidState(pPos.below()).is(Fluids.WATER)) {
-            pBlockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(iFluidHandler -> {
-                if (iFluidHandler instanceof SynchromaFluidStorage storage) {
-                    int amount = storage.fill(new FluidStack(Fluids.WATER, 10), IFluidHandler.FluidAction.EXECUTE);
-                    if(amount > 0) {
-                        pLevel.setBlockAndUpdate(pPos.below(), Blocks.AIR.defaultBlockState());
-                    }
+            if(pBlockEntity.energyStorage.getEnergyStored() > 10) {
+                int amount = pBlockEntity.fluidStorage.fill(new FluidStack(Fluids.WATER, 10), IFluidHandler.FluidAction.EXECUTE);
+                if (amount > 0) {
+                    pBlockEntity.energyStorage.setEnergyStored(pBlockEntity.energyStorage.getEnergyStored() - 10);
+                    pLevel.setBlockAndUpdate(pPos.below(), Blocks.AIR.defaultBlockState());
                 }
-            });
+            }
         }
         pBlockEntity.markUpdated();
     }

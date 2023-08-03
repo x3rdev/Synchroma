@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Predicate;
+import java.util.function.BiPredicate;
 
 public abstract class BasePipeBlockEntity extends BlockEntity {
 
@@ -43,6 +43,7 @@ public abstract class BasePipeBlockEntity extends BlockEntity {
             }
             working.removeAll(traversed);
             working.addAll(toTraverse);
+
         }
         return null;
     }
@@ -50,24 +51,25 @@ public abstract class BasePipeBlockEntity extends BlockEntity {
     @SuppressWarnings("unchecked")
     protected Pair<Direction, BlockPos>[] getAdjacentSources(BlockPos pos) {
         return Arrays.stream(Direction.values())
-                .filter(direction -> isValidSource().test(direction))
+                .filter(direction -> isValidSource().test(pos, direction))
                 .map(direction -> new Pair<>(direction, pos.relative(direction))).toArray(Pair[]::new);
     }
 
     @SuppressWarnings("unchecked")
     protected Pair<Direction, BlockPos>[] getAdjacentEndpoints(BlockPos pos) {
         return Arrays.stream(Direction.values())
-                .filter(direction -> isValidEndpoint().test(direction))
+                .filter(direction -> isValidEndpoint().test(pos, direction))
                 .map(direction -> new Pair<>(direction, pos.relative(direction))).toArray(Pair[]::new);
     }
 
     protected BlockPos[] getAdjacentPipes(BlockPos pos) {
-        return Arrays.stream(Direction.values())
-                .filter(direction -> isValidPipe().test(direction))
+        BlockPos[] positions = Arrays.stream(Direction.values())
+                .filter(direction -> isValidPipe().test(pos, direction))
                 .map(pos::relative).toArray(BlockPos[]::new);
+        return positions;
     }
 
-    protected abstract Predicate<Direction> isValidSource();
-    protected abstract Predicate<Direction> isValidEndpoint();
-    protected abstract Predicate<Direction> isValidPipe();
+    protected abstract BiPredicate<BlockPos, Direction> isValidSource();
+    protected abstract BiPredicate<BlockPos, Direction> isValidEndpoint();
+    protected abstract BiPredicate<BlockPos, Direction> isValidPipe();
 }

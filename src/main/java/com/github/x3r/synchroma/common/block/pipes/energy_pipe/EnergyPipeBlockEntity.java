@@ -9,11 +9,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 import oshi.util.tuples.Pair;
 
-import java.util.function.Predicate;
+import java.util.function.BiPredicate;
 
 public class EnergyPipeBlockEntity extends BasePipeBlockEntity {
     public EnergyPipeBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -27,7 +26,6 @@ public class EnergyPipeBlockEntity extends BasePipeBlockEntity {
             pLevel.getBlockEntity(source.getB()).getCapability(ForgeCapabilities.ENERGY, source.getA().getOpposite()).ifPresent(sourceStorage -> {
                 pLevel.getBlockEntity(endpoint.getB()).getCapability(ForgeCapabilities.ENERGY, endpoint.getA().getOpposite()).ifPresent(endpointStorage -> {
                     endpointStorage.receiveEnergy(sourceStorage.extractEnergy(1000, false), false);
-                    System.out.println(endpointStorage.getEnergyStored());
                 });
             });
         }
@@ -35,9 +33,9 @@ public class EnergyPipeBlockEntity extends BasePipeBlockEntity {
 
 
     @Override
-    public Predicate<Direction> isValidSource() {
-        return direction -> {
-            BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction));
+    public BiPredicate<BlockPos, Direction> isValidSource() {
+        return (pos, direction) -> {
+            BlockEntity be = level.getBlockEntity(pos.relative(direction));
             if(be != null && be.getCapability(ForgeCapabilities.ENERGY, direction.getOpposite()).isPresent()) {
                 IEnergyStorage storage = be.getCapability(ForgeCapabilities.ENERGY, direction.getOpposite()).orElse(null);
                 return storage.canExtract() && storage.getEnergyStored() > 0;
@@ -47,9 +45,9 @@ public class EnergyPipeBlockEntity extends BasePipeBlockEntity {
     }
 
     @Override
-    public Predicate<Direction> isValidEndpoint() {
-        return direction -> {
-            BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction));
+    public BiPredicate<BlockPos, Direction> isValidEndpoint() {
+        return (pos, direction) -> {
+            BlockEntity be = level.getBlockEntity(pos.relative(direction));
             if(be != null && be.getCapability(ForgeCapabilities.ENERGY, direction.getOpposite()).isPresent()) {
                 IEnergyStorage storage = be.getCapability(ForgeCapabilities.ENERGY, direction.getOpposite()).orElse(null);
                 return storage.canReceive() && storage.getEnergyStored() < storage.getMaxEnergyStored();
@@ -59,7 +57,7 @@ public class EnergyPipeBlockEntity extends BasePipeBlockEntity {
     }
 
     @Override
-    public Predicate<Direction> isValidPipe() {
-        return direction -> level.getBlockState(getBlockPos().relative(direction)).is(SynchromaBlockTags.ENERGY_PIPE);
+    public BiPredicate<BlockPos, Direction> isValidPipe() {
+        return (pos, direction) -> level.getBlockState(pos.relative(direction)).is(SynchromaBlockTags.ENERGY_PIPE);
     }
 }

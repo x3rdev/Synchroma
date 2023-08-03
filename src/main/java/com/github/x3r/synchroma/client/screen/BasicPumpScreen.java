@@ -34,7 +34,14 @@ public class BasicPumpScreen extends SynchromaScreen<BasicPumpMenu> {
 
     @Override
     protected float statusBarRatio() {
-        return 0;
+        final float[] f = {0};
+        getMenu().getBlockEntity().getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
+            getMenu().getBlockEntity().getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(iFluidHandler -> {
+                f[0] = iEnergyStorage.getEnergyStored() > 10 && iFluidHandler.getFluidInTank(0).getAmount() < iFluidHandler.getTankCapacity(0)
+                ? 1 : 0;
+            });
+        });
+        return f[0];
     }
 
     @Override
