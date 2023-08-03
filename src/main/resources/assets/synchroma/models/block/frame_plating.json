@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "synchroma:block/plating"
+    "all": "synchroma:block/titanium_plating"
   }
 }

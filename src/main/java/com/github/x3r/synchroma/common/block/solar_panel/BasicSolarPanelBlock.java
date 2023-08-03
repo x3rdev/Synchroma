@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -26,8 +27,10 @@ import org.jetbrains.annotations.Nullable;
 
 public class BasicSolarPanelBlock extends BaseEntityBlock {
 
+    private static final VoxelShape SHAPE = Shapes.join(Block.box(0, 0, 0, 16, 1, 16), Block.box(0, 1, 0, 16, 2, 16), BooleanOp.OR);
+
     public BasicSolarPanelBlock(Properties pProperties) {
-        super(pProperties.noOcclusion().isSuffocating((pState, pLevel, pPos) -> false).isViewBlocking((pState, pLevel, pPos) -> false));
+        super(pProperties.noOcclusion());
     }
 
     @Override
@@ -58,5 +61,10 @@ public class BasicSolarPanelBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new BasicSolarPanelBlockEntity(pPos, pState);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return SHAPE;
     }
 }

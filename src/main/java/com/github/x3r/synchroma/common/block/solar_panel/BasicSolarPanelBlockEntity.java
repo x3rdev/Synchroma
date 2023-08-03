@@ -145,7 +145,7 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap.equals(ForgeCapabilities.ENERGY)) {
+        if(cap.equals(ForgeCapabilities.ENERGY) && (side == null || side == Direction.DOWN)) {
             return energyStorageLazyOptional.cast();
         }
         return LazyOptional.empty();

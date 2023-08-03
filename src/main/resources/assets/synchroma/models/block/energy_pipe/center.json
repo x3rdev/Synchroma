@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "synchroma:block/energy_pipe",
-		"particle": "synchroma:block/energy_pipe"
+		"particle": "synchroma:block/titanium_plating"
 	},
 	"elements": [
 		{
