@@ -37,7 +37,7 @@ public class BasicPumpBlockEntity extends BaseContainerBlockEntity {
     private NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
     private final SynchromaEnergyStorage energyStorage = new SynchromaEnergyStorage(1000, 0, MAX_ENERGY);
     private final LazyOptional<SynchromaEnergyStorage> energyStorageLazyOptional = LazyOptional.of(() -> energyStorage);
-    private final SynchromaFluidStorage fluidStorage = new SynchromaFluidStorage(new SynchromaFluidStorage.SynchromaFluidTank[]{new SynchromaFluidStorage.SynchromaFluidTank(1000)});
+    private final SynchromaFluidStorage fluidStorage = new SynchromaFluidStorage(new SynchromaFluidStorage.SynchromaFluidTank[]{new SynchromaFluidStorage.SynchromaFluidTank(1000, fluidStack -> fluidStack.getFluid().isSame(Fluids.WATER))});
     private final LazyOptional<SynchromaFluidStorage> fluidStorageLazyOptional = LazyOptional.of(() -> fluidStorage);
     public BasicPumpBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.BASIC_PUMP.get(), pPos, pBlockState);
