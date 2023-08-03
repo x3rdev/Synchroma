@@ -38,6 +38,30 @@ public final class SynchromaWidgets {
             //Open Patchouli page corresponding to machineId
         }
     }
+    public static class StatusBarWidget extends AbstractWidget {
+        private final Supplier<Float> getBarRatio;
+
+        public StatusBarWidget(int pX, int pY, Supplier<Float> getBarRatio) {
+            super(pX, pY, 37, 3, Component.empty());
+            this.getBarRatio = getBarRatio;
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics graphics, int pMouseX, int pMouseY, float pPartialTick) {
+            graphics.pose().pushPose();
+            float ratio = getBarRatio.get();
+            int i = (int) Math.floor(37*ratio);
+            graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 3, 37, 3);
+            graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 0, i, 3);
+            this.setTooltip(Tooltip.create(Component.literal((int)(ratio*100) + "%")));
+            graphics.pose().popPose();
+        }
+
+        @Override
+        protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+
+        }
+    }
 
     public static class EnergyWidget extends AbstractWidget {
 
@@ -51,13 +75,13 @@ public final class SynchromaWidgets {
         protected void renderWidget(GuiGraphics graphics, int pMouseX, int pMouseY, float pPartialTick) {
             IEnergyStorage storage = getEnergyStorage.get();
             graphics.pose().pushPose();
-            graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 11, 18, 11, 48);
+            graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 6, 11, 48);
             if(storage != null) {
                 int energyStored = storage.getEnergyStored();
                 int maxEnergyStored = storage.getMaxEnergyStored();
                 this.setTooltip(Tooltip.create(Component.literal(energyStored + "/" + maxEnergyStored + "RF")));
-                int v = (int) (48 * ((Math.ceil((float)energyStored/maxEnergyStored))));
-                graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 0, 18, 11, v);
+                int v = (int) Math.floor(48*((float)energyStored/maxEnergyStored));
+                graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY()+48-v, 20, 6+48-v, 11, v);
             }
             graphics.pose().popPose();
         }
@@ -70,8 +94,8 @@ public final class SynchromaWidgets {
     public static class FluidStackWidget extends AbstractWidget {
 
         private final Supplier<IFluidTank> getFluidTank;
-        public FluidStackWidget(int pX, int pY, int pWidth, int pHeight, Supplier<IFluidTank> getFluidTank) {
-            super(pX, pY, pWidth, pHeight, Component.empty());
+        public FluidStackWidget(int pX, int pY, Supplier<IFluidTank> getFluidTank) {
+            super(pX, pY, 18, 51, Component.empty());
             this.getFluidTank = getFluidTank;
         }
 
@@ -100,27 +124,29 @@ public final class SynchromaWidgets {
                         int stored = tank.getFluidAmount();
                         float capacity = tank.getCapacity();
                         float filledVolume = stored / capacity;
-                        int renderableHeight = (int)(filledVolume * getHeight());
+                        int renderableHeight = (int)(filledVolume * 32);
 
                         setTooltip(Tooltip.create(Component.literal(stored + "/" + (int) capacity + "mB")));
 
                         int atlasWidth = (int)(sprite.contents().width() / (sprite.getU1() - sprite.getU0()));
                         int atlasHeight = (int)(sprite.contents().height() / (sprite.getV1() - sprite.getV0()));
 
-                        double widthScale = Math.ceil(width/(float)sprite.contents().width());
                         graphics.pose().pushPose();
-                        graphics.pose().translate(0, getHeight() - renderableHeight, 0);
-                        for(int i = 0; i < widthScale; i++) {
-                            int offset = (i*sprite.contents().width());
-                            int border = Math.min(0, getWidth() - ((i+1)*sprite.contents().width()));
-                            graphics.blit(TextureAtlas.LOCATION_BLOCKS, getX() + offset, getY(), 0, sprite.getU0() * atlasWidth, sprite.getV0() * atlasHeight, sprite.contents().width() + border, renderableHeight, atlasWidth, atlasHeight);
+                        graphics.pose().translate(0, height-16, 0);
+                        for (int i = 0; i < Math.ceil(renderableHeight / 16f); i++) {
+                            int drawingHeight = Math.min(16, renderableHeight - 16*i);
+                            int notDrawingHeight = 16 - drawingHeight;
+                            graphics.blit(TextureAtlas.LOCATION_BLOCKS, getX()+1, getY() + notDrawingHeight-10, 0, sprite.getU0()*atlasWidth, sprite.getV0()*atlasHeight + notDrawingHeight, width, drawingHeight, atlasWidth, atlasHeight);
+                            graphics.pose().translate(0,-16, 0);
                         }
                         RenderSystem.setShaderColor(1, 1, 1, 1);
-
                         graphics.pose().popPose();
                     }
                 }
             }
+            graphics.pose().pushPose();
+            graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 31, 6, 18, 49);
+            graphics.pose().popPose();
             RenderSystem.disableDepthTest();
         }
 

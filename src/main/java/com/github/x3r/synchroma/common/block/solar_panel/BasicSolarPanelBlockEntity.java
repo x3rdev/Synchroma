@@ -45,10 +45,10 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
             pBlockEntity.getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
                 if (iEnergyStorage instanceof SynchromaEnergyStorage storage) {
                     storage.setEnergyStored(storage.getEnergyStored() + 20 * f);
-                    pBlockEntity.markUpdated();
                 }
             });
         }
+        pBlockEntity.markUpdated();
     }
 
     @Override

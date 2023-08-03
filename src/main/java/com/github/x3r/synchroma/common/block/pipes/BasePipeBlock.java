@@ -3,7 +3,9 @@ package com.github.x3r.synchroma.common.block.pipes;
 import com.github.x3r.synchroma.common.registry.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -19,6 +21,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class BasePipeBlock extends BaseEntityBlock {
@@ -100,10 +103,11 @@ public abstract class BasePipeBlock extends BaseEntityBlock {
     }
 
     public boolean isValidConnection(LevelAccessor pLevel, BlockPos pos, Direction pDirection) {
-        return (pLevel.getBlockEntity(pos) != null &&
-                pLevel.getBlockEntity(pos).getCapability(ForgeCapabilities.ENERGY, pDirection.getOpposite()).isPresent()) ||
-                pLevel.getBlockState(pos).is(getPipeTag());
+        return (pLevel.getBlockState(pos).is(getPipeTag()) ||
+                pLevel.getBlockEntity(pos) != null &&
+                pLevel.getBlockEntity(pos).getCapability(getCapability(), pDirection.getOpposite()).isPresent());
     }
 
+    public abstract Capability<?> getCapability();
     public abstract TagKey<Block> getPipeTag();
 }
