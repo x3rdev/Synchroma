@@ -4,8 +4,9 @@ import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlockEntity;
 import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlockEntity;
 import com.github.x3r.synchroma.common.block.controller.ControllerBlockEntity;
-import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlockEntity;
-import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
+import com.github.x3r.synchroma.common.block.energy_buffer.EnergyInputBufferBlockEntity;
+import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlock;
+import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlockEntity;
 import com.github.x3r.synchroma.common.block.multiblock.MultiBlockPartEntity;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlockEntity;
@@ -35,8 +36,10 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(WeaponWorkbenchBlockEntity::new, BlockRegistry.WEAPON_WORKBENCH.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicCircuitPrinterBlockEntity>> BASIC_CIRCUIT_PRINTER = BLOCK_ENTITIES.register("basic_circuit_printer",
             () -> BlockEntityType.Builder.of(BasicCircuitPrinterBlockEntity::new, BlockRegistry.BASIC_CIRCUIT_PRINTER.get()).build(null));
-    public static final RegistryObject<BlockEntityType<EnergyBufferBlockEntity>> ENERGY_BUFFER = BLOCK_ENTITIES.register("energy_buffer",
-            () -> BlockEntityType.Builder.of(EnergyBufferBlockEntity::new, BlockRegistry.ENERGY_BUFFER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<EnergyInputBufferBlockEntity>> ENERGY_INPUT_BUFFER = BLOCK_ENTITIES.register("energy_buffer",
+            () -> BlockEntityType.Builder.of(EnergyInputBufferBlockEntity::new, BlockRegistry.ENERGY_INPUT_BUFFER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<EnergyOutputBufferBlockEntity>> ENERGY_OUTPUT_BUFFER = BLOCK_ENTITIES.register("energy_output_buffer",
+            () -> BlockEntityType.Builder.of(EnergyOutputBufferBlockEntity::new, BlockRegistry.ENERGY_OUTPUT_BUFFER.get()).build(null));
     public static final RegistryObject<BlockEntityType<TitaniteBlockEntity>> TITANITE_CRYSTAL = BLOCK_ENTITIES.register("titanite_crystal",
             () -> BlockEntityType.Builder.of(TitaniteBlockEntity::new, BlockRegistry.TITANITE_CRYSTAL.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicSolarPanelBlockEntity>> BASIC_SOLAR_PANEL = BLOCK_ENTITIES.register("basic_solar_panel",

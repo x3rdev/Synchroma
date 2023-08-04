@@ -1,9 +1,10 @@
 package com.github.x3r.synchroma.client.renderer.block;
 
+import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.client.model.block.ControllerModel;
-import com.github.x3r.synchroma.client.model.block.WeaponWorkbenchModel;
 import com.github.x3r.synchroma.common.block.controller.ControllerBlock;
 import com.github.x3r.synchroma.common.block.controller.ControllerBlockEntity;
+import com.github.x3r.synchroma.common.block.multiblock.MultiBlockEntity;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlockEntity;
 import com.github.x3r.synchroma.common.registry.BlockRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -14,15 +15,19 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec2;
+import org.joml.Vector2f;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
+import software.bernie.geckolib.model.DefaultedBlockGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class ControllerRenderer extends GeoBlockRenderer<ControllerBlockEntity> {
 
-    private WeaponWorkbenchRenderer weaponWorkbenchRenderer = new WeaponWorkbenchRenderer();
+    private MultiBlockRenderer multiBlockRenderer = new MultiBlockRenderer(new DefaultedBlockGeoModel(new ResourceLocation(Synchroma.MOD_ID, "weapon_workbench")));
     public ControllerRenderer() {
         super(new ControllerModel());
     }
@@ -42,24 +47,12 @@ public class ControllerRenderer extends GeoBlockRenderer<ControllerBlockEntity> 
             }
         } else {
             poseStack.pushPose();
-            Direction direction = animatable.getBlockState().getValue(ControllerBlock.FACING);
-            if (direction.equals(Direction.NORTH)) {
-                poseStack.translate(-2, -1, 0.39);
-                poseStack.mulPose(Axis.YP.rotationDegrees(0));
-            }
-            if (direction.equals(Direction.EAST)) {
-                poseStack.translate(0.61, -1, -2);
-                poseStack.mulPose(Axis.YP.rotationDegrees(-90));
-            }
-            if (direction.equals(Direction.SOUTH)) {
-                poseStack.translate(3, -1, 0.61);
-                poseStack.mulPose(Axis.YP.rotationDegrees(-180));
-            }
-            if (direction.equals(Direction.WEST)) {
-                poseStack.translate(0.39, -1, 3);
-                poseStack.mulPose(Axis.YP.rotationDegrees(-270));
-            }
-            weaponWorkbenchRenderer.render(new WeaponWorkbenchBlockEntity(animatable.getBlockPos(), BlockRegistry.WEAPON_WORKBENCH.get().defaultBlockState()), partialTick, poseStack, bufferSource, packedLight, packedOverlay);
+            double angle = Math.toRadians(animatable.getBlockState().getValue(ControllerBlock.FACING).toYRot());
+            poseStack.translate(Math.cos(angle)*(2)-Math.sin(angle)*(-0.39), -1, Math.sin(angle)*(2)+Math.cos(angle)*(-0.39));
+
+
+            multiBlockRenderer.render(new MultiBlockEntity(animatable.getBlockPos(), animatable.getBlockState()), partialTick, poseStack, bufferSource, packedLight, packedOverlay);
+
             poseStack.popPose();
         }
     }

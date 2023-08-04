@@ -2,13 +2,14 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlock;
+import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlock;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.FrameBlock;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlock;
 import com.github.x3r.synchroma.common.block.controller.ControllerBlock;
-import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlock;
+import com.github.x3r.synchroma.common.block.energy_buffer.EnergyInputBufferBlock;
 import com.github.x3r.synchroma.common.block.multiblock.MultiBlockPart;
 import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlock;
 import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlock;
@@ -41,8 +42,10 @@ public class BlockRegistry {
             () -> new WeaponWorkbenchBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> BASIC_CIRCUIT_PRINTER = BLOCKS.register("basic_circuit_printer",
             () -> new BasicCircuitPrinterBlock(DEFAULT_PROPERTIES));
-    public static final RegistryObject<Block> ENERGY_BUFFER = BLOCKS.register("energy_buffer",
-            () -> new EnergyBufferBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> ENERGY_INPUT_BUFFER = BLOCKS.register("energy_input_buffer",
+            () -> new EnergyInputBufferBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> ENERGY_OUTPUT_BUFFER = BLOCKS.register("energy_output_buffer",
+            () -> new EnergyOutputBufferBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> TITANITE_CRYSTAL = BLOCKS.register("titanite_crystal",
             () -> new TitaniteBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
     public static final RegistryObject<Block> BASIC_SOLAR_PANEL = BLOCKS.register("basic_solar_panel",

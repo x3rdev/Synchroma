@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "YcB",
+        "SL "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:red_dye"
+        },
+        "Y": {
+            "item": "minecraft:yellow_dye"
+        },
+        "c": {
+            "item": "minecraft:copper_ingot"
+        },
+        "B": {
+            "item": "minecraft:blue_dye"
+        },
+        "S": {
+            "item": "minecraft:shears"
+        },
+        "L": {
+            "item": "minecraft:lime_dye"
+        }
+    },
+    "result": {
+        "item": "synchroma:wires",
+        "count": 8
+    }
+}

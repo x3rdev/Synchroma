@@ -90,8 +90,13 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.1.1'
 
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.2.1")
+
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-81-FORGE:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-81-FORGE")
+
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-common-api:15.2.0.23"))
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge-api:15.2.0.23"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-1.20.1-forge:15.2.0.23"))
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
