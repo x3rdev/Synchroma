@@ -1,6 +1,5 @@
 package com.github.x3r.synchroma.common.block.multiblock;
 
-import com.github.x3r.synchroma.common.block.controller.ControllerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -10,7 +9,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,16 +35,5 @@ public class MultiBlockPart extends Block implements EntityBlock {
             }
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }
-    }
-
-    @Override
-    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
-        ItemStack stack = ItemStack.EMPTY;
-        if(level.getBlockEntity(pos) instanceof MultiBlockPartEntity part) {
-            if(part.getControllerPos().isPresent() && level.getBlockEntity(part.getControllerPos().get()) instanceof ControllerBlockEntity controller) {
-                return controller.getFirstItem();
-            }
-        }
-        return stack;
     }
 }

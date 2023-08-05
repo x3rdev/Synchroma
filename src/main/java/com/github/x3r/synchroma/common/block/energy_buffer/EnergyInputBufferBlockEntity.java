@@ -23,7 +23,7 @@ public class EnergyInputBufferBlockEntity extends BlockEntity implements ICapabi
     private final LazyOptional<SynchromaEnergyStorage> energyStorageLazyOptional = LazyOptional.of(() -> energyStorage);
 
     public EnergyInputBufferBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntityRegistry.ENERGY_OUTPUT_BUFFER.get(), pPos, pBlockState);
+        super(BlockEntityRegistry.ENERGY_INPUT_BUFFER.get(), pPos, pBlockState);
 
     }
     @Override

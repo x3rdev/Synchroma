@@ -1,15 +1,12 @@
 package com.github.x3r.synchroma.common.block.pipes.energy_pipe;
 
-import com.github.x3r.synchroma.common.block.controller.ControllerBlockEntity;
 import com.github.x3r.synchroma.common.block.pipes.BasePipeBlock;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.tag.SynchromaBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;

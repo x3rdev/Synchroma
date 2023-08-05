@@ -26,8 +26,8 @@ public class MultiBlockPartEntity extends BlockEntity {
     public static final String CONTROLLER_POS = "ControllerPos";
     public static final String ORIGINAL_STATE = "OriginalState";
     private BlockPos controllerPos;
-
     private BlockState originalState;
+
     public MultiBlockPartEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.MULTI_BLOCK_PART.get(), pPos, pBlockState);
     }

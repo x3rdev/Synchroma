@@ -30,9 +30,6 @@ public class BlockItemRegistry {
     public static final RegistryObject<BlockItem> FRAME_ITEM = BLOCK_ITEMS.register("frame",
             () -> new BlockItem(BlockRegistry.FRAME.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> CONTROLLER_ITEM = BLOCK_ITEMS.register("controller",
-            () -> new GeckoBlockItem(BlockRegistry.CONTROLLER.get(), new GeoItemRenderer<>(new DefaultedBlockItemGeoModel(new ResourceLocation(Synchroma.MOD_ID, "controller"))), ItemRegistry.DEFAULT_PROPERTIES));
-
     public static final RegistryObject<BlockItem> MULTI_BLOCK_PART_ITEM = BLOCK_ITEMS.register("multi_block_part",
             () -> new BlockItem(BlockRegistry.MULTI_BLOCK_PART.get(), ItemRegistry.DEFAULT_PROPERTIES));
 

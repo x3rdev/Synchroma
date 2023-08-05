@@ -18,7 +18,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -31,8 +30,7 @@ import org.jetbrains.annotations.Nullable;
 public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity implements ICapabilityProvider {
     public static final int MAX_ENERGY = 10000;
     private NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
-    private final SynchromaEnergyStorage energyStorage = new SynchromaEnergyStorage(0, 1000, MAX_ENERGY);
-    private final LazyOptional<SynchromaEnergyStorage> energyStorageLazyOptional = LazyOptional.of(() -> energyStorage);
+    private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(0, 1000, MAX_ENERGY));
 
     public BasicSolarPanelBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.BASIC_SOLAR_PANEL.get(), pPos, pBlockState);
@@ -119,14 +117,14 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
         super.load(pTag);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(pTag, this.items);
-        this.energyStorage.setEnergyStored(pTag.getInt("Energy"));
+        this.energyStorageOptional.ifPresent(storage -> storage.setEnergyStored(pTag.getInt("Energy")));
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, this.items);
-        tag.putInt("Energy", this.energyStorage.getEnergyStored());
+        this.energyStorageOptional.ifPresent(storage -> tag.putInt("Energy", storage.getEnergyStored()));
     }
 
     @Nullable
@@ -139,14 +137,14 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
     public CompoundTag getUpdateTag() {
         CompoundTag tag = new CompoundTag();
         ContainerHelper.saveAllItems(tag, this.items);
-        tag.putInt("Energy", this.energyStorage.getEnergyStored());
+        this.energyStorageOptional.ifPresent(storage -> tag.putInt("Energy", storage.getEnergyStored()));
         return tag;
     }
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if(cap.equals(ForgeCapabilities.ENERGY) && (side == null || side == Direction.DOWN)) {
-            return energyStorageLazyOptional.cast();
+            return energyStorageOptional.cast();
         }
         return LazyOptional.empty();
     }
@@ -154,7 +152,7 @@ public class BasicSolarPanelBlockEntity extends BaseContainerBlockEntity impleme
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
-        energyStorageLazyOptional.invalidate();
+        energyStorageOptional.invalidate();
     }
 
     private void markUpdated() {

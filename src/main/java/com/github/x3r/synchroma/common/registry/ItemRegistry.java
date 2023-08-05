@@ -4,6 +4,7 @@ import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.*;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.circuit.Circuit1;
+import com.github.x3r.synchroma.common.item.circuit.EnhancedSolarPanelCircuit;
 import com.github.x3r.synchroma.common.item.guns.HunterRifle;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -30,6 +31,8 @@ public class ItemRegistry {
             () -> new TestBullet(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> CIRCUIT_1 = ITEMS.register("circuit_1",
             () -> new Circuit1(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> ENHANCED_SOLAR_PANEL_CIRCUIT = ITEMS.register("enhanced_solar_panel_circuit",
+            () -> new EnhancedSolarPanelCircuit(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> CROWBAR = ITEMS.register("crowbar",
             () -> new CrowbarItem(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> SCREW_DRIVER = ITEMS.register("screw_driver",
