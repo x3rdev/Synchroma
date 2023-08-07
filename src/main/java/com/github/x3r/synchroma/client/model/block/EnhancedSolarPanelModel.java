@@ -16,11 +16,17 @@ public class EnhancedSolarPanelModel extends DefaultedBlockGeoModel<EnhancedSola
         super(new ResourceLocation(Synchroma.MOD_ID, "enhanced_solar_panel"));
     }
 
+    // Line 29 is not useless, fixes lerp issue when multiple models are in world
+    @SuppressWarnings("java:S1854")
     @Override
     public void setCustomAnimations(EnhancedSolarPanelBlockEntity animatable, long instanceId, AnimationState<EnhancedSolarPanelBlockEntity> animationState) {
-        CoreGeoBone geoBone = getAnimationProcessor().getBone("rotating_part");
-        double endAngle = Math.PI / 7;
-        float f = (float) (Mth.clamp(((animatable.getLevel().getSunAngle(0) + (3 * Math.PI / 2)) % (Math.PI)), endAngle, Math.PI - endAngle) - (Math.PI / 2));
-        geoBone.setRotX((float) Mth.lerp(0.1, geoBone.getRotX(), animatable.getBlockState().getValue(ControllerBlock.FACING).equals(Direction.WEST) ? -f : f));
+        if(!animationState.getController().isPlayingTriggeredAnimation()) {
+            CoreGeoBone geoBone = getAnimationProcessor().getBone("rotating_part");
+            double endAngle = Math.PI / 7;
+            float f = (float) (Mth.clamp(((animatable.getLevel().getSunAngle(0) + (3 * Math.PI / 2)) % (Math.PI)), endAngle, Math.PI - endAngle) - (Math.PI / 2));
+            boolean flip = animatable.getBlockState().getValue(ControllerBlock.FACING).equals(Direction.WEST);
+            geoBone.setRotX((float) Mth.lerp(0.05, geoBone.getRotX(), flip ? -f : f));
+            if(flip) f *= -1;
+        }
     }
 }

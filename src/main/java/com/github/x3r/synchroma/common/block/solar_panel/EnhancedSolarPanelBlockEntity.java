@@ -29,10 +29,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
 
+    public static final RawAnimation ASSEMBLE_ANIM = RawAnimation.begin().thenPlay("animation.enhanced_solar_panel.assemble");
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(3));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(0, 1000, 20000));
@@ -82,6 +86,7 @@ public class EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
 
     @Override
     public void assemble(ServerPlayer player) {
+        triggerAnim("assemble_controller", "assemble");
         if(getBlockState().getValue(ControllerBlock.FACING).toYRot()%180==0) {
             if(player != null) {
                 player.sendSystemMessage(Component.literal("machine.solar_panel_assembly_failed"), true);
@@ -139,7 +144,8 @@ public class EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-
+        controllerRegistrar.add(new AnimationController<>(this, "assemble_controller", 0, animationState -> PlayState.STOP)
+                .triggerableAnim("assemble", ASSEMBLE_ANIM));
     }
 
     @Override
