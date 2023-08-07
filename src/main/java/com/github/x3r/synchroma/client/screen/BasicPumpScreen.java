@@ -2,7 +2,7 @@ package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.client.menu.BasicPumpMenu;
-import com.github.x3r.synchroma.common.block.SynchromaFluidStorage;
+import com.github.x3r.synchroma.common.block.SynchromaFluidHandler;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -10,9 +10,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 public class BasicPumpScreen extends SynchromaScreen<BasicPumpMenu> {
-
     private static final ResourceLocation CONTAINER_LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/basic_pump.png");
-
 
     public BasicPumpScreen(BasicPumpMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -27,7 +25,7 @@ public class BasicPumpScreen extends SynchromaScreen<BasicPumpMenu> {
         });
         this.getMenu().getBlockEntity().getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(iFluidHandler -> {
             this.addRenderableWidget(new SynchromaWidgets.FluidStackWidget(leftPos+155, topPos+24,
-                    () -> ((SynchromaFluidStorage) iFluidHandler).getTank(0)));
+                    () -> ((SynchromaFluidHandler) iFluidHandler).getTank(0)));
         });
 
     }

@@ -1,21 +1,23 @@
 package com.github.x3r.synchroma.common.block;
 
 import com.github.x3r.synchroma.Synchroma;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-public class SynchromaFluidStorage implements IFluidHandler {
+public class SynchromaFluidHandler implements IFluidHandler, INBTSerializable<CompoundTag> {
+
+    public static final String TAG_KEY = "FluidHandler";
     private final SynchromaFluidTank[] tanks;
-
-    public SynchromaFluidStorage(SynchromaFluidTank[] tanks) {
+    public SynchromaFluidHandler(SynchromaFluidTank[] tanks) {
         this.tanks = tanks;
     }
 
@@ -84,11 +86,45 @@ public class SynchromaFluidStorage implements IFluidHandler {
         return new FluidStack(fluid, drained);
     }
 
+    @Override
+    public CompoundTag serializeNBT() {
+        CompoundTag nbt = new CompoundTag();
+        ListTag listTag = new ListTag();
+        for (int i = 0; i < getTanks(); i++) {
+            CompoundTag compoundTag = new CompoundTag();
+            getFluidInTank(i).writeToNBT(compoundTag);
+            compoundTag.putInt("Capacity", getTankCapacity(i));
+
+            listTag.add(compoundTag);
+        }
+        nbt.put("IFluidHandler", listTag);
+        return nbt;
+    }
+
+    @Override
+    public void deserializeNBT(CompoundTag nbt) {
+        ListTag listTag = nbt.getCompound(SynchromaFluidHandler.TAG_KEY).getList("IFluidHandler", 10);
+        SynchromaFluidHandler.SynchromaFluidTank[] fluidTanks = listTag.stream().map(compoundTag -> {
+            FluidStack stack = FluidStack.loadFluidStackFromNBT((CompoundTag) compoundTag);
+            int capacity = ((CompoundTag) compoundTag).getInt("Capacity");
+            SynchromaFluidHandler.SynchromaFluidTank tank = new SynchromaFluidHandler.SynchromaFluidTank(capacity);
+            tank.setFluid(stack);
+
+            return tank;
+        }).toArray(SynchromaFluidHandler.SynchromaFluidTank[]::new);
+        for (int i = 0; i < getTanks(); i++) {
+            if(getTankCapacity(i) != fluidTanks[i].getCapacity()) {
+                Synchroma.LOGGER.warn("Tank capacity was saved incorrectly or changed, still attempting to fill tank");
+            }
+            setFluidInTank(i, fluidTanks[i].getFluid());
+        }
+    }
+
     public static class SynchromaFluidTank implements IFluidTank {
 
         private final int capacity;
+        private final Predicate<FluidStack> validator;
         private FluidStack fluid = FluidStack.EMPTY;
-        private Predicate<FluidStack> validator;
 
         public SynchromaFluidTank(int capacity) {
             this(capacity, fluidStack -> true);

@@ -1,16 +1,15 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlock;
+import com.github.x3r.synchroma.common.block.pump.BasicPumpBlock;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlock;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.FrameBlock;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlock;
-import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyInputBufferBlock;
-import com.github.x3r.synchroma.common.block.multiblock.MultiBlockPart;
+import com.github.x3r.synchroma.common.block.multiblock.MimicBlock;
 import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlock;
 import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlock;
@@ -35,8 +34,10 @@ public class BlockRegistry {
             () -> new RipperdocInterfaceBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> FRAME = BLOCKS.register("frame",
             () -> new FrameBlock(DEFAULT_PROPERTIES));
-    public static final RegistryObject<Block> MULTI_BLOCK_PART = BLOCKS.register("multi_block_part",
-            () -> new MultiBlockPart(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> EMPTY_CONTROLLER = BLOCKS.register("empty_controller",
+            () -> new Block(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> MIMIC = BLOCKS.register("mimic",
+            () -> new MimicBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> WEAPON_WORKBENCH = BLOCKS.register("weapon_workbench",
             () -> new WeaponWorkbenchBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> BASIC_CIRCUIT_PRINTER = BLOCKS.register("basic_circuit_printer",

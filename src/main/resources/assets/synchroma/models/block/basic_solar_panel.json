@@ -3,7 +3,8 @@
 	"parent": "minecraft:block/block",
 	"texture_size": [64, 32],
 	"textures": {
-		"2": "synchroma:block/basic_solar_panel"
+		"2": "synchroma:block/basic_solar_panel",
+		"particle": "synchroma:block/titanium_plating"
 	},
 	"render_type": "minecraft:cutout_mipped",
 	"elements": [

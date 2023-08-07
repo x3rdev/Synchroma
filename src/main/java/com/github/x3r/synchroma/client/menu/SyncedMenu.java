@@ -20,7 +20,6 @@ public abstract class SyncedMenu<T extends BlockEntity> extends AbstractContaine
         super(pMenuType, pContainerId);
         this.inventory = inventory;
         this.blockEntity = blockEntity;
-
     }
 
     public T getBlockEntity() {

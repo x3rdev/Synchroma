@@ -2,12 +2,11 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlockEntity;
-import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlockEntity;
-import com.github.x3r.synchroma.common.block.multiblock.ControllerBlockEntity;
+import com.github.x3r.synchroma.common.block.pump.BasicPumpBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyInputBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlockEntity;
-import com.github.x3r.synchroma.common.block.multiblock.MultiBlockPartEntity;
+import com.github.x3r.synchroma.common.block.multiblock.MimicBlockEntity;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlockEntity;
 import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlockEntity;
 import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlockEntity;
@@ -28,8 +27,8 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(RipperdocChairBlockEntity::new, BlockRegistry.RIPPERDOC_CHAIR_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<RipperdocInterfaceBlockEntity>> RIPPERDOC_INTERFACE_TILE = BLOCK_ENTITIES.register("ripperdoc_interface",
             () -> BlockEntityType.Builder.of(RipperdocInterfaceBlockEntity::new, BlockRegistry.RIPPERDOC_INTERFACE_BLOCK.get()).build(null));
-    public static final RegistryObject<BlockEntityType<MultiBlockPartEntity>> MULTI_BLOCK_PART = BLOCK_ENTITIES.register("multi_block_part.json",
-            () -> BlockEntityType.Builder.of(MultiBlockPartEntity::new, BlockRegistry.MULTI_BLOCK_PART.get()).build(null));
+    public static final RegistryObject<BlockEntityType<MimicBlockEntity>> MIMIC = BLOCK_ENTITIES.register("mimic",
+            () -> BlockEntityType.Builder.of(MimicBlockEntity::new, BlockRegistry.MIMIC.get()).build(null));
     public static final RegistryObject<BlockEntityType<WeaponWorkbenchBlockEntity>> WEAPON_WORKBENCH = BLOCK_ENTITIES.register("weapon_workbench",
             () -> BlockEntityType.Builder.of(WeaponWorkbenchBlockEntity::new, BlockRegistry.WEAPON_WORKBENCH.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicCircuitPrinterBlockEntity>> BASIC_CIRCUIT_PRINTER = BLOCK_ENTITIES.register("basic_circuit_printer",

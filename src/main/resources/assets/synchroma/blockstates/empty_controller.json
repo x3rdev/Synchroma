@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "synchroma:block/empty_controller" }
+  }
+}

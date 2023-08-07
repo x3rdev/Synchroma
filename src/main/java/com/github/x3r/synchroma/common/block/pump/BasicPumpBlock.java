@@ -1,6 +1,5 @@
-package com.github.x3r.synchroma.common.block.basic_pump;
+package com.github.x3r.synchroma.common.block.pump;
 
-import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;

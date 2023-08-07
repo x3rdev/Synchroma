@@ -1,12 +1,15 @@
 package com.github.x3r.synchroma.common.block;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.energy.IEnergyStorage;
 
-public class SynchromaEnergyStorage implements IEnergyStorage {
-    private final int maxReceive;
-    private final int maxExtract;
-    private final int maxEnergy;
+public class SynchromaEnergyStorage implements IEnergyStorage, INBTSerializable<CompoundTag> {
 
+    public static final String TAG_KEY = "EnergyStorage";
+    private int maxReceive;
+    private int maxExtract;
+    private int maxEnergy;
     private int energy = 0;
 
     public SynchromaEnergyStorage(int maxReceive, int maxExtract, int maxEnergy) {
@@ -55,5 +58,24 @@ public class SynchromaEnergyStorage implements IEnergyStorage {
     @Override
     public boolean canReceive() {
         return maxReceive > 0;
+    }
+
+    @Override
+    public CompoundTag serializeNBT() {
+        CompoundTag tag = new CompoundTag();
+        tag.putInt("MaxReceive", maxReceive);
+        tag.putInt("MaxExtract", maxExtract);
+        tag.putInt("MaxEnergy", maxEnergy);
+        tag.putInt("Energy", energy);
+        return tag;
+    }
+
+    @Override
+    public void deserializeNBT(CompoundTag nbt) {
+        CompoundTag tag = nbt.getCompound(SynchromaEnergyStorage.TAG_KEY);
+        this.maxReceive = tag.getInt("MaxReceive");
+        this.maxExtract = tag.getInt("MaxExtract");
+        this.maxEnergy = tag.getInt("MaxEnergy");
+        this.energy = tag.getInt("Energy");
     }
 }

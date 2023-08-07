@@ -1,13 +1,11 @@
 package com.github.x3r.synchroma.client.menu;
 
-import com.github.x3r.synchroma.common.block.basic_pump.BasicPumpBlockEntity;
-import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.pump.BasicPumpBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;

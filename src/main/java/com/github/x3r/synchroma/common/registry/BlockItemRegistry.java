@@ -30,8 +30,11 @@ public class BlockItemRegistry {
     public static final RegistryObject<BlockItem> FRAME_ITEM = BLOCK_ITEMS.register("frame",
             () -> new BlockItem(BlockRegistry.FRAME.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
+    public static final RegistryObject<BlockItem> EMPTY_CONTROLLER_ITEM = BLOCK_ITEMS.register("empty_controller",
+            () -> new BlockItem(BlockRegistry.EMPTY_CONTROLLER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
     public static final RegistryObject<BlockItem> MULTI_BLOCK_PART_ITEM = BLOCK_ITEMS.register("multi_block_part",
-            () -> new BlockItem(BlockRegistry.MULTI_BLOCK_PART.get(), ItemRegistry.DEFAULT_PROPERTIES));
+            () -> new BlockItem(BlockRegistry.MIMIC.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> ENERGY_INPUT_BUFFER_ITEM = BLOCK_ITEMS.register("energy_input_buffer",
             () -> new BlockItem(BlockRegistry.ENERGY_INPUT_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
@@ -44,6 +47,9 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> BASIC_SOLAR_PANEL = BLOCK_ITEMS.register("basic_solar_panel",
             () -> new BlockItem(BlockRegistry.BASIC_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> ENHANCED_SOLAR_PANEL = BLOCK_ITEMS.register("enhanced_solar_panel",
+            () -> new BlockItem(BlockRegistry.ENHANCED_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> BASIC_PUMP = BLOCK_ITEMS.register("basic_pump",
             () -> new BlockItem(BlockRegistry.BASIC_PUMP.get(), ItemRegistry.DEFAULT_PROPERTIES));

@@ -24,25 +24,27 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class ControllerBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final BooleanProperty ASSEMBLED = BooleanProperty.create("assembled");
     protected ControllerBlock(Properties pProperties) {
         super(pProperties.noOcclusion());
-        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(ASSEMBLED, false));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(PartBlock.ASSEMBLED, false));
     }
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        BlockEntity blockentity = pLevel.getBlockEntity(pPos);
-        if (blockentity instanceof ControllerBlockEntity controller) {
+        ControllerBlockEntity controller = (ControllerBlockEntity) pLevel.getBlockEntity(pPos);
+        if (pLevel.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
             if(controller.isAssembled()) {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, controller, buf -> buf.writeBlockPos(pPos));
-            } else {
-                controller.validateMultiBlock();
+                this.openContainer(pLevel, pPos, pPlayer);
+            } else  {
+                controller.validateMultiBlock((ServerPlayer) pPlayer);
             }
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+            return InteractionResult.CONSUME;
         }
-        return InteractionResult.PASS;
     }
+
+    protected abstract void openContainer(Level pLevel, BlockPos pPos, Player pPlayer);
 
     @Nullable
     @Override
@@ -66,6 +68,7 @@ public abstract class ControllerBlock extends BaseEntityBlock {
                 if (blockentity instanceof ControllerBlockEntity controller) {
                     controller.disassemble();
                 }
+                pLevel.setBlockAndUpdate(pPos, pNewState);
             }
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }
@@ -75,6 +78,6 @@ public abstract class ControllerBlock extends BaseEntityBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(FACING);
-        pBuilder.add(ASSEMBLED);
+        pBuilder.add(PartBlock.ASSEMBLED);
     }
 }
