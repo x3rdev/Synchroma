@@ -32,11 +32,15 @@ import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.core.state.BoneSnapshot;
 import software.bernie.geckolib.util.GeckoLibUtil;
+
+import java.util.HashMap;
 
 public class EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
 
     public static final RawAnimation ASSEMBLE_ANIM = RawAnimation.begin().thenPlay("animation.enhanced_solar_panel.assemble");
+    public final HashMap<String, BoneSnapshot> boneSnapshots = new HashMap<>();
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(3));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(0, 1000, 20000));
@@ -57,6 +61,11 @@ public class EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
             }
             pBlockEntity.markUpdated();
         }
+    }
+
+    @Override
+    public double getTick(Object blockEntity) {
+        return getAge();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.github.x3r.synchroma.client.renderer.block.solar_panel;
 
-import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.client.model.block.EnhancedSolarPanelModel;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
@@ -13,18 +12,19 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.data.ModelData;
+import org.joml.Matrix4f;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.model.DefaultedBlockGeoModel;
+import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;
+import software.bernie.geckolib.util.RenderUtils;
+
+import java.util.HashMap;
 
 public class EnhancedSolarPanelRenderer extends GeoBlockRenderer<EnhancedSolarPanelBlockEntity> {
-
 
     public EnhancedSolarPanelRenderer() {
         super(new EnhancedSolarPanelModel());
