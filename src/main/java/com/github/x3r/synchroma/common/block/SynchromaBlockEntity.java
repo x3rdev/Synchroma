@@ -19,7 +19,6 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class SynchromaBlockEntity extends BlockEntity implements Container, MenuProvider, ICapabilityProvider {
-
     private final double tickSpawned = Blaze3D.getTime() * 20D;
     protected SynchromaBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);

@@ -2,14 +2,13 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlockEntity;
-import com.github.x3r.synchroma.common.block.pump.BasicPumpBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyInputBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlockEntity;
+import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlockEntity;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlockEntity;
 import com.github.x3r.synchroma.common.block.multiblock.MimicBlockEntity;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlockEntity;
-import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlockEntity;
-import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlockEntity;
+import com.github.x3r.synchroma.common.block.pump.BasicPumpBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlockEntity;
@@ -22,11 +21,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockEntityRegistry {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Synchroma.MOD_ID);
-
-    public static final RegistryObject<BlockEntityType<RipperdocChairBlockEntity>> RIPPERDOC_CHAIR_TILE = BLOCK_ENTITIES.register("ripperdoc_chair",
-            () -> BlockEntityType.Builder.of(RipperdocChairBlockEntity::new, BlockRegistry.RIPPERDOC_CHAIR_BLOCK.get()).build(null));
-    public static final RegistryObject<BlockEntityType<RipperdocInterfaceBlockEntity>> RIPPERDOC_INTERFACE_TILE = BLOCK_ENTITIES.register("ripperdoc_interface",
-            () -> BlockEntityType.Builder.of(RipperdocInterfaceBlockEntity::new, BlockRegistry.RIPPERDOC_INTERFACE_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<MimicBlockEntity>> MIMIC = BLOCK_ENTITIES.register("mimic",
             () -> BlockEntityType.Builder.of(MimicBlockEntity::new, BlockRegistry.MIMIC.get()).build(null));
     public static final RegistryObject<BlockEntityType<WeaponWorkbenchBlockEntity>> WEAPON_WORKBENCH = BLOCK_ENTITIES.register("weapon_workbench",
@@ -45,6 +39,8 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(EnhancedSolarPanelBlockEntity::new, BlockRegistry.ENHANCED_SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicPumpBlockEntity>> BASIC_PUMP = BLOCK_ENTITIES.register("basic_pump",
             () -> BlockEntityType.Builder.of(BasicPumpBlockEntity::new, BlockRegistry.BASIC_PUMP.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BasicEnergyStorageBlockEntity>> BASIC_ENERGY_STORAGE = BLOCK_ENTITIES.register("basic_energy_storage",
+            () -> BlockEntityType.Builder.of(BasicEnergyStorageBlockEntity::new, BlockRegistry.BASIC_ENERGY_STORAGE.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnergyPipeBlockEntity>> ENERGY_PIPE = BLOCK_ENTITIES.register("energy_pipe",
             () -> BlockEntityType.Builder.of(EnergyPipeBlockEntity::new, BlockRegistry.ENERGY_PIPE.get()).build(null));
     public static final RegistryObject<BlockEntityType<MicroscopeBlockEntity>> MICROSCOPE = BLOCK_ENTITIES.register("microscope",

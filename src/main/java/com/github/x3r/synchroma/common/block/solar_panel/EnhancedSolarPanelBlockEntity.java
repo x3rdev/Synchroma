@@ -37,7 +37,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.HashMap;
 
-public class EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
+public class  EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
 
     public static final RawAnimation ASSEMBLE_ANIM = RawAnimation.begin().thenPlay("animation.enhanced_solar_panel.assemble");
     public final HashMap<String, BoneSnapshot> boneSnapshots = new HashMap<>();

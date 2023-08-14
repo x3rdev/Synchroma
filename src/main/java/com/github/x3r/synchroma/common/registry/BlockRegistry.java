@@ -1,17 +1,16 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.common.block.pump.BasicPumpBlock;
-import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlock;
-import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
-import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlock;
-import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.FrameBlock;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlock;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyInputBufferBlock;
+import com.github.x3r.synchroma.common.block.energy_buffer.EnergyOutputBufferBlock;
+import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlock;
+import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
 import com.github.x3r.synchroma.common.block.multiblock.MimicBlock;
-import com.github.x3r.synchroma.common.block.ripperdoc_chair.RipperdocChairBlock;
-import com.github.x3r.synchroma.common.block.ripperdoc_interface.RipperdocInterfaceBlock;
+import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlock;
+import com.github.x3r.synchroma.common.block.pump.BasicPumpBlock;
+import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlock;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlock;
@@ -27,11 +26,6 @@ public class BlockRegistry {
     public static final BlockBehaviour.Properties DEFAULT_PROPERTIES = BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK);
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Synchroma.MOD_ID);
-
-    public static final RegistryObject<Block> RIPPERDOC_CHAIR_BLOCK = BLOCKS.register("ripperdoc_chair",
-            () -> new RipperdocChairBlock(DEFAULT_PROPERTIES));
-    public static final RegistryObject<Block> RIPPERDOC_INTERFACE_BLOCK = BLOCKS.register("ripperdoc_interface",
-            () -> new RipperdocInterfaceBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> FRAME = BLOCKS.register("frame",
             () -> new FrameBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> EMPTY_CONTROLLER = BLOCKS.register("empty_controller",
@@ -52,6 +46,8 @@ public class BlockRegistry {
             () -> new BasicSolarPanelBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> ENHANCED_SOLAR_PANEL = BLOCKS.register("enhanced_solar_panel",
             () -> new EnhancedSolarPanelBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> BASIC_ENERGY_STORAGE = BLOCKS.register("basic_energy_storage",
+            () -> new BasicEnergyStorageBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> BASIC_PUMP = BLOCKS.register("basic_pump",
             () -> new BasicPumpBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> ENERGY_PIPE = BLOCKS.register("energy_pipe",

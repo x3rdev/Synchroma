@@ -33,13 +33,13 @@ public class EnergyOutputBufferBlockEntity extends PartBlockEntity implements IC
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        energyStorageLazyOptional.ifPresent(energyStorage -> tag.put(SynchromaEnergyStorage.TAG_KEY, energyStorage.serializeNBT()));
+        energyStorageLazyOptional.ifPresent(energyStorage -> energyStorage.deserializeNBT(tag));
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
-        energyStorageLazyOptional.ifPresent(energyStorage -> energyStorage.deserializeNBT(tag));
+        energyStorageLazyOptional.ifPresent(energyStorage -> tag.put(SynchromaEnergyStorage.TAG_KEY, energyStorage.serializeNBT()));
     }
 
     @Override
