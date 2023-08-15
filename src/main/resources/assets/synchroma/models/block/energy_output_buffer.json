@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "synchroma:block/energy_output_buffer"
-  }
-}

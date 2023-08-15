@@ -27,9 +27,25 @@ public class SynchromaEnergyStorage implements IEnergyStorage, INBTSerializable<
         return amount;
     }
 
+    public int forceReceiveEnergy(int maxReceive, boolean simulate) {
+        int amount = Math.min(maxReceive, getMaxEnergyStored() - getEnergyStored());
+        if(!simulate) {
+            energy += amount;
+        }
+        return amount;
+    }
+
     @Override
     public int extractEnergy(int maxExtract, boolean simulate) {
         int amount = Math.min(Math.min(this.maxExtract, maxExtract), getEnergyStored());
+        if(!simulate) {
+            energy -= amount;
+        }
+        return amount;
+    }
+
+    public int forceExtractEnergy(int maxExtract, boolean simulate) {
+        int amount = Math.min(maxExtract, getEnergyStored());
         if(!simulate) {
             energy -= amount;
         }

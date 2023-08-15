@@ -42,7 +42,7 @@ public class BasicPumpBlockEntity extends SynchromaBlockEntity {
                     pBlockEntity.fluidStorageOptional.ifPresent(synchromaFluidHandler -> {
                         int amount = synchromaFluidHandler.fill(new FluidStack(Fluids.WATER, 10), IFluidHandler.FluidAction.EXECUTE);
                         if (amount > 0) {
-                            storage.setEnergyStored(storage.getEnergyStored() - 10);
+                            storage.forceExtractEnergy(10, false);
                             pLevel.setBlockAndUpdate(pPos.below(), Blocks.AIR.defaultBlockState());
                         }
                     });

@@ -54,9 +54,7 @@ public class  EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
                 int time = (int) (pLevel.getDayTime() % 24000);
                 float f = 1 - (Math.abs(6000 - Math.max(0, 12000 - time)) / 6000F);
                 pBlockEntity.getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
-                    if (iEnergyStorage instanceof SynchromaEnergyStorage storage) {
-                        storage.setEnergyStored(storage.getEnergyStored() + Math.round(6 * 10 * f));
-                    }
+                    ((SynchromaEnergyStorage) iEnergyStorage).forceReceiveEnergy(Math.round(6 * 10 * f), false);
                 });
             }
             pBlockEntity.markUpdated();
@@ -71,7 +69,7 @@ public class  EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
     @Override
     protected BlockPattern getBlockPattern() {
         return BlockPatternBuilder.start()
-                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_OUTPUT_BUFFER.get()))
+                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
                 .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ENHANCED_SOLAR_PANEL.get()))
                 .where('s', ControllerBlockEntity.blockMatch(BlockRegistry.BASIC_SOLAR_PANEL.get()))
                 .where('*', blockInWorld -> blockInWorld.getState().isAir())
@@ -138,7 +136,7 @@ public class  EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
         if(cap.equals(ForgeCapabilities.ITEM_HANDLER) && (side == null || side == Direction.DOWN)) {
             return itemHandlerOptional.cast();
         }
-        if(cap.equals(ForgeCapabilities.ENERGY) && (side == null || side == Direction.DOWN)) {
+        if(cap.equals(ForgeCapabilities.ENERGY)) {
             return energyStorageOptional.cast();
         }
         return LazyOptional.empty();

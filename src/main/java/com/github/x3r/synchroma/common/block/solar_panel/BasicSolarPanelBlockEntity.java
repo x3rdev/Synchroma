@@ -44,9 +44,7 @@ public class BasicSolarPanelBlockEntity extends SynchromaBlockEntity {
             int time = (int) (pLevel.getDayTime() % 24000);
             float f = 1-(Math.abs(6000 - Math.max(0, 12000 - time)) / 6000F);
             pBlockEntity.getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
-                if (iEnergyStorage instanceof SynchromaEnergyStorage storage) {
-                    storage.setEnergyStored(storage.getEnergyStored() + Math.round(10 * f));
-                }
+                ((SynchromaEnergyStorage) iEnergyStorage).forceReceiveEnergy(Math.round(10 * f), false);
             });
         }
         pBlockEntity.markUpdated();

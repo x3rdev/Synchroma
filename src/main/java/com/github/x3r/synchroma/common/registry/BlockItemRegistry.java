@@ -30,11 +30,8 @@ public class BlockItemRegistry {
     public static final RegistryObject<BlockItem> BASIC_CIRCUIT_PRINTER_ITEM = BLOCK_ITEMS.register("basic_circuit_printer",
             () -> new BlockItem(BlockRegistry.BASIC_CIRCUIT_PRINTER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> ENERGY_INPUT_BUFFER_ITEM = BLOCK_ITEMS.register("energy_input_buffer",
-            () -> new BlockItem(BlockRegistry.ENERGY_INPUT_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
-
-    public static final RegistryObject<BlockItem> ENERGY_OUTPUT_BUFFER_ITEM = BLOCK_ITEMS.register("energy_output_buffer",
-            () -> new BlockItem(BlockRegistry.ENERGY_OUTPUT_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+    public static final RegistryObject<BlockItem> ENERGY_BUFFER_ITEM = BLOCK_ITEMS.register("energy_buffer",
+            () -> new BlockItem(BlockRegistry.ENERGY_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> TITANITE_CRYSTAL_ITEM = BLOCK_ITEMS.register("titanite_crystal",
             () -> new GeckoBlockItem(BlockRegistry.TITANITE_CRYSTAL.get(), new GeoItemRenderer<>(new DefaultedBlockItemGeoModel(new ResourceLocation(Synchroma.MOD_ID, "titanite_crystal"))), ItemRegistry.DEFAULT_PROPERTIES));
