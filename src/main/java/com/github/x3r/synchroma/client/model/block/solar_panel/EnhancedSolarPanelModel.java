@@ -1,4 +1,4 @@
-package com.github.x3r.synchroma.client.model.block;
+package com.github.x3r.synchroma.client.model.block.solar_panel;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;

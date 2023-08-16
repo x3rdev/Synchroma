@@ -3,8 +3,11 @@ package com.github.x3r.synchroma.client;
 
 import com.github.x3r.synchroma.client.particle.SparkParticle;
 import com.github.x3r.synchroma.client.renderer.block.*;
+import com.github.x3r.synchroma.client.renderer.block.solar_panel.AdvancedSolarPanelRenderer;
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.EnhancedSolarPanelRenderer;
+import com.github.x3r.synchroma.client.renderer.block.solar_panel.HexSolarPlateRenderer;
 import com.github.x3r.synchroma.client.renderer.entity.BulletRenderer;
+import com.github.x3r.synchroma.client.screen.AdvancedSolarPanelScreen;
 import com.github.x3r.synchroma.client.screen.BasicSolarPanelScreen;
 import com.github.x3r.synchroma.client.screen.BasicPumpScreen;
 import com.github.x3r.synchroma.client.screen.EnhancedSolarPanelScreen;
@@ -29,6 +32,7 @@ public final class ClientSetup {
         event.enqueueWork(() -> {
             MenuScreens.register(MenuTypeRegistry.BASIC_SOLAR_PANEL.get(), BasicSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.ENHANCED_SOLAR_PANEL.get(), EnhancedSolarPanelScreen::new);
+            MenuScreens.register(MenuTypeRegistry.ADVANCED_SOLAR_PANEL.get(), AdvancedSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.BASIC_PUMP.get(), BasicPumpScreen::new);
         });
     }
@@ -36,9 +40,11 @@ public final class ClientSetup {
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(BlockEntityRegistry.WEAPON_WORKBENCH.get(), pContext -> new WeaponWorkbenchRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.BASIC_CIRCUIT_PRINTER.get(), pContext -> new BasicCircuitPrinterRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.MICROSCOPE.get(), pContext -> new MicroscopeRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.ENHANCED_SOLAR_PANEL.get(), pContext -> new EnhancedSolarPanelRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.ADVANCED_SOLAR_PANEL.get(), pContext -> new AdvancedSolarPanelRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), pContext -> new HexSolarPlateRenderer());
     }
 
     @SubscribeEvent

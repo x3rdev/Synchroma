@@ -1,6 +1,7 @@
 package com.github.x3r.synchroma;
 
 import com.github.x3r.synchroma.client.ClientSetup;
+import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlock;
 import com.github.x3r.synchroma.common.registry.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;

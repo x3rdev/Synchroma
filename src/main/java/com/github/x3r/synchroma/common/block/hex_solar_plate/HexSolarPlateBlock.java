@@ -1,39 +1,39 @@
-package com.github.x3r.synchroma.common.block.multiblock;
+package com.github.x3r.synchroma.common.block.hex_solar_plate;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class MimicBlock extends PartBlock {
+public class HexSolarPlateBlock extends BaseEntityBlock {
 
-    public MimicBlock(Properties pProperties) {
-        super(pProperties.noOcclusion());
+    private static final VoxelShape SHAPE = Shapes.join(Block.box(0, 0, 0, 16, 1, 16), Block.box(0, 1, 0, 16, 2, 16), BooleanOp.OR);
+
+    public HexSolarPlateBlock(Properties pProperties) {
+        super(pProperties);
     }
 
     @Override
     public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.INVISIBLE;
+        return RenderShape.ENTITYBLOCK_ANIMATED;
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new MimicBlockEntity(pPos, pState);
+        return new HexSolarPlateBlockEntity(pPos, pState);
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(pLevel.getBlockEntity(pPos) instanceof MimicBlockEntity mimicBlockEntity) {
-            return mimicBlockEntity.getOriginalState().getShape(pLevel, pPos, pContext);
-        }
-        return Shapes.block();
+        return SHAPE;
     }
 }

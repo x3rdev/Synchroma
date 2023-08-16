@@ -1,6 +1,7 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
+import com.github.x3r.synchroma.client.menu.AdvancedSolarPanelMenu;
 import com.github.x3r.synchroma.client.menu.BasicPumpMenu;
 import com.github.x3r.synchroma.client.menu.BasicSolarPanelMenu;
 import com.github.x3r.synchroma.client.menu.EnhancedSolarPanelMenu;
@@ -16,6 +17,8 @@ public class MenuTypeRegistry {
             () -> IForgeMenuType.create(BasicSolarPanelMenu::new));
     public static final RegistryObject<MenuType<EnhancedSolarPanelMenu>> ENHANCED_SOLAR_PANEL = MENUS.register("enhanced_solar_panel_menu",
             () -> IForgeMenuType.create(EnhancedSolarPanelMenu::new));
+    public static final RegistryObject<MenuType<AdvancedSolarPanelMenu>> ADVANCED_SOLAR_PANEL = MENUS.register("advanced_solar_panel_menu",
+            () -> IForgeMenuType.create(AdvancedSolarPanelMenu::new));
     public static final RegistryObject<MenuType<BasicPumpMenu>> BASIC_PUMP = MENUS.register("basic_pump_menu",
             () -> IForgeMenuType.create(BasicPumpMenu::new));
 

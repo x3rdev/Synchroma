@@ -1,7 +1,9 @@
 package com.github.x3r.synchroma.client.renderer.block.solar_panel;
 
+import com.github.x3r.synchroma.client.model.block.solar_panel.AdvancedSolarPanelModel;
 import com.github.x3r.synchroma.client.model.block.solar_panel.EnhancedSolarPanelModel;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;
+import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.BlockRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -18,14 +20,14 @@ import net.minecraftforge.client.model.data.ModelData;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;
 
-public class EnhancedSolarPanelRenderer extends GeoBlockRenderer<EnhancedSolarPanelBlockEntity> {
+public class AdvancedSolarPanelRenderer extends GeoBlockRenderer<AdvancedSolarPanelBlockEntity> {
 
-    public EnhancedSolarPanelRenderer() {
-        super(new EnhancedSolarPanelModel());
+    public AdvancedSolarPanelRenderer() {
+        super(new AdvancedSolarPanelModel());
     }
 
     @Override
-    public void actuallyRender(PoseStack poseStack, EnhancedSolarPanelBlockEntity animatable, BakedGeoModel model, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    public void actuallyRender(PoseStack poseStack, AdvancedSolarPanelBlockEntity animatable, BakedGeoModel model, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         if(animatable.isAssembled()) {
             poseStack.pushPose();
             poseStack.translate(0, -1, 0);
