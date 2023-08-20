@@ -42,6 +42,9 @@ public class BlockItemRegistry {
     public static final RegistryObject<BlockItem> ADVANCED_SOLAR_PANEL = BLOCK_ITEMS.register("advanced_solar_panel",
             () -> new BlockItem(BlockRegistry.ADVANCED_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
+    public static final RegistryObject<BlockItem> ZENITH_SOLAR_PANEL = BLOCK_ITEMS.register("zenith_solar_panel",
+            () -> new BlockItem(BlockRegistry.ZENITH_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
     public static final RegistryObject<BlockItem> BASIC_ENERGY_STORAGE = BLOCK_ITEMS.register("basic_energy_storage",
             () -> new BlockItem(BlockRegistry.BASIC_ENERGY_STORAGE.get(), ItemRegistry.DEFAULT_PROPERTIES));
 

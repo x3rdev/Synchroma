@@ -12,6 +12,7 @@ import com.github.x3r.synchroma.common.block.pump.BasicPumpBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlockEntity;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -30,13 +31,14 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(BasicCircuitPrinterBlockEntity::new, BlockRegistry.BASIC_CIRCUIT_PRINTER.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnergyBufferBlockEntity>> ENERGY_BUFFER = BLOCK_ENTITIES.register("energy_buffer",
             () -> BlockEntityType.Builder.of(EnergyBufferBlockEntity::new, BlockRegistry.ENERGY_BUFFER.get()).build(null));
-
     public static final RegistryObject<BlockEntityType<BasicSolarPanelBlockEntity>> BASIC_SOLAR_PANEL = BLOCK_ENTITIES.register("basic_solar_panel",
             () -> BlockEntityType.Builder.of(BasicSolarPanelBlockEntity::new, BlockRegistry.BASIC_SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnhancedSolarPanelBlockEntity>> ENHANCED_SOLAR_PANEL = BLOCK_ENTITIES.register("enhanced_solar_panel",
             () -> BlockEntityType.Builder.of(EnhancedSolarPanelBlockEntity::new, BlockRegistry.ENHANCED_SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<AdvancedSolarPanelBlockEntity>> ADVANCED_SOLAR_PANEL = BLOCK_ENTITIES.register("advanced_solar_panel",
             () -> BlockEntityType.Builder.of(AdvancedSolarPanelBlockEntity::new, BlockRegistry.ADVANCED_SOLAR_PANEL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ZenithSolarPanelBlockEntity>> ZENITH_SOLAR_PANEL = BLOCK_ENTITIES.register("zenith_solar_panel",
+            () -> BlockEntityType.Builder.of(ZenithSolarPanelBlockEntity::new, BlockRegistry.ZENITH_SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicPumpBlockEntity>> BASIC_PUMP = BLOCK_ENTITIES.register("basic_pump",
             () -> BlockEntityType.Builder.of(BasicPumpBlockEntity::new, BlockRegistry.BASIC_PUMP.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicEnergyStorageBlockEntity>> BASIC_ENERGY_STORAGE = BLOCK_ENTITIES.register("basic_energy_storage",

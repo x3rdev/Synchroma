@@ -13,6 +13,7 @@ import com.github.x3r.synchroma.common.block.pump.BasicPumpBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlock;
+import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlock;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlock;
 import net.minecraft.world.level.block.Block;
@@ -45,6 +46,8 @@ public class BlockRegistry {
             () -> new EnhancedSolarPanelBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> ADVANCED_SOLAR_PANEL = BLOCKS.register("advanced_solar_panel",
             () -> new AdvancedSolarPanelBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> ZENITH_SOLAR_PANEL = BLOCKS.register("zenith_solar_panel",
+            () -> new ZenithSolarPanelBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> BASIC_ENERGY_STORAGE = BLOCKS.register("basic_energy_storage",
             () -> new BasicEnergyStorageBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> BASIC_PUMP = BLOCKS.register("basic_pump",

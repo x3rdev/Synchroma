@@ -1,10 +1,7 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.menu.AdvancedSolarPanelMenu;
-import com.github.x3r.synchroma.client.menu.BasicPumpMenu;
-import com.github.x3r.synchroma.client.menu.BasicSolarPanelMenu;
-import com.github.x3r.synchroma.client.menu.EnhancedSolarPanelMenu;
+import com.github.x3r.synchroma.client.menu.*;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,6 +16,8 @@ public class MenuTypeRegistry {
             () -> IForgeMenuType.create(EnhancedSolarPanelMenu::new));
     public static final RegistryObject<MenuType<AdvancedSolarPanelMenu>> ADVANCED_SOLAR_PANEL = MENUS.register("advanced_solar_panel_menu",
             () -> IForgeMenuType.create(AdvancedSolarPanelMenu::new));
+    public static final RegistryObject<MenuType<ZenithSolarPanelMenu>> ZENITH_SOLAR_PANEL = MENUS.register("zenith_solar_panel_menu",
+            () -> IForgeMenuType.create(ZenithSolarPanelMenu::new));
     public static final RegistryObject<MenuType<BasicPumpMenu>> BASIC_PUMP = MENUS.register("basic_pump_menu",
             () -> IForgeMenuType.create(BasicPumpMenu::new));
 
