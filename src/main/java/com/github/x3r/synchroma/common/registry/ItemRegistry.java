@@ -2,11 +2,13 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.*;
+import com.github.x3r.synchroma.common.item.armor.BasicSpaceSuitItem;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.circuit.Circuit1;
 import com.github.x3r.synchroma.common.item.guns.HunterRifle;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -50,6 +52,14 @@ public class ItemRegistry {
             () -> new MachineUpgradeItem(DEFAULT_PROPERTIES, 2, Component.literal("test")));
     public static final RegistryObject<Item> EFFICIENCY_UPGRADE = ITEMS.register("efficiency_upgrade",
             () -> new MachineUpgradeItem(DEFAULT_PROPERTIES, 3, Component.literal("test")));
+    public static final RegistryObject<Item> BASIC_SPACE_SUIT_HELMET = ITEMS.register("basic_space_suit_helmet",
+            () -> new BasicSpaceSuitItem(ArmorItem.Type.HELMET, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> BASIC_SPACE_SUIT_CHESTPLATE = ITEMS.register("basic_space_suit_chestplate",
+            () -> new BasicSpaceSuitItem(ArmorItem.Type.CHESTPLATE, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> BASIC_SPACE_SUIT_LEGGINGS = ITEMS.register("basic_space_suit_leggings",
+            () -> new BasicSpaceSuitItem(ArmorItem.Type.LEGGINGS, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> BASIC_SPACE_SUIT_BOOTS = ITEMS.register("basic_space_suit_boots",
+            () -> new BasicSpaceSuitItem(ArmorItem.Type.BOOTS, DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
         public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);

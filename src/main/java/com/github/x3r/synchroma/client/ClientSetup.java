@@ -6,11 +6,9 @@ import com.github.x3r.synchroma.client.renderer.block.*;
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.AdvancedSolarPanelRenderer;
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.EnhancedSolarPanelRenderer;
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.HexSolarPlateRenderer;
+import com.github.x3r.synchroma.client.renderer.block.solar_panel.ZenithSolarPanelRenderer;
 import com.github.x3r.synchroma.client.renderer.entity.BulletRenderer;
-import com.github.x3r.synchroma.client.screen.AdvancedSolarPanelScreen;
-import com.github.x3r.synchroma.client.screen.BasicSolarPanelScreen;
-import com.github.x3r.synchroma.client.screen.BasicPumpScreen;
-import com.github.x3r.synchroma.client.screen.EnhancedSolarPanelScreen;
+import com.github.x3r.synchroma.client.screen.*;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
@@ -21,6 +19,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
 public final class ClientSetup {
 
@@ -29,10 +28,12 @@ public final class ClientSetup {
     @SubscribeEvent
     public static void setup(final FMLClientSetupEvent event) {
         EntityRenderers.register(EntityRegistry.BULLET_PROJECTILE.get(), BulletRenderer::new);
+
         event.enqueueWork(() -> {
             MenuScreens.register(MenuTypeRegistry.BASIC_SOLAR_PANEL.get(), BasicSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.ENHANCED_SOLAR_PANEL.get(), EnhancedSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.ADVANCED_SOLAR_PANEL.get(), AdvancedSolarPanelScreen::new);
+            MenuScreens.register(MenuTypeRegistry.ZENITH_SOLAR_PANEL.get(), ZenithSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.BASIC_PUMP.get(), BasicPumpScreen::new);
         });
     }
@@ -43,6 +44,7 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(BlockEntityRegistry.MICROSCOPE.get(), pContext -> new MicroscopeRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.ENHANCED_SOLAR_PANEL.get(), pContext -> new EnhancedSolarPanelRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.ADVANCED_SOLAR_PANEL.get(), pContext -> new AdvancedSolarPanelRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.ZENITH_SOLAR_PANEL.get(), pContext -> new ZenithSolarPanelRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), pContext -> new HexSolarPlateRenderer());
     }
