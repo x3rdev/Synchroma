@@ -3,6 +3,7 @@ package com.github.x3r.synchroma.common.registry;
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.*;
 import com.github.x3r.synchroma.common.item.armor.BasicSpaceSuitItem;
+import com.github.x3r.synchroma.common.item.armor.EnhancedSpaceSuitItem;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.circuit.Circuit1;
 import com.github.x3r.synchroma.common.item.guns.HunterRifle;
@@ -60,6 +61,14 @@ public class ItemRegistry {
             () -> new BasicSpaceSuitItem(ArmorItem.Type.LEGGINGS, DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> BASIC_SPACE_SUIT_BOOTS = ITEMS.register("basic_space_suit_boots",
             () -> new BasicSpaceSuitItem(ArmorItem.Type.BOOTS, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> ENHANCED_SPACE_SUIT_HELMET = ITEMS.register("enhanced_space_suit_helmet",
+            () -> new EnhancedSpaceSuitItem(ArmorItem.Type.HELMET, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> ENHANCED_SPACE_SUIT_CHESTPLATE = ITEMS.register("enhanced_space_suit_chestplate",
+            () -> new EnhancedSpaceSuitItem(ArmorItem.Type.CHESTPLATE, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> ENHANCED_SPACE_SUIT_LEGGINGS = ITEMS.register("enhanced_space_suit_leggings",
+            () -> new EnhancedSpaceSuitItem(ArmorItem.Type.LEGGINGS, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> ENHANCED_SPACE_SUIT_BOOTS = ITEMS.register("enhanced_space_suit_boots",
+            () -> new EnhancedSpaceSuitItem(ArmorItem.Type.BOOTS, DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
         public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);

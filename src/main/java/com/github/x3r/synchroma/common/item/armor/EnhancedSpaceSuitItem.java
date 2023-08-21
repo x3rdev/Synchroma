@@ -1,16 +1,13 @@
 package com.github.x3r.synchroma.common.item.armor;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.renderer.armor.BasicSpaceSuitRenderer;
+import com.github.x3r.synchroma.client.renderer.armor.EnhancedSpaceSuitRenderer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.DyeableLeatherItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -22,12 +19,13 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class BasicSpaceSuitItem extends ArmorItem implements GeoItem, DyeableLeatherItem {
+public class EnhancedSpaceSuitItem extends ArmorItem implements GeoItem, DyeableLeatherItem {
+
     public static final int DEFAULT_COLOR = 0xCAD6DC;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    public BasicSpaceSuitItem(Type pType, Properties pProperties) {
-        super(SynchromaArmorMaterials.BASIC_SPACE_SUIT, pType, pProperties);
+    public EnhancedSpaceSuitItem(Type pType, Properties pProperties) {
+        super(SynchromaArmorMaterials.ENHANCED_SPACE_SUIT, pType, pProperties);
     }
 
     @Override
@@ -49,7 +47,7 @@ public class BasicSpaceSuitItem extends ArmorItem implements GeoItem, DyeableLea
             @Override
             public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
                 if (this.renderer == null)
-                    this.renderer = new BasicSpaceSuitRenderer();
+                    this.renderer = new EnhancedSpaceSuitRenderer();
 
                 this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
 

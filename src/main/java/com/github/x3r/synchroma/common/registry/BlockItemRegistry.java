@@ -58,8 +58,8 @@ public class BlockItemRegistry {
             () -> new BlockItem(BlockRegistry.MICROSCOPE.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> TITANITE_CRYSTAL_ITEM = BLOCK_ITEMS.register("titanite_crystal",
-            () -> new GeckoBlockItem(BlockRegistry.TITANITE_CRYSTAL.get(), new ResourceLocation(Synchroma.MOD_ID, "titanite_crystal"), ItemRegistry.DEFAULT_PROPERTIES));
+            () -> new GeckoBlockItem(BlockRegistry.TITANITE_CRYSTAL.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> HEX_SOLAR_PLATE_ITEM = BLOCK_ITEMS.register("hex_solar_plate",
-            () -> new GeckoBlockItem(BlockRegistry.HEX_SOLAR_PLATE.get(), new ResourceLocation(Synchroma.MOD_ID, "hex_solar_plate"), ItemRegistry.DEFAULT_PROPERTIES));
+            () -> new GeckoBlockItem(BlockRegistry.HEX_SOLAR_PLATE.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }
