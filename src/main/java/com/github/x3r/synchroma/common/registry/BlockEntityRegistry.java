@@ -2,9 +2,11 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlockEntity;
+import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlockEntity;
 import com.github.x3r.synchroma.common.block.hex_solar_plate.HexSolarPlateBlockEntity;
+import com.github.x3r.synchroma.common.block.item_buffer.ItemBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlockEntity;
 import com.github.x3r.synchroma.common.block.multiblock.MimicBlockEntity;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlockEntity;
@@ -31,6 +33,10 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(BasicCircuitPrinterBlockEntity::new, BlockRegistry.BASIC_CIRCUIT_PRINTER.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnergyBufferBlockEntity>> ENERGY_BUFFER = BLOCK_ENTITIES.register("energy_buffer",
             () -> BlockEntityType.Builder.of(EnergyBufferBlockEntity::new, BlockRegistry.ENERGY_BUFFER.get()).build(null));
+//    public static final RegistryObject<BlockEntityType<EnergyBufferBlockEntity>> FLUID_BUFFER = BLOCK_ENTITIES.register("fluid_buffer",
+//            () -> BlockEntityType.Builder.of(EnergyBufferBlockEntity::new, BlockRegistry.ENERGY_BUFFER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ItemBufferBlockEntity>> ITEM_BUFFER = BLOCK_ENTITIES.register("item_buffer",
+            () -> BlockEntityType.Builder.of(ItemBufferBlockEntity::new, BlockRegistry.ITEM_BUFFER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicSolarPanelBlockEntity>> BASIC_SOLAR_PANEL = BLOCK_ENTITIES.register("basic_solar_panel",
             () -> BlockEntityType.Builder.of(BasicSolarPanelBlockEntity::new, BlockRegistry.BASIC_SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnhancedSolarPanelBlockEntity>> ENHANCED_SOLAR_PANEL = BLOCK_ENTITIES.register("enhanced_solar_panel",
@@ -39,10 +45,12 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(AdvancedSolarPanelBlockEntity::new, BlockRegistry.ADVANCED_SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<ZenithSolarPanelBlockEntity>> ZENITH_SOLAR_PANEL = BLOCK_ENTITIES.register("zenith_solar_panel",
             () -> BlockEntityType.Builder.of(ZenithSolarPanelBlockEntity::new, BlockRegistry.ZENITH_SOLAR_PANEL.get()).build(null));
-    public static final RegistryObject<BlockEntityType<BasicPumpBlockEntity>> BASIC_PUMP = BLOCK_ENTITIES.register("basic_pump",
-            () -> BlockEntityType.Builder.of(BasicPumpBlockEntity::new, BlockRegistry.BASIC_PUMP.get()).build(null));
     public static final RegistryObject<BlockEntityType<BasicEnergyStorageBlockEntity>> BASIC_ENERGY_STORAGE = BLOCK_ENTITIES.register("basic_energy_storage",
             () -> BlockEntityType.Builder.of(BasicEnergyStorageBlockEntity::new, BlockRegistry.BASIC_ENERGY_STORAGE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BasicPumpBlockEntity>> BASIC_PUMP = BLOCK_ENTITIES.register("basic_pump",
+            () -> BlockEntityType.Builder.of(BasicPumpBlockEntity::new, BlockRegistry.BASIC_PUMP.get()).build(null));
+    public static final RegistryObject<BlockEntityType<CentrifugeBlockEntity>> CENTRIFUGE = BLOCK_ENTITIES.register("centrifuge",
+            () -> BlockEntityType.Builder.of(CentrifugeBlockEntity::new, BlockRegistry.CENTRIFUGE.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnergyPipeBlockEntity>> ENERGY_PIPE = BLOCK_ENTITIES.register("energy_pipe",
             () -> BlockEntityType.Builder.of(EnergyPipeBlockEntity::new, BlockRegistry.ENERGY_PIPE.get()).build(null));
     public static final RegistryObject<BlockEntityType<MicroscopeBlockEntity>> MICROSCOPE = BLOCK_ENTITIES.register("microscope",

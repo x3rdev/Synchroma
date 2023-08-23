@@ -20,5 +20,7 @@ public class MenuTypeRegistry {
             () -> IForgeMenuType.create(ZenithSolarPanelMenu::new));
     public static final RegistryObject<MenuType<BasicPumpMenu>> BASIC_PUMP = MENUS.register("basic_pump_menu",
             () -> IForgeMenuType.create(BasicPumpMenu::new));
+    public static final RegistryObject<MenuType<CentrifugeMenu>> CENTRIFUGE = MENUS.register("centrifuge",
+            () -> IForgeMenuType.create(CentrifugeMenu::new));
 
 }

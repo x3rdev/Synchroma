@@ -3,9 +3,11 @@ package com.github.x3r.synchroma.common.registry;
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.FrameBlock;
 import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlock;
+import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlock;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlock;
 import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlock;
 import com.github.x3r.synchroma.common.block.hex_solar_plate.HexSolarPlateBlock;
+import com.github.x3r.synchroma.common.block.item_buffer.ItemBufferBlock;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
 import com.github.x3r.synchroma.common.block.multiblock.MimicBlock;
 import com.github.x3r.synchroma.common.block.pipes.energy_pipe.EnergyPipeBlock;
@@ -40,6 +42,11 @@ public class BlockRegistry {
             () -> new BasicCircuitPrinterBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> ENERGY_BUFFER = BLOCKS.register("energy_buffer",
             () -> new EnergyBufferBlock(DEFAULT_PROPERTIES));
+
+//    public static final RegistryObject<Block> FLUID_BUFFER = BLOCKS.register("fluid_buffer",
+//            () -> new EnergyBufferBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> ITEM_BUFFER = BLOCKS.register("item_buffer",
+            () -> new ItemBufferBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> BASIC_SOLAR_PANEL = BLOCKS.register("basic_solar_panel",
             () -> new BasicSolarPanelBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> ENHANCED_SOLAR_PANEL = BLOCKS.register("enhanced_solar_panel",
@@ -52,6 +59,8 @@ public class BlockRegistry {
             () -> new BasicEnergyStorageBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> BASIC_PUMP = BLOCKS.register("basic_pump",
             () -> new BasicPumpBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> CENTRIFUGE = BLOCKS.register("centrifuge",
+            () -> new CentrifugeBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> ENERGY_PIPE = BLOCKS.register("energy_pipe",
             () -> new EnergyPipeBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> MICROSCOPE = BLOCKS.register("microscope",
@@ -60,5 +69,7 @@ public class BlockRegistry {
             () -> new TitaniteBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
     public static final RegistryObject<Block> HEX_SOLAR_PLATE = BLOCKS.register("hex_solar_plate",
             () -> new HexSolarPlateBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> SHAFT = BLOCKS.register("shaft",
+            () -> new Block(DEFAULT_PROPERTIES));
 }
 

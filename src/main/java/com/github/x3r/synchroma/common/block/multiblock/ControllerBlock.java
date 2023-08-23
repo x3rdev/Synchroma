@@ -36,7 +36,7 @@ public abstract class ControllerBlock extends BaseEntityBlock {
             return InteractionResult.SUCCESS;
         } else {
             if(controller.isAssembled()) {
-                this.openContainer(pLevel, pPos, pPlayer);
+                openContainer(pLevel, pPos, pPlayer);
             } else  {
                 controller.validateMultiBlock((ServerPlayer) pPlayer);
             }

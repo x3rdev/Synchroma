@@ -15,23 +15,26 @@ public class BlockItemRegistry {
 
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Synchroma.MOD_ID);
 
-    public static final RegistryObject<BlockItem> FRAME_ITEM = BLOCK_ITEMS.register("frame",
+    public static final RegistryObject<BlockItem> FRAME = BLOCK_ITEMS.register("frame",
             () -> new BlockItem(BlockRegistry.FRAME.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> EMPTY_CONTROLLER_ITEM = BLOCK_ITEMS.register("empty_controller",
+    public static final RegistryObject<BlockItem> EMPTY_CONTROLLER = BLOCK_ITEMS.register("empty_controller",
             () -> new BlockItem(BlockRegistry.EMPTY_CONTROLLER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> MIMIC_ITEM = BLOCK_ITEMS.register("mimic",
+    public static final RegistryObject<BlockItem> MIMIC = BLOCK_ITEMS.register("mimic",
             () -> new BlockItem(BlockRegistry.MIMIC.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> WEAPON_WORKBENCH_ITEM = BLOCK_ITEMS.register("weapon_workbench",
+    public static final RegistryObject<BlockItem> WEAPON_WORKBENCH = BLOCK_ITEMS.register("weapon_workbench",
             () -> new BlockItem(BlockRegistry.WEAPON_WORKBENCH.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> BASIC_CIRCUIT_PRINTER_ITEM = BLOCK_ITEMS.register("basic_circuit_printer",
+    public static final RegistryObject<BlockItem> BASIC_CIRCUIT_PRINTER = BLOCK_ITEMS.register("basic_circuit_printer",
             () -> new BlockItem(BlockRegistry.BASIC_CIRCUIT_PRINTER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> ENERGY_BUFFER_ITEM = BLOCK_ITEMS.register("energy_buffer",
+    public static final RegistryObject<BlockItem> ENERGY_BUFFER = BLOCK_ITEMS.register("energy_buffer",
             () -> new BlockItem(BlockRegistry.ENERGY_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> ITEM_BUFFER = BLOCK_ITEMS.register("item_buffer",
+            () -> new BlockItem(BlockRegistry.ITEM_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> BASIC_SOLAR_PANEL = BLOCK_ITEMS.register("basic_solar_panel",
             () -> new BlockItem(BlockRegistry.BASIC_SOLAR_PANEL.get(), ItemRegistry.DEFAULT_PROPERTIES));
@@ -51,6 +54,9 @@ public class BlockItemRegistry {
     public static final RegistryObject<BlockItem> BASIC_PUMP = BLOCK_ITEMS.register("basic_pump",
             () -> new BlockItem(BlockRegistry.BASIC_PUMP.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
+    public static final RegistryObject<BlockItem> CENTRIFUGE = BLOCK_ITEMS.register("centrifuge",
+            () -> new BlockItem(BlockRegistry.CENTRIFUGE.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
     public static final RegistryObject<BlockItem> ENERGY_PIPE = BLOCK_ITEMS.register("energy_pipe",
             () -> new BlockItem(BlockRegistry.ENERGY_PIPE.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
@@ -62,4 +68,7 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> HEX_SOLAR_PLATE_ITEM = BLOCK_ITEMS.register("hex_solar_plate",
             () -> new GeckoBlockItem(BlockRegistry.HEX_SOLAR_PLATE.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> SHAFT_ITEM = BLOCK_ITEMS.register("shaft",
+            () -> new BlockItem(BlockRegistry.SHAFT.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

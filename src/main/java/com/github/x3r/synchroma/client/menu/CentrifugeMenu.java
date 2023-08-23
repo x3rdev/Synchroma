@@ -1,24 +1,25 @@
 package com.github.x3r.synchroma.client.menu;
 
+import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.Nullable;
 
-public class ZenithSolarPanelMenu extends SyncedMenu<ZenithSolarPanelBlockEntity> {
+public class CentrifugeMenu extends SyncedMenu<CentrifugeBlockEntity> {
 
     private final Container container;
-
-    public ZenithSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (ZenithSolarPanelBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+    public CentrifugeMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
+        this(pContainerId, inventory, (CentrifugeBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
     }
-
-    public ZenithSolarPanelMenu(int pContainerId, Inventory inventory, ZenithSolarPanelBlockEntity blockEntity) {
-        super(MenuTypeRegistry.ZENITH_SOLAR_PANEL.get(), pContainerId, inventory, blockEntity);
+    public CentrifugeMenu(int pContainerId, Inventory inventory, CentrifugeBlockEntity blockEntity) {
+        super(MenuTypeRegistry.CENTRIFUGE.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;
         checkContainerSize(container, 3);
         this.addSlot(new Slot(container, 0, 44, 34){
@@ -53,17 +54,11 @@ public class ZenithSolarPanelMenu extends SyncedMenu<ZenithSolarPanelBlockEntity
 
     @Override
     public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-        return ItemStack.EMPTY;
+        return null;
     }
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return this.container.stillValid(pPlayer);
-    }
-
-    @Override
-    public void removed(Player pPlayer) {
-        super.removed(pPlayer);
-        this.container.stopOpen(pPlayer);
+        return false;
     }
 }

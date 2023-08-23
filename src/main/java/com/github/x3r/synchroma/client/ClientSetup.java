@@ -35,6 +35,7 @@ public final class ClientSetup {
             MenuScreens.register(MenuTypeRegistry.ADVANCED_SOLAR_PANEL.get(), AdvancedSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.ZENITH_SOLAR_PANEL.get(), ZenithSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.BASIC_PUMP.get(), BasicPumpScreen::new);
+            MenuScreens.register(MenuTypeRegistry.CENTRIFUGE.get(), CentrifugeScreen::new);
         });
     }
     @SubscribeEvent
@@ -45,6 +46,7 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(BlockEntityRegistry.ENHANCED_SOLAR_PANEL.get(), pContext -> new EnhancedSolarPanelRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.ADVANCED_SOLAR_PANEL.get(), pContext -> new AdvancedSolarPanelRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.ZENITH_SOLAR_PANEL.get(), pContext -> new ZenithSolarPanelRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.CENTRIFUGE.get(), pContext -> new CentrifugeRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), pContext -> new HexSolarPlateRenderer());
     }

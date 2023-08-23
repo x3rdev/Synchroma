@@ -1,0 +1,50 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.centrifuge.assemble": {
+			"animation_length": 1.48,
+			"bones": {
+				"top": {
+					"scale": {
+						"0.0": {
+							"vector": [0, 1, 0]
+						},
+						"0.96": {
+							"vector": [0, 1, 0]
+						},
+						"1.48": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic"
+						}
+					}
+				},
+				"center": {
+					"scale": {
+						"0.0": {
+							"vector": [0, 1, 0]
+						},
+						"0.48": {
+							"vector": [0, 1, 0]
+						},
+						"0.96": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic"
+						}
+					}
+				},
+				"base": {
+					"scale": {
+						"0.0": {
+							"vector": [1, -0.25, 1]
+						},
+						"0.48": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic"
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}
