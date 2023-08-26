@@ -1,0 +1,29 @@
+{
+  "type": "synchroma:centrifuge",
+  "input_items": [
+    {
+      "item_stack": {
+        "id": "minecraft:red_wool",
+        "Count": 1,
+        "tag": null
+      }
+    }
+  ],
+  "output_items": [
+    {
+      "item_stack": {
+        "id": "minecraft:white_wool",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:red_dye",
+        "Count": 1,
+        "tag": null
+      }
+    }
+  ],
+  "processing_time": 60
+}

@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.checkerframework.checker.units.qual.C;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public abstract class PartBlockEntity extends BlockEntity {
@@ -65,5 +66,9 @@ public abstract class PartBlockEntity extends BlockEntity {
     }
     public Optional<BlockPos> getControllerPos() {
         return Optional.ofNullable(controllerPos);
+    }
+
+    protected Optional<ControllerBlockEntity> getController() {
+        return getControllerPos().isPresent() ? Optional.ofNullable(((ControllerBlockEntity) level.getBlockEntity(getControllerPos().get()))) : Optional.empty();
     }
 }

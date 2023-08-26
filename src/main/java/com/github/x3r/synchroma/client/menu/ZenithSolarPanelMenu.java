@@ -10,13 +10,11 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 public class ZenithSolarPanelMenu extends SyncedMenu<ZenithSolarPanelBlockEntity> {
-
     private final Container container;
 
     public ZenithSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
         this(pContainerId, inventory, (ZenithSolarPanelBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
     }
-
     public ZenithSolarPanelMenu(int pContainerId, Inventory inventory, ZenithSolarPanelBlockEntity blockEntity) {
         super(MenuTypeRegistry.ZENITH_SOLAR_PANEL.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;

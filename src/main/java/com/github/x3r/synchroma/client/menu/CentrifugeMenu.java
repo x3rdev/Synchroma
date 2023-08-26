@@ -21,23 +21,35 @@ public class CentrifugeMenu extends SyncedMenu<CentrifugeBlockEntity> {
     public CentrifugeMenu(int pContainerId, Inventory inventory, CentrifugeBlockEntity blockEntity) {
         super(MenuTypeRegistry.CENTRIFUGE.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;
-        checkContainerSize(container, 3);
+        checkContainerSize(container, 5);
         this.addSlot(new Slot(container, 0, 44, 34){
             @Override
             public boolean mayPlace(ItemStack pStack) {
                 return super.mayPlace(pStack);
             }
         });
-        this.addSlot(new Slot(container, 1, 80, 34){
+        this.addSlot(new Slot(container, 1, 104, 25){
             @Override
             public boolean mayPlace(ItemStack pStack) {
-                return super.mayPlace(pStack);
+                return false;
             }
         });
-        this.addSlot(new Slot(container, 2, 116, 34){
+        this.addSlot(new Slot(container, 2, 124, 25){
             @Override
             public boolean mayPlace(ItemStack pStack) {
-                return super.mayPlace(pStack);
+                return false;
+            }
+        });
+        this.addSlot(new Slot(container, 3, 104, 45){
+            @Override
+            public boolean mayPlace(ItemStack pStack) {
+                return false;
+            }
+        });
+        this.addSlot(new Slot(container, 4, 124, 45){
+            @Override
+            public boolean mayPlace(ItemStack pStack) {
+                return false;
             }
         });
 
@@ -54,11 +66,11 @@ public class CentrifugeMenu extends SyncedMenu<CentrifugeBlockEntity> {
 
     @Override
     public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-        return null;
+        return ItemStack.EMPTY;
     }
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return false;
+        return this.container.stillValid(pPlayer);
     }
 }

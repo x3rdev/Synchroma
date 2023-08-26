@@ -1,0 +1,22 @@
+{
+  "input_items": [
+    {
+      "ingredient": {
+        "item": "minecraft:crimson_fence"
+      }
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:dirt"
+      }
+    }
+  ],
+  "input_fluids": [
+    {
+      "fluid_stack": {
+        "fluid": "minecraft:water",
+        "amount": 1000
+      }
+    }
+  ]
+}

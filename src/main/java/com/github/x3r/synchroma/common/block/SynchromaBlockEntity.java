@@ -40,6 +40,9 @@ public abstract class SynchromaBlockEntity extends BlockEntity implements Contai
 
     @Override
     public ItemStack getItem(int pSlot) {
+        if(getItems() == null || pSlot >= getItems().size()) {
+            return ItemStack.EMPTY;
+        }
         return getItems().get(pSlot);
     }
 

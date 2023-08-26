@@ -206,7 +206,7 @@
 					]
 				},
 				{
-					"name": "spinning_part",
+					"name": "rotating_part",
 					"parent": "center",
 					"pivot": [0, 17, 0],
 					"cubes": [

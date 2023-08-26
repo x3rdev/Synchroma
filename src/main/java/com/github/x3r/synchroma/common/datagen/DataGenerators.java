@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = Synchroma.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-
 public final class DataGenerators {
 
     @SubscribeEvent
@@ -23,5 +22,6 @@ public final class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         dataGenerator.addProvider(event.includeServer(), new SynchromaTagProvider(packOutput, lookupProvider, existingFileHelper));
+        dataGenerator.addProvider(event.includeServer(), new SynchromaRecipeProvider(packOutput));
     }
 }

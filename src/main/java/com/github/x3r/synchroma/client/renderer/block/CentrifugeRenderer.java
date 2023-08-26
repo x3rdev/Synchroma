@@ -11,12 +11,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.model.data.ModelData;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.core.state.BoneSnapshot;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;
 
 public class CentrifugeRenderer extends GeoBlockRenderer<CentrifugeBlockEntity> {
@@ -32,6 +37,7 @@ public class CentrifugeRenderer extends GeoBlockRenderer<CentrifugeBlockEntity> 
             Vec3 offset = new Vec3(0, 0, 1).yRot(yRot);
             poseStack.translate(offset.x, offset.y, offset.z);
             super.defaultRender(poseStack, animatable, bufferSource, renderType, buffer, yaw, partialTick, packedLight);
+            renderItem(poseStack, animatable, bufferSource, packedLight);
             poseStack.popPose();
         } else {
             poseStack.pushPose();
@@ -41,6 +47,20 @@ public class CentrifugeRenderer extends GeoBlockRenderer<CentrifugeBlockEntity> 
             poseStack.mulPose(Axis.YP.rotation(yRot));
             poseStack.translate(-0.5, 0, -0.5);
             blockRenderer.getModelRenderer().tesselateBlock(animatable.getLevel(), blockRenderer.getBlockModel(state), state, animatable.getBlockPos(), poseStack, bufferSource.getBuffer(RenderType.cutoutMipped()), false, RandomSource.create(), state.getSeed(animatable.getBlockPos()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, RenderType.cutoutMipped());
+            poseStack.popPose();
+        }
+    }
+
+    private void renderItem(PoseStack poseStack, CentrifugeBlockEntity animatable, MultiBufferSource bufferSource, int packedLight) {
+        ItemStack stack = animatable.getItem(0);
+        if(!stack.isEmpty()) {
+            float rot = animatable.boneSnapshots.get("rotating_part").getRotY();
+            Vec3 v = new Vec3(0.75 * animatable.getSpeedRatio(), 1, 0).yRot(rot).add(new Vec3(0.5, 0, 0.5).yRot((float) Math.toRadians(180-animatable.getBlockState().getValue(ControllerBlock.FACING).toYRot())));
+            animatable.getBlockPos();
+            ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+            poseStack.pushPose();
+            poseStack.translate(v.x, v.y, v.z);
+            itemRenderer.renderStatic(stack, ItemDisplayContext.GROUND, packedLight, OverlayTexture.NO_OVERLAY, poseStack, bufferSource, animatable.getLevel(), animatable.hashCode());
             poseStack.popPose();
         }
     }

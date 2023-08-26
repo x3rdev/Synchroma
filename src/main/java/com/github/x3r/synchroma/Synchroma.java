@@ -41,5 +41,7 @@ public class Synchroma {
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
         MenuTypeRegistry.MENUS.register(bus);
         ParticleRegistry.PARTICLE_TYPES.register(bus);
+        RecipeRegistry.RECIPE_TYPES.register(bus);
+        RecipeRegistry.RECIPE_SERIALIZERS.register(bus);
     }
 }
