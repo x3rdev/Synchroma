@@ -1,14 +1,13 @@
 package com.github.x3r.synchroma.common.item.armor;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.renderer.armor.BasicSpaceSuitRenderer;
 import com.github.x3r.synchroma.client.renderer.armor.EngineerSuitRenderer;
+import com.github.x3r.synchroma.client.renderer.armor.MilitarySuitRenderer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.NotNull;
@@ -21,17 +20,17 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class EngineerSuitItem extends ArmorItem implements GeoItem {
+public class MilitarySuitItem extends ArmorItem implements GeoItem {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    public EngineerSuitItem(Type pType, Properties pProperties) {
-        super(SynchromaArmorMaterials.ENGINEER_SUIT, pType, pProperties);
+    public MilitarySuitItem(Type pType, Properties pProperties) {
+        super(SynchromaArmorMaterials.MILITARY_SUIT, pType, pProperties);
     }
 
     @Override
     public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return Synchroma.MOD_ID + ":textures/item/armor/engineer_suit.png";
+        return Synchroma.MOD_ID + ":textures/item/armor/military_suit.png";
     }
 
 
@@ -43,7 +42,7 @@ public class EngineerSuitItem extends ArmorItem implements GeoItem {
             @Override
             public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
                 if (this.renderer == null)
-                    this.renderer = new EngineerSuitRenderer();
+                    this.renderer = new MilitarySuitRenderer();
 
                 this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
 
