@@ -1,7 +1,6 @@
 package com.github.x3r.synchroma.common.block.solar_panel;
 
 import com.github.x3r.synchroma.client.menu.AdvancedSolarPanelMenu;
-import com.github.x3r.synchroma.client.menu.EnhancedSolarPanelMenu;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaItemHandler;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;
@@ -77,24 +76,34 @@ public class AdvancedSolarPanelBlockEntity extends ControllerBlockEntity {
         return NonNullList.of(ItemStack.EMPTY);
     }
 
-    @Override
-    protected BlockPattern getBlockPattern() {
-        return BlockPatternBuilder.start()
-                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
-                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ADVANCED_SOLAR_PANEL.get()))
-                .where('t', ControllerBlockEntity.blockMatch(Blocks.IRON_TRAPDOOR))
-                .where('h', ControllerBlockEntity.blockMatch(Blocks.HOPPER))
-                .where('p', ControllerBlockEntity.blockMatch(BlockRegistry.HEX_SOLAR_PLATE.get()))
-                .where('*', blockInWorld -> blockInWorld.getState().isAir())
-                .aisle("p*p", "t*t", "*t*")
-                .aisle("p*p", "hch", "tot")
-                .aisle("p*p", "t*t", "*t*")
-                .build();
-    }
+//    @Override
+//    protected BlockPattern getBlockPattern() {
+//        return BlockPatternBuilder.start()
+//                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
+//                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ADVANCED_SOLAR_PANEL.get()))
+//                .where('t', ControllerBlockEntity.blockMatch(Blocks.IRON_TRAPDOOR))
+//                .where('h', ControllerBlockEntity.blockMatch(Blocks.HOPPER))
+//                .where('p', ControllerBlockEntity.blockMatch(BlockRegistry.HEX_SOLAR_PLATE.get()))
+//                .where('*', blockInWorld -> blockInWorld.getState().isAir())
+//                .aisle("p*p", "t*t", "*t*")
+//                .aisle("p*p", "hch", "tot")
+//                .aisle("p*p", "t*t", "*t*")
+//                .build();
+//    }
+
 
     @Override
-    protected Vec3i getPatternOffset() {
-        return new Vec3i(-1, 1, 1);
+    public BlockState[][][] getBlockPattern() {
+        BlockState a = BlockRegistry.ENERGY_BUFFER.get().defaultBlockState();
+        BlockState b = BlockRegistry.ADVANCED_SOLAR_PANEL.get().defaultBlockState();
+        BlockState c = Blocks.IRON_TRAPDOOR.defaultBlockState();
+        BlockState d = Blocks.HOPPER.defaultBlockState();
+        BlockState e = BlockRegistry.HEX_SOLAR_PLATE.get().defaultBlockState();
+        return new BlockState[][][]{
+                {{null, c, null,},{c, d, c},{e, e, e}},
+                {{c, a, c},{null, b, null},{null, null, null}},
+                {{null, c, null},{c, d, c},{e, e, e}}
+        };
     }
 
     @Override

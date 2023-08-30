@@ -70,24 +70,34 @@ public class ZenithSolarPanelBlockEntity extends ControllerBlockEntity {
         return getAge();
     }
 
-    @Override
-    protected BlockPattern getBlockPattern() {
-        return BlockPatternBuilder.start()
-                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
-                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ZENITH_SOLAR_PANEL.get()))
-                .where('t', ControllerBlockEntity.blockMatch(Blocks.IRON_TRAPDOOR))
-                .where('h', ControllerBlockEntity.blockMatch(Blocks.HOPPER))
-                .where('p', ControllerBlockEntity.blockMatch(BlockRegistry.HEX_SOLAR_PLATE.get()))
-                .where('*', blockInWorld -> blockInWorld.getState().isAir())
-                .aisle("ppp", "ttt", "*t*")
-                .aisle("p*p", "hch", "tot")
-                .aisle("ppp", "ttt", "*t*")
-                .build();
-    }
+//    @Override
+//    protected BlockPattern getBlockPattern() {
+//        return BlockPatternBuilder.start()
+//                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
+//                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ZENITH_SOLAR_PANEL.get()))
+//                .where('t', ControllerBlockEntity.blockMatch(Blocks.IRON_TRAPDOOR))
+//                .where('h', ControllerBlockEntity.blockMatch(Blocks.HOPPER))
+//                .where('p', ControllerBlockEntity.blockMatch(BlockRegistry.HEX_SOLAR_PLATE.get()))
+//                .where('*', blockInWorld -> blockInWorld.getState().isAir())
+//                .aisle("ppp", "ttt", "*t*")
+//                .aisle("p*p", "hch", "tot")
+//                .aisle("ppp", "ttt", "*t*")
+//                .build();
+//    }
+
 
     @Override
-    protected Vec3i getPatternOffset() {
-        return new Vec3i(-1, 1, 1);
+    public BlockState[][][] getBlockPattern() {
+        BlockState a = BlockRegistry.ENERGY_BUFFER.get().defaultBlockState();
+        BlockState b = BlockRegistry.ZENITH_SOLAR_PANEL.get().defaultBlockState();
+        BlockState c = Blocks.IRON_TRAPDOOR.defaultBlockState();
+        BlockState d = Blocks.HOPPER.defaultBlockState();
+        BlockState e = BlockRegistry.HEX_SOLAR_PLATE.get().defaultBlockState();
+        return new BlockState[][][]{
+                {{null, c, null},{c, d, c},{e, e, e}},
+                {{c, a, c},{c, b, c},{e, null, e}},
+                {{null, c, null},{c, d, c},{e, e, e}}
+        };
     }
 
     protected NonNullList<ItemStack> getItems() {

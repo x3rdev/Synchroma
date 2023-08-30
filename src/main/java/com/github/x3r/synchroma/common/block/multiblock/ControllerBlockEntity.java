@@ -9,20 +9,18 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.pattern.BlockInWorld;
-import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Predicate;
 
 public abstract class ControllerBlockEntity extends SynchromaBlockEntity implements GeoBlockEntity {
     private final Set<BlockEntity> cachedParts = new HashSet<>();
@@ -37,8 +35,7 @@ public abstract class ControllerBlockEntity extends SynchromaBlockEntity impleme
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
-    protected abstract BlockPattern getBlockPattern();
-    protected abstract Vec3i getPatternOffset();
+    public abstract BlockState[][][] getBlockPattern();
 
     @Override
     public void onLoad() {
@@ -51,25 +48,84 @@ public abstract class ControllerBlockEntity extends SynchromaBlockEntity impleme
     }
 
     public boolean validateMultiBlock(@Nullable ServerPlayer player) {
-        BlockPattern pattern = getBlockPattern();
+        BlockState[][][] pattern = getBlockPattern();
         if(pattern != null) {
-            BlockPattern.BlockPatternMatch match = pattern.matches(getBlockPos().offset(rotateVector(getPatternOffset())), this.getBlockState().getValue(ControllerBlock.FACING).getOpposite(), Direction.UP, BlockPattern.createLevelCache(getLevel(), false));
-            if (match != null) {
+            BlockPos incorrectPositions = validatePattern(pattern, getLevel(), getBlockPos(), getRotation());
+            if (incorrectPositions == null) {
                 if(!isAssembled()) {
                     assemble(player);
                 }
                 return true;
             }
         }
-        if(this.isAssembled()) {
+        if(isAssembled()) {
             disassemble();
         }
         return false;
     }
 
+    private static @Nullable BlockPos validatePattern(BlockState[][][] pattern, Level level, BlockPos controllerPos, Rotation rot) {
+        for (int i = 0; i < pattern.length; i++) {
+            for (int j = 0; j < pattern[0].length; j++) {
+                for (int k = 0; k < pattern[0][0].length; k++) {
+                    BlockPos pos = new BlockPos(getControllerOffset(pattern).offset(i, j, k)).rotate(rot);
+                    if(!validBlock(level, pattern[i][j][k], controllerPos.offset(pos))) {
+                        return pos;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    public static Vec3i getControllerOffset(BlockState[][][] pattern) {
+        for (int i = 0; i < pattern.length; i++) {
+            for (int j = 0; j < pattern[0].length; j++) {
+                for (int k = 0; k < pattern[0][0].length; k++) {
+                    if(pattern[i][j][k] != null && pattern[i][j][k].getBlock() instanceof ControllerBlock) {
+                        return new Vec3i(-i, -j, -k);
+                    }
+                }
+            }
+        }
+        throw new RuntimeException("Can not find controller in pattern");
+    }
+
+    private static boolean validBlock(Level level, BlockState expected, BlockPos pos) {
+        if(expected == null) {
+            return true;
+        }
+        BlockState actual = level.getBlockState(pos);
+        if(level.getBlockEntity(pos) instanceof MimicBlockEntity mimicBlock) {
+            actual = mimicBlock.getOriginalState();
+        }
+        if(actual.equals(expected)) {
+            return true;
+        }
+        if(expected.equals(expected.getBlock().defaultBlockState())) {
+            return actual.getBlock().equals(expected.getBlock());
+        }
+        return false;
+    }
+
+    private static Set<BlockPos> getPatternPositions(BlockState[][][] pattern, BlockPos controllerPos, Rotation rot) {
+        Set<BlockPos> set = new HashSet<>();
+        for (int i = 0; i < pattern.length; i++) {
+            for (int j = 0; j < pattern[0].length; j++) {
+                for (int k = 0; k < pattern[0][0].length; k++) {
+                    if(pattern[i][j][k] != null) {
+                        BlockPos pos = new BlockPos(getControllerOffset(pattern).offset(i, j, k)).rotate(rot);
+                        set.add(controllerPos.offset(pos));
+                    }
+                }
+            }
+        }
+        return set;
+    }
+
     public void assemble(ServerPlayer player) {
         if(!this.isAssembled()){
-            getMultiBlockParts().forEach(pos -> {
+            getPatternPositions(getBlockPattern(), getBlockPos(), getRotation()).forEach(pos -> {
                 BlockState state = this.level.getBlockState(pos);
                 if(state.isAir() || state.getBlock() instanceof ControllerBlock) {
                     return;
@@ -93,7 +149,7 @@ public abstract class ControllerBlockEntity extends SynchromaBlockEntity impleme
 
     public void disassemble() {
         if(this.isAssembled()) {
-            getMultiBlockParts().forEach(pos -> {
+            getPatternPositions(getBlockPattern(), getBlockPos(), getRotation()).forEach(pos -> {
                 if(this.level.getBlockEntity(pos) instanceof PartBlockEntity partEntity) {
                     partEntity.disassemble();
                 }
@@ -104,61 +160,28 @@ public abstract class ControllerBlockEntity extends SynchromaBlockEntity impleme
         markUpdated();
     }
 
-    //TODO check if useful
-    protected Set<BlockEntity> getMultiBlockBlockEntities() {
-        if(cachedParts.isEmpty()) {
-            getMultiBlockParts().forEach(pos -> {
-                if(!(level.getBlockEntity(pos) instanceof ControllerBlockEntity)) cachedParts.add(level.getBlockEntity(pos));
-            });
-        }
-        return cachedParts;
-    }
-
-    protected Set<BlockPos> getMultiBlockParts() {
-        BlockPattern pattern = getBlockPattern();
-        Set<BlockPos> set = new HashSet<>();
-        if(pattern != null) {
-            for (int i = 0; i < pattern.getWidth(); i++) {
-                for (int j = 0; j < pattern.getHeight(); j++) {
-                    for (int k = 0; k < pattern.getDepth(); k++) {
-                        set.add(getBlockPos()
-                                .offset(rotateVector(getPatternOffset()))
-                                .offset(rotateVector(new Vec3i(i, -j, -k))));
-                    }
-                }
-            }
-        }
-        return set;
-    }
-
     //TODO make this more accurate to pattern
     @Override
     public AABB getRenderBoundingBox() {
         return super.getRenderBoundingBox().inflate(4);
     }
 
-    public Vec3i rotateVector(Vec3i vec) {
-        double rot = Math.toRadians(this.getBlockState().getValue(ControllerBlock.FACING).toYRot());
-        return new Vec3i((int) Math.round(Math.cos(rot)*vec.getX()-Math.sin(rot)*vec.getZ()), vec.getY(), (int) Math.round(Math.sin(rot)*vec.getX()+Math.cos(rot)*vec.getZ()));
-    }
-
-    public static Predicate<BlockInWorld> blockMatch(Block block) {
-        return blockInWorld -> {
-            if(blockInWorld.getState().is(block)) return true;
-            if(blockInWorld.getEntity() instanceof MimicBlockEntity partEntity) {
-                return partEntity.getOriginalState().is(block);
+    private Rotation getRotation() {
+        Direction direction = getBlockState().getValue(ControllerBlock.FACING);
+        switch (direction) {
+            case NORTH -> {
+                return Rotation.NONE;
             }
-            return false;
-        };
-    }
-
-    public static Predicate<BlockInWorld> stateMatch(BlockState state) {
-        return blockInWorld -> {
-            if(blockInWorld.getState().equals(state)) return true;
-            if(blockInWorld.getEntity() instanceof MimicBlockEntity partEntity) {
-                return partEntity.getOriginalState().equals(state);
+            case EAST -> {
+                return Rotation.CLOCKWISE_90;
             }
-            return false;
-        };
+            case SOUTH -> {
+                return Rotation.CLOCKWISE_180;
+            }
+            case WEST -> {
+                return Rotation.COUNTERCLOCKWISE_90;
+            }
+        }
+        return Rotation.NONE;
     }
 }

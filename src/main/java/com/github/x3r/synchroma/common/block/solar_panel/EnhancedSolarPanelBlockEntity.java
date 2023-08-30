@@ -19,6 +19,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
@@ -67,22 +68,30 @@ public class  EnhancedSolarPanelBlockEntity extends ControllerBlockEntity {
         return getAge();
     }
 
-    @Override
-    protected BlockPattern getBlockPattern() {
-        return BlockPatternBuilder.start()
-                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ENHANCED_SOLAR_PANEL.get()))
-                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
-                .where('s', ControllerBlockEntity.blockMatch(BlockRegistry.BASIC_SOLAR_PANEL.get()))
-                .where('*', blockInWorld -> blockInWorld.getState().isAir())
-                .aisle("s*s", "***")
-                .aisle("scs", "*o*")
-                .aisle("s*s", "***")
-                .build();
-    }
+//    @Override
+//    protected BlockPattern getBlockPattern() {
+//        return BlockPatternBuilder.start()
+//                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ENHANCED_SOLAR_PANEL.get()))
+//                .where('o', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
+//                .where('s', ControllerBlockEntity.blockMatch(BlockRegistry.BASIC_SOLAR_PANEL.get()))
+//                .where('*', blockInWorld -> blockInWorld.getState().isAir())
+//                .aisle("s*s", "***")
+//                .aisle("scs", "*o*")
+//                .aisle("s*s", "***")
+//                .build();
+//    }
+
 
     @Override
-    protected Vec3i getPatternOffset() {
-        return new Vec3i(-1, 0, 1);
+    public BlockState[][][] getBlockPattern() {
+        BlockState a = BlockRegistry.ENHANCED_SOLAR_PANEL.get().defaultBlockState();
+        BlockState b = BlockRegistry.ENERGY_BUFFER.get().defaultBlockState();
+        BlockState c = BlockRegistry.BASIC_SOLAR_PANEL.get().defaultBlockState();
+        return new BlockState[][][]{
+                {{null, null, null},{c, c, c}},
+                {{null, b, null},{null, a, null}},
+                {{null, null, null},{c, c, c}}
+        };
     }
 
     protected NonNullList<ItemStack> getItems() {

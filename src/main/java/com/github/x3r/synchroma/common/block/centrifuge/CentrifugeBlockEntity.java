@@ -111,27 +111,39 @@ public class CentrifugeBlockEntity extends ControllerBlockEntity {
         return NonNullList.of(ItemStack.EMPTY);
     }
 
-    @Override
-    protected BlockPattern getBlockPattern() {
-        return BlockPatternBuilder.start()
-                .where('a', ControllerBlockEntity.blockMatch(BlockRegistry.CENTRIFUGE.get()))
-                .where('b', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
-                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ITEM_BUFFER.get()))
-                .where('d', ControllerBlockEntity.blockMatch(BlockRegistry.SHAFT.get()))
-                .where('e', ControllerBlockEntity.blockMatch(Blocks.IRON_BARS))
-                .where('f', ControllerBlockEntity.blockMatch(Blocks.GLASS_PANE))
-                .where('g', ControllerBlockEntity.blockMatch(Blocks.IRON_BLOCK))
-                .where('h', ControllerBlockEntity.stateMatch(BlockRegistry.FRAME.get().defaultBlockState().setValue(FrameBlock.PLATES, true).setValue(FrameBlock.WIRES, true)))
-                .where('*', blockInWorld -> blockInWorld.getState().isAir())
-                .aisle("hhh", "gfg", "hah")
-                .aisle("hdh", "fef", "cdc")
-                .aisle("hhh", "gfg", "hbh")
-                .build();
-    }
+//    @Override
+//    protected BlockPattern getBlockPattern() {
+//        return BlockPatternBuilder.start()
+//                .where('a', ControllerBlockEntity.blockMatch(BlockRegistry.CENTRIFUGE.get()))
+//                .where('b', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
+//                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ITEM_BUFFER.get()))
+//                .where('d', ControllerBlockEntity.blockMatch(BlockRegistry.SHAFT.get()))
+//                .where('e', ControllerBlockEntity.blockMatch(Blocks.IRON_BARS))
+//                .where('f', ControllerBlockEntity.blockMatch(Blocks.GLASS_PANE))
+//                .where('g', ControllerBlockEntity.blockMatch(Blocks.IRON_BLOCK))
+//                .where('h', ControllerBlockEntity.stateMatch(BlockRegistry.FRAME.get().defaultBlockState().setValue(FrameBlock.PLATES, true).setValue(FrameBlock.WIRES, true)))
+//                .where('*', blockInWorld -> blockInWorld.getState().isAir())
+//                .aisle("hhh", "gfg", "hah")
+//                .aisle("hdh", "fef", "cdc")
+//                .aisle("hhh", "gfg", "hbh")
+//                .build();
+//    }
 
     @Override
-    protected Vec3i getPatternOffset() {
-        return new Vec3i(-1, 2, 0);
+    public BlockState[][][] getBlockPattern() {
+        BlockState a = BlockRegistry.CENTRIFUGE.get().defaultBlockState();
+        BlockState b = BlockRegistry.ENERGY_BUFFER.get().defaultBlockState();
+        BlockState c = BlockRegistry.ITEM_BUFFER.get().defaultBlockState();
+        BlockState d = BlockRegistry.SHAFT.get().defaultBlockState();
+        BlockState e = Blocks.IRON_BARS.defaultBlockState();
+        BlockState f = Blocks.GLASS_PANE.defaultBlockState();
+        BlockState g = Blocks.IRON_BLOCK.defaultBlockState();
+        BlockState h = BlockRegistry.FRAME.get().defaultBlockState().setValue(FrameBlock.PLATES, true).setValue(FrameBlock.WIRES, true);
+        return new BlockState[][][] {
+                {{h, c, h},{g, f, g},{h, h, h}},
+                {{a, d, b},{f, e, f},{h, d, h}},
+                {{h, c, h},{g, f, g},{h, h, h}}
+        };
     }
 
     @Override

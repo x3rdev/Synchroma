@@ -1,6 +1,7 @@
 package com.github.x3r.synchroma.client;
 
 
+import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.client.particle.SparkParticle;
 import com.github.x3r.synchroma.client.renderer.block.*;
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.AdvancedSolarPanelRenderer;
@@ -13,15 +14,26 @@ import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import com.github.x3r.synchroma.common.registry.ParticleRegistry;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceProvider;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.client.event.RegisterShadersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import software.bernie.geckolib.renderer.GeoArmorRenderer;
+import org.jetbrains.annotations.Nullable;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public final class ClientSetup {
+
+    @Nullable
+    private static ShaderInstance rendertypeHologramShader;
 
     private ClientSetup(){}
 
@@ -52,7 +64,22 @@ public final class ClientSetup {
     }
 
     @SubscribeEvent
-    public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
+    public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ParticleRegistry.SPARK.get(), SparkParticle.SparkParticleProvider::new);
+    }
+
+    @SubscribeEvent
+    public static void registerShaders(RegisterShadersEvent event) {
+        ResourceProvider provider = event.getResourceProvider();
+        try {
+            event.registerShader(new ShaderInstance(provider, new ResourceLocation(Synchroma.MOD_ID, "hologram"), DefaultVertexFormat.BLOCK), shaderInstance -> {
+                rendertypeHologramShader = shaderInstance;
+            });
+        } catch (IOException e) {
+            Synchroma.LOGGER.warn("Failed to load shader", e);
+        }
+    }
+    public static ShaderInstance getHologramShader() {
+        return Objects.requireNonNull(rendertypeHologramShader, "Attempted to call getHologramShader before shaders have finished loading.");
     }
 }

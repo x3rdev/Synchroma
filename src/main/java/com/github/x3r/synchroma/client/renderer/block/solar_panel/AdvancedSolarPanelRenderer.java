@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.client.renderer.block.solar_panel;
 
 import com.github.x3r.synchroma.client.model.block.solar_panel.AdvancedSolarPanelModel;
 import com.github.x3r.synchroma.client.model.block.solar_panel.EnhancedSolarPanelModel;
+import com.github.x3r.synchroma.client.renderer.block.ControllerRenderer;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
@@ -20,7 +21,7 @@ import net.minecraftforge.client.model.data.ModelData;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;
 
-public class AdvancedSolarPanelRenderer extends GeoBlockRenderer<AdvancedSolarPanelBlockEntity> {
+public class AdvancedSolarPanelRenderer extends ControllerRenderer<AdvancedSolarPanelBlockEntity> {
 
     public AdvancedSolarPanelRenderer() {
         super(new AdvancedSolarPanelModel());
@@ -34,14 +35,7 @@ public class AdvancedSolarPanelRenderer extends GeoBlockRenderer<AdvancedSolarPa
             super.actuallyRender(poseStack, animatable, model, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
             poseStack.popPose();
         } else {
-            poseStack.pushPose();
-            BlockRenderDispatcher blockRenderer = Minecraft.getInstance().getBlockRenderer();
-            BlockState state = BlockRegistry.EMPTY_CONTROLLER.get().defaultBlockState();
-            poseStack.translate(0.5, 0, 0.5);
-            poseStack.mulPose(Axis.YP.rotationDegrees(180-animatable.getBlockState().getValue(ControllerBlock.FACING).toYRot()));
-            poseStack.translate(-0.5, 0, -0.5);
-            blockRenderer.getModelRenderer().tesselateBlock(animatable.getLevel(), blockRenderer.getBlockModel(state), state, animatable.getBlockPos(), poseStack, bufferSource.getBuffer(RenderType.cutoutMipped()), false, RandomSource.create(), state.getSeed(animatable.getBlockPos()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, RenderType.cutoutMipped());
-            poseStack.popPose();
+            renderController(poseStack, animatable, bufferSource, packedLight);
         }
     }
 }

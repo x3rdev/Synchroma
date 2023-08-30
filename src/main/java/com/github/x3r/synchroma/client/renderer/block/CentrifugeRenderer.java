@@ -39,7 +39,7 @@ public class CentrifugeRenderer extends ControllerRenderer<CentrifugeBlockEntity
             renderItem(poseStack, animatable, bufferSource, packedLight);
             poseStack.popPose();
         } else {
-            renderController(poseStack, animatable, bufferSource);
+            renderController(poseStack, animatable, bufferSource, packedLight);
         }
     }
 
