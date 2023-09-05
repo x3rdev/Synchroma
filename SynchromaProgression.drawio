@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-09-05T18:16:30.401Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="ljoHd5gPnsCDq409nYCy" version="21.7.2" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2023-09-05T18:20:25.381Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="_EldA02WojZl4WPf-jqt" version="21.7.2" type="github" pages="8">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
     <mxGraphModel dx="1194" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -532,7 +532,7 @@
         <mxCell id="NJhdTT1uqKVydTmecu90-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="NJhdTT1uqKVydTmecu90-1" target="NJhdTT1uqKVydTmecu90-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="NJhdTT1uqKVydTmecu90-1" value="Nuclear Fussion Reactor" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="NJhdTT1uqKVydTmecu90-1" value="Nuclear Fusion Reactor" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-120" y="1480" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="NJhdTT1uqKVydTmecu90-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="NJhdTT1uqKVydTmecu90-3" target="NJhdTT1uqKVydTmecu90-9" edge="1">
@@ -830,6 +830,63 @@
         <mxCell id="TB1uSobtrzEOy6JpUtCL-2" value="Production" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="340" y="160" width="80" height="80" as="geometry" />
         </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TB1uSobtrzEOy6JpUtCL-5" target="TB1uSobtrzEOy6JpUtCL-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TB1uSobtrzEOy6JpUtCL-5" target="5D442QR8eWdwImRCnvhD-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="250" />
+              <mxPoint x="50" y="250" />
+              <mxPoint x="50" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TB1uSobtrzEOy6JpUtCL-5" target="spwLM0zAnLL7eQsSbYd6-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="250" />
+              <mxPoint x="50" y="250" />
+              <mxPoint x="50" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TB1uSobtrzEOy6JpUtCL-5" target="spwLM0zAnLL7eQsSbYd6-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="250" />
+              <mxPoint x="50" y="250" />
+              <mxPoint x="50" y="585" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TB1uSobtrzEOy6JpUtCL-5" target="__DQICqnKUSziRDI3dpp-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="250" />
+              <mxPoint x="50" y="250" />
+              <mxPoint x="50" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TB1uSobtrzEOy6JpUtCL-5" target="__DQICqnKUSziRDI3dpp-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="250" />
+              <mxPoint x="50" y="250" />
+              <mxPoint x="50" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="TB1uSobtrzEOy6JpUtCL-5" target="5D442QR8eWdwImRCnvhD-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="250" />
+              <mxPoint x="50" y="250" />
+              <mxPoint x="50" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="TB1uSobtrzEOy6JpUtCL-5" value="Energy" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="140" y="170" width="120" height="60" as="geometry" />
         </mxCell>
@@ -840,10 +897,22 @@
           <mxGeometry x="70" y="270" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="spwLM0zAnLL7eQsSbYd6-1" value="Fuel engine" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="70" y="390" width="80" height="80" as="geometry" />
+          <mxGeometry x="70" y="450" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="spwLM0zAnLL7eQsSbYd6-2" value="Biomass engine" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="70" y="510" width="80" height="80" as="geometry" />
+          <mxGeometry x="70" y="545" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="__DQICqnKUSziRDI3dpp-1" value="Fusion &lt;br&gt;reactor" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="630" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="__DQICqnKUSziRDI3dpp-2" value="Energy crystals" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="720" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-1" value="Wind turbine" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="360" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5D442QR8eWdwImRCnvhD-3" value="Redstone turbine" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="810" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
