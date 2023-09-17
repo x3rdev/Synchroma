@@ -17,6 +17,7 @@ import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlock
 import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlockEntity;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlockEntity;
+import com.github.x3r.synchroma.common.block.wind_turbine.WindTurbineBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -59,4 +60,6 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(TitaniteBlockEntity::new, BlockRegistry.TITANITE_CRYSTAL.get()).build(null));
     public static final RegistryObject<BlockEntityType<HexSolarPlateBlockEntity>> HEX_SOLAR_PLATE = BLOCK_ENTITIES.register("hex_solar_plate",
             () -> BlockEntityType.Builder.of(HexSolarPlateBlockEntity::new, BlockRegistry.HEX_SOLAR_PLATE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<WindTurbineBlockEntity>> WIND_TURBINE = BLOCK_ENTITIES.register("wind_turbine",
+            () -> BlockEntityType.Builder.of(WindTurbineBlockEntity::new, BlockRegistry.WIND_TURBINE.get()).build(null));
 }

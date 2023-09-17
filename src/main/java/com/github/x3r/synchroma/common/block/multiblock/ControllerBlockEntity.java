@@ -39,8 +39,8 @@ public abstract class ControllerBlockEntity extends SynchromaBlockEntity impleme
 
     @Override
     public void onLoad() {
-        validateMultiBlock(null);
         super.onLoad();
+        validateMultiBlock(null);
     }
 
     public boolean isAssembled() {

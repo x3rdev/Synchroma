@@ -48,6 +48,7 @@ public final class ClientSetup {
             MenuScreens.register(MenuTypeRegistry.ZENITH_SOLAR_PANEL.get(), ZenithSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.BASIC_PUMP.get(), BasicPumpScreen::new);
             MenuScreens.register(MenuTypeRegistry.CENTRIFUGE.get(), CentrifugeScreen::new);
+            MenuScreens.register(MenuTypeRegistry.WIND_TURBINE.get(), WindTurbineScreen::new);
         });
     }
     @SubscribeEvent
@@ -61,6 +62,7 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(BlockEntityRegistry.CENTRIFUGE.get(), pContext -> new CentrifugeRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), pContext -> new HexSolarPlateRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.WIND_TURBINE.get(), pContext -> new WindTurbineRenderer());
     }
 
     @SubscribeEvent

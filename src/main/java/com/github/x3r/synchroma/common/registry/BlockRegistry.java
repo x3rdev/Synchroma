@@ -18,6 +18,7 @@ import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlock
 import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlock;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlock;
+import com.github.x3r.synchroma.common.block.wind_turbine.WindTurbineBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -71,5 +72,7 @@ public class BlockRegistry {
             () -> new HexSolarPlateBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> SHAFT = BLOCKS.register("shaft",
             () -> new Block(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> WIND_TURBINE = BLOCKS.register("wind_turbine",
+            () -> new WindTurbineBlock(DEFAULT_PROPERTIES));
 }
 

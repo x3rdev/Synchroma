@@ -1,0 +1,36 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.wind_turbine.assemble": {
+			"animation_length": 1.04,
+			"bones": {
+				"static_part": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 0.01, 1]
+						},
+						"0.64": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic"
+						}
+					}
+				},
+				"rotating_part": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 0, 0]
+						},
+						"0.64": {
+							"vector": [1, 0, 0]
+						},
+						"1.04": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic"
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

@@ -111,24 +111,6 @@ public class CentrifugeBlockEntity extends ControllerBlockEntity {
         return NonNullList.of(ItemStack.EMPTY);
     }
 
-//    @Override
-//    protected BlockPattern getBlockPattern() {
-//        return BlockPatternBuilder.start()
-//                .where('a', ControllerBlockEntity.blockMatch(BlockRegistry.CENTRIFUGE.get()))
-//                .where('b', ControllerBlockEntity.blockMatch(BlockRegistry.ENERGY_BUFFER.get()))
-//                .where('c', ControllerBlockEntity.blockMatch(BlockRegistry.ITEM_BUFFER.get()))
-//                .where('d', ControllerBlockEntity.blockMatch(BlockRegistry.SHAFT.get()))
-//                .where('e', ControllerBlockEntity.blockMatch(Blocks.IRON_BARS))
-//                .where('f', ControllerBlockEntity.blockMatch(Blocks.GLASS_PANE))
-//                .where('g', ControllerBlockEntity.blockMatch(Blocks.IRON_BLOCK))
-//                .where('h', ControllerBlockEntity.stateMatch(BlockRegistry.FRAME.get().defaultBlockState().setValue(FrameBlock.PLATES, true).setValue(FrameBlock.WIRES, true)))
-//                .where('*', blockInWorld -> blockInWorld.getState().isAir())
-//                .aisle("hhh", "gfg", "hah")
-//                .aisle("hdh", "fef", "cdc")
-//                .aisle("hhh", "gfg", "hbh")
-//                .build();
-//    }
-
     @Override
     public BlockState[][][] getBlockPattern() {
         BlockState a = BlockRegistry.CENTRIFUGE.get().defaultBlockState();
@@ -185,7 +167,7 @@ public class CentrifugeBlockEntity extends ControllerBlockEntity {
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap.equals(ForgeCapabilities.ITEM_HANDLER) && (side == null || side == Direction.DOWN)) {
+        if(cap.equals(ForgeCapabilities.ITEM_HANDLER)) {
             return itemHandlerOptional.cast();
         }
         if(cap.equals(ForgeCapabilities.ENERGY)) {
