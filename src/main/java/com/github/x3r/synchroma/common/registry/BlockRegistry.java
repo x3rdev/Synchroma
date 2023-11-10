@@ -6,6 +6,7 @@ import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitP
 import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlock;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlock;
 import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlock;
+import com.github.x3r.synchroma.common.block.fabricator.FabricatorBlock;
 import com.github.x3r.synchroma.common.block.hex_solar_plate.HexSolarPlateBlock;
 import com.github.x3r.synchroma.common.block.item_buffer.ItemBufferBlock;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlock;
@@ -74,5 +75,7 @@ public class BlockRegistry {
             () -> new Block(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> WIND_TURBINE = BLOCKS.register("wind_turbine",
             () -> new WindTurbineBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> FABRICATOR = BLOCKS.register("fabricator",
+            () -> new FabricatorBlock(DEFAULT_PROPERTIES));
 }
 

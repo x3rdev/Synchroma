@@ -4,6 +4,7 @@ import com.github.x3r.synchroma.Synchroma;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidTank;
@@ -76,7 +77,7 @@ public class SynchromaFluidHandler implements IFluidHandler, INBTSerializable<Co
     @Override
     public @NotNull FluidStack drain(int maxDrain, FluidAction action) {
         int drained = 0;
-        Fluid fluid = Arrays.stream(tanks).map(t -> t.fluid.getFluid()).toList().get(getTanks() - 1);
+        Fluid fluid = Arrays.stream(tanks).map(t -> t.fluid.getFluid()).filter(f -> f != Fluids.EMPTY).toList().get(getTanks() - 1);
         for (int i = tanks.length - 1; i >= 0; i--) {
             if(tanks[i].getFluid().getFluid().isSame(fluid)) {
                 FluidStack stack = tanks[i].drain(maxDrain - drained, action);

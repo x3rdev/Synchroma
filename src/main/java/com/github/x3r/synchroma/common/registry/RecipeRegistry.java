@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.recipe.CentrifugeRecipe;
+import com.github.x3r.synchroma.common.recipe.FabricatorRecipe;
 import com.github.x3r.synchroma.common.recipe.SynchromaRecipe;
 import com.github.x3r.synchroma.common.recipe.SynchromaRecipeSerializer;
 import com.google.gson.JsonObject;
@@ -29,7 +30,18 @@ public class RecipeRegistry {
                 }
             });
 
+    public static final RegistryObject<RecipeType<FabricatorRecipe>> FABRICATOR = RECIPE_TYPES.register("fabricator",
+            () -> new RecipeType<>() {
+                @Override
+                public String toString() {
+
+                    return Synchroma.MOD_ID+":fabricator";
+                }
+            });
+
     public static final RegistryObject<RecipeSerializer<CentrifugeRecipe>> CENTRIFUGE_SERIALIZER = RECIPE_SERIALIZERS.register("centrifuge",
             () -> new SynchromaRecipeSerializer<>((recipeId, inputItems, inputFluids, outputItems, outputFluids, processingTime) -> new CentrifugeRecipe(recipeId, inputItems, outputItems, processingTime)));
 
+    public static final RegistryObject<RecipeSerializer<FabricatorRecipe>> FABRICATOR_SERIALIZER = RECIPE_SERIALIZERS.register("fabricator",
+            () -> new SynchromaRecipeSerializer<>((recipeId, inputItems, inputFluids, outputItems, outputFluids, processingTime) -> new FabricatorRecipe(recipeId, inputItems, outputItems, processingTime)));
 }

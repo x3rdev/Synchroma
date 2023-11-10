@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.fabricator.assemble": {
+			"animation_length": 0.52,
+			"bones": {
+				"all": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 0.01, 1]
+						},
+						"0.52": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic"
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

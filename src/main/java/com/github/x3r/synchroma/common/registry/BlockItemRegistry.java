@@ -74,4 +74,7 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> WIND_TURBINE = BLOCK_ITEMS.register("wind_turbine",
             () -> new BlockItem(BlockRegistry.WIND_TURBINE.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> FABRICATOR = BLOCK_ITEMS.register("fabricator",
+            () -> new BlockItem(BlockRegistry.FABRICATOR.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

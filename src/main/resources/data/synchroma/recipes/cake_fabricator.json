@@ -1,0 +1,43 @@
+{
+  "type": "synchroma:fabricator",
+  "input_items": [
+    {
+      "item_stack": {
+        "id": "minecraft:wheat",
+        "Count": 3,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:sugar",
+        "Count": 2,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:egg",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:milk_bucket",
+        "Count": 1,
+        "tag": null
+      }
+    }
+  ],
+  "output_items": [
+    {
+      "item_stack": {
+        "id": "minecraft:cake",
+        "Count": 1,
+        "tag": null
+      }
+    }
+  ],
+  "processing_time": 60
+}

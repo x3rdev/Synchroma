@@ -5,6 +5,7 @@ import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitP
 import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlockEntity;
+import com.github.x3r.synchroma.common.block.fabricator.FabricatorBlockEntity;
 import com.github.x3r.synchroma.common.block.hex_solar_plate.HexSolarPlateBlockEntity;
 import com.github.x3r.synchroma.common.block.item_buffer.ItemBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.microscope.MicroscopeBlockEntity;
@@ -62,4 +63,6 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(HexSolarPlateBlockEntity::new, BlockRegistry.HEX_SOLAR_PLATE.get()).build(null));
     public static final RegistryObject<BlockEntityType<WindTurbineBlockEntity>> WIND_TURBINE = BLOCK_ENTITIES.register("wind_turbine",
             () -> BlockEntityType.Builder.of(WindTurbineBlockEntity::new, BlockRegistry.WIND_TURBINE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<FabricatorBlockEntity>> FABRICATOR = BLOCK_ENTITIES.register("fabricator",
+            () -> BlockEntityType.Builder.of(FabricatorBlockEntity::new, BlockRegistry.FABRICATOR.get()).build(null));
 }

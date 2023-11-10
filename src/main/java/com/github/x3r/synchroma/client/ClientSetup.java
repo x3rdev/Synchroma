@@ -49,6 +49,7 @@ public final class ClientSetup {
             MenuScreens.register(MenuTypeRegistry.BASIC_PUMP.get(), BasicPumpScreen::new);
             MenuScreens.register(MenuTypeRegistry.CENTRIFUGE.get(), CentrifugeScreen::new);
             MenuScreens.register(MenuTypeRegistry.WIND_TURBINE.get(), WindTurbineScreen::new);
+            MenuScreens.register(MenuTypeRegistry.FABRICATOR.get(), FabricatorScreen::new);
         });
     }
     @SubscribeEvent
@@ -63,6 +64,7 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), pContext -> new HexSolarPlateRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.WIND_TURBINE.get(), pContext -> new WindTurbineRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.FABRICATOR.get(), pContext -> new FabricatorRenderer());
     }
 
     @SubscribeEvent
