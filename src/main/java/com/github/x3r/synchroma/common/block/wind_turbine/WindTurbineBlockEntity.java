@@ -6,6 +6,7 @@ import com.github.x3r.synchroma.common.block.FrameBlock;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaItemHandler;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlockEntity;
+import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.registry.BlockRegistry;
 import net.minecraft.core.BlockPos;
@@ -18,6 +19,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -44,8 +46,21 @@ public class WindTurbineBlockEntity extends ControllerBlockEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(3));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(1000, 0, 20000));
+
+
     public WindTurbineBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.WIND_TURBINE.get(), pPos, pBlockState);
+    }
+
+    public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, WindTurbineBlockEntity pBlockEntity) {
+        if(pBlockEntity.isAssembled()) {
+            if (pLevel.canSeeSky(pPos.above())) {
+                pBlockEntity.getCapability(ForgeCapabilities.ENERGY).ifPresent(iEnergyStorage -> {
+                    ((SynchromaEnergyStorage) iEnergyStorage).forceReceiveEnergy(200 * pPos.getY()/pLevel.getMaxBuildHeight(), false);
+                });
+            }
+            pBlockEntity.markUpdated();
+        }
     }
 
     @Override

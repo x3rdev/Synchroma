@@ -59,8 +59,8 @@ public abstract class SynchromaRecipe implements Recipe<Container> {
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
         for (int i = 0; i < maxItemInputs(); i++) {
-            ItemStack correctItem = this.inputItems[0].copy();
-            ItemStack containerItem = pContainer.getItem(0);
+            ItemStack correctItem = this.inputItems[i].copy();
+            ItemStack containerItem = pContainer.getItem(i);
             if(containerItem.getCount() < correctItem.getCount() || !containerItem.is(correctItem.getItem())) {
                 return false;
             }

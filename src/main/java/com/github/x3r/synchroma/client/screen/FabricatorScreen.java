@@ -37,7 +37,7 @@ public class FabricatorScreen extends SynchromaScreen<FabricatorMenu> {
         int processTime = getMenu().getBlockEntity().getProcessTime();
         int recipeProcessTime = getMenu().getBlockEntity().getRecipeProcessTime();
         if(recipeProcessTime != 0) {
-            graphics.blit(CONTAINER_LOCATION, leftPos+70, topPos+35, 176, 0, (int) (24F*processTime/recipeProcessTime), 17);
+            graphics.blit(CONTAINER_LOCATION, leftPos+91, topPos+35, 176, 0, (int) (24F*processTime/recipeProcessTime), 17);
         }
         graphics.pose().popPose();
     }

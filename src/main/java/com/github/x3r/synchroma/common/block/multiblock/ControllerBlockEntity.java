@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.common.block.multiblock;
 
 import com.github.x3r.synchroma.common.block.SynchromaBlockEntity;
 import com.github.x3r.synchroma.common.registry.BlockRegistry;
+import com.github.x3r.synchroma.common.scheduler.Scheduler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 
@@ -40,8 +40,10 @@ public abstract class ControllerBlockEntity extends SynchromaBlockEntity impleme
     @Override
     public void onLoad() {
         super.onLoad();
-        validateMultiBlock(null);
+        Scheduler.schedule(() -> validateMultiBlock(null), 200);
     }
+
+
 
     public boolean isAssembled() {
         return this.getBlockState().getValue(PartBlock.ASSEMBLED);

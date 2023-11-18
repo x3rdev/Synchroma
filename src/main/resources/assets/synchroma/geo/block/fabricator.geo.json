@@ -264,6 +264,46 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "item0",
+					"parent": "all",
+					"pivot": [-32, 16, 16],
+					"locators": {
+						"locator0": [-32, 16, 16]
+					}
+				},
+				{
+					"name": "item1",
+					"parent": "all",
+					"pivot": [-24, 16, 16],
+					"locators": {
+						"locator1": [-24, 16, 16]
+					}
+				},
+				{
+					"name": "item2",
+					"parent": "all",
+					"pivot": [-16, 16, 16],
+					"locators": {
+						"locator2": [-16, 16, 16]
+					}
+				},
+				{
+					"name": "item3",
+					"parent": "all",
+					"pivot": [-8, 16, 16],
+					"locators": {
+						"locator3": [-8, 16, 16]
+					}
+				},
+				{
+					"name": "item4",
+					"parent": "all",
+					"pivot": [32, 16, 16],
+					"locators": {
+						"locator4": [32, 16, 16]
+					}
 				}
 			]
 		}

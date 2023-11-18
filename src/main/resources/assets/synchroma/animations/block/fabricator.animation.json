@@ -16,6 +16,128 @@
 					}
 				}
 			}
+		},
+		"animation.fabricator.recipe": {
+			"animation_length": 3.12,
+			"bones": {
+				"item0": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.48": {
+							"vector": [8, 0, 0],
+							"easing": "easeInSine"
+						},
+						"0.96": {
+							"vector": [16, 0, 0],
+							"easing": "easeInSine"
+						},
+						"1.44": {
+							"vector": [24, 0, 0],
+							"easing": "easeInSine"
+						},
+						"1.88": {
+							"vector": [32, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.08": {
+							"vector": [32, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.12": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"item1": {
+					"position": {
+						"0.48": {
+							"vector": [0, 0, 0]
+						},
+						"0.96": {
+							"vector": [8, 0, 0],
+							"easing": "easeInSine"
+						},
+						"1.44": {
+							"vector": [16, 0, 0],
+							"easing": "easeInSine"
+						},
+						"1.88": {
+							"vector": [24, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.08": {
+							"vector": [24, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.12": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"item2": {
+					"position": {
+						"0.96": {
+							"vector": [0, 0, 0]
+						},
+						"1.44": {
+							"vector": [8, 0, 0],
+							"easing": "easeInSine"
+						},
+						"1.88": {
+							"vector": [16, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.08": {
+							"vector": [16, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.12": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"item3": {
+					"position": {
+						"1.44": {
+							"vector": [0, 0, 0]
+						},
+						"1.88": {
+							"vector": [8, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.08": {
+							"vector": [8, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.12": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"item4": {
+					"position": {
+						"0.0": {
+							"vector": [-32, 0, 0]
+						},
+						"2.72": {
+							"vector": [-32, 0, 0]
+						},
+						"2.76": {
+							"vector": [0, 0, 0],
+							"easing": "easeInSine"
+						},
+						"3.12": {
+							"vector": [0, 0, 0],
+							"easing": "easeInSine"
+						}
+					}
+				}
+			}
+		},
+		"animation.fabricator.interrupt": {
+			"animation_length": 0.04
 		}
 	},
 	"geckolib_format_version": 2

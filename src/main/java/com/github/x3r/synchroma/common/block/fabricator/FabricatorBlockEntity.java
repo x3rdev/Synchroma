@@ -4,7 +4,6 @@ import com.github.x3r.synchroma.client.menu.FabricatorMenu;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaItemHandler;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlockEntity;
-import com.github.x3r.synchroma.common.recipe.CentrifugeRecipe;
 import com.github.x3r.synchroma.common.recipe.FabricatorRecipe;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.registry.BlockRegistry;
@@ -42,6 +41,8 @@ import java.util.Optional;
 public class FabricatorBlockEntity extends ControllerBlockEntity {
 
     public static final RawAnimation ASSEMBLE_ANIM = RawAnimation.begin().thenPlay("animation.fabricator.assemble");
+    public static final RawAnimation RECIPE_ANIM = RawAnimation.begin().thenPlay("animation.fabricator.recipe");
+    public static final RawAnimation INTERRUPT_ANIM = RawAnimation.begin().thenPlay("animation.fabricator.interrupt");
 
     public final Map<String, BoneSnapshot> boneSnapshots = new HashMap<>();
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -57,10 +58,13 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
         SynchromaItemHandler itemHandler = blockEntity.itemHandlerOptional.orElse(null);
         SynchromaEnergyStorage energyStorage = blockEntity.energyStorageOptional.orElse(null);
         Optional<FabricatorRecipe> recipe = pLevel.getRecipeManager().getRecipeFor(RecipeRegistry.FABRICATOR.get(), blockEntity, pLevel);
-        if (recipe.isPresent() && energyStorage.getEnergyStored() >= 20) {
+        if (recipe.isPresent() && energyStorage.getEnergyStored() >= 20 && outputSpacePresent(recipe.get(), itemHandler)) {
             blockEntity.processTime++;
             energyStorage.forceExtractEnergy(20, false);
             blockEntity.recipeProcessTime = recipe.get().getProcessingTime();
+            if(blockEntity.processTime == 1) {
+                blockEntity.triggerAnim("recipe_controller", "recipe");
+            }
             if (blockEntity.processTime >= blockEntity.recipeProcessTime) {
                 blockEntity.processTime = 0;
                 for (int i = 0; i < recipe.get().getInputItems().length; i++) {
@@ -77,6 +81,16 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
             }
         }
         blockEntity.markUpdated();
+    }
+
+    public static boolean outputSpacePresent(FabricatorRecipe recipe, SynchromaItemHandler itemHandler) {
+        for (int i = 0; i < recipe.getOutputItems().length; i++) {
+            ItemStack result = recipe.getOutputItems()[i].copy();
+            if(!itemHandler.insertItem(i + 4, result, true).equals(ItemStack.EMPTY)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public int getProcessTime() {
@@ -138,6 +152,8 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
         super.load(tag);
         itemHandlerOptional.ifPresent(itemHandler -> itemHandler.deserializeNBT(tag));
         energyStorageOptional.ifPresent(energyStorage -> energyStorage.deserializeNBT(tag));
+        processTime = tag.getInt("process_time");
+        recipeProcessTime = tag.getInt("recipe_process_time");
     }
 
     @Override
@@ -145,6 +161,8 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
         super.saveAdditional(tag);
         itemHandlerOptional.ifPresent(itemHandler -> tag.put(SynchromaItemHandler.TAG_KEY, itemHandler.serializeNBT()));
         energyStorageOptional.ifPresent(energyStorage -> tag.put(SynchromaEnergyStorage.TAG_KEY, energyStorage.serializeNBT()));
+        tag.putInt("process_time", processTime);
+        tag.putInt("recipe_process_time", recipeProcessTime);
     }
 
     @Override
@@ -169,6 +187,10 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "assemble_controller", 0, animationState -> PlayState.STOP)
                 .triggerableAnim("assemble", ASSEMBLE_ANIM));
+        controllerRegistrar.add(new AnimationController<>(this, "recipe_controller", 0, animationState -> PlayState.STOP)
+                .triggerableAnim("recipe", RECIPE_ANIM)
+                .triggerableAnim("interrupt", INTERRUPT_ANIM)
+                .setAnimationSpeedHandler(fabricatorBlockEntity -> 60D/fabricatorBlockEntity.getRecipeProcessTime()));
     }
 
     @Override

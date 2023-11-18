@@ -23,7 +23,7 @@ public class FabricatorMenu extends SyncedMenu<FabricatorBlockEntity> {
         this.addSlot(new Slot(container, 1, 64, 25));
         this.addSlot(new Slot(container, 2, 44, 45));
         this.addSlot(new Slot(container, 3, 64, 45));
-        this.addSlot(new Slot(container, 4, 124, 35){
+        this.addSlot(new Slot(container, 4, 124, 35) {
             @Override
             public boolean mayPlace(ItemStack pStack) {
                 return false;
