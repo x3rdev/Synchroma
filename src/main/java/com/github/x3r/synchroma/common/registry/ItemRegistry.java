@@ -8,6 +8,7 @@ import com.github.x3r.synchroma.common.item.armor.EnhancedSpaceSuitItem;
 import com.github.x3r.synchroma.common.item.armor.MilitarySuitItem;
 import com.github.x3r.synchroma.common.item.bullets.TestBullet;
 import com.github.x3r.synchroma.common.item.circuit.Circuit1;
+import com.github.x3r.synchroma.common.item.cyberware.ThermalBladeItem;
 import com.github.x3r.synchroma.common.item.guns.HunterRifle;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -87,6 +88,8 @@ public class ItemRegistry {
             () -> new MilitarySuitItem(ArmorItem.Type.LEGGINGS, DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> MILITARY_BOOTS = ITEMS.register("military_boots",
             () -> new MilitarySuitItem(ArmorItem.Type.BOOTS, DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> THERMAL_BLADE = ITEMS.register("thermal_blade",
+            () -> new ThermalBladeItem(DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
         public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);

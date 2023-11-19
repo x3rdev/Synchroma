@@ -25,6 +25,8 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'synchroma'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 synchroma {
@@ -39,6 +41,8 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'synchroma'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 synchroma {
@@ -53,6 +57,8 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'synchroma'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 synchroma {
@@ -66,6 +72,8 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             args '--mod', 'synchroma', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
@@ -83,6 +91,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
     maven { url = 'https://maven.blamejared.com' }
+    maven { url = 'https://maven.kosmx.dev/'}
 }
 
 dependencies {
@@ -97,6 +106,8 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-1.20.1-common-api:15.2.0.23"))
     compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge-api:15.2.0.23"))
     runtimeOnly(fg.deobf("mezz.jei:jei-1.20.1-forge:15.2.0.23"))
+
+    implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:1.0.2-rc1+1.20")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
