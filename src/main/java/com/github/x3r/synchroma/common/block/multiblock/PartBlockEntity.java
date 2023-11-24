@@ -70,7 +70,7 @@ public abstract class PartBlockEntity extends BlockEntity {
         return Optional.ofNullable(controllerPos);
     }
 
-    protected Optional<ControllerBlockEntity> getController() {
+    public Optional<ControllerBlockEntity> getController() {
         return getControllerPos().isPresent() ? Optional.ofNullable(((ControllerBlockEntity) level.getBlockEntity(getControllerPos().get()))) : Optional.empty();
     }
 }

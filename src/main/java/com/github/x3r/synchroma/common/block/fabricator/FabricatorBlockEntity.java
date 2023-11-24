@@ -138,7 +138,7 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("machine.centrifuge");
+        return Component.literal("machine.fabricator");
     }
 
     @Nullable

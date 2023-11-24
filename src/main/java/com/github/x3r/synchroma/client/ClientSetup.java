@@ -9,6 +9,7 @@ import com.github.x3r.synchroma.client.renderer.block.solar_panel.EnhancedSolarP
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.HexSolarPlateRenderer;
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.ZenithSolarPanelRenderer;
 import com.github.x3r.synchroma.client.renderer.entity.BulletRenderer;
+import com.github.x3r.synchroma.client.renderer.entity.RideableRenderer;
 import com.github.x3r.synchroma.client.screen.*;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
@@ -40,7 +41,7 @@ public final class ClientSetup {
     @SubscribeEvent
     public static void setup(final FMLClientSetupEvent event) {
         EntityRenderers.register(EntityRegistry.BULLET_PROJECTILE.get(), BulletRenderer::new);
-
+        EntityRenderers.register(EntityRegistry.RIDEABLE.get(), RideableRenderer::new);
         event.enqueueWork(() -> {
             MenuScreens.register(MenuTypeRegistry.BASIC_SOLAR_PANEL.get(), BasicSolarPanelScreen::new);
             MenuScreens.register(MenuTypeRegistry.ENHANCED_SOLAR_PANEL.get(), EnhancedSolarPanelScreen::new);
@@ -50,6 +51,7 @@ public final class ClientSetup {
             MenuScreens.register(MenuTypeRegistry.CENTRIFUGE.get(), CentrifugeScreen::new);
             MenuScreens.register(MenuTypeRegistry.WIND_TURBINE.get(), WindTurbineScreen::new);
             MenuScreens.register(MenuTypeRegistry.FABRICATOR.get(), FabricatorScreen::new);
+            MenuScreens.register(MenuTypeRegistry.SURGEON.get(), SurgeonScreen::new);
         });
     }
     @SubscribeEvent
@@ -65,6 +67,7 @@ public final class ClientSetup {
         event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), pContext -> new HexSolarPlateRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.WIND_TURBINE.get(), pContext -> new WindTurbineRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.FABRICATOR.get(), pContext -> new FabricatorRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.SURGEON.get(), pContext -> new SurgeonRenderer());
     }
 
     @SubscribeEvent

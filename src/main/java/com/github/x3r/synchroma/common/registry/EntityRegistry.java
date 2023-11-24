@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.entity.BulletEntity;
+import com.github.x3r.synchroma.common.entity.RideableEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -20,4 +21,12 @@ public class EntityRegistry {
                     .updateInterval(1)
                     .noSave()
                     .build(new ResourceLocation(Synchroma.MOD_ID, "bullet_projectile").toString()));
+
+    public static final RegistryObject<EntityType<RideableEntity>> RIDEABLE = ENTITIES.register("rideable",
+            () -> EntityType.Builder.<RideableEntity>of(RideableEntity::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(20)
+                    .noSave()
+                    .build(new ResourceLocation(Synchroma.MOD_ID, "rideable").toString()));
 }

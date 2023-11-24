@@ -17,6 +17,7 @@ import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlock
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlock;
 import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlock;
+import com.github.x3r.synchroma.common.block.surgeon.SurgeonBlock;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlock;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlock;
 import com.github.x3r.synchroma.common.block.wind_turbine.WindTurbineBlock;
@@ -77,5 +78,7 @@ public class BlockRegistry {
             () -> new WindTurbineBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> FABRICATOR = BLOCKS.register("fabricator",
             () -> new FabricatorBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> SURGEON = BLOCKS.register("surgeon",
+            () -> new SurgeonBlock(DEFAULT_PROPERTIES));
 }
 

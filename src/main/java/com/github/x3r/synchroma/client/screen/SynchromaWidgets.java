@@ -6,6 +6,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
@@ -21,6 +22,8 @@ import net.minecraftforge.fluids.IFluidTank;
 
 import java.util.function.Supplier;
 
+import static net.minecraft.network.chat.Component.*;
+
 public final class SynchromaWidgets {
 
     private static final ResourceLocation SYNCHROMA_WIDGETS_LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/synchroma_widgets.png");
@@ -30,7 +33,7 @@ public final class SynchromaWidgets {
         public InformationWidget(int pX, int pY, String machineId) {
             super(pX, pY, 9, 9, 0, 0, 9, SYNCHROMA_WIDGETS_LOCATION, pButton -> {});
             this.machineId = machineId;
-            this.setTooltip(Tooltip.create(Component.literal("gui.machine_information")));
+            this.setTooltip(Tooltip.create(literal("gui.machine_information")));
         }
 
         @Override
@@ -42,7 +45,7 @@ public final class SynchromaWidgets {
         private final Supplier<Float> getBarRatio;
 
         public StatusBarWidget(int pX, int pY, Supplier<Float> getBarRatio) {
-            super(pX, pY, 37, 3, Component.empty());
+            super(pX, pY, 37, 3, empty());
             this.getBarRatio = getBarRatio;
         }
 
@@ -51,7 +54,7 @@ public final class SynchromaWidgets {
             graphics.pose().pushPose();
             float ratio = getBarRatio.get();
             int i = (int) Math.floor(37*ratio);
-            this.setTooltip(Tooltip.create(Component.literal((int)(ratio*100) + "%")));
+            this.setTooltip(Tooltip.create(literal((int)(ratio*100) + "%")));
             graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 3, 37, 3);
             graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 0, i, 3);
             graphics.pose().popPose();
@@ -67,7 +70,7 @@ public final class SynchromaWidgets {
 
         private final Supplier<IEnergyStorage> getEnergyStorage;
         public EnergyWidget(int pX, int pY, Supplier<IEnergyStorage> getEnergyStorage) {
-            super(pX, pY, 11, 48, Component.empty());
+            super(pX, pY, 11, 48, empty());
             this.getEnergyStorage = getEnergyStorage;
         }
 
@@ -78,7 +81,7 @@ public final class SynchromaWidgets {
             graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY(), 9, 6, 11, 48);
             int energyStored = storage.getEnergyStored();
             int maxEnergyStored = storage.getMaxEnergyStored();
-            this.setTooltip(Tooltip.create(Component.literal(energyStored + "/" + maxEnergyStored + "RF")));
+            this.setTooltip(Tooltip.create(literal(energyStored + "/" + maxEnergyStored + "RF")));
             int v = (int) Math.floor(48*((float)energyStored/maxEnergyStored));
             graphics.blit(SYNCHROMA_WIDGETS_LOCATION, getX(), getY()+48-v, 20, 6+48-v, 11, v);
             graphics.pose().popPose();
@@ -93,7 +96,7 @@ public final class SynchromaWidgets {
 
         private final Supplier<IFluidTank> getFluidTank;
         public FluidStackWidget(int pX, int pY, Supplier<IFluidTank> getFluidTank) {
-            super(pX, pY, 18, 51, Component.empty());
+            super(pX, pY, 18, 51, empty());
             this.getFluidTank = getFluidTank;
         }
 
@@ -107,7 +110,7 @@ public final class SynchromaWidgets {
             float capacity = tank.getCapacity();
             float filledVolume = stored / capacity;
             int renderableHeight = (int)(filledVolume * 32);
-            setTooltip(Tooltip.create(Component.literal(stored + "/" + (int) capacity + "mB")));
+            setTooltip(Tooltip.create(literal(stored + "/" + (int) capacity + "mB")));
             if(!tank.getFluid().isEmpty()) {
                 IClientFluidTypeExtensions extensions = IClientFluidTypeExtensions.of(tank.getFluid().getFluid());
                 ResourceLocation resource = extensions.getStillTexture();
@@ -151,5 +154,18 @@ public final class SynchromaWidgets {
 
         }
 
+    }
+
+    public static class BodyPartIndicatorWidget extends Button {
+
+        private static final ResourceLocation LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/surgeon.png");
+        public BodyPartIndicatorWidget(int pX, int pY, OnPress pOnPress) {
+            super(pX, pY, 8, 8, Component.empty(), pOnPress, DEFAULT_NARRATION);
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+            pGuiGraphics.blit(LOCATION, getX(), getY(), 8 * (int) (Minecraft.getInstance().level.getGameTime()/2%5), 185, 8, 8);
+        }
     }
 }

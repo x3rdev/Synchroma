@@ -13,8 +13,4 @@ public class FabricatorModel extends DefaultedBlockGeoModel<FabricatorBlockEntit
     public FabricatorModel() {
         super(new ResourceLocation(Synchroma.MOD_ID, "fabricator"));
     }
-
-    @Override
-    public void setCustomAnimations(FabricatorBlockEntity animatable, long instanceId, AnimationState<FabricatorBlockEntity> animationState) {
-    }
 }
