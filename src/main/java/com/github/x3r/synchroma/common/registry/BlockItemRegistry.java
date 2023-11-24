@@ -77,4 +77,7 @@ public class BlockItemRegistry {
 
     public static final RegistryObject<BlockItem> FABRICATOR = BLOCK_ITEMS.register("fabricator",
             () -> new BlockItem(BlockRegistry.FABRICATOR.get(), ItemRegistry.DEFAULT_PROPERTIES));
+
+    public static final RegistryObject<BlockItem> SURGEON = BLOCK_ITEMS.register("surgeon",
+            () -> new BlockItem(BlockRegistry.SURGEON.get(), ItemRegistry.DEFAULT_PROPERTIES));
 }

@@ -16,6 +16,7 @@ import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlock
 import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.surgeon.SurgeonBlockEntity;
 import com.github.x3r.synchroma.common.block.titanite.TitaniteBlockEntity;
 import com.github.x3r.synchroma.common.block.weapon_workbench.WeaponWorkbenchBlockEntity;
 import com.github.x3r.synchroma.common.block.wind_turbine.WindTurbineBlockEntity;
@@ -65,4 +66,6 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(WindTurbineBlockEntity::new, BlockRegistry.WIND_TURBINE.get()).build(null));
     public static final RegistryObject<BlockEntityType<FabricatorBlockEntity>> FABRICATOR = BLOCK_ENTITIES.register("fabricator",
             () -> BlockEntityType.Builder.of(FabricatorBlockEntity::new, BlockRegistry.FABRICATOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<SurgeonBlockEntity>> SURGEON = BLOCK_ENTITIES.register("surgeon",
+            () -> BlockEntityType.Builder.of(SurgeonBlockEntity::new, BlockRegistry.SURGEON.get()).build(null));
 }
