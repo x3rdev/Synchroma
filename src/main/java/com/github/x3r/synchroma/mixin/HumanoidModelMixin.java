@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.mixin;
 
 import com.github.x3r.synchroma.client.screen.SurgeonScreen;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;
+import com.github.x3r.synchroma.common.entity.RideableEntity;
 import com.github.x3r.synchroma.common.registry.EntityRegistry;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.runtime.IJeiRuntime;
@@ -43,7 +44,7 @@ public abstract class HumanoidModelMixin {
 
     @Inject(method = "setupAnim", at = @At("TAIL"))
     public void setupAnim(LivingEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci) {
-        if(pEntity instanceof Player player && player.getVehicle().equals(EntityRegistry.RIDEABLE.get())) {
+        if(pEntity instanceof Player player && player.getVehicle() != null && player.getVehicle() instanceof RideableEntity) {
             this.rightArm.xRot += (0);
             this.leftArm.xRot += (0);
             this.rightLeg.xRot = (float) -(Math.PI/2);
