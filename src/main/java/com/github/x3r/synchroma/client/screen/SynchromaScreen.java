@@ -28,7 +28,7 @@ public abstract class SynchromaScreen<T extends SyncedMenu> extends AbstractCont
 
     @Override
     protected void renderLabels(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
-        pGuiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 4210752, false);
+        pGuiGraphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 4210752);
     }
 
     protected abstract float statusBarRatio();

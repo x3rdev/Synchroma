@@ -1,21 +1,20 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.ImageButton;
-import net.minecraft.client.gui.components.Tooltip;
+import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.texture.AbstractTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ServerboundRenameItemPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
+import net.minecraft.world.inventory.Slot;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fluids.IFluidTank;
@@ -166,6 +165,70 @@ public final class SynchromaWidgets {
         @Override
         protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
             pGuiGraphics.blit(LOCATION, getX(), getY(), 8 * (int) (Minecraft.getInstance().level.getGameTime()/2%5), 185, 8, 8);
+        }
+    }
+
+    public static class SurgeonPreviousPage extends Button {
+
+        private static final ResourceLocation LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/surgeon.png");
+        protected SurgeonPreviousPage(int pX, int pY, OnPress pOnPress) {
+            super(pX, pY, 8, 13, Component.empty(), pOnPress, DEFAULT_NARRATION);
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+            pGuiGraphics.blit(LOCATION, getX(), getY(), 178, 0, 8, 13);
+        }
+    }
+
+    public static class SurgeonNextPage extends Button {
+
+        private static final ResourceLocation LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/surgeon.png");
+        protected SurgeonNextPage(int pX, int pY, OnPress pOnPress) {
+            super(pX, pY, 8, 13, Component.empty(), pOnPress, DEFAULT_NARRATION);
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+            pGuiGraphics.blit(LOCATION, getX(), getY(), 187, 0, 8, 13);
+        }
+    }
+
+    public static class SurgeonOpenVisualMenu extends Button {
+
+        private static final ResourceLocation LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/surgeon.png");
+        protected SurgeonOpenVisualMenu(int pX, int pY, OnPress pOnPress) {
+            super(pX, pY, 7, 7, Component.empty(), pOnPress, DEFAULT_NARRATION);
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+            pGuiGraphics.blit(LOCATION, getX(), getY(), 197, 0, 7, 7);
+        }
+    }
+
+    public static class SurgeonTextField extends EditBox {
+
+        public SurgeonTextField(Font pFont, int pX, int pY, int pWidth, int pHeight) {
+            super(pFont, pX, pY, pWidth, pHeight, Component.empty());
+            //0x2f373f
+            this.setTextColor(-1);
+            this.setTextColorUneditable(-1);
+            this.setBordered(false);
+            this.setMaxLength(5);
+            this.setEditable(true);
+            this.setValue("0.0");
+        }
+
+        @Override
+        public void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+            setTooltip(Tooltip.create(Component.literal(this.getValue())));
+            super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+        }
+
+        @Override
+        public boolean canConsumeInput() {
+            return this.isVisible() && super.canConsumeInput();
         }
     }
 }
