@@ -1,6 +1,6 @@
 package com.github.x3r.synchroma.common.block.pump;
 
-import com.github.x3r.synchroma.client.menu.BasicPumpMenu;
+import com.github.x3r.synchroma.common.menu.BasicPumpMenu;
 import com.github.x3r.synchroma.common.block.SynchromaBlockEntity;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaFluidHandler;

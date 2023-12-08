@@ -1,6 +1,6 @@
-package com.github.x3r.synchroma.client.menu;
+package com.github.x3r.synchroma.common.menu;
 
-import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
@@ -9,16 +9,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class EnhancedSolarPanelMenu extends SyncedMenu<EnhancedSolarPanelBlockEntity> {
+public class AdvancedSolarPanelMenu extends SyncedMenu<AdvancedSolarPanelBlockEntity> {
 
     private final Container container;
 
-    public EnhancedSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (EnhancedSolarPanelBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+    public AdvancedSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
+        this(pContainerId, inventory, (AdvancedSolarPanelBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
     }
 
-    public EnhancedSolarPanelMenu(int pContainerId, Inventory inventory, EnhancedSolarPanelBlockEntity blockEntity) {
-        super(MenuTypeRegistry.ENHANCED_SOLAR_PANEL.get(), pContainerId, inventory, blockEntity);
+    public AdvancedSolarPanelMenu(int pContainerId, Inventory inventory, AdvancedSolarPanelBlockEntity blockEntity) {
+        super(MenuTypeRegistry.ADVANCED_SOLAR_PANEL.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;
         checkContainerSize(container, 3);
         this.addSlot(new Slot(container, 0, 44, 34){

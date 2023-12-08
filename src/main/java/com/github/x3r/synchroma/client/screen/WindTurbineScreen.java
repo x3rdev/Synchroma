@@ -1,8 +1,7 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.menu.WindTurbineMenu;
-import com.github.x3r.synchroma.common.block.wind_turbine.WindTurbineBlockEntity;
+import com.github.x3r.synchroma.common.menu.WindTurbineMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

@@ -1,6 +1,6 @@
 package com.github.x3r.synchroma.client.screen;
 
-import com.github.x3r.synchroma.client.menu.SyncedMenu;
+import com.github.x3r.synchroma.common.menu.SyncedMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;

@@ -1,7 +1,7 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.menu.BasicPumpMenu;
+import com.github.x3r.synchroma.common.menu.BasicPumpMenu;
 import com.github.x3r.synchroma.common.block.SynchromaFluidHandler;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;

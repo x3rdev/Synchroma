@@ -1,4 +1,4 @@
-package com.github.x3r.synchroma.client.menu;
+package com.github.x3r.synchroma.common.menu;
 
 import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;

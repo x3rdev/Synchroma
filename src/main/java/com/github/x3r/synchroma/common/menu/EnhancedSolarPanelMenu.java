@@ -1,6 +1,6 @@
-package com.github.x3r.synchroma.client.menu;
+package com.github.x3r.synchroma.common.menu;
 
-import com.github.x3r.synchroma.common.block.pump.BasicPumpBlockEntity;
+import com.github.x3r.synchroma.common.block.solar_panel.EnhancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
@@ -8,16 +8,17 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.Nullable;
 
-public class BasicPumpMenu extends SyncedMenu<BasicPumpBlockEntity> {
+public class EnhancedSolarPanelMenu extends SyncedMenu<EnhancedSolarPanelBlockEntity> {
+
     private final Container container;
-    public BasicPumpMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (BasicPumpBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+
+    public EnhancedSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
+        this(pContainerId, inventory, (EnhancedSolarPanelBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
     }
 
-    public BasicPumpMenu(int pContainerId, Inventory inventory, @Nullable BasicPumpBlockEntity blockEntity) {
-        super(MenuTypeRegistry.BASIC_PUMP.get(), pContainerId, inventory, blockEntity);
+    public EnhancedSolarPanelMenu(int pContainerId, Inventory inventory, EnhancedSolarPanelBlockEntity blockEntity) {
+        super(MenuTypeRegistry.ENHANCED_SOLAR_PANEL.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;
         checkContainerSize(container, 3);
         this.addSlot(new Slot(container, 0, 44, 34){

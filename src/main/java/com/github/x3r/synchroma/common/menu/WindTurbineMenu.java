@@ -1,55 +1,40 @@
-package com.github.x3r.synchroma.client.menu;
+package com.github.x3r.synchroma.common.menu;
 
-import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlockEntity;
-import com.github.x3r.synchroma.common.block.solar_panel.ZenithSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.wind_turbine.WindTurbineBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.Nullable;
 
-public class CentrifugeMenu extends SyncedMenu<CentrifugeBlockEntity> {
-
+public class WindTurbineMenu extends SyncedMenu<WindTurbineBlockEntity> {
     private final Container container;
-    public CentrifugeMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (CentrifugeBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+
+    public WindTurbineMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
+        this(pContainerId, inventory, (WindTurbineBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
     }
-    public CentrifugeMenu(int pContainerId, Inventory inventory, CentrifugeBlockEntity blockEntity) {
-        super(MenuTypeRegistry.CENTRIFUGE.get(), pContainerId, inventory, blockEntity);
+    public WindTurbineMenu(int pContainerId, Inventory inventory, WindTurbineBlockEntity blockEntity) {
+        super(MenuTypeRegistry.WIND_TURBINE.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;
-        checkContainerSize(container, 5);
+        checkContainerSize(container, 3);
         this.addSlot(new Slot(container, 0, 44, 34){
             @Override
             public boolean mayPlace(ItemStack pStack) {
                 return super.mayPlace(pStack);
             }
         });
-        this.addSlot(new Slot(container, 1, 104, 25){
+        this.addSlot(new Slot(container, 1, 80, 34){
             @Override
             public boolean mayPlace(ItemStack pStack) {
-                return false;
+                return super.mayPlace(pStack);
             }
         });
-        this.addSlot(new Slot(container, 2, 124, 25){
+        this.addSlot(new Slot(container, 2, 116, 34){
             @Override
             public boolean mayPlace(ItemStack pStack) {
-                return false;
-            }
-        });
-        this.addSlot(new Slot(container, 3, 104, 45){
-            @Override
-            public boolean mayPlace(ItemStack pStack) {
-                return false;
-            }
-        });
-        this.addSlot(new Slot(container, 4, 124, 45){
-            @Override
-            public boolean mayPlace(ItemStack pStack) {
-                return false;
+                return super.mayPlace(pStack);
             }
         });
 
@@ -72,5 +57,11 @@ public class CentrifugeMenu extends SyncedMenu<CentrifugeBlockEntity> {
     @Override
     public boolean stillValid(Player pPlayer) {
         return this.container.stillValid(pPlayer);
+    }
+
+    @Override
+    public void removed(Player pPlayer) {
+        super.removed(pPlayer);
+        this.container.stopOpen(pPlayer);
     }
 }

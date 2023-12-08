@@ -1,7 +1,7 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.menu.SurgeonMenu;
+import com.github.x3r.synchroma.common.menu.SurgeonMenu;
 import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;

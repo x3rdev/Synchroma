@@ -1,22 +1,23 @@
-package com.github.x3r.synchroma.client.menu;
+package com.github.x3r.synchroma.common.menu;
 
-import com.github.x3r.synchroma.common.block.wind_turbine.WindTurbineBlockEntity;
+import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 
-public class WindTurbineMenu extends SyncedMenu<WindTurbineBlockEntity> {
+public class BasicSolarPanelMenu extends SyncedMenu<BasicSolarPanelBlockEntity> {
     private final Container container;
 
-    public WindTurbineMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (WindTurbineBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+    public BasicSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
+        this(pContainerId, inventory, (BasicSolarPanelBlockEntity) getBufferBlockEntity(inventory.player.level(), buf));
     }
-    public WindTurbineMenu(int pContainerId, Inventory inventory, WindTurbineBlockEntity blockEntity) {
-        super(MenuTypeRegistry.WIND_TURBINE.get(), pContainerId, inventory, blockEntity);
+
+    public BasicSolarPanelMenu(int containerId, Inventory inventory, BasicSolarPanelBlockEntity blockEntity) {
+        super(MenuTypeRegistry.BASIC_SOLAR_PANEL.get(), containerId, inventory, blockEntity);
         this.container = blockEntity;
         checkContainerSize(container, 3);
         this.addSlot(new Slot(container, 0, 44, 34){

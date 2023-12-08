@@ -1,12 +1,10 @@
 package com.github.x3r.synchroma.common.block.wind_turbine;
 
-import com.github.x3r.synchroma.client.menu.CentrifugeMenu;
-import com.github.x3r.synchroma.client.menu.WindTurbineMenu;
+import com.github.x3r.synchroma.common.menu.WindTurbineMenu;
 import com.github.x3r.synchroma.common.block.FrameBlock;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaItemHandler;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlockEntity;
-import com.github.x3r.synchroma.common.block.solar_panel.AdvancedSolarPanelBlockEntity;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import com.github.x3r.synchroma.common.registry.BlockRegistry;
 import net.minecraft.core.BlockPos;
@@ -21,7 +19,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;

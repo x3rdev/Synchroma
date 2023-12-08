@@ -1,6 +1,6 @@
 package com.github.x3r.synchroma.common.block.surgeon;
 
-import com.github.x3r.synchroma.client.menu.SurgeonMenu;
+import com.github.x3r.synchroma.common.menu.SurgeonMenu;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaItemHandler;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlockEntity;
@@ -12,7 +12,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;

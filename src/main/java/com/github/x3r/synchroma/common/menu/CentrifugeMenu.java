@@ -1,41 +1,52 @@
-package com.github.x3r.synchroma.client.menu;
+package com.github.x3r.synchroma.common.menu;
 
-import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class BasicSolarPanelMenu extends SyncedMenu<BasicSolarPanelBlockEntity> {
+public class CentrifugeMenu extends SyncedMenu<CentrifugeBlockEntity> {
+
     private final Container container;
-
-    public BasicSolarPanelMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (BasicSolarPanelBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+    public CentrifugeMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
+        this(pContainerId, inventory, (CentrifugeBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
     }
-
-    public BasicSolarPanelMenu(int containerId, Inventory inventory, BasicSolarPanelBlockEntity blockEntity) {
-        super(MenuTypeRegistry.BASIC_SOLAR_PANEL.get(), containerId, inventory, blockEntity);
+    public CentrifugeMenu(int pContainerId, Inventory inventory, CentrifugeBlockEntity blockEntity) {
+        super(MenuTypeRegistry.CENTRIFUGE.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;
-        checkContainerSize(container, 3);
+        checkContainerSize(container, 5);
         this.addSlot(new Slot(container, 0, 44, 34){
             @Override
             public boolean mayPlace(ItemStack pStack) {
                 return super.mayPlace(pStack);
             }
         });
-        this.addSlot(new Slot(container, 1, 80, 34){
+        this.addSlot(new Slot(container, 1, 104, 25){
             @Override
             public boolean mayPlace(ItemStack pStack) {
-                return super.mayPlace(pStack);
+                return false;
             }
         });
-        this.addSlot(new Slot(container, 2, 116, 34){
+        this.addSlot(new Slot(container, 2, 124, 25){
             @Override
             public boolean mayPlace(ItemStack pStack) {
-                return super.mayPlace(pStack);
+                return false;
+            }
+        });
+        this.addSlot(new Slot(container, 3, 104, 45){
+            @Override
+            public boolean mayPlace(ItemStack pStack) {
+                return false;
+            }
+        });
+        this.addSlot(new Slot(container, 4, 124, 45){
+            @Override
+            public boolean mayPlace(ItemStack pStack) {
+                return false;
             }
         });
 
@@ -58,11 +69,5 @@ public class BasicSolarPanelMenu extends SyncedMenu<BasicSolarPanelBlockEntity> 
     @Override
     public boolean stillValid(Player pPlayer) {
         return this.container.stillValid(pPlayer);
-    }
-
-    @Override
-    public void removed(Player pPlayer) {
-        super.removed(pPlayer);
-        this.container.stopOpen(pPlayer);
     }
 }

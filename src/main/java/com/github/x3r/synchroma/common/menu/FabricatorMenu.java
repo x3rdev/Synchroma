@@ -1,6 +1,5 @@
-package com.github.x3r.synchroma.client.menu;
+package com.github.x3r.synchroma.common.menu;
 
-import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlockEntity;
 import com.github.x3r.synchroma.common.block.fabricator.FabricatorBlockEntity;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
@@ -13,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 public class FabricatorMenu extends SyncedMenu<FabricatorBlockEntity> {
     private final Container container;
     public FabricatorMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (FabricatorBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+        this(pContainerId, inventory, (FabricatorBlockEntity) getBufferBlockEntity(inventory.player.level(), buf));
     }
     public FabricatorMenu(int pContainerId, Inventory inventory, FabricatorBlockEntity blockEntity) {
         super(MenuTypeRegistry.FABRICATOR.get(), pContainerId, inventory, blockEntity);

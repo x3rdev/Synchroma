@@ -1,18 +1,12 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.menu.BasicSolarPanelMenu;
-import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.menu.BasicSolarPanelMenu;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BasicSolarPanelScreen extends SynchromaScreen<BasicSolarPanelMenu> {
     private static final ResourceLocation CONTAINER_LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/basic_solar_panel.png");

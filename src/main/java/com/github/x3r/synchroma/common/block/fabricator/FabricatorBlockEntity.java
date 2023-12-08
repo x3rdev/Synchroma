@@ -1,6 +1,6 @@
 package com.github.x3r.synchroma.common.block.fabricator;
 
-import com.github.x3r.synchroma.client.menu.FabricatorMenu;
+import com.github.x3r.synchroma.common.menu.FabricatorMenu;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaItemHandler;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlockEntity;
