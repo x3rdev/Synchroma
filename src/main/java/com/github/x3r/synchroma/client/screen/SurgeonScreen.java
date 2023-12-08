@@ -2,9 +2,9 @@ package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.client.menu.SurgeonMenu;
+import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,33 +13,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
     private static final ResourceLocation LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/surgeon.png");
 
-    private enum IMPLANT_PAGE {
-        HEAD("Head"),
-        EYES("Eyes"),
-        HEART("Heart"),
-        LUNGS("Lungs"),
-        DIGESTION("Digestion"),
-        GLANDS("Glands"),
-        RIGHT_ARM("Right Arm"),
-        LEFT_ARM("Left Arm"),
-        LEGS("Legs");
-
-        private final String name;
-        IMPLANT_PAGE(String name){
-            this.name = name;
-        }
-
-        public IMPLANT_PAGE previous() {
-            int v = this.ordinal()-1 >= 0 ? this.ordinal()-1 : values().length-1;
-            return values()[v];
-        }
-        public IMPLANT_PAGE next() {
-            int v = this.ordinal()+1 < values().length ? this.ordinal()+1 : 0;
-            return values()[v];
-        }
-    }
-
-    private IMPLANT_PAGE page = IMPLANT_PAGE.HEAD;
+    private ImplantLocation page = ImplantLocation.HEAD;
 
     private boolean editVisuals = false;
     private int editVisualsSlot = -1;
@@ -71,7 +45,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 //        skeleton.setYHeadRot(0);
 //        InventoryScreen.renderEntityInInventory(pGuiGraphics, leftPos, topPos, 32, new Quaternionf(1, 0, 0, 0), null, minecraft.player);
 //        InventoryScreen.renderEntityInInventory(pGuiGraphics, leftPos, topPos, 32, new Quaternionf(1, 0, 0, 0), null, skeleton);
-        pGuiGraphics.drawString(font, Component.literal(page.name), leftPos + 110, topPos + 25, 0xFFFFFF, false);
+        pGuiGraphics.drawString(font, Component.literal(page.getName()), leftPos + 110, topPos + 25, 0xFFFFFF, false);
 
         for(SynchromaWidgets.SurgeonTextField box : editBoxes) {
             if(box != null) {
