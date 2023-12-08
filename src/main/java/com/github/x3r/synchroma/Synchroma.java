@@ -2,8 +2,10 @@ package com.github.x3r.synchroma;
 
 import com.github.x3r.synchroma.client.ClientSetup;
 import com.github.x3r.synchroma.client.camera.CameraSetup;
+import com.github.x3r.synchroma.common.capability.CapabilitySetup;
 import com.github.x3r.synchroma.common.registry.*;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -25,6 +27,8 @@ public class Synchroma {
         modEventBus.addListener(ClientSetup::registerParticleFactories);
         modEventBus.addListener(ClientSetup::registerShaders);
         forgeBus.addListener(CameraSetup::cameraSetupEvent);
+        forgeBus.addGenericListener(Entity.class, CapabilitySetup::attachCapabilities);
+        forgeBus.addListener(CapabilitySetup::playerCloned);
 
         registerDeferredRegisters(modEventBus);
     }

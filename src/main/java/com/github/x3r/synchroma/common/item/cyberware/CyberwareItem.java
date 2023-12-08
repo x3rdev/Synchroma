@@ -1,16 +1,12 @@
 package com.github.x3r.synchroma.common.item.cyberware;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
-
-public abstract class CyberWareItem extends Item {
+public abstract class CyberwareItem extends Item {
 
     public static final String POS_X = "PosX";
     public static final String POS_Y = "PosY";
@@ -20,7 +16,7 @@ public abstract class CyberWareItem extends Item {
     public static final String ROTATION_Y = "RotationY";
     public static final String ROTATION_Z = "RotationZ";
 
-    protected CyberWareItem(Properties pProperties) {
+    protected CyberwareItem(Properties pProperties) {
         super(pProperties);
     }
 
@@ -47,5 +43,12 @@ public abstract class CyberWareItem extends Item {
     @Override
     public int getMaxStackSize(ItemStack stack) {
         return 1;
+    }
+
+    public void onInstall(ServerPlayer player, ItemStack stack, ImplantLocation location, int slot) {
+
+    }
+    public void onRemove(ServerPlayer player, ItemStack stack, ImplantLocation location, int slot) {
+
     }
 }
