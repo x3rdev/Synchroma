@@ -36,7 +36,7 @@ public class GeckoBlockItem extends BlockItem implements GeoItem {
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 if(renderer == null) {
 
-                    renderer = new GeoItemRenderer<>(new DefaultedBlockItemGeoModel(ForgeRegistries.ITEMS.getKey(GeckoBlockItem.this)));
+                    renderer = new GeoItemRenderer<GeckoBlockItem>(new DefaultedBlockItemGeoModel<>(ForgeRegistries.ITEMS.getKey(GeckoBlockItem.this)));
                 }
                 return renderer;
             }
