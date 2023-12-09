@@ -1,5 +1,6 @@
 package com.github.x3r.synchroma.common.block.surgeon;
 
+import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
 import com.github.x3r.synchroma.common.menu.SurgeonMenu;
 import com.github.x3r.synchroma.common.block.SynchromaEnergyStorage;
 import com.github.x3r.synchroma.common.block.SynchromaItemHandler;
@@ -15,6 +16,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -32,6 +34,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.core.state.BoneSnapshot;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import javax.xml.crypto.Data;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,9 +44,21 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(6));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(1000, 0, 20000));
-
+    private final DataSlot dataAccess;
+    private ImplantLocation implantLocation = ImplantLocation.HEAD;
     public SurgeonBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.SURGEON.get(), pPos, pBlockState);
+        dataAccess = new DataSlot() {
+            @Override
+            public int get() {
+                return implantLocation.ordinal();
+            }
+
+            @Override
+            public void set(int i) {
+                implantLocation = ImplantLocation.values()[i];
+            }
+        };
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, SurgeonBlockEntity blockEntity) {
@@ -87,7 +102,7 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new SurgeonMenu(pContainerId, pPlayerInventory, this);
+        return new SurgeonMenu(pContainerId, pPlayerInventory, this, dataAccess);
     }
 
     @Override

@@ -6,15 +6,17 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
     private final Container container;
+
     public SurgeonMenu(int pContainerId, Inventory inventory, FriendlyByteBuf buf) {
-        this(pContainerId, inventory, (SurgeonBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf));
+        this(pContainerId, inventory, (SurgeonBlockEntity) SyncedMenu.getBufferBlockEntity(inventory.player.level(), buf), DataSlot.standalone());
     }
-    public SurgeonMenu(int pContainerId, Inventory inventory, SurgeonBlockEntity blockEntity) {
+    public SurgeonMenu(int pContainerId, Inventory inventory, SurgeonBlockEntity blockEntity, DataSlot pageData) {
         super(MenuTypeRegistry.SURGEON.get(), pContainerId, inventory, blockEntity);
         this.container = blockEntity;
         checkContainerSize(container, 6);
@@ -28,6 +30,8 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
         for(int l = 0; l < 9; ++l) {
             this.addSlot(new Slot(inventory, l, 11 + l * 18, 125));
         }
+
+        this.addDataSlot(pageData);
     }
 
     @Override

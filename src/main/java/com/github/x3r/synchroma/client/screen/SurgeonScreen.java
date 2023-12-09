@@ -74,8 +74,14 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         this.leftPos = (this.width - this.imageWidth) / 2;
         this.topPos = (this.height - this.imageHeight) / 2;
         this.addRenderableWidget(new SynchromaWidgets.InformationWidget(leftPos + 158, topPos + 6, getMenu().getBlockEntity().getType().toString()));
-        this.addRenderableWidget(new SynchromaWidgets.SurgeonPreviousPage(leftPos + 96, topPos + 22, pButton -> page = page.previous()));
-        this.addRenderableWidget(new SynchromaWidgets.SurgeonNextPage(leftPos + 158, topPos + 22, pButton -> page = page.next()));
+        this.addRenderableWidget(new SynchromaWidgets.SurgeonPreviousPage(leftPos + 96, topPos + 22, pButton -> {
+            page = page.previous();
+            getMenu().setData(0, page.ordinal());
+        }));
+        this.addRenderableWidget(new SynchromaWidgets.SurgeonNextPage(leftPos + 158, topPos + 22, pButton -> {
+            page = page.next();
+            getMenu().setData(0, page.ordinal());
+        }));
         this.addRenderableWidget(new SynchromaWidgets.SurgeonOpenVisualMenu(leftPos + 126, topPos + 38, pButton -> {
             editVisuals = !editVisuals;
             editVisualsSlot = 0;
