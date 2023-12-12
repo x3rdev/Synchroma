@@ -4,7 +4,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,106 +20,93 @@ public abstract class CyberwareItem extends Item {
     public static final String POS_Y = "PosY";
     public static final String POS_Z = "PosZ";
     public static final String SCALE = "Scale";
-    public static final String ROTATION_X = "RotationX";
-    public static final String ROTATION_Y = "RotationY";
-    public static final String ROTATION_Z = "RotationZ";
+    public static final String ROT_X = "RotX";
+    public static final String ROT_Y = "RotY";
+    public static final String ROT_Z = "RotZ";
 
     protected CyberwareItem(Properties pProperties) {
         super(pProperties);
     }
 
 
-    public static boolean getInstalled(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getBoolean(INSTALLED);
+    public static boolean isInstalled(ItemStack stack) {
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(INSTALLED)) tag.putBoolean(INSTALLED, false);
+        return tag.getBoolean(INSTALLED);
     }
     public static float getPosX(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getFloat(POS_X);
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(POS_X)) tag.putFloat(POS_X, 0.0F);
+        return tag.getFloat(POS_X);
     }
 
     public static float getPosY(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getFloat(POS_Y);
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(POS_Y)) tag.putFloat(POS_Y, 0.0F);
+        return tag.getFloat(POS_Y);
     }
 
     public static float getPosZ(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getFloat(POS_Z);
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(POS_Z)) tag.putFloat(POS_Z, 0.0F);
+        return tag.getFloat(POS_Z);
     }
 
     public static float getScale(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getFloat(SCALE);
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(SCALE)) tag.putFloat(SCALE, 1.0F);
+        return tag.getFloat(SCALE);
     }
 
     public static float getRotationX(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getFloat(ROTATION_X);
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(ROT_X)) tag.putFloat(ROT_X, 0.0F);
+        return tag.getFloat(ROT_X);
     }
 
     public static float getRotationY(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getFloat(ROTATION_Y);
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(ROT_Y)) tag.putFloat(ROT_Y, 0.0F);
+        return tag.getFloat(ROT_Y);
     }
 
     public static float getRotationZ(ItemStack stack) {
-        if(!stack.hasTag()) createTags(stack);
-        return stack.getTag().getFloat(ROTATION_Z);
+        CompoundTag tag = stack.getOrCreateTag();
+        if(!tag.contains(ROT_Z)) tag.putFloat(ROT_Z, 0.0F);
+        return tag.getFloat(ROT_Z);
     }
 
     public static void setInstalled(ItemStack stack, boolean b) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putBoolean(INSTALLED, b);
+        stack.getOrCreateTag().putBoolean(INSTALLED, b);
     }
 
     public static void setPosX(ItemStack stack, float x) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putFloat(POS_X, x);
+        stack.getOrCreateTag().putFloat(POS_X, x);
     }
 
     public static void setPosY(ItemStack stack, float x) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putFloat(POS_Y, x);
+        stack.getOrCreateTag().putFloat(POS_Y, x);
     }
 
     public static void setPosZ(ItemStack stack, float x) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putFloat(POS_Z, x);
+        stack.getOrCreateTag().putFloat(POS_Z, x);
     }
 
     public static void setScale(ItemStack stack, float x) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putFloat(SCALE, x);
+        stack.getOrCreateTag().putFloat(SCALE, x);
     }
 
     public static void setRotationX(ItemStack stack, float x) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putFloat(ROTATION_X, x);
+        stack.getOrCreateTag().putFloat(ROT_X, x);
     }
 
     public static void setRotationY(ItemStack stack, float x) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putFloat(ROTATION_Y, x);
+        stack.getOrCreateTag().putFloat(ROT_Y, x);
     }
 
     public static void setRotationZ(ItemStack stack, float x) {
-        if(!stack.hasTag()) createTags(stack);
-        stack.getTag().putFloat(ROTATION_Z, x);
+        stack.getOrCreateTag().putFloat(ROT_Z, x);
     }
-
-    public static void createTags(ItemStack stack) {
-        CompoundTag tag = stack.getOrCreateTag();
-        tag.putBoolean(INSTALLED, false);
-        tag.putFloat(POS_X, 0.0F);
-        tag.putFloat(POS_Y, 0.0F);
-        tag.putFloat(POS_Z, 0.0F);
-        tag.putFloat(SCALE, 1.0F);
-        tag.putFloat(ROTATION_X, 0.0F);
-        tag.putFloat(ROTATION_Y, 0.0F);
-        tag.putFloat(ROTATION_Z, 0.0F);
-    }
-
     @Override
     public int getMaxStackSize(ItemStack stack) {
         return 1;
@@ -148,7 +134,7 @@ public abstract class CyberwareItem extends Item {
         MutableComponent c2 = Component.literal(stringBuilder.toString()).withStyle(Style.EMPTY.withColor(0xFFFFFF));
         MutableComponent c3 = Component.literal("]").withStyle(Style.EMPTY.withColor(0x686d6e));
         pTooltipComponents.add(c1.append(c2).append(c3));
-        if(CyberwareItem.getInstalled(pStack)) {
+        if(CyberwareItem.isInstalled(pStack)) {
             pTooltipComponents.add(Component.literal("INSTALLED").withStyle(Style.EMPTY.withColor(0xa80019)));
         }
     }

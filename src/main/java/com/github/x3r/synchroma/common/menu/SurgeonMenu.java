@@ -92,7 +92,7 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
     private void moveItemsBackToInventory() {
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack stack = this.container.getItem(i);
-            if(!stack.isEmpty() && !CyberwareItem.getInstalled(stack)) {
+            if(!stack.isEmpty() && !CyberwareItem.isInstalled(stack)) {
                 if (!inventory.add(stack)) {
                     ItemEntity itemEntity = new ItemEntity(blockEntity.getLevel(),
                             blockEntity.getBlockPos().getX(),

@@ -277,7 +277,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
     private boolean shouldRenderPlus(int slot) {
         ItemStack stack = getMenu().getItems().get(slot);
-        return stack.getItem() instanceof CyberwareItem && CyberwareItem.getInstalled(stack);
+        return stack.getItem() instanceof CyberwareItem && CyberwareItem.isInstalled(stack);
     }
 
     @Override
