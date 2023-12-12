@@ -14,7 +14,7 @@ public class CapabilitySetup {
     @SubscribeEvent
     public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) {
         if(event.getObject() instanceof Player player) {
-            if(player.getCapability(CyberwareCapability.INSTANCE).isPresent()) {
+            if(!player.getCapability(CyberwareCapability.INSTANCE).isPresent()) {
                 event.addCapability(new ResourceLocation(Synchroma.MOD_ID, "cyberware"), new PlayerCyberwareProvider());
             }
         }

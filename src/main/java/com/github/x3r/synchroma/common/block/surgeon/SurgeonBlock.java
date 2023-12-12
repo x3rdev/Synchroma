@@ -47,6 +47,7 @@ public class SurgeonBlock extends ControllerBlock {
                     pPlayer.setPos(rideable.getPosition(0));
                     pPlayer.startRiding(rideable, true);
                     surgeonBlockEntity.triggerAnim("controller", "setup");
+                    surgeonBlockEntity.setPlayer(pPlayer);
                 } else {
                     pPlayer.startRiding(rideable);
                 }

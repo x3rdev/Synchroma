@@ -24,7 +24,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class ThermalBladeItem extends Item implements GeoItem {
+public class ThermalBladeItem extends CyberwareItem implements GeoItem {
 
     public static final RawAnimation EXTEND_ANIM = RawAnimation.begin().thenPlay("animation.thermal_blade.extend");
     public static final RawAnimation RETRACT_ANIM = RawAnimation.begin().thenPlay("animation.thermal_blade.retract");
@@ -32,6 +32,11 @@ public class ThermalBladeItem extends Item implements GeoItem {
 
     public ThermalBladeItem(Properties pProperties) {
         super(pProperties);
+    }
+
+    @Override
+    public ImplantLocation[] getImplantLocation() {
+        return new ImplantLocation[]{ImplantLocation.RIGHT_ARM, ImplantLocation.LEFT_ARM};
     }
 
     @Override

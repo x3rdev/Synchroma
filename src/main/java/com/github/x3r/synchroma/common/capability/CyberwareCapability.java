@@ -6,6 +6,7 @@ import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.AutoRegisterCapability;
 import net.minecraftforge.common.capabilities.Capability;
@@ -36,22 +37,26 @@ public class CyberwareCapability {
         return implants.get(location);
     }
 
-    public void addImplant(ServerPlayer player, ItemStack stack, ImplantLocation location, int slot) {
-        if(stack.getItem() instanceof CyberwareItem item) {
-            implants.get(location)[slot] = stack;
-            item.onInstall(player, stack, location, slot);
-        } else {
-            Synchroma.LOGGER.error("Attempted to install a non-cyberware item");
+    public void addImplant(Player player, ItemStack stack, ImplantLocation location, int slot) {
+        if(!stack.isEmpty()) {
+            if (stack.getItem() instanceof CyberwareItem item) {
+                item.onInstall(player, stack, location, slot);
+                implants.get(location)[slot] = stack;
+            } else {
+                Synchroma.LOGGER.error("Attempted to install a non-cyberware item");
+            }
         }
     }
 
-    public void removeImplant(ServerPlayer player, ImplantLocation location, int slot) {
+    public void removeImplant(Player player, ImplantLocation location, int slot) {
         ItemStack stack = implants.get(location)[slot];
-        if(stack.getItem() instanceof CyberwareItem item) {
-            implants.get(location)[slot] = ItemStack.EMPTY;
-            item.onRemove(player, stack, location, slot);
-        } else {
-            Synchroma.LOGGER.error("Attempted to remove a non-cyberware item");
+        if(!stack.isEmpty()) {
+            if (stack.getItem() instanceof CyberwareItem item) {
+                item.onRemove(player, stack, location, slot);
+                implants.get(location)[slot] = ItemStack.EMPTY;
+            } else {
+                Synchroma.LOGGER.error("Attempted to remove a non-cyberware item");
+            }
         }
     }
 
@@ -73,13 +78,14 @@ public class CyberwareCapability {
             }
             tag.put(location.getName(), listTag);
         }
+        System.out.println(tag);
     }
 
     public void loadFromNBT(CompoundTag tag) {
         for (ImplantLocation location : ImplantLocation.values()) {
             ListTag listTag = tag.getList(location.getName(), 10);
             for (int i = 0; i < implants.get(location).length; i++) {
-                implants.get(location)[i] = ItemStack.of(listTag.getCompound(0));
+                implants.get(location)[i] = ItemStack.of(listTag.getCompound(i));
             }
         }
     }

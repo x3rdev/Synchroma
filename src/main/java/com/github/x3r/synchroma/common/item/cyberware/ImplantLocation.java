@@ -7,8 +7,8 @@ public enum ImplantLocation {
     LUNGS("Lungs"),
     DIGESTION("Digestion"),
     GLANDS("Glands"),
-    RIGHT_ARM("RightArm"),
-    LEFT_ARM("LeftArm"),
+    RIGHT_ARM("Right Arm"),
+    LEFT_ARM("Left Arm"),
     LEGS("Legs");
 
     private final String name;

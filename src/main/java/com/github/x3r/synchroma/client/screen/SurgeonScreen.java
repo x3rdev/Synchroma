@@ -1,13 +1,25 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
+import com.github.x3r.synchroma.common.capability.CyberwareCapability;
+import com.github.x3r.synchroma.common.item.cyberware.CyberwareItem;
 import com.github.x3r.synchroma.common.menu.SurgeonMenu;
 import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
+import com.github.x3r.synchroma.common.packet.StartSurgeonPacket;
+import com.github.x3r.synchroma.common.packet.SynchromaPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.LecternScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.ContainerListener;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+
+import java.util.Arrays;
 
 public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
@@ -34,19 +46,19 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         graphics.blit(LOCATION, leftPos, topPos, 0, 0, getXSize(), getYSize());
         if(this.editVisuals && !getMenu().getItems().get(this.editVisualsSlot).isEmpty()) {
             renderEditVisualsMenu(graphics, leftPos - 60, topPos + 38);
+        } else {
+            this.editVisuals = false;
         }
     }
 
     @Override
     public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-
 //        Skeleton skeleton = new Skeleton(EntityType.SKELETON, Minecraft.getInstance().level);
 //        skeleton.setYHeadRot(0);
 //        InventoryScreen.renderEntityInInventory(pGuiGraphics, leftPos, topPos, 32, new Quaternionf(1, 0, 0, 0), null, minecraft.player);
 //        InventoryScreen.renderEntityInInventory(pGuiGraphics, leftPos, topPos, 32, new Quaternionf(1, 0, 0, 0), null, skeleton);
         pGuiGraphics.drawString(font, Component.literal(page.getName()), leftPos + 110, topPos + 25, 0xFFFFFF, false);
-
         for(SynchromaWidgets.SurgeonTextField box : editBoxes) {
             if(box != null) {
                 box.setVisible(this.editVisuals);
@@ -76,11 +88,11 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         this.addRenderableWidget(new SynchromaWidgets.InformationWidget(leftPos + 158, topPos + 6, getMenu().getBlockEntity().getType().toString()));
         this.addRenderableWidget(new SynchromaWidgets.SurgeonPreviousPage(leftPos + 96, topPos + 22, pButton -> {
             page = page.previous();
-            getMenu().setData(0, page.ordinal());
+            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 0);
         }));
         this.addRenderableWidget(new SynchromaWidgets.SurgeonNextPage(leftPos + 158, topPos + 22, pButton -> {
             page = page.next();
-            getMenu().setData(0, page.ordinal());
+            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 1);
         }));
         this.addRenderableWidget(new SynchromaWidgets.SurgeonOpenVisualMenu(leftPos + 126, topPos + 38, pButton -> {
             editVisuals = !editVisuals;
@@ -88,7 +100,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(!getMenu().getItems().get(0).isEmpty()) {
+                if(renderPlus(0)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -103,7 +115,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(!getMenu().getItems().get(1).isEmpty()) {
+                if(renderPlus(1)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -118,7 +130,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(!getMenu().getItems().get(2).isEmpty()) {
+                if(renderPlus(2)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -133,7 +145,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(!getMenu().getItems().get(3).isEmpty()) {
+                if(renderPlus(3)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -148,7 +160,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(!getMenu().getItems().get(4).isEmpty()) {
+                if(renderPlus(4)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -163,7 +175,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(!getMenu().getItems().get(5).isEmpty()) {
+                if(renderPlus(5)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -249,8 +261,12 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
             }
         };
         this.addRenderableWidget(editBoxes[6]);
+        this.addRenderableWidget(new SynchromaWidgets.SurgeonInstallCyberwareButton(leftPos+44, topPos+104, pButton -> {
+            SynchromaPacketHandler.sendToServer(new StartSurgeonPacket(getMenu().getBlockEntity().getBlockPos(), (byte) page.ordinal()));
+            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 2);
+        }));
 //        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndicatorWidget(leftPos + 60, topPos + 50, pButton -> {}));
-//        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndi atorWidget(leftPos + 90, topPos + 55, pButton -> {}));
+//        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndicatorWidget(leftPos + 90, topPos + 55, pButton -> {}));
 //        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndicatorWidget(leftPos + 85, topPos + 20, pButton -> {}));
 //        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndicatorWidget(leftPos + 68, topPos + 32, pButton -> {}));
 //        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndicatorWidget(leftPos + 75, topPos + 50, pButton -> {}));
@@ -258,6 +274,11 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 //        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndicatorWidget(leftPos + 75, topPos + 70, pButton -> {}));
         Minecraft.getInstance().gameRenderer.setRenderHand(false);
         Minecraft.getInstance().gameRenderer.getMainCamera().detached = true;
+    }
+
+    private boolean renderPlus(int slot) {
+        ItemStack stack = getMenu().getItems().get(slot);
+        return stack.getItem() instanceof CyberwareItem && CyberwareItem.getInstalled(stack);
     }
 
     @Override
@@ -275,12 +296,12 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }
         boolean b = true;
         for(SynchromaWidgets.SurgeonTextField box : editBoxes) {
-            if(box != null) {
-                if (box.keyPressed(pKeyCode, pScanCode, pModifiers) || box.canConsumeInput()) {
-                    b = false;
-                }
+            if(box != null && (box.keyPressed(pKeyCode, pScanCode, pModifiers) || box.canConsumeInput())) {
+                b = false;
             }
         }
         return !b || super.keyPressed(pKeyCode, pScanCode, pModifiers);
     }
+
+
 }

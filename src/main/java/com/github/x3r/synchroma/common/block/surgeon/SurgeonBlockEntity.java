@@ -44,25 +44,37 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(6));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(1000, 0, 20000));
-    private final DataSlot dataAccess;
-    private ImplantLocation implantLocation = ImplantLocation.HEAD;
+//    private final DataSlot dataAccess;
+//    private ImplantLocation implantLocation = ImplantLocation.HEAD;
+
+    @Nullable
+    private Player player;
+
     public SurgeonBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.SURGEON.get(), pPos, pBlockState);
-        dataAccess = new DataSlot() {
-            @Override
-            public int get() {
-                return implantLocation.ordinal();
-            }
-
-            @Override
-            public void set(int i) {
-                implantLocation = ImplantLocation.values()[i];
-            }
-        };
+//        dataAccess = new DataSlot() {
+//            @Override
+//            public int get() {
+//                return implantLocation.ordinal();
+//            }
+//
+//            @Override
+//            public void set(int i) {
+//                implantLocation = ImplantLocation.values()[i];
+//            }
+//        };
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, SurgeonBlockEntity blockEntity) {
         blockEntity.markUpdated();
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override
@@ -102,7 +114,7 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new SurgeonMenu(pContainerId, pPlayerInventory, this, dataAccess);
+        return new SurgeonMenu(pContainerId, pPlayerInventory, this);
     }
 
     @Override

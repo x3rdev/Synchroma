@@ -231,4 +231,18 @@ public final class SynchromaWidgets {
             return this.isVisible() && super.canConsumeInput();
         }
     }
+
+    public static class SurgeonInstallCyberwareButton extends Button {
+
+        private static final ResourceLocation LOCATION = new ResourceLocation(Synchroma.MOD_ID, "textures/gui/container/surgeon.png");
+        public SurgeonInstallCyberwareButton(int pX, int pY, OnPress pOnPress) {
+            super(pX, pY, 39, 13, Component.empty(), pOnPress, DEFAULT_NARRATION);
+        }
+
+        @Override
+        protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+            pGuiGraphics.blit(LOCATION, getX(), getY(), 195, 20, 39, 13);
+            pGuiGraphics.drawString(Minecraft.getInstance().font, Component.literal("Install"), getX()+4, getY()+3, 0xFFFFFF, false);
+        }
+    }
 }
