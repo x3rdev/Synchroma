@@ -1,7 +1,6 @@
 package com.github.x3r.synchroma.client.screen;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.common.capability.CyberwareCapability;
 import com.github.x3r.synchroma.common.item.cyberware.CyberwareItem;
 import com.github.x3r.synchroma.common.menu.SurgeonMenu;
 import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
@@ -9,17 +8,10 @@ import com.github.x3r.synchroma.common.packet.StartSurgeonPacket;
 import com.github.x3r.synchroma.common.packet.SynchromaPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.LecternScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ClickType;
-import net.minecraft.world.inventory.ContainerListener;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.Arrays;
 
 public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
@@ -49,27 +41,34 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         } else {
             this.editVisuals = false;
         }
+        renderPageName(graphics);
+        renderSlots(graphics);
     }
 
     @Override
     public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-//        Skeleton skeleton = new Skeleton(EntityType.SKELETON, Minecraft.getInstance().level);
-//        skeleton.setYHeadRot(0);
-//        InventoryScreen.renderEntityInInventory(pGuiGraphics, leftPos, topPos, 32, new Quaternionf(1, 0, 0, 0), null, minecraft.player);
-//        InventoryScreen.renderEntityInInventory(pGuiGraphics, leftPos, topPos, 32, new Quaternionf(1, 0, 0, 0), null, skeleton);
-        pGuiGraphics.drawString(font, Component.literal(page.getName()), leftPos + 110, topPos + 25, 0xFFFFFF, false);
         for(SynchromaWidgets.SurgeonTextField box : editBoxes) {
             if(box != null) {
                 box.setVisible(this.editVisuals);
             }
         }
+        super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
+    private void renderPageName(GuiGraphics pGuiGraphics) {
+        pGuiGraphics.drawString(font, Component.literal(page.getName()), leftPos + 110, topPos + 25, 0xFFFFFF, false);
+    }
 
-    @Override
-    protected void renderLabels(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
-        super.renderLabels(pGuiGraphics, pMouseX, pMouseY);
+    private void renderSlots(GuiGraphics pGuiGraphics) {
+        if(page.equals(ImplantLocation.RIGHT_ARM) || page.equals(ImplantLocation.LEFT_ARM)) {
+            pGuiGraphics.blit(LOCATION, leftPos+105, topPos+38, 195, 38, 53, 28);
+        } else {
+            pGuiGraphics.blit(LOCATION, leftPos+105, topPos+38, 195, 68, 53, 28);
+        }
+    }
+
+    private void renderPlayer(GuiGraphics pGuiGraphics) {
+
     }
 
     private void renderEditVisualsMenu(GuiGraphics pGuiGraphics, int x, int y) {
@@ -100,7 +99,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(renderPlus(0)) {
+                if(shouldRenderPlus(0)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -115,7 +114,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(renderPlus(1)) {
+                if(shouldRenderPlus(1)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -130,7 +129,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(renderPlus(2)) {
+                if(shouldRenderPlus(2)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -145,7 +144,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(renderPlus(3)) {
+                if(shouldRenderPlus(3)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -160,7 +159,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(renderPlus(4)) {
+                if(shouldRenderPlus(4)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -175,7 +174,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         }){
             @Override
             protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-                if(renderPlus(5)) {
+                if(shouldRenderPlus(5)) {
                     super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
                 }
             }
@@ -276,7 +275,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         Minecraft.getInstance().gameRenderer.getMainCamera().detached = true;
     }
 
-    private boolean renderPlus(int slot) {
+    private boolean shouldRenderPlus(int slot) {
         ItemStack stack = getMenu().getItems().get(slot);
         return stack.getItem() instanceof CyberwareItem && CyberwareItem.getInstalled(stack);
     }
