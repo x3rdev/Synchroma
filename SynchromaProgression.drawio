@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-12-13T20:54:15.307Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="bFmfDE3nWDoSkqDp2oSs" version="22.1.8" type="github" pages="9">
+<mxfile host="app.diagrams.net" modified="2023-12-13T21:10:17.692Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="0ukkmvFo3e_ICZJ3iVK4" version="22.1.8" type="github" pages="9">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
-    <mxGraphModel dx="230" dy="154" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1194" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1262,8 +1262,134 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="db4bzl6yRWi9d3dbUPyy-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="240" y="140" width="120" height="60" as="geometry" />
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-3" value="Head" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-4" value="Eyes" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-5" value="Arm" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-6" value="Legs" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-7" value="Organs" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-8" value="Lungs" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-9" value="Heart" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="580" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-10" value="Cyber head" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-11" value="Cyber eyes" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="100" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-12" value="Cyber visor" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="180" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-13" value="Nightvision enchancer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-14" value="Thermal vision enchancer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-15" value="View distance enchancer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-16" value="Sandevistan" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-17" value="Energy shield generator" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-18" value="HUD lenses" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-19" value="Cyber kidney" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="100" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-20" value="Cyber liver" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-21" value="Cyber adrenal glands" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="300" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-22" value="Cyber stomach" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="400" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-23" value="Cyber intestines" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="500" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-25" value="Energy core" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="600" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-26" value="Battery" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="700" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-27" value="Advanced battery" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="800" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-28" value="Hyperoxigenator" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="100" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-29" value="Additional oxygen storage" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-30" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Oxygen compressor&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="460" y="300" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-32" value="Cyber heart" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="600" y="90" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-34" value="Cyber arm" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="90" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-35" value="Cyber leg" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="90" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-36" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Repulsor&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-38" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Gun mk 1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-39" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Gun mk 2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-40" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Drill&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-42" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Cat-hook&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-43" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;Mantis blade&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="590" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-44" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;Retractable shield&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-46" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Energy shield focus system&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-48" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Advanced hydraulics&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="830" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-49" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Advanced servos&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="720" y="910" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-50" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Advanced hydraulics&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="860" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-51" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Advanced servos&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="860" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qZctKjsRWHFH1gm3IzXU-53" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Emergency defibrilator&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="580" y="190" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
