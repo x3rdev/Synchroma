@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-13T21:47:20.283Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="01xi5ApJAGFlUeQIyT8U" version="22.1.8" type="github" pages="9">
+<mxfile host="app.diagrams.net" modified="2023-12-13T21:53:05.817Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="1-fhV2GO7-Hlq0f6Ibj8" version="22.1.8" type="github" pages="9">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
     <mxGraphModel dx="1194" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1310,19 +1310,19 @@
         <mxCell id="jjvRGs1W09_3MQ3ekq2L-16" value="HUD lenses" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="160" y="540" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-17" value="Cyber kidney" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-17" value="Synthetic kidney" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="320" y="100" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-18" value="Cyber liver" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-18" value="Synthetic&amp;nbsp;liver" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="320" y="200" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-19" value="Cyber adrenal glands" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-19" value="Synthetic&amp;nbsp;adrenal glands" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="320" y="300" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-20" value="Cyber stomach" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-20" value="Synthetic&amp;nbsp;stomach" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="320" y="400" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-21" value="Cyber intestines" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-21" value="Synthetic&amp;nbsp;intestines" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="320" y="500" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jjvRGs1W09_3MQ3ekq2L-22" value="Energy core" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
@@ -1335,15 +1335,15 @@
           <mxGeometry x="320" y="800" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jjvRGs1W09_3MQ3ekq2L-25" value="Hyperoxigenator" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="460" y="100" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-26" value="Additional oxygen storage" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="460" y="200" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-27" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Oxygen compressor&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-26" value="Additional oxygen storage" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="460" y="300" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-28" value="Cyber heart" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-27" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Oxygen compressor&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="460" y="400" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-28" value="Synthetic&amp;nbsp;heart" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="600" y="100" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jjvRGs1W09_3MQ3ekq2L-29" value="Cyber arm" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
@@ -1405,6 +1405,9 @@
         </mxCell>
         <mxCell id="jjvRGs1W09_3MQ3ekq2L-48" value="Targeting overlay" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="160" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-50" value="Synthetic lungs" style="rhombus;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="100" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
