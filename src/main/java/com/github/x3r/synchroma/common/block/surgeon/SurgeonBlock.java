@@ -35,22 +35,18 @@ public class SurgeonBlock extends ControllerBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if( pState.getValue(PartBlock.ASSEMBLED)) {
-            RideableEntity rideable = new RideableEntity(pLevel);
-            SurgeonBlockEntity surgeonBlockEntity = (SurgeonBlockEntity) pLevel.getBlockEntity(pPos);
-            if(surgeonBlockEntity != null) {
-                if(!pLevel.isClientSide()) {
-                    BlockState state = surgeonBlockEntity.getBlockState();
-                    rideable.setPos(Vec3.atCenterOf(pPos).add(offset(state)));
-                    rideable.setYRot(state.getValue(ControllerBlock.FACING).toYRot());
-                    pLevel.addFreshEntity(rideable);
-                    pPlayer.setPos(rideable.getPosition(0));
-                    pPlayer.startRiding(rideable, true);
-                    surgeonBlockEntity.triggerAnim("controller", "setup");
-                    surgeonBlockEntity.setPlayer(pPlayer);
-                } else {
-                    pPlayer.startRiding(rideable);
-                }
+        if(pState.getValue(PartBlock.ASSEMBLED)) {
+            if(!pLevel.isClientSide()) {
+                SurgeonBlockEntity surgeonBlockEntity = (SurgeonBlockEntity) pLevel.getBlockEntity(pPos);
+                RideableEntity rideable = new RideableEntity(pLevel);
+                BlockState state = surgeonBlockEntity.getBlockState();
+                rideable.setPos(Vec3.atCenterOf(pPos).add(offset(state)));
+                rideable.setYRot(state.getValue(ControllerBlock.FACING).toYRot());
+                pLevel.addFreshEntity(rideable);
+                surgeonBlockEntity.setPlayer(pPlayer);
+                pPlayer.setPos(rideable.getPosition(0));
+                pPlayer.startRiding(rideable, true);
+                surgeonBlockEntity.triggerAnim("controller", "activate");
             }
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);

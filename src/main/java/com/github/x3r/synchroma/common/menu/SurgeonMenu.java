@@ -116,6 +116,7 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
     }
 
     private void installImplants(Player player) {
+        getBlockEntity().triggerAnim("controller", "install_cyberware");
         player.getCapability(CyberwareCapability.INSTANCE).ifPresent(cap -> {
             for (int i = 0; i < container.getContainerSize(); i++) {
                 cap.addImplant(player, container.getItem(i), implantLocation, i);
@@ -137,6 +138,7 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
     public void removed(Player pPlayer) {
         moveItemsBackToInventory();
         getBlockEntity().setPlayer(null);
+        getBlockEntity().triggerAnim("controller", "deactivate");
         pPlayer.stopRiding();
         super.removed(pPlayer);
     }

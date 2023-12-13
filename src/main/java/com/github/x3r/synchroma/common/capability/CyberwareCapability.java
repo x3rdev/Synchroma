@@ -78,7 +78,6 @@ public class CyberwareCapability {
             }
             tag.put(location.getName(), listTag);
         }
-        System.out.println(tag);
     }
 
     public void loadFromNBT(CompoundTag tag) {

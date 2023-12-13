@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import software.bernie.geckolib.util.RenderUtils;
 
 public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
@@ -47,12 +48,14 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
     @Override
     public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        for(SynchromaWidgets.SurgeonTextField box : editBoxes) {
-            if(box != null) {
-                box.setVisible(this.editVisuals);
+        if(!getMenu().getBlockEntity().installing) {
+            for (SynchromaWidgets.SurgeonTextField box : editBoxes) {
+                if (box != null) {
+                    box.setVisible(this.editVisuals);
+                }
             }
+            super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
         }
-        super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     private void renderPageName(GuiGraphics pGuiGraphics) {
@@ -282,10 +285,10 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
     @Override
     public void onClose() {
+        super.onClose();
         Minecraft.getInstance().gameRenderer.setRenderHand(true);
         Minecraft.getInstance().gameRenderer.getMainCamera().detached = false;
         Minecraft.getInstance().gameRenderer.getMainCamera().reset();
-        super.onClose();
     }
 
     @Override

@@ -39,30 +39,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SurgeonBlockEntity extends ControllerBlockEntity {
-
-    public final Map<String, BoneSnapshot> boneSnapshots = new HashMap<>();
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(6));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(1000, 0, 20000));
-//    private final DataSlot dataAccess;
-//    private ImplantLocation implantLocation = ImplantLocation.HEAD;
 
+    public boolean installing = false;
     @Nullable
     private Player player;
 
+
     public SurgeonBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.SURGEON.get(), pPos, pBlockState);
-//        dataAccess = new DataSlot() {
-//            @Override
-//            public int get() {
-//                return implantLocation.ordinal();
-//            }
-//
-//            @Override
-//            public void set(int i) {
-//                implantLocation = ImplantLocation.values()[i];
-//            }
-//        };
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, SurgeonBlockEntity blockEntity) {
@@ -151,8 +138,10 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, animationState -> PlayState.STOP)
-                .triggerableAnim("setup", RawAnimation.begin().thenPlay("animation.surgeon.setup")));
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 4, animationState -> PlayState.CONTINUE)
+                .triggerableAnim("activate", RawAnimation.begin().thenPlay("animation.surgeon.activate"))
+                .triggerableAnim("deactivate", RawAnimation.begin().thenPlay("animation.surgeon.deactivate"))
+                .triggerableAnim("install_cyberware", RawAnimation.begin().thenPlay("animation.surgeon.install_cyberware")));
     }
 
     @Override
