@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-12-13T20:54:03.912Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="9UzVyjyMCV2ifw47DwDM" version="22.1.8" type="github" pages="9">
+<mxfile host="app.diagrams.net" modified="2023-12-13T20:54:15.307Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="bFmfDE3nWDoSkqDp2oSs" version="22.1.8" type="github" pages="9">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
-    <mxGraphModel dx="1194" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="230" dy="154" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -25,11 +25,6 @@
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-1" value="The start&lt;br&gt;(titanite crystals)" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="375" y="435" width="130" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="I9T-jtazPko-J5aBbDz0-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="I9T-jtazPko-J5aBbDz0-6" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="448.29999999999995" y="229" as="sourcePoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="I9T-jtazPko-J5aBbDz0-3" value="Assembler&lt;br&gt;(big machine to craft things)" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="543" y="246" width="67" height="67" as="geometry" />
@@ -74,6 +69,9 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ziUGyg1Iks-_np4IPtFd-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ziUGyg1Iks-_np4IPtFd-1" target="I9T-jtazPko-J5aBbDz0-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XTE0Mpvf20JqfIHjvumT-1" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="ziUGyg1Iks-_np4IPtFd-1" target="I9T-jtazPko-J5aBbDz0-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ziUGyg1Iks-_np4IPtFd-1" value="Haephestus, makes everything" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
