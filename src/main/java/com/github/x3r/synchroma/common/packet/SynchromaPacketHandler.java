@@ -20,16 +20,16 @@ public final class SynchromaPacketHandler {
 
     public static void registerPackets() {
         int id = 0;
-        INSTANCE.registerMessage(id++, StartSurgeonPacket.class, StartSurgeonPacket::encode, StartSurgeonPacket::decode, StartSurgeonPacket::receivePacket);
-//        INSTANCE.registerMessage(id++)
+        INSTANCE.registerMessage(id++, SyncCyberwarePacket.class, SyncCyberwarePacket::encode, SyncCyberwarePacket::decode, SyncCyberwarePacket::receivePacket);
+        INSTANCE.registerMessage(id++, RequestCyberwareSyncPacket.class, RequestCyberwareSyncPacket::encode, RequestCyberwareSyncPacket::decode, RequestCyberwareSyncPacket::receivePacket);
     }
 
-    public static void sendToClient(Object msg) {
-        INSTANCE.send(PacketDistributor.ALL.noArg(), msg);
-    }
-
-    public static void sendToClients(Object msg, ServerPlayer player) {
+    public static void sendToClient(Object msg, ServerPlayer player) {
         INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), msg);
+    }
+
+    public static void sendToClientS(Object msg) {
+        INSTANCE.send(PacketDistributor.ALL.noArg(), msg);
     }
 
     public static void sendToServer(Object msg) {

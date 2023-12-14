@@ -278,8 +278,8 @@
 			}
 		},
 		"animation.surgeon.install_cyberware": {
-			"loop": true,
 			"animation_length": 3,
+			"override_previous_animation": true,
 			"bones": {
 				"camera": {
 					"rotation": {

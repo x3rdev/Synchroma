@@ -65,9 +65,6 @@ public class RideableEntity extends Entity {
     protected void removePassenger(Entity pPassenger) {
         if(pPassenger instanceof Player player && player.level().isClientSide()) {
             Minecraft.getInstance().screen.onClose();
-//            Minecraft.getInstance().gameRenderer.setRenderHand(true);
-//            Minecraft.getInstance().gameRenderer.getMainCamera().detached = false;
-//            Minecraft.getInstance().gameRenderer.getMainCamera().reset();
         }
         super.removePassenger(pPassenger);
     }

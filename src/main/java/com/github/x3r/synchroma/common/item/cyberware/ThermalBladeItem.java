@@ -2,12 +2,21 @@ package com.github.x3r.synchroma.common.item.cyberware;
 
 import com.github.x3r.synchroma.client.renderer.cyberware.ThermalBladeRenderer;
 import com.github.x3r.synchroma.client.renderer.item.CrowbarRenderer;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Overlay;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -32,6 +41,13 @@ public class ThermalBladeItem extends CyberwareItem implements GeoItem {
 
     public ThermalBladeItem(Properties pProperties) {
         super(pProperties);
+    }
+
+    @Override
+    public void renderCyberware(ItemStack stack, Player player, PlayerRenderer renderer, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLight) {
+        BakedModel model = Minecraft.getInstance().getItemRenderer().getModel(stack, player.level(), player, 0);
+        Minecraft.getInstance().getItemRenderer().render(stack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, false, poseStack, multiBufferSource, packedLight, OverlayTexture.NO_OVERLAY, model);
+//        Minecraft.getInstance().gameRenderer.itemInHandRenderer.renderItem(player, stack, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, false, poseStack, multiBufferSource, 0);
     }
 
     @Override

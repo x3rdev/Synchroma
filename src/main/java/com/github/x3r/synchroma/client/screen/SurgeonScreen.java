@@ -4,7 +4,6 @@ import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.cyberware.CyberwareItem;
 import com.github.x3r.synchroma.common.menu.SurgeonMenu;
 import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
-import com.github.x3r.synchroma.common.packet.StartSurgeonPacket;
 import com.github.x3r.synchroma.common.packet.SynchromaPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,7 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
-import software.bernie.geckolib.util.RenderUtils;
 
 public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
@@ -61,7 +59,7 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
     }
 
     private void renderSlots(GuiGraphics pGuiGraphics) {
-        if(page.equals(ImplantLocation.RIGHT_ARM) || page.equals(ImplantLocation.LEFT_ARM)) {
+        if(page.equals(ImplantLocation.LEGS)) {
             pGuiGraphics.blit(LOCATION, leftPos+105, topPos+38, 195, 38, 53, 28);
         } else {
             pGuiGraphics.blit(LOCATION, leftPos+105, topPos+38, 195, 68, 53, 28);
@@ -262,7 +260,6 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
         };
         this.addRenderableWidget(editBoxes[6]);
         this.addRenderableWidget(new SynchromaWidgets.SurgeonInstallCyberwareButton(leftPos+44, topPos+104, pButton -> {
-            SynchromaPacketHandler.sendToServer(new StartSurgeonPacket(getMenu().getBlockEntity().getBlockPos(), (byte) page.ordinal()));
             minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 2);
         }));
 //        this.addRenderableWidget(new SynchromaWidgets.BodyPartIndicatorWidget(leftPos + 60, topPos + 50, pButton -> {}));

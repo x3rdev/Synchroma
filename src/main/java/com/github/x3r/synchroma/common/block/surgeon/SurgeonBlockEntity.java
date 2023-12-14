@@ -140,8 +140,10 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller", 4, animationState -> PlayState.CONTINUE)
                 .triggerableAnim("activate", RawAnimation.begin().thenPlay("animation.surgeon.activate"))
-                .triggerableAnim("deactivate", RawAnimation.begin().thenPlay("animation.surgeon.deactivate"))
+                .triggerableAnim("deactivate", RawAnimation.begin().thenPlay("animation.surgeon.deactivate")));
+        controllerRegistrar.add(new AnimationController<>(this, "install", 4, animationState -> PlayState.CONTINUE)
                 .triggerableAnim("install_cyberware", RawAnimation.begin().thenPlay("animation.surgeon.install_cyberware")));
+
     }
 
     @Override

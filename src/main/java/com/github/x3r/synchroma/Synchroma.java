@@ -2,6 +2,7 @@ package com.github.x3r.synchroma;
 
 import com.github.x3r.synchroma.client.ClientSetup;
 import com.github.x3r.synchroma.client.camera.CameraSetup;
+import com.github.x3r.synchroma.client.cyberware.RenderCyberware;
 import com.github.x3r.synchroma.common.capability.CapabilitySetup;
 import com.github.x3r.synchroma.common.packet.SynchromaPacketHandler;
 import com.github.x3r.synchroma.common.registry.*;
@@ -30,6 +31,9 @@ public class Synchroma {
         modEventBus.addListener(ClientSetup::registerParticleFactories);
         modEventBus.addListener(ClientSetup::registerShaders);
         forgeBus.addListener(CameraSetup::cameraSetupEvent);
+        forgeBus.addListener(RenderCyberware::renderPlayerEvent);
+        forgeBus.addListener(CapabilitySetup::playerLoggedInEvent);
+
         forgeBus.addGenericListener(Entity.class, CapabilitySetup::attachCapabilities);
         forgeBus.addListener(CapabilitySetup::playerCloned);
 

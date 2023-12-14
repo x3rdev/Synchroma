@@ -1,5 +1,8 @@
 package com.github.x3r.synchroma.common.item.cyberware;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -28,6 +31,9 @@ public abstract class CyberwareItem extends Item {
         super(pProperties);
     }
 
+    public void renderCyberware(ItemStack stack, Player player, PlayerRenderer renderer, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLight) {
+
+    }
 
     public static boolean isInstalled(ItemStack stack) {
         CompoundTag tag = stack.getOrCreateTag();

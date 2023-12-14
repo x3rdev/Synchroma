@@ -64,12 +64,14 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
         @Override
         public void onTake(Player pPlayer, ItemStack pStack) {
             super.onTake(pPlayer, pStack);
-            inventory.player.getCapability(CyberwareCapability.INSTANCE).ifPresent(cap -> {
-                cap.removeImplant(inventory.player, implantLocation, getContainerSlot());
-                if (pStack.getItem() instanceof CyberwareItem) {
-                    CyberwareItem.setInstalled(pStack, false);
-                }
-            });
+            if(!pPlayer.level().isClientSide()) {
+                inventory.player.getCapability(CyberwareCapability.INSTANCE).ifPresent(cap -> {
+                    cap.removeImplant(inventory.player, implantLocation, getContainerSlot());
+                    if (pStack.getItem() instanceof CyberwareItem) {
+                        CyberwareItem.setInstalled(pStack, false);
+                    }
+                });
+            }
         }
     }
 
@@ -116,7 +118,8 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
     }
 
     private void installImplants(Player player) {
-        getBlockEntity().triggerAnim("controller", "install_cyberware");
+        getBlockEntity().getPlayer().stopRiding();
+//        getBlockEntity().triggerAnim("install", "install_cyberware");
         player.getCapability(CyberwareCapability.INSTANCE).ifPresent(cap -> {
             for (int i = 0; i < container.getContainerSize(); i++) {
                 cap.addImplant(player, container.getItem(i), implantLocation, i);
