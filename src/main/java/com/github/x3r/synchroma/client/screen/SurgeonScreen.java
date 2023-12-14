@@ -48,14 +48,12 @@ public class SurgeonScreen extends SynchromaScreen<SurgeonMenu> {
 
     @Override
     public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        if(!getMenu().getBlockEntity().installing) {
-            for (SynchromaWidgets.SurgeonTextField box : editBoxes) {
-                if (box != null) {
-                    box.setVisible(this.editVisuals);
-                }
+        for (SynchromaWidgets.SurgeonTextField box : editBoxes) {
+            if (box != null) {
+                box.setVisible(this.editVisuals);
             }
-            super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
         }
+        super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     private void renderPageName(GuiGraphics pGuiGraphics) {
