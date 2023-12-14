@@ -3,9 +3,13 @@ package com.github.x3r.synchroma.common.capability;
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.item.cyberware.CyberwareItem;
 import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
+import com.github.x3r.synchroma.common.packet.SyncCyberwarePacket;
+import com.github.x3r.synchroma.common.packet.SynchromaPacketHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.AutoRegisterCapability;
 import net.minecraftforge.common.capabilities.Capability;
@@ -36,31 +40,37 @@ public class CyberwareCapability {
         return implants.get(location);
     }
 
-    public void addImplant(ServerPlayer player, ItemStack stack, ImplantLocation location, int slot) {
-        if(stack.getItem() instanceof CyberwareItem item) {
-            implants.get(location)[slot] = stack;
-            item.onInstall(player, stack, location, slot);
-        } else {
-            Synchroma.LOGGER.error("Attempted to install a non-cyberware item");
+    public void addImplant(Player player, ItemStack stack, ImplantLocation location, int slot) {
+        if(!stack.isEmpty()) {
+            if (stack.getItem() instanceof CyberwareItem item) {
+                item.onInstall(player, stack, location, slot);
+                implants.get(location)[slot] = stack;
+            } else {
+                Synchroma.LOGGER.error("Attempted to install a non-cyberware item");
+            }
         }
+        onChanged(player);
     }
 
-    public void removeImplant(ServerPlayer player, ImplantLocation location, int slot) {
+    public void removeImplant(Player player, ImplantLocation location, int slot) {
         ItemStack stack = implants.get(location)[slot];
-        if(stack.getItem() instanceof CyberwareItem item) {
-            implants.get(location)[slot] = ItemStack.EMPTY;
-            item.onRemove(player, stack, location, slot);
-        } else {
-            Synchroma.LOGGER.error("Attempted to remove a non-cyberware item");
+        if(!stack.isEmpty()) {
+            if (stack.getItem() instanceof CyberwareItem item) {
+                item.onRemove(player, stack, location, slot);
+                implants.get(location)[slot] = ItemStack.EMPTY;
+            } else {
+                Synchroma.LOGGER.error("Attempted to remove a non-cyberware item");
+            }
         }
-    }
-
-    public void copyFrom(ServerPlayer player) {
-        this.implants = player.getCapability(INSTANCE).orElse(new CyberwareCapability()).implants;
+        onChanged(player);
     }
 
     public void copyFrom(CyberwareCapability capability) {
         this.implants = capability.implants;
+    }
+
+    private void onChanged(Player player) {
+        SynchromaPacketHandler.sendToClient(new SyncCyberwarePacket(this), (ServerPlayer) player);
     }
 
     public void saveToNBT(CompoundTag tag) {
@@ -79,7 +89,23 @@ public class CyberwareCapability {
         for (ImplantLocation location : ImplantLocation.values()) {
             ListTag listTag = tag.getList(location.getName(), 10);
             for (int i = 0; i < implants.get(location).length; i++) {
-                implants.get(location)[i] = ItemStack.of(listTag.getCompound(0));
+                implants.get(location)[i] = ItemStack.of(listTag.getCompound(i));
+            }
+        }
+    }
+
+    public void saveToNetwork(FriendlyByteBuf buf) {
+        for (ImplantLocation location : ImplantLocation.values()) {
+            for (int i = 0; i < implants.get(location).length; i++) {
+                buf.writeItemStack(implants.get(location)[i], false);
+            }
+        }
+    }
+
+    public void loadFromNetwork(FriendlyByteBuf buf) {
+        for (ImplantLocation location : ImplantLocation.values()) {
+            for (int i = 0; i < implants.get(location).length; i++) {
+                implants.get(location)[i] = buf.readItem();
             }
         }
     }
