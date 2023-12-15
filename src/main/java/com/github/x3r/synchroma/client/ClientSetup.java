@@ -89,4 +89,5 @@ public final class ClientSetup {
     public static ShaderInstance getHologramShader() {
         return Objects.requireNonNull(rendertypeHologramShader, "Attempted to call getHologramShader before shaders have finished loading.");
     }
+
 }

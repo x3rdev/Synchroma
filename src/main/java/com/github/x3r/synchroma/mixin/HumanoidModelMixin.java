@@ -1,5 +1,6 @@
 package com.github.x3r.synchroma.mixin;
 
+import com.github.x3r.synchroma.client.cutscene.ClientCutsceneManager;
 import com.github.x3r.synchroma.client.screen.SurgeonScreen;
 import com.github.x3r.synchroma.common.block.multiblock.ControllerBlock;
 import com.github.x3r.synchroma.common.entity.RideableEntity;
@@ -7,6 +8,7 @@ import com.github.x3r.synchroma.common.registry.EntityRegistry;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.runtime.IJeiRuntime;
 import mezz.jei.api.runtime.IScreenHelper;
+import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.SkeletonModel;
@@ -14,6 +16,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.SkeletonRenderer;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
