@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-14T21:43:07.896Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0" etag="4JgXgnBR3q-o8kFlpALj" version="22.1.9" type="github" pages="9">
+<mxfile host="app.diagrams.net" modified="2023-12-16T14:40:53.841Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="Vorf162SHfFLvxjkLyu7" version="22.1.11" type="github" pages="9">
   <diagram name="Page-1" id="XFuJrn4libd_m44fIWtL">
     <mxGraphModel dx="1050" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1258,7 +1258,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="wXLZ7RvApnZNotxtQFVn" name="Cyberware">
-    <mxGraphModel dx="1500" dy="894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1436,7 +1436,7 @@
         <mxCell id="jjvRGs1W09_3MQ3ekq2L-65" value="Painducer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
           <mxGeometry x="1000" y="780" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="jjvRGs1W09_3MQ3ekq2L-66" value="Countershell&lt;br&gt;(chance to ignore incoming damage if its &amp;gt;= half of healt)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
+        <mxCell id="jjvRGs1W09_3MQ3ekq2L-66" value="Countershell&lt;br&gt;(chance to ignore incoming damage if its &amp;gt;= half of health)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
           <mxGeometry x="1000" y="860" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="jjvRGs1W09_3MQ3ekq2L-67" value="Chest" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" parent="1" vertex="1">
