@@ -59,6 +59,15 @@
 							"vector": [0, 0, 45],
 							"easing": "easeInElastic"
 						}
+					},
+					"scale": {
+						"0.75": {
+							"vector": [1, 1, 1]
+						},
+						"0.7917": {
+							"vector": [0, 0, 0],
+							"easing": "easeInExpo"
+						}
 					}
 				}
 			}

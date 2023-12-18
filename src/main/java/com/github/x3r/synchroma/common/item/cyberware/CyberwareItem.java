@@ -1,14 +1,30 @@
 package com.github.x3r.synchroma.common.item.cyberware;
 
+import com.github.x3r.synchroma.common.capability.CyberwareCapability;
+import com.github.x3r.synchroma.common.packet.SyncCyberwarePacket;
+import com.github.x3r.synchroma.common.packet.SynchromaPacketHandler;
+import com.google.common.base.MoreObjects;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -31,7 +47,19 @@ public abstract class CyberwareItem extends Item {
         super(pProperties);
     }
 
-    public void renderCyberware(ItemStack stack, Player player, PlayerRenderer renderer, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLight) {
+    public void renderCyberwareFirstPerson(ItemInHandRenderer itemInHandRenderer, ItemStack stack, float partialTicks, PoseStack poseStack, MultiBufferSource.BufferSource buffer, LocalPlayer player, int combinedLight) {
+
+    }
+
+    public void renderCyberwareThirdPerson(ItemInHandLayer<?,?> layer, LivingEntity livingEntity, ItemStack stack, ItemDisplayContext displayContext, HumanoidArm arm, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+
+    }
+
+    public void renderCyberwareArmor(ItemStack stack) {
+
+    }
+
+    public void cyberwareTick(ItemStack stack, ServerLevel level, ServerPlayer player, ImplantLocation implantLocation, int slot) {
 
     }
 

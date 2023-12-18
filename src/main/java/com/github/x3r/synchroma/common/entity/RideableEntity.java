@@ -63,9 +63,9 @@ public class RideableEntity extends Entity {
 
     @Override
     protected void removePassenger(Entity pPassenger) {
-        if(pPassenger instanceof Player player && player.level().isClientSide()) {
-            Minecraft.getInstance().screen.onClose();
-        }
+//        if(pPassenger instanceof Player player && player.level().isClientSide()) {
+//            Minecraft.getInstance().screen.onClose();
+//        }
         super.removePassenger(pPassenger);
     }
 
