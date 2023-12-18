@@ -13,11 +13,4 @@ public class SurgeonModel extends DefaultedBlockGeoModel<SurgeonBlockEntity> {
     public SurgeonModel() {
         super(new ResourceLocation(Synchroma.MOD_ID, "surgeon"));
     }
-
-    @Override
-    public void setCustomAnimations(SurgeonBlockEntity animatable, long instanceId, AnimationState<SurgeonBlockEntity> animationState) {
-        AnimationProcessor.QueuedAnimation currentAnimation = animationState.getController().getCurrentAnimation();
-        animatable.installing = currentAnimation != null && currentAnimation.animation().name().equals("install_cyberware");
-        super.setCustomAnimations(animatable, instanceId, animationState);
-    }
 }

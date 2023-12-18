@@ -5,6 +5,8 @@ import com.github.x3r.synchroma.client.cutscene.ClientCutsceneManager;
 import com.github.x3r.synchroma.client.cyberware.RenderCyberware;
 import com.github.x3r.synchroma.common.capability.CapabilitySetup;
 import com.github.x3r.synchroma.common.cutscene.ServerCutsceneManager;
+import com.github.x3r.synchroma.common.item.cyberware.CyberwareEvents;
+import com.github.x3r.synchroma.common.item.cyberware.CyberwareItem;
 import com.github.x3r.synchroma.common.packet.SynchromaPacketHandler;
 import com.github.x3r.synchroma.common.registry.*;
 import com.mojang.logging.LogUtils;
@@ -36,6 +38,7 @@ public class Synchroma {
         forgeBus.addGenericListener(Entity.class, CapabilitySetup::attachCapabilities);
         forgeBus.addListener(CapabilitySetup::playerCloned);
         forgeBus.addListener(ServerCutsceneManager::cutsceneTick);
+        forgeBus.addListener(CyberwareEvents::cyberwareTick);
 
         registerDeferredRegisters(modEventBus);
         SynchromaPacketHandler.registerPackets();

@@ -43,7 +43,6 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(6));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(1000, 0, 20000));
 
-    public boolean installing = false;
     @Nullable
     private Player player;
 
@@ -89,7 +88,7 @@ public class SurgeonBlockEntity extends ControllerBlockEntity {
 
     @Override
     public void assemble(ServerPlayer player) {
-//        triggerAnim("assemble_controller", "open");
+        triggerAnim("assemble_controller", "open");
         super.assemble(player);
     }
 

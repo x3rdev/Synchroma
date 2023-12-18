@@ -90,8 +90,6 @@ public class ItemRegistry {
             () -> new MilitarySuitItem(ArmorItem.Type.BOOTS, DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> THERMAL_BLADE = ITEMS.register("thermal_blade",
             () -> new ThermalBladeItem(DEFAULT_PROPERTIES));
-    public static final RegistryObject<Item> TEST_CUTSCENE = ITEMS.register("test_cutscene",
-            () -> new TestCutsceneItem(DEFAULT_PROPERTIES));
 
     public static class SynchromaItemTab {
         public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Synchroma.MOD_ID);

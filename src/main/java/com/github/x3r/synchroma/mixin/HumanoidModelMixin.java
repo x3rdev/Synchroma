@@ -47,26 +47,26 @@ public abstract class HumanoidModelMixin {
 
     @Inject(method = "setupAnim", at = @At("TAIL"))
     public void setupAnim(LivingEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci) {
-//        if(pEntity instanceof Player player && player.getVehicle() != null && player.getVehicle() instanceof RideableEntity) {
-//            this.rightArm.xRot += (0);
-//            this.leftArm.xRot += (0);
-//            this.rightLeg.xRot = (float) -(Math.PI/2);
-//            this.rightLeg.yRot = 0;
-//            this.rightLeg.zRot = 0;
-//            this.leftLeg.xRot = (float) -(Math.PI/2);
-//            this.leftLeg.yRot = 0;
-//            this.leftLeg.zRot = 0;
-//            this.body.xRot = (float) -(Math.PI/4);
-//            this.body.y = 6;
-//            this.body.z = 8;
-//            this.head.y = 5;
-//            this.head.z = 8;
-//            this.rightArm.y = 7;
-//            this.rightArm.z = 8;
-//            this.leftArm.y = 7;
-//            this.leftArm.z = 8;
-//            pEntity.setXRot((float) (-Math.PI/4));
-//        }
+        if(pEntity instanceof Player player && player.getVehicle() != null && player.getVehicle() instanceof RideableEntity) {
+            this.rightArm.xRot += (0);
+            this.leftArm.xRot += (0);
+            this.rightLeg.xRot = (float) -(Math.PI/2);
+            this.rightLeg.yRot = 0;
+            this.rightLeg.zRot = 0;
+            this.leftLeg.xRot = (float) -(Math.PI/2);
+            this.leftLeg.yRot = 0;
+            this.leftLeg.zRot = 0;
+            this.body.xRot = (float) -(Math.PI/4);
+            this.body.y = 6;
+            this.body.z = 8;
+            this.head.y = 5;
+            this.head.z = 8;
+            this.rightArm.y = 7;
+            this.rightArm.z = 8;
+            this.leftArm.y = 7;
+            this.leftArm.z = 8;
+            pEntity.setXRot((float) (-Math.PI/4));
+        }
     }
 
 }

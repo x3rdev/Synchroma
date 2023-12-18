@@ -8,16 +8,22 @@ import net.minecraft.world.phys.Vec3;
 public abstract class Cutscene {
 
     public final ServerPlayer player;
+    public final int duration;
 
     protected int tick = 0;
 
-    protected Cutscene(ServerPlayer player) {
+    protected Cutscene(ServerPlayer player, int duration) {
         this.player = player;
+        this.duration = duration;
     }
 
     public void tick() {
-        SynchromaPacketHandler.sendToClient(new SyncCutscenePacket(getPosition(tick), getPitch(tick), getYaw(tick), getRoll(tick)), player);
-        System.out.println(player.level().getGameTime());
+        if(tick%2==0) {
+            SynchromaPacketHandler.sendToClient(new SyncCutscenePacket(getPosition(tick), getPitch(tick), getYaw(tick), getRoll(tick)), player);
+        }
+        if(tick > duration) {
+            ServerCutsceneManager.getInstance().exitCutscene(player);
+        }
         tick++;
     }
 

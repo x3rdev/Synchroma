@@ -69,7 +69,7 @@ public class CyberwareCapability {
         this.implants = capability.implants;
     }
 
-    private void onChanged(Player player) {
+    public void onChanged(Player player) {
         SynchromaPacketHandler.sendToClient(new SyncCyberwarePacket(this), (ServerPlayer) player);
     }
 

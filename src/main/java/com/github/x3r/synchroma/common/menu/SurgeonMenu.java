@@ -2,10 +2,13 @@ package com.github.x3r.synchroma.common.menu;
 
 import com.github.x3r.synchroma.common.block.surgeon.SurgeonBlockEntity;
 import com.github.x3r.synchroma.common.capability.CyberwareCapability;
+import com.github.x3r.synchroma.common.cutscene.ServerCutsceneManager;
+import com.github.x3r.synchroma.common.cutscene.SurgeonCutscene;
 import com.github.x3r.synchroma.common.item.cyberware.CyberwareItem;
 import com.github.x3r.synchroma.common.item.cyberware.ImplantLocation;
 import com.github.x3r.synchroma.common.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
@@ -118,13 +121,13 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
     }
 
     private void installImplants(Player player) {
-        getBlockEntity().getPlayer().stopRiding();
-//        getBlockEntity().triggerAnim("install", "install_cyberware");
         player.getCapability(CyberwareCapability.INSTANCE).ifPresent(cap -> {
             for (int i = 0; i < container.getContainerSize(); i++) {
                 cap.addImplant(player, container.getItem(i), implantLocation, i);
             }
         });
+        getBlockEntity().triggerAnim("install", "install_cyberware");
+        ServerCutsceneManager.getInstance().startCutscene((ServerPlayer) player, new SurgeonCutscene((ServerPlayer) player));
     }
 
     @Override
@@ -139,10 +142,11 @@ public class SurgeonMenu extends SyncedMenu<SurgeonBlockEntity> {
 
     @Override
     public void removed(Player pPlayer) {
-        moveItemsBackToInventory();
-        getBlockEntity().setPlayer(null);
-        getBlockEntity().triggerAnim("controller", "deactivate");
-        pPlayer.stopRiding();
+        if(!pPlayer.level().isClientSide()) {
+            moveItemsBackToInventory();
+            getBlockEntity().setPlayer(null);
+            getBlockEntity().triggerAnim("controller", "deactivate");
+        }
         super.removed(pPlayer);
     }
 }
