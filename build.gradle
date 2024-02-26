@@ -14,7 +14,7 @@ println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty '
 
 minecraft {
 
-    mappings channel: 'parchment', version: '2023.07.16-1.20.1'
+    mappings channel: 'parchment', version: '2023.09.03-1.20.1'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -86,6 +86,13 @@ minecraft {
     }
 }
 
+mixin {
+    add sourceSets.main, 'mixins.synchroma.refmap.json'
+    config 'mixins.synchroma.json'
+
+    debug.export = true
+}
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
@@ -96,7 +103,7 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.13.1'
-    minecraft 'net.minecraftforge:forge:1.20.1-47.1.1'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.18'
 
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.2.4")
 
@@ -110,13 +117,6 @@ dependencies {
     implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:1.0.2-rc1+1.20")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-}
-
-mixin {
-    add sourceSets.main, 'mixins.synchroma.refmap.json'
-    config 'mixins.synchroma.json'
-
-    debug.export = true
 }
 
 jar {

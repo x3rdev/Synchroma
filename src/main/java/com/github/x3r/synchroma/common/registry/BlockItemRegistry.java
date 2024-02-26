@@ -1,15 +1,12 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.client.renderer.DefaultedBlockItemGeoModel;
 import com.github.x3r.synchroma.common.item.GeckoBlockItem;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import software.bernie.geckolib.renderer.GeoItemRenderer;
 
 public class BlockItemRegistry {
 
@@ -28,7 +25,7 @@ public class BlockItemRegistry {
             () -> new BlockItem(BlockRegistry.WEAPON_WORKBENCH.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> BASIC_CIRCUIT_PRINTER = BLOCK_ITEMS.register("basic_circuit_printer",
-            () -> new BlockItem(BlockRegistry.BASIC_CIRCUIT_PRINTER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+            () -> new BlockItem(BlockRegistry.CIRCUIT_PRINTER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> ENERGY_BUFFER = BLOCK_ITEMS.register("energy_buffer",
             () -> new BlockItem(BlockRegistry.ENERGY_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));
