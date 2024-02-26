@@ -1,7 +1,7 @@
 package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
-import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlockEntity;
+import com.github.x3r.synchroma.common.block.circuit_printer.CircuitPrinterBlockEntity;
 import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlockEntity;
 import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlockEntity;
@@ -32,8 +32,8 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(MimicBlockEntity::new, BlockRegistry.MIMIC.get()).build(null));
     public static final RegistryObject<BlockEntityType<WeaponWorkbenchBlockEntity>> WEAPON_WORKBENCH = BLOCK_ENTITIES.register("weapon_workbench",
             () -> BlockEntityType.Builder.of(WeaponWorkbenchBlockEntity::new, BlockRegistry.WEAPON_WORKBENCH.get()).build(null));
-    public static final RegistryObject<BlockEntityType<BasicCircuitPrinterBlockEntity>> BASIC_CIRCUIT_PRINTER = BLOCK_ENTITIES.register("basic_circuit_printer",
-            () -> BlockEntityType.Builder.of(BasicCircuitPrinterBlockEntity::new, BlockRegistry.BASIC_CIRCUIT_PRINTER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<CircuitPrinterBlockEntity>> CIRCUIT_PRINTER = BLOCK_ENTITIES.register("circuit_printer",
+            () -> BlockEntityType.Builder.of(CircuitPrinterBlockEntity::new, BlockRegistry.CIRCUIT_PRINTER.get()).build(null));
     public static final RegistryObject<BlockEntityType<EnergyBufferBlockEntity>> ENERGY_BUFFER = BLOCK_ENTITIES.register("energy_buffer",
             () -> BlockEntityType.Builder.of(EnergyBufferBlockEntity::new, BlockRegistry.ENERGY_BUFFER.get()).build(null));
 //    public static final RegistryObject<BlockEntityType<EnergyBufferBlockEntity>> FLUID_BUFFER = BLOCK_ENTITIES.register("fluid_buffer",

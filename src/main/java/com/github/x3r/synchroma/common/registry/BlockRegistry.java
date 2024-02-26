@@ -2,7 +2,7 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.block.FrameBlock;
-import com.github.x3r.synchroma.common.block.basic_circuit_printer.BasicCircuitPrinterBlock;
+import com.github.x3r.synchroma.common.block.circuit_printer.CircuitPrinterBlock;
 import com.github.x3r.synchroma.common.block.centrifuge.CentrifugeBlock;
 import com.github.x3r.synchroma.common.block.energy_buffer.EnergyBufferBlock;
 import com.github.x3r.synchroma.common.block.energy_storage.BasicEnergyStorageBlock;
@@ -41,8 +41,9 @@ public class BlockRegistry {
             () -> new MimicBlock(DEFAULT_PROPERTIES));
     public static final RegistryObject<Block> WEAPON_WORKBENCH = BLOCKS.register("weapon_workbench",
             () -> new WeaponWorkbenchBlock(DEFAULT_PROPERTIES));
-    public static final RegistryObject<Block> BASIC_CIRCUIT_PRINTER = BLOCKS.register("basic_circuit_printer",
-            () -> new BasicCircuitPrinterBlock(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Block> CIRCUIT_PRINTER = BLOCKS.register("circuit_printer",
+            () -> new CircuitPrinterBlock(DEFAULT_PROPERTIES));
+
     public static final RegistryObject<Block> ENERGY_BUFFER = BLOCKS.register("energy_buffer",
             () -> new EnergyBufferBlock(DEFAULT_PROPERTIES));
 

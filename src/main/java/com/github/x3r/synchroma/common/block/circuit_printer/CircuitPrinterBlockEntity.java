@@ -1,4 +1,4 @@
-package com.github.x3r.synchroma.common.block.basic_circuit_printer;
+package com.github.x3r.synchroma.common.block.circuit_printer;
 
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -9,11 +9,11 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class BasicCircuitPrinterBlockEntity extends BlockEntity implements GeoBlockEntity {
+public class CircuitPrinterBlockEntity extends BlockEntity implements GeoBlockEntity {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    public BasicCircuitPrinterBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntityRegistry.BASIC_CIRCUIT_PRINTER.get(), pPos, pBlockState);
+    public CircuitPrinterBlockEntity(BlockPos pPos, BlockState pBlockState) {
+        super(BlockEntityRegistry.CIRCUIT_PRINTER.get(), pPos, pBlockState);
     }
 
     @Override

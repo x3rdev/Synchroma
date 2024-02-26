@@ -63,6 +63,10 @@ public abstract class CyberwareItem extends Item {
 
     }
 
+    public void onLeftClickEmpty(ItemStack stack) {
+
+    }
+
     public static boolean isInstalled(ItemStack stack) {
         CompoundTag tag = stack.getOrCreateTag();
         if(!tag.contains(INSTALLED)) tag.putBoolean(INSTALLED, false);

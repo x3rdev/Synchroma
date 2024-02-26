@@ -93,6 +93,11 @@ public class ThermalBladeItem extends CyberwareItem implements GeoItem {
     }
 
     @Override
+    public void onLeftClickEmpty(ItemStack stack) {
+        super.onLeftClickEmpty(stack);
+    }
+
+    @Override
     public ImplantLocation[] getImplantLocation() {
         return new ImplantLocation[]{ImplantLocation.RIGHT_ARM, ImplantLocation.LEFT_ARM};
     }
