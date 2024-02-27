@@ -1,6 +1,7 @@
 package com.github.x3r.synchroma.common.block.circuit_printer;
 
-import com.github.x3r.synchroma.common.block.solar_panel.BasicSolarPanelBlockEntity;
+import com.github.x3r.synchroma.common.block.fabricator.FabricatorBlockEntity;
+import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,6 +13,8 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -22,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 public class CircuitPrinterBlock extends BaseEntityBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+
     public CircuitPrinterBlock(Properties pProperties) {
         super(pProperties.noOcclusion().isViewBlocking((pState, pLevel, pPos) -> false));
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
@@ -33,8 +37,8 @@ public class CircuitPrinterBlock extends BaseEntityBlock {
             return InteractionResult.SUCCESS;
         } else {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
-            if (blockentity instanceof BasicSolarPanelBlockEntity) {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, (MenuProvider)blockentity, buf -> buf.writeBlockPos(pPos));
+            if (blockentity instanceof CircuitPrinterBlockEntity) {
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, (MenuProvider) blockentity, buf -> buf.writeBlockPos(pPos));
             }
             return InteractionResult.CONSUME;
         }
@@ -57,6 +61,12 @@ public class CircuitPrinterBlock extends BaseEntityBlock {
 
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return pLevel.isClientSide() ? null : createTickerHelper(pBlockEntityType, BlockEntityRegistry.CIRCUIT_PRINTER.get(), CircuitPrinterBlockEntity::serverTick);
     }
 
     @Nullable

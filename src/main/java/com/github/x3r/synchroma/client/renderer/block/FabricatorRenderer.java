@@ -37,7 +37,6 @@ public class FabricatorRenderer extends ControllerRenderer<FabricatorBlockEntity
     }
 
     public void renderItems(PoseStack poseStack, FabricatorBlockEntity animatable, MultiBufferSource bufferSource, @Nullable RenderType renderType, @Nullable VertexConsumer buffer, float yaw, float partialTick, int packedLight) {
-
         for (int i = 0; i < 5; i++) {
             ItemStack stack = animatable.getItem(i);
             if(!stack.isEmpty()) {

@@ -39,15 +39,13 @@ import java.util.Map;
 import java.util.Optional;
 
 public class FabricatorBlockEntity extends ControllerBlockEntity {
-
     public static final RawAnimation ASSEMBLE_ANIM = RawAnimation.begin().thenPlay("animation.fabricator.assemble");
     public static final RawAnimation RECIPE_ANIM = RawAnimation.begin().thenPlay("animation.fabricator.recipe");
     public static final RawAnimation INTERRUPT_ANIM = RawAnimation.begin().thenPlay("animation.fabricator.interrupt");
-
-    public final Map<String, BoneSnapshot> boneSnapshots = new HashMap<>();
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final LazyOptional<SynchromaItemHandler> itemHandlerOptional = LazyOptional.of(() -> new SynchromaItemHandler(5));
     private final LazyOptional<SynchromaEnergyStorage> energyStorageOptional = LazyOptional.of(() -> new SynchromaEnergyStorage(1000, 0, 20000));
+    public final Map<String, BoneSnapshot> boneSnapshots = new HashMap<>();
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     int processTime = 0;
     int recipeProcessTime = 0;
     public FabricatorBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -58,7 +56,7 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
         SynchromaItemHandler itemHandler = blockEntity.itemHandlerOptional.orElse(null);
         SynchromaEnergyStorage energyStorage = blockEntity.energyStorageOptional.orElse(null);
         Optional<FabricatorRecipe> recipe = pLevel.getRecipeManager().getRecipeFor(RecipeRegistry.FABRICATOR.get(), blockEntity, pLevel);
-        if (recipe.isPresent() && energyStorage.getEnergyStored() >= 20 && outputSpacePresent(recipe.get(), itemHandler)) {
+        if (recipe.isPresent() && energyStorage.getEnergyStored() >= 20 && itemHandler.outputSpacePresent(recipe.get(), new int[]{4})) {
             blockEntity.processTime++;
             energyStorage.forceExtractEnergy(20, false);
             blockEntity.recipeProcessTime = recipe.get().getProcessingTime();
@@ -78,19 +76,11 @@ public class FabricatorBlockEntity extends ControllerBlockEntity {
         } else {
             if (blockEntity.processTime > 0) {
                 blockEntity.processTime--;
+            } else {
+                blockEntity.triggerAnim("recipe_controller", "interrupt");
             }
         }
         blockEntity.markUpdated();
-    }
-
-    public static boolean outputSpacePresent(FabricatorRecipe recipe, SynchromaItemHandler itemHandler) {
-        for (int i = 0; i < recipe.getOutputItems().length; i++) {
-            ItemStack result = recipe.getOutputItems()[i].copy();
-            if(!itemHandler.insertItem(i + 4, result, true).equals(ItemStack.EMPTY)) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public int getProcessTime() {

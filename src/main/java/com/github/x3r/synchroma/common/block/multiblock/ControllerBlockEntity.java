@@ -29,21 +29,13 @@ public abstract class ControllerBlockEntity extends SynchromaBlockEntity impleme
         super(pType, pPos, pBlockState);
     }
 
-    @Nullable
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
-    }
-
     public abstract BlockState[][][] getBlockPattern();
 
     @Override
     public void onLoad() {
         super.onLoad();
-        Scheduler.schedule(() -> validateMultiBlock(null), 200);
+        Scheduler.schedule(() -> validateMultiBlock(null), 500);
     }
-
-
 
     public boolean isAssembled() {
         return this.getBlockState().getValue(PartBlock.ASSEMBLED);

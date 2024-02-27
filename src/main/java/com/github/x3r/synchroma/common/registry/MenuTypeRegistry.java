@@ -28,5 +28,7 @@ public class MenuTypeRegistry {
             () -> IForgeMenuType.create(FabricatorMenu::new));
     public static final RegistryObject<MenuType<SurgeonMenu>> SURGEON = MENUS.register("surgeon",
             () -> IForgeMenuType.create(SurgeonMenu::new));
+    public static final RegistryObject<MenuType<CircuitPrinterMenu>> CIRCUIT_PRINTER = MENUS.register("circuit_printer",
+            () -> IForgeMenuType.create(CircuitPrinterMenu::new));
 
 }

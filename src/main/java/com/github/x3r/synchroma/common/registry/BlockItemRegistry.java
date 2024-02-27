@@ -24,8 +24,8 @@ public class BlockItemRegistry {
     public static final RegistryObject<BlockItem> WEAPON_WORKBENCH = BLOCK_ITEMS.register("weapon_workbench",
             () -> new BlockItem(BlockRegistry.WEAPON_WORKBENCH.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
-    public static final RegistryObject<BlockItem> BASIC_CIRCUIT_PRINTER = BLOCK_ITEMS.register("basic_circuit_printer",
-            () -> new BlockItem(BlockRegistry.CIRCUIT_PRINTER.get(), ItemRegistry.DEFAULT_PROPERTIES));
+    public static final RegistryObject<BlockItem> CIRCUIT_PRINTER = BLOCK_ITEMS.register("basic_circuit_printer",
+            () -> new GeckoBlockItem(BlockRegistry.CIRCUIT_PRINTER.get(), ItemRegistry.DEFAULT_PROPERTIES));
 
     public static final RegistryObject<BlockItem> ENERGY_BUFFER = BLOCK_ITEMS.register("energy_buffer",
             () -> new BlockItem(BlockRegistry.ENERGY_BUFFER.get(), ItemRegistry.DEFAULT_PROPERTIES));

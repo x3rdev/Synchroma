@@ -25,6 +25,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class ControllerBlock extends BaseEntityBlock {
+
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     protected ControllerBlock(Properties pProperties) {
         super(pProperties.noOcclusion());

@@ -34,6 +34,8 @@ public class ItemRegistry {
             () -> new HunterRifle(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> TEST_BULLET = ITEMS.register("test_bullet",
             () -> new TestBullet(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> EMPTY_CIRCUIT_BOARD = ITEMS.register("empty_circuit_board",
+            () -> new Item(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> CIRCUIT_1 = ITEMS.register("circuit_1",
             () -> new Circuit1(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> CROWBAR = ITEMS.register("crowbar",

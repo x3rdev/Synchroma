@@ -20,7 +20,7 @@ public abstract class SynchromaRecipe implements Recipe<Container> {
     protected final FluidStack[] outputFluids;
     protected final int processingTime;
 
-    protected SynchromaRecipe(ResourceLocation id, @Nullable ItemStack[] inputItems, @Nullable FluidStack[] inputFluids, @Nullable ItemStack[] outputItems, @Nullable FluidStack[] outputFluids, int processingTime) {
+    protected SynchromaRecipe(ResourceLocation id, @Nullable ItemStack[] inputItems, @Nullable ItemStack[] outputItems, @Nullable FluidStack[] inputFluids, @Nullable FluidStack[] outputFluids, int processingTime) {
         this.id = id;
         this.inputItems = inputItems;
         this.inputFluids = inputFluids;

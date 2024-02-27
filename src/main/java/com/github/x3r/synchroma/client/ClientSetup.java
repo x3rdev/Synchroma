@@ -52,12 +52,13 @@ public final class ClientSetup {
             MenuScreens.register(MenuTypeRegistry.WIND_TURBINE.get(), WindTurbineScreen::new);
             MenuScreens.register(MenuTypeRegistry.FABRICATOR.get(), FabricatorScreen::new);
             MenuScreens.register(MenuTypeRegistry.SURGEON.get(), SurgeonScreen::new);
+            MenuScreens.register(MenuTypeRegistry.CIRCUIT_PRINTER.get(), CircuitPrinterScreen::new);
         });
     }
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(BlockEntityRegistry.WEAPON_WORKBENCH.get(), pContext -> new WeaponWorkbenchRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.CIRCUIT_PRINTER.get(), pContext -> new BasicCircuitPrinterRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.CIRCUIT_PRINTER.get(), pContext -> new CircuitPrinterRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.MICROSCOPE.get(), pContext -> new MicroscopeRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.ENHANCED_SOLAR_PANEL.get(), pContext -> new EnhancedSolarPanelRenderer());
         event.registerBlockEntityRenderer(BlockEntityRegistry.ADVANCED_SOLAR_PANEL.get(), pContext -> new AdvancedSolarPanelRenderer());

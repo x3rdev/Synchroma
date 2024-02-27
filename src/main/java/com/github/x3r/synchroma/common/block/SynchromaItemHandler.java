@@ -1,5 +1,7 @@
 package com.github.x3r.synchroma.common.block;
 
+import com.github.x3r.synchroma.common.recipe.FabricatorRecipe;
+import com.github.x3r.synchroma.common.recipe.SynchromaRecipe;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
@@ -23,5 +25,15 @@ public class SynchromaItemHandler extends ItemStackHandler {
     @Override
     public void deserializeNBT(CompoundTag nbt) {
         super.deserializeNBT(nbt.getCompound(TAG_KEY));
+    }
+
+    public boolean outputSpacePresent(SynchromaRecipe recipe, int[] outputSlots) {
+        for (int i = 0; i < outputSlots.length; i++) {
+            ItemStack result = recipe.getOutputItems()[i].copy();
+            if(!this.insertItem(outputSlots[i], result, true).equals(ItemStack.EMPTY)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

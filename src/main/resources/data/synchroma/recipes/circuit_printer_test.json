@@ -1,0 +1,64 @@
+{
+  "type": "synchroma:circuit_printer",
+  "input_items": [
+    {
+      "item_stack": {
+        "id": "synchroma:empty_circuit_board",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:sugar",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:egg",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:iron_ingot",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:redstone",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:apple",
+        "Count": 1,
+        "tag": null
+      }
+    },
+    {
+      "item_stack": {
+        "id": "minecraft:glowstone_dust",
+        "Count": 1,
+        "tag": null
+      }
+    }
+  ],
+  "output_items": [
+    {
+      "item_stack": {
+        "id": "synchroma:circuit_1",
+        "Count": 1,
+        "tag": null
+      }
+    }
+  ],
+  "processing_time": 320
+}

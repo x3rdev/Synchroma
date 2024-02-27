@@ -32,7 +32,6 @@ public abstract class ControllerRenderer<T extends ControllerBlockEntity> extend
         poseStack.translate(-0.5, 0, -0.5);
         blockRenderer.getModelRenderer().tesselateBlock(animatable.getLevel(), blockRenderer.getBlockModel(state), state, animatable.getBlockPos(), poseStack, bufferSource.getBuffer(RenderType.cutoutMipped()), false, RandomSource.create(), state.getSeed(animatable.getBlockPos()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, RenderType.cutoutMipped());
         poseStack.popPose();
-
         renderGuide(poseStack, animatable, bufferSource, packedLight);
     }
 
