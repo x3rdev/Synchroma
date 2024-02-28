@@ -52,6 +52,26 @@ public class ItemRegistry {
             () -> new Item(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> WIRES = ITEMS.register("wires",
             () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> RED_LED = ITEMS.register("red_led",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> GREEN_LED = ITEMS.register("green_led",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> BLUE_LED = ITEMS.register("blue_led",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> NIXEY_TUBE = ITEMS.register("nixey_tube",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> RESISTOR = ITEMS.register("resistor",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> INDUCTOR = ITEMS.register("inductor",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> CAPACITOR = ITEMS.register("capacitor",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> TRANSISTOR = ITEMS.register("transistor",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> BIG_CHIP = ITEMS.register("big_chip",
+            () -> new Item(DEFAULT_PROPERTIES));
+    public static final RegistryObject<Item> SMALL_CHIP = ITEMS.register("small_chip",
+            () -> new Item(DEFAULT_PROPERTIES));
     public static final RegistryObject<Item> RATE_UPGRADE = ITEMS.register("rate_upgrade",
             () -> new MachineUpgradeItem(DEFAULT_PROPERTIES, 1, Component.literal("test")));
     public static final RegistryObject<Item> REVERSE_UPGRADE = ITEMS.register("reverse_upgrade",
