@@ -49,6 +49,7 @@ public class Synchroma {
         ItemRegistry.ITEMS.register(bus);
         ItemRegistry.SynchromaItemTab.CREATIVE_MODE_TABS.register(bus);
         BlockRegistry.BLOCKS.register(bus);
+        ChunkGeneratorRegistry.CHUNK_GENERATORS.register(bus);
         EntityRegistry.ENTITIES.register(bus);
         GunModificationRegistry.GUN_MODIFICATIONS.register(bus);
         BlockItemRegistry.BLOCK_ITEMS.register(bus);

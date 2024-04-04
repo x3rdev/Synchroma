@@ -23,5 +23,6 @@ public final class DataGenerators {
 
         dataGenerator.addProvider(event.includeServer(), new SynchromaTagProvider(packOutput, lookupProvider, existingFileHelper));
         dataGenerator.addProvider(event.includeServer(), new SynchromaRecipeProvider(packOutput));
+        dataGenerator.addProvider(event.includeServer(), new SynchromaWorldgenProvider(packOutput, lookupProvider));
     }
 }

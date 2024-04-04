@@ -32,7 +32,6 @@ public class CrowbarItem extends Item implements GeoItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-
             private CrowbarRenderer renderer = null;
 
             @Override

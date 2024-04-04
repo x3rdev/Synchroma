@@ -2,6 +2,7 @@ package com.github.x3r.synchroma.common.registry;
 
 import com.github.x3r.synchroma.Synchroma;
 import com.github.x3r.synchroma.common.entity.BulletEntity;
+import com.github.x3r.synchroma.common.entity.CiabattaEntity;
 import com.github.x3r.synchroma.common.entity.RideableEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -29,4 +30,10 @@ public class EntityRegistry {
                     .updateInterval(20)
                     .noSave()
                     .build(new ResourceLocation(Synchroma.MOD_ID, "rideable").toString()));
+
+    public static final RegistryObject<EntityType<CiabattaEntity>> CIABATTA = ENTITIES.register("ciabatta",
+            () -> EntityType.Builder.of(CiabattaEntity::new, MobCategory.MISC)
+                    .sized(6F, 6F)
+                    .clientTrackingRange(4)
+                    .build(new ResourceLocation(Synchroma.MOD_ID, "ciabatta").toString()));
 }

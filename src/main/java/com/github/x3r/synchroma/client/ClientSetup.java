@@ -9,6 +9,7 @@ import com.github.x3r.synchroma.client.renderer.block.solar_panel.EnhancedSolarP
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.HexSolarPlateRenderer;
 import com.github.x3r.synchroma.client.renderer.block.solar_panel.ZenithSolarPanelRenderer;
 import com.github.x3r.synchroma.client.renderer.entity.BulletRenderer;
+import com.github.x3r.synchroma.client.renderer.entity.CiabattaRenderer;
 import com.github.x3r.synchroma.client.renderer.entity.RideableRenderer;
 import com.github.x3r.synchroma.client.screen.*;
 import com.github.x3r.synchroma.common.registry.BlockEntityRegistry;
@@ -57,18 +58,20 @@ public final class ClientSetup {
     }
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(BlockEntityRegistry.WEAPON_WORKBENCH.get(), pContext -> new WeaponWorkbenchRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.CIRCUIT_PRINTER.get(), pContext -> new CircuitPrinterRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.MICROSCOPE.get(), pContext -> new MicroscopeRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.ENHANCED_SOLAR_PANEL.get(), pContext -> new EnhancedSolarPanelRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.ADVANCED_SOLAR_PANEL.get(), pContext -> new AdvancedSolarPanelRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.ZENITH_SOLAR_PANEL.get(), pContext -> new ZenithSolarPanelRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.CENTRIFUGE.get(), pContext -> new CentrifugeRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), pContext -> new TitaniteCrystalRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), pContext -> new HexSolarPlateRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.WIND_TURBINE.get(), pContext -> new WindTurbineRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.FABRICATOR.get(), pContext -> new FabricatorRenderer());
-        event.registerBlockEntityRenderer(BlockEntityRegistry.SURGEON.get(), pContext -> new SurgeonRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.WEAPON_WORKBENCH.get(), context -> new WeaponWorkbenchRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.CIRCUIT_PRINTER.get(), context -> new CircuitPrinterRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.MICROSCOPE.get(), context -> new MicroscopeRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.ENHANCED_SOLAR_PANEL.get(), context -> new EnhancedSolarPanelRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.ADVANCED_SOLAR_PANEL.get(), context -> new AdvancedSolarPanelRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.ZENITH_SOLAR_PANEL.get(), context -> new ZenithSolarPanelRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.CENTRIFUGE.get(), context -> new CentrifugeRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.TITANITE_CRYSTAL.get(), context -> new TitaniteCrystalRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.HEX_SOLAR_PLATE.get(), context -> new HexSolarPlateRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.WIND_TURBINE.get(), context -> new WindTurbineRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.FABRICATOR.get(), context -> new FabricatorRenderer());
+        event.registerBlockEntityRenderer(BlockEntityRegistry.SURGEON.get(), context -> new SurgeonRenderer());
+
+        event.registerEntityRenderer(EntityRegistry.CIABATTA.get(), CiabattaRenderer::new);
     }
 
     @SubscribeEvent
