@@ -32,7 +32,7 @@ public class BasicEnergyStorageBlockEntity extends BlockEntity {
         pBlockEntity.markUpdated();
     }
 
-        @Override
+    @Override
     public void load(CompoundTag tag) {
         super.load(tag);
         energyStorageLazyOptional.ifPresent(energyStorage -> energyStorage.deserializeNBT(tag));

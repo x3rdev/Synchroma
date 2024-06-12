@@ -1,4 +1,4 @@
-package com.github.x3r.synchroma.client.renderer;
+package com.github.x3r.synchroma.client.model.item;
 
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;

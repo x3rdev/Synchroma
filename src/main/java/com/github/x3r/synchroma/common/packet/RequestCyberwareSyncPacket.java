@@ -29,5 +29,6 @@ public class RequestCyberwareSyncPacket {
                 SynchromaPacketHandler.sendToClient(new SyncCyberwarePacket(cyberwareCapability), player);
             });
         });
+        context.get().setPacketHandled(true);
     }
 }

@@ -1,15 +1,11 @@
 package com.github.x3r.synchroma.common.item;
 
-import com.github.x3r.synchroma.client.renderer.DefaultedBlockItemGeoModel;
-import com.github.x3r.synchroma.client.renderer.item.CrowbarRenderer;
+import com.github.x3r.synchroma.client.model.item.DefaultedBlockItemGeoModel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.data.registries.VanillaRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.registries.ForgeRegistries;
-import software.bernie.example.registry.ItemRegistry;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;

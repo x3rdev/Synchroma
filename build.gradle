@@ -6,7 +6,6 @@ plugins {
 
 version = '1.0'
 group = 'com.github.x3r.synchroma'
-archivesBaseName = 'synchroma'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
