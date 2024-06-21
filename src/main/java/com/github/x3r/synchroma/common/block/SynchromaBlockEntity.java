@@ -65,11 +65,11 @@ public abstract class SynchromaBlockEntity extends BlockEntity implements Contai
 
     @Override
     public void setItem(int pSlot, ItemStack pStack) {
-        this.getItems().set(pSlot, pStack);
-        if (pStack.getCount() > this.getMaxStackSize()) {
-            pStack.setCount(this.getMaxStackSize());
-        }
-        this.setChanged();
+            this.getItems().set(pSlot, pStack);
+            if (pStack.getCount() > this.getMaxStackSize()) {
+                pStack.setCount(this.getMaxStackSize());
+            }
+            this.setChanged();
     }
 
     @Override

@@ -8,10 +8,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.jetbrains.annotations.Nullable;
 
-/*
-    A little stolen from enderio :P
- */
-
 public abstract class SyncedMenu<T extends BlockEntity> extends AbstractContainerMenu {
     protected final Inventory inventory;
     @Nullable

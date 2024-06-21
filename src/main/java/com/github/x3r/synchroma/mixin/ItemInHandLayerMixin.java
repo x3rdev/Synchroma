@@ -21,19 +21,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ItemInHandLayer.class)
 public abstract class ItemInHandLayerMixin {
 
-    @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V", at = @At("HEAD"))
-    public void render(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, LivingEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci) {
-        pMatrixStack.pushPose();
+    @Inject(method = "renderArmWithItem", at = @At("HEAD"))
+    public void renderWithItem(LivingEntity pLivingEntity, ItemStack pItemStack, ItemDisplayContext pDisplayContext, HumanoidArm pArm, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, CallbackInfo ci) {
+        pPoseStack.pushPose();
         pLivingEntity.getCapability(CyberwareCapability.INSTANCE).ifPresent(cyberwareCapability -> {
             for (ImplantLocation location : ImplantLocation.values()) {
                 ItemStack[] cyberware = cyberwareCapability.getImplants(location);
                 for (ItemStack stack : cyberware) {
                     if (stack.getItem() instanceof CyberwareItem cyberwareItem) {
-                        cyberwareItem.renderCyberwareThirdPerson((ItemInHandLayer<?,?>) (Object) this, pLivingEntity, stack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, HumanoidArm.RIGHT, pMatrixStack, pBuffer, pPackedLight);
+                        cyberwareItem.renderCyberwareThirdPerson((ItemInHandLayer<?,?>) (Object) this, pLivingEntity, stack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, HumanoidArm.RIGHT, pPoseStack, pBuffer, pPackedLight);
                     }
                 }
             }
         });
-        pMatrixStack.popPose();
+        pPoseStack.popPose();
     }
 }

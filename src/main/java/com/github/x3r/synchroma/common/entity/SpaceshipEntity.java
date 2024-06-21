@@ -27,15 +27,6 @@ public abstract class SpaceshipEntity extends Entity implements GeoEntity {
         return super.interact(pPlayer, pHand);
     }
 
-    private int getOrCreateInteriorIndex(ServerLevel level) {
-        SpaceshipSavedData data = level.getDataStorage().computeIfAbsent(SpaceshipSavedData::load, SpaceshipSavedData::new, "spaceship");
-        if (regionIndex == -1) {
-            regionIndex = data.getNextFreeRegion();
-            data.reserveRegion(regionIndex);
-        }
-        return ;
-    }
-
     @Override
     public void load(CompoundTag tag) {
         this.regionIndex = tag.getInt("regionIndex");
